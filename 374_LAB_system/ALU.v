@@ -1,4 +1,9 @@
-module ALU(input wire [7:0] A, B, input wire [3:0] op, output reg[7:0] result);
+module ALU(
+	input wire [7:0] A, B, 
+	input wire [3:0] op, 
+	output reg[7:0] result
+	
+);
 	
 	
 	wire [7:0] and_result, or_result;

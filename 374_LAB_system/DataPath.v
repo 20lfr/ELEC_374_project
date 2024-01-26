@@ -109,7 +109,18 @@ register Output(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
 
 
 //Bus
-Bus_MUX Bus(BusMuxInRZ, BusMuxInRA, BusMuxInRB, RZout, RAout, RBout, BusMuxOut);
+Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
+			R4_BusMuxIn, R5_BusMuxIn, R6_BusMuxIn, R7_BusMuxIn, 
+			R8_BusMuxIn, R9_BusMuxIn, R10_BusMuxIn, R11_BusMuxIn, 
+			R12_BusMuxIn, R13_BusMuxIn, R14_BusMuxIn, R15_BusMuxIn,	
+
+			HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
+			PC_BusMuxIn, MDR_Bus_lines, Inport_BusIn, C_sign_extended,
+			
+			BusMuxOut, 
+			
+			Bus_Encoder_signals
+			);
 
 
 // adder
