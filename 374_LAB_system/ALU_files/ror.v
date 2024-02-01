@@ -4,6 +4,6 @@ module ror (
     output wire[63:0] result
 );
 
-assign result = (A >> amount) | (A << (32 - amount);
+    assign result = (A >> amount) | (A << (32 - amount));
     
 endmodule
