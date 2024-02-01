@@ -39,10 +39,6 @@ module CLA_32bit_adder_tb;
         A = 32'hFFFFFFFF; B = 32'h00000001; Cin = 0; #10;
         A = 32'h80000000; B = 32'h80000000; Cin = 1; #10;
 
-        // Add more test cases as needed
-
-        // Finish simulation
-        $finish;
     end
       
 endmodule
