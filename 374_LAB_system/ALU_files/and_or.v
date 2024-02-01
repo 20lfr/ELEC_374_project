@@ -4,6 +4,6 @@ module and_or(
 	output wire [7:0] result
 );
 
-	assign result = (selection == 1)? A & B : A | B;
+	assign result = (selection == 1) ? A & B : A | B;
 	
 endmodule
