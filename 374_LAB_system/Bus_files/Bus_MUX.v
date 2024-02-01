@@ -8,14 +8,14 @@ module Bus_MUX (
 						HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
 						PC_BusMuxIn, MDR_Bus_lines, Inport_BusIn, C_sign_extended;
 
-	output wire [31:0] BusMuxOut,
+	output reg [31:0] BusMuxOut,
 
 	//Encoder
 	input wire [23:0] Encoder_signals
 );
 
 
-wire [4:0] Encoder_select_signals;
+reg [4:0] Encoder_select_signals;
 Bus_Encoder encoder_32_to_5(Encoder_signals, Encoder_select_signals);
 
 

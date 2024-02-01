@@ -24,13 +24,13 @@ module DataPath(
 
 
 	/*Memory Signals Signals*/
-	output 	wire [31:0] MAR_to_chip,
+	output 	reg [31:0] MAR_to_chip,
 	input 	wire read,//this is for MDR
 	inout 	wire [31:0] MDR_Mem_lines,
 
 	/*I/O Interfacing*/
 	input wire [31:0] Inport_data_in,
-	output wire [31:0] Outport_data_out
+	output reg [31:0] Outport_data_out
 
 
 
@@ -91,8 +91,7 @@ register RZ_LO(clear, clock, RZin, ALU_LO, RZ_LO_BusMuxIn);
 //Memory interfacing registers
 register MAR(clear, clock, MARin, BusMuxOut, MAR_to_chip);
 
-MDR #(.DATA_WIDTH(32)) 
-MDR_reg(.clear(clear), .clock(clock), .enable(MDRin), .read(read), .bus_data_lines(MDR_Bus_lines), .mem_data_lines(MDR_Mem_lines));
+MDR #(.DATA_WIDTH(32)) MDR_reg(.clear(clear), .clock(clock), .enable(MDRin), .read(read), .bus_data_lines(MDR_Bus_lines), .mem_data_lines(MDR_Mem_lines));
 
 //64 bit holding registers
 register HI(clear, clock, HIin, BusMuxOut, HI_BusMuxIn);
@@ -100,7 +99,7 @@ register LO(clear, clock, LOin, BusMuxOut, LO_BusMuxIn);
 
 //I/O registers
 register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusIn);
-register Output(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
+register Outport(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
