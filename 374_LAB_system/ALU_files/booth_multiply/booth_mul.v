@@ -8,7 +8,7 @@ module booth_multiplier #(parameter DATA_WIDTH 32)(
     output reg [2*DATA_WIDTH-1:0] product
 );
 
-// Define states as parameters (these are local parameters)
+// Define states as parameters (these are local parameters) - STATE MACHINE
 parameter IDLE = 2'b00, CALCULATE = 2'b01, DONE = 2'b10;
 /*The reason they are not with the "DATA_WIDTH" param at the start is becuase we want these to stay as constants. Where as DATA_WIDTH can be changed*/
 

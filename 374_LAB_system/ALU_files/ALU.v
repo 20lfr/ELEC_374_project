@@ -7,13 +7,13 @@ module ALU #(parameter DATA_WIDTH = 32)(
 
 
 
-	input wire [DATA_WIDTH - 1:0] A, B, 
+	input reg [DATA_WIDTH - 1:0] A, B, 
 	input wire [4:0] op, //this is represented as  bits becuase we have just less than 16 operations (aka 2^4)
 	output reg [(DATA_WIDTH*2)-1:0] result 
 	
 );
 
-//changing here
+
 
 
 //regular operations: AND, OR, XOR, NOT, Shift left, Shift Right, shra, ror, rol, neg
@@ -47,42 +47,18 @@ module ALU #(parameter DATA_WIDTH = 32)(
         .product(mul_result)
     );
 
-	//NOTE: this means after every clk trigger, this block will execute
-	always @(posedge clk) begin 
+    always @(*)begin 
 
-		// Handle reset condition
-        if (reset) begin
-            mul_in_progress <= 1'b0;
-            start_mul <= 1'b0;
-            // ADD other reset signals when needed
-        end
-		else begin
-			case(op)
+        case(op)
 			5'd0:	result = or_result;		  	  //combinational
 			5'd1:	result = and_result;		  //combinational
 			5'd2: 	result = add_result;		  //combinational
 			5'd3:	result = sub_result;		  //combinational
 			5'd4:	result = unsigned_add_result; //combinational
-			5'd5: begin // For Booth multiplication
-                if (!mul_in_progress && !start_mul) begin
-                    start_mul <= 1'b1; // Assert start signal for one cycle
-                end
-                else begin
-                    start_mul <= 1'b0; // Ensure start is de-asserted in the next cycle
-                    if (mul_done) begin
-                        result <= mul_result; // Capture the multiplication result
-                        mul_in_progress <= 1'b0; // Clear the in-progress flag
-                    end
-                end
-            end
+			5'd5:   result = mul_result;
+        endcase
 
-			default: result = 32'bx; //undefined operation, so output unknown variables
-		endcase
-
-		end
-		
-
-	end
+    end
 
 	    // Additional logic to initialize or reset the ALU as necessary...
 	// Initialize mul_in_progress and other regs in an initial block
