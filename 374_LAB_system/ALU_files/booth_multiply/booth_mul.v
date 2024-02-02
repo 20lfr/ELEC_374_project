@@ -4,7 +4,7 @@ module booth_multiplier #(parameter DATA_WIDTH 32)(
     input wire start,           //signal for the start of an operation, once triggered, state will be in calculating, meaning the calculation must complete before any new requests 
     input wire [DATA_WIDTH-1:0] multiplicand,
     input wire [DATA_WIDTH-1:0] multiplier,
-    output reg done,
+    output reg done,            //this done register signals the ALU that this current multiplication is done
     output reg [2*DATA_WIDTH-1:0] product
 );
 
@@ -32,6 +32,8 @@ always @(posedge clk or posedge reset) begin
     end
     else begin
         case (state)
+
+            //starting case
             IDLE: begin
                 if (start) begin
                     A <= 33'b0;
@@ -43,6 +45,8 @@ always @(posedge clk or posedge reset) begin
                     state <= CALCULATE;
                 end
             end
+
+            //calculating case
             CALCULATE: begin
                 if (count > 0) begin
                     // Booth's algorithm step
@@ -61,6 +65,8 @@ always @(posedge clk or posedge reset) begin
                     state <= DONE;
                 end
             end
+
+            //finishing and return case
             DONE: begin
                 product <= {A, Q[DATA_WIDTH:1]}; // Discard Q-1
                 done <= 1;
