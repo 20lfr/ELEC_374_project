@@ -13,6 +13,9 @@ module ALU #(parameter DATA_WIDTH = 32)(
 	
 );
 
+//changing here
+
+
 //regular operations: AND, OR, XOR, NOT, Shift left, Shift Right, shra, ror, rol, neg
 //register operations: load, store, move, (not needed rn)
 //arithmatic operations: add, sub, multiply, divide
