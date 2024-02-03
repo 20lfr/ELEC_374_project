@@ -4,20 +4,27 @@ module booth_mul_combinational #(parameter DATA_WIDTH = 32)(
     output reg [2*DATA_WIDTH-1:0] product
 );
 
-    reg [DATA_WIDTH-1:0] Q; // Corrected to DATA_WIDTH-1:0 for the multiplier
-    reg [2*DATA_WIDTH-1:0] M, M_neg; // Fixed width for correct sign extension
-    reg [2*DATA_WIDTH-1:0] partial_product[DATA_WIDTH:0]; // Adjusted size for partial products
+    reg [DATA_WIDTH-1:0] Q; // For the multiplier
+    reg [2*DATA_WIDTH-1:0] M, M_neg; // For correct sign extension
+    reg [2*DATA_WIDTH-1:0] partial_product[DATA_WIDTH:0]; // For partial products
 
-    always @* begin // Using always @* for comprehensive sensitivity
-        M = {multiplicand, {DATA_WIDTH{1'b0}}}; // Corrected to ensure proper sign extension
-        M_neg = ~M + 1'b1; // Correctly forming 2's complement
-        Q = {{1'b0}, multiplier}; // No need for extra bit in Q
+    // Loop to initialize each partial product
+    integer i; // Ensure 'i' is declared somewhere appropriate
+    reg bit0, bit1; // Declare as reg if reuse in procedural logic is intended
 
-        product = 0; // Initializing product for accumulation
+    always @* begin
+        M = {{DATA_WIDTH{multiplicand[DATA_WIDTH-1]}}, multiplicand}; // Sign-extend multiplicand
+        M_neg = ~M + 1'b1; // Two's complement
+        Q = multiplier; // Prepending a 0 for Booth's algorithm
 
-        for(int i = 0; i < DATA_WIDTH; i = i + 1) begin
-            partial_product[i] = 0; // Initialize each partial product
-            case({Q[i], Q[i-1]})
+        product = 0; // Reset product
+
+        for(i = 0; i < DATA_WIDTH; i = i + 1) begin
+            if(i == 0) bit0 = 1'b0; // For the LSB, the bit below is considered 0
+            else bit0 = Q[i-1]; // Use the actual bit for other cases
+            bit1 = Q[i]; // Current bit being examined
+
+            case({bit1, bit0})
                 2'b01: partial_product[i] = M << i;
                 2'b10: partial_product[i] = M_neg << i;
                 default: partial_product[i] = 0;
@@ -25,8 +32,9 @@ module booth_mul_combinational #(parameter DATA_WIDTH = 32)(
         end
 
         // Accumulate partial products
-        for(int i = 0; i < DATA_WIDTH; i = i + 1) begin
+        for(i = 0; i < DATA_WIDTH; i = i + 1) begin
             product = product + partial_product[i];
         end
     end
+
 endmodule
