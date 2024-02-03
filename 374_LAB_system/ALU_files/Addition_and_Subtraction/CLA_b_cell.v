@@ -1,13 +1,12 @@
 module CLA_b_cell (
     input wire A, B, Cin,
-    output reg G, P, sum
+    output wire G, P, sum
 );
 
-always @(*)begin
-    G <= A & B;
-    P = A ^ B;
-    sum = P ^ Cin;
-end
+assign G = A & B;
+assign P = A ^ B;
+assign sum = P ^ Cin;
+
 
 
 
