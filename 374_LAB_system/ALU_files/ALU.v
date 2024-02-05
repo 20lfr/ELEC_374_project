@@ -2,6 +2,8 @@ module ALU #(parameter DATA_WIDTH = 32)(
 	//control signals
 	input reg [DATA_WIDTH - 1:0] A, B, 
 	input wire [4:0] op, //this is represented as  bits becuase we have just less than 16 operations (aka 2^4)
+	input wire clk, reset, 
+
 	output reg [(DATA_WIDTH*2)-1:0] result 
 	
 );
@@ -28,18 +30,22 @@ module ALU #(parameter DATA_WIDTH = 32)(
     // Instance of Booth multiplier
     booth_mul_combinational mul_instance(A, B, mul_result);
 
+	div division_instance();
+
     always @(*)begin 
 
         case(op)
-			5'd0:	result = or_result;		  	  //combinational
-			5'd1:	result = and_result;		  //combinational
-			5'd2: 	result = add_result;		  //combinational
-			5'd3:	result = sub_result;		  //combinational
-			5'd4:	result = unsigned_add_result; //combinational
-			5'd5:   result = mul_result;
+			5'd0:	result = or_result;		  	  	//combinational
+			5'd1:	result = and_result;		  	//combinational
+			5'd2: 	result = add_result;		  	//combinational
+			5'd3:	result = sub_result;		  	//combinational
+			5'd4:	result = unsigned_add_result; 	//combinational
+			5'd5:   result = mul_result; 		 	//combinational
+			5'd6: 	
         endcase
 
     end
+
 
 	
 endmodule
