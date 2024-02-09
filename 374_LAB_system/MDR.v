@@ -26,7 +26,6 @@ mdr_register (
 
 // Output control logic
 // Drive bus when reading, memory when writing
-assign bus_data_lines = read ? reg_output : 'bz;
-assign mem_data_lines = read ? 'bz : reg_output;
+assign bus_data_lines = enable ? reg_output : 'bz;
 
 endmodule

@@ -3,19 +3,40 @@
 
 module datapath_tb;
 
-  reg PCout, Zlowout, MDRout, R2out, R3out; // add any other signals to see in your simulation
+  reg PCout, Zlowout, MDRout, R2out, R3out; // encoder signals
+  wire [23:0] Bus_Encoder_signals;
+
+  assign Bus_Encoder_signals[3:0] = {R3out, R2out, 0, 0};
+  assign Bus_Encoder_signals[15:4] = 0;
+                                      /*Cout, Inport, MDR, PC, Zlo, Zhi, LO, HI*/
+  assign Bus_Encoder_signals[23:16] = {0, 0, MDRout, PCout, Zlowout, 0, 0, 0};
+
+
   reg MARin, Zin, PCin, MDRin, IRin, Yin;
-  reg IncPC, Read, AND, R1in, R2in, R3in;
+  reg IncPC, Read, R1in, R2in, R3in;
+  reg [4:0] opcode; /*the opcode for an AND operation is opcode = 00001*/
   reg Clock;
   reg [31:0] Mdatain;
+
+  /*NOTE: we are performing two operations.
+    1. load data from memory into general purpose registers: R1, R2, R3
+    2. do an AND operation: and r1, r2, r3*/
+
 
   parameter Default = 4'b0000, Reg_load1a = 4'b0001, Reg_load1b = 4'b0010, Reg_load2a = 4'b0011,
             Reg_load2b = 4'b0100, Reg_load3a = 4'b0101, Reg_load3b = 4'b0110, T0 = 4'b0111,
             T1 = 4'b1000, T2 = 4'b1001, T3 = 4'b1010, T4 = 4'b1011, T5 = 4'b1100;
   reg [3:0] Present_state = Default;
 
-  DataPath DUT(PCout, Zlowout, MDRout, R2out, R3out, MARin, Zin, PCin, MDRin, IRin, Yin, IncPC, Read, AND, R1in,
-               R2in, R3in, Clock, Mdatain);
+
+
+
+  DataPath DUT(
+                .clock(Clock), .clear(0),
+                .R1in(R1in), .R2in(R2in), .R3in(R3in), .MARin(MARin), .RZin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .RYin(Yin),
+                .Bus_Encoder_signals(Bus_Encoder_signals), .Mem_read(Read), .opcode(opcode), 
+                .MDR_Mem_lines(Mdatain)
+              );
 
 
                
@@ -51,7 +72,7 @@ module datapath_tb;
         PCout <= 0; Zlowout <= 0; MDRout <= 0; // initialize the signals
         R2out <= 0; R3out <= 0; MARin <= 0; Zin <= 0;
         PCin <= 0; MDRin <= 0; IRin <= 0; Yin <= 0;
-        IncPC <= 0; Read <= 0; AND <= 0;
+        IncPC <= 0; Read <= 0; opcode <= 0;
         R1in <= 0; R2in <= 0; R3in <= 0; Mdatain <= 32'h00000000;
       end
       Reg_load1a: begin
@@ -98,7 +119,7 @@ module datapath_tb;
         R2out <= 1; Yin <= 1;
       end
       T4: begin
-        R3out <= 1; AND <= 1; Zin <= 1;
+        R3out <= 1; opcode <= 4'b00001; Zin <= 1;
       end
       T5: begin
         Zlowout <= 1; R1in <= 1;
