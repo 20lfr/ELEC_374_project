@@ -36,7 +36,11 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 	/*ALU control*/
-	input wire [4:0] opcode
+	input wire [4:0] opcode, 
+
+	output wire [31:0] reg1, reg2, reg3, regMDR,
+
+	output wire [31:0] BusMuxOut_out
 
 
 
@@ -47,18 +51,27 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 
+
+
+
 /*Internal Connections*/
 wire [31:0] BusMuxOut; /*Why is the a wire you ask and not an "input wire"? Becuase the bus outputs this wire and is an input for registers
 						connected to the bus. BusMuxOut is not an input from any externel source, meaning it cannot be an input for the DataPath*/
+assign BusMuxOut_out = BusMuxOut;
+
 wire [31:0] R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
 			R4_BusMuxIn, R5_BusMuxIn, R6_BusMuxIn, R7_BusMuxIn, 
 			R8_BusMuxIn, R9_BusMuxIn, R10_BusMuxIn, R11_BusMuxIn, 
 			R12_BusMuxIn, R13_BusMuxIn, R14_BusMuxIn, R15_BusMuxIn,	
 
-			HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
+			IR_BusMuxIn, HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
 			PC_BusMuxIn, MDR_BusMuxIn, Inport_BusIn, C_sign_extended;
 
 
+assign reg1 = R1_BusMuxIn;
+assign reg2 = R2_BusMuxIn;
+assign reg3 = R3_BusMuxIn;
+assign regMDR = MDR_BusMuxIn;
 
 
 /*ALU connections*/

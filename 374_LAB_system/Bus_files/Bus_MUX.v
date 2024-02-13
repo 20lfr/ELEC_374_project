@@ -11,12 +11,14 @@ module Bus_MUX (
 	output wire [31:0] BusMuxOut,
 
 	//Encoder
-	input wire [23:0] Encoder_signals
+	input wire [23:0] Encoder_signals, 
+    output wire [4:0] Encoder_select_signals_check
 );
 
 
 wire [4:0] Encoder_select_signals;
 Bus_Encoder encoder_32_to_5(Encoder_signals, Encoder_select_signals);
+assign Encoder_select_signals_check = Encoder_select_signals;
 
 
 reg [31:0]q;

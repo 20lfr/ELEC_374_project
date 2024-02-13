@@ -1,5 +1,5 @@
 Flow report for DataPath
-Tue Feb 13 15:11:48 2024
+Tue Feb 13 18:08:00 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Flow Status                 ; Successful - Tue Feb 13 15:11:48 2024           ;
+; Flow Status                 ; Successful - Tue Feb 13 18:08:00 2024           ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name               ; DataPath                                        ;
 ; Top-level Entity Name       ; DataPath                                        ;
@@ -62,36 +62,48 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/13/2024 15:11:37 ;
+; Start date & time ; 02/13/2024 18:07:49 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DataPath            ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                             ;
-+--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
-+--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 26830026795268.170785509708088         ; --            ; --          ; --             ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; tb_phase1      ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; tb_phase1                              ; --            ; --          ; eda_simulation ;
-; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation ;
-; EDA_TEST_BENCH_FILE                  ; tb_phase1.v                            ; --            ; --          ; tb_phase1      ;
-; EDA_TEST_BENCH_MODULE_NAME           ; tb_phase1                              ; --            ; --          ; tb_phase1      ;
-; EDA_TEST_BENCH_NAME                  ; tb_phase1                              ; --            ; --          ; eda_simulation ;
-; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --             ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
-; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
-; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --             ;
-+--------------------------------------+----------------------------------------+---------------+-------------+----------------+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                     ;
++--------------------------------------+----------------------------------------+---------------+-------------+------------------------+
+; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id             ;
++--------------------------------------+----------------------------------------+---------------+-------------+------------------------+
+; COMPILER_SIGNATURE_ID                ; 26830026795268.170786566807016         ; --            ; --          ; --                     ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Bus_Encoder_tb         ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Bus_MUX_and_Encoder_tb ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; tb_phase1              ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; MDR_tb                 ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; tb_phase1                              ; --            ; --          ; eda_simulation         ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation         ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --                     ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation         ;
+; EDA_TEST_BENCH_FILE                  ; Bus_Encoder_tb.v                       ; --            ; --          ; Bus_Encoder_tb         ;
+; EDA_TEST_BENCH_FILE                  ; Bus_MUX_and_Encoder_tb.v               ; --            ; --          ; Bus_MUX_and_Encoder_tb ;
+; EDA_TEST_BENCH_FILE                  ; tb_phase1.v                            ; --            ; --          ; tb_phase1              ;
+; EDA_TEST_BENCH_FILE                  ; MDR_tb.v                               ; --            ; --          ; MDR_tb                 ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Bus_Encoder_tb                         ; --            ; --          ; Bus_Encoder_tb         ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Bus_MUX_and_Encoder_tb                 ; --            ; --          ; Bus_MUX_and_Encoder_tb ;
+; EDA_TEST_BENCH_MODULE_NAME           ; tb_phase1                              ; --            ; --          ; tb_phase1              ;
+; EDA_TEST_BENCH_MODULE_NAME           ; MDR_tb                                 ; --            ; --          ; MDR_tb                 ;
+; EDA_TEST_BENCH_NAME                  ; tb_phase1                              ; --            ; --          ; eda_simulation         ;
+; EDA_TEST_BENCH_NAME                  ; MDR_tb                                 ; --            ; --          ; eda_simulation         ;
+; EDA_TEST_BENCH_NAME                  ; Bus_MUX_and_Encoder_tb                 ; --            ; --          ; eda_simulation         ;
+; EDA_TEST_BENCH_NAME                  ; Bus_Encoder_tb                         ; --            ; --          ; eda_simulation         ;
+; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation         ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                     ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                     ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; --          ; Top                    ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; --          ; Top                    ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; --          ; Top                    ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --                     ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                     ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --                     ;
++--------------------------------------+----------------------------------------+---------------+-------------+------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------+
@@ -99,8 +111,8 @@ refer to the applicable agreement for further details.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 4799 MB             ; 00:00:10                           ;
-; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:10                           ;
+; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 4794 MB             ; 00:00:11                           ;
+; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:11                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

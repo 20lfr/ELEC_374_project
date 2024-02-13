@@ -4,12 +4,22 @@
 module tb_phase1;
 
   reg PCout, Zlowout, MDRout, R2out, R3out; // encoder signals
-  wire [23:0] Bus_Encoder_signals;
+  reg [23:0] Bus_Encoder_signals;
+  initial begin
+    Bus_Encoder_signals[23:0] = 24'b0;
+  end 
 
-  assign Bus_Encoder_signals[3:0] = {R3out, R2out, 0, 0};
-  assign Bus_Encoder_signals[15:4] = 0;
+
+  always @(R3out or R2out or MDRout or PCout or Zlowout)begin
+      Bus_Encoder_signals[3] = R3out;
+      Bus_Encoder_signals[2] = R2out;
+      Bus_Encoder_signals[21] = MDRout;
+      Bus_Encoder_signals[20] = PCout;
+      Bus_Encoder_signals[19] = Zlowout;
+  end 
+
                                       /*Cout, Inport, MDR, PC, Zlo, Zhi, LO, HI*/
-  assign Bus_Encoder_signals[23:16] = {0, 0, MDRout, PCout, Zlowout, 0, 0, 0};
+  //assign Bus_Encoder_signals[23:16] = {0, 0, MDRout, PCout, Zlowout, 0, 0, 0};
 
 
   reg MARin, Zin, PCin, MDRin, IRin, Yin;
@@ -39,6 +49,9 @@ module tb_phase1;
   wire [31:0] dummy_outputs; // For capturing any unused output ports if needed
   wire unused; // Connect unused inputs to this wire if a default state is needed
 
+  wire [31:0] register1, register2, register3, registerMDR, BusMuxOut;
+
+
   DataPath DUT(
       .clock(Clock), .clear(1'b0),
       /*enable signals*/
@@ -49,7 +62,9 @@ module tb_phase1;
       .Bus_Encoder_signals(Bus_Encoder_signals), 
       .MAR_to_chip(dummy_outputs), .Mem_read(Read), .MDR_Mem_lines(Mem_bidirectional_lines), 
       .Inport_data_in(32'h00000000), .Outport_data_out(dummy_outputs),
-      .opcode(opcode)
+      .opcode(opcode),
+
+      .reg1(register1), .reg2(register2), .reg3(register3), .regMDR(registerMDR), .BusMuxOut_out(BusMuxOut)
   );
 
 
