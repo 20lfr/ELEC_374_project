@@ -1,7 +1,7 @@
 // datapath_tb.v file: <This is the filename>
 `timescale 1ns/10ps
 
-module datapath_tb;
+module tb_phase1;
 
   reg PCout, Zlowout, MDRout, R2out, R3out; // encoder signals
   wire [23:0] Bus_Encoder_signals;
@@ -16,7 +16,12 @@ module datapath_tb;
   reg IncPC, Read, R1in, R2in, R3in;
   reg [4:0] opcode; /*the opcode for an AND operation is opcode = 00001*/
   reg Clock;
+
+
   reg [31:0] Mdatain;
+  wire [31:0] Mem_bidirectional_lines;
+  assign Mem_bidirectional_lines = Read ? Mdatain : 32'bz;
+
 
   /*NOTE: we are performing two operations.
     1. load data from memory into general purpose registers: R1, R2, R3
@@ -31,12 +36,22 @@ module datapath_tb;
 
 
 
+  wire [31:0] dummy_outputs; // For capturing any unused output ports if needed
+  wire unused; // Connect unused inputs to this wire if a default state is needed
+
   DataPath DUT(
-                .clock(Clock), .clear(0),
-                .R1in(R1in), .R2in(R2in), .R3in(R3in), .MARin(MARin), .RZin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .RYin(Yin),
-                .Bus_Encoder_signals(Bus_Encoder_signals), .Mem_read(Read), .opcode(opcode), 
-                .MDR_Mem_lines(Mdatain)
-              );
+      .clock(Clock), .clear(1'b0),
+      /*enable signals*/
+      .R0in(1'b0), .R4in(1'b0), .R5in(1'b0), .R6in(1'b0), .R7in(1'b0), .R8in(1'b0), .R9in(1'b0), .R10in(1'b0), .R11in(1'b0), .R12in(1'b0), .R13in(1'b0), .R14in(1'b0), .R15in(1'b0),
+      .R1in(R1in), .R2in(R2in), .R3in(R3in), 
+      .IRin(IRin), .PCin(PCin), .RYin(Yin), .RZin(Zin), .MARin(MARin), .MDRin(MDRin), .HIin(1'b0), .LOin(1'b0), .Outport_in(1'b0), .Inport_in(1'b0),
+
+      .Bus_Encoder_signals(Bus_Encoder_signals), 
+      .MAR_to_chip(dummy_outputs), .Mem_read(Read), .MDR_Mem_lines(Mem_bidirectional_lines), 
+      .Inport_data_in(32'h00000000), .Outport_data_out(dummy_outputs),
+      .opcode(opcode)
+  );
+
 
 
                
@@ -64,6 +79,7 @@ module datapath_tb;
       T4 : Present_state = T5;
     endcase
   end
+
 
   always @(Present_state) // do the required job in each state
   begin

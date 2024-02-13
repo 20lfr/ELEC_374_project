@@ -4,28 +4,37 @@ module MDR #(parameter DATA_WIDTH = 32)(
     input wire enable,
     input wire read, // Control signal for read/write operation
     inout wire [DATA_WIDTH-1:0] bus_data_lines, // Bidirectional bus lines
-    inout wire [DATA_WIDTH-1:0] mem_data_lines, // Bidirectional memory lines
+    inout wire [DATA_WIDTH-1:0] mem_data_lines // Bidirectional memory lines
 );
 
-// Internal signals
-wire [DATA_WIDTH-1:0] reg_input;
-wire [DATA_WIDTH-1:0] reg_output;
+// Internal signals for data flow control
+wire [DATA_WIDTH-1:0] data_to_reg;
+wire [DATA_WIDTH-1:0] data_from_reg;
 
-// Multiplexer for input: Choose between bus and memory based on the read signal
-assign reg_input = read ? mem_data_lines : bus_data_lines;
+// Control signals for driving bidirectional lines
+wire bus_drive_enable = enable && !read; // Drive bus when not reading (writing to memory)
+wire mem_drive_enable = enable && read;  // Drive memory when reading
+
+
+
+// Tristate logic for bus_data_lines
+assign bus_data_lines = bus_drive_enable ? data_from_reg : {DATA_WIDTH{1'bz}};
+
+// Tristate logic for mem_data_lines
+assign mem_data_lines = mem_drive_enable ? data_from_reg : {DATA_WIDTH{1'bz}};
+
+
+
+// Logic to determine data flow direction
+assign data_to_reg = read ? mem_data_lines : bus_data_lines;
 
 // Instantiating the generic register module
-register #(.DATA_WIDTH_IN(DATA_WIDTH), .DATA_WIDTH_OUT(DATA_WIDTH)) 
-mdr_register (
+register #(DATA_WIDTH) mdr_register (
     .clear(clear),
     .clock(clock),
-    .enable(enable), // Assuming always enabled for simplicity
-    .BusMuxOut(reg_input),
-    .BusMuxIn(reg_output)
+    .enable(enable),
+    .BusMuxOut(data_to_reg),
+    .BusMuxIn(data_from_reg)
 );
-
-// Output control logic
-// Drive bus when reading, memory when writing
-assign bus_data_lines = enable ? reg_output : 'bz;
 
 endmodule

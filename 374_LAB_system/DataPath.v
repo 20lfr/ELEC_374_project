@@ -1,4 +1,4 @@
-module DataPath(
+module DataPath #(parameter DATA_WIDTH = 32)(
 	input wire 	clock, clear,
 
 
@@ -14,7 +14,7 @@ module DataPath(
 
 
 	/*BUS Signals~~~~~~~~~~~~~~~~~~~~~~~*/
-	input wire [23:0] Bus_Encoder_signals
+	input wire [23:0] Bus_Encoder_signals,
 	// The below is the bit layout for each bit in the "Bus_Encoder_signals"
 	/*
 	General Purpose registers: bites 0 -> 15
@@ -26,17 +26,17 @@ module DataPath(
 
 
 	/*Memory Signals Signals*/
-	output 	reg [31:0] MAR_to_chip,
+	output 	wire [31:0] MAR_to_chip,
 	input 	wire Mem_read,//this is for MDR
 	inout 	wire [31:0] MDR_Mem_lines, /*Mdatain*/
 
 	/*I/O Interfacing*/
 	input wire [31:0] Inport_data_in,
-	output reg [31:0] Outport_data_out
+	output wire [31:0] Outport_data_out,
 
 
 	/*ALU control*/
-	input wire [4:0] opcode;
+	input wire [4:0] opcode
 
 
 
@@ -56,7 +56,7 @@ wire [31:0] R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn,
 			R12_BusMuxIn, R13_BusMuxIn, R14_BusMuxIn, R15_BusMuxIn,	
 
 			HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
-			PC_BusMuxIn, MDR_Bus_lines, Inport_BusIn, C_sign_extended;
+			PC_BusMuxIn, MDR_BusMuxIn, Inport_BusIn, C_sign_extended;
 
 
 
@@ -107,7 +107,7 @@ register RZ_LO(clear, clock, RZin, ALU_LO, RZ_LO_BusMuxIn);
 
 //Memory interfacing registers
 register MAR(clear, clock, MARin, BusMuxOut, MAR_to_chip);
-MDR #(.DATA_WIDTH(32)) MDR_reg(.clear(clear), .clock(clock), .enable(MDRin), .read(Mem_read), .bus_data_lines(MDR_Bus_lines), .mem_data_lines(MDR_Mem_lines));
+MDR #(.DATA_WIDTH(32)) MDR_reg(.clear(clear), .clock(clock), .enable(MDRin), .read(Mem_read), .bus_data_lines(MDR_BusMuxIn), .mem_data_lines(MDR_Mem_lines));
 
 
 
@@ -134,7 +134,7 @@ Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn,
 			R12_BusMuxIn, R13_BusMuxIn, R14_BusMuxIn, R15_BusMuxIn,	
 
 			HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
-			PC_BusMuxIn, MDR_Bus_lines, Inport_BusIn, C_sign_extended,
+			PC_BusMuxIn, MDR_BusMuxIn, Inport_BusIn, C_sign_extended,
 			
 			BusMuxOut, 
 			
@@ -143,7 +143,7 @@ Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn,
 
 
 // adder
-ALU add(.A(RY_to_ALU), .B(BusMuxOut), .op(opcode), .result(ALU_result));
+ALU alu(.A(RY_to_ALU), .B(BusMuxOut), .op(opcode), .result(ALU_result));
 
 
 endmodule
