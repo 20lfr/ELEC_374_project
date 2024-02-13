@@ -113,7 +113,7 @@ module datapath_tb;
         Mdatain <= 32'h28918000; // opcode for “and R1, R2, R3”
       end
       T2: begin
-        MDRout <= 1; IRin <= 1;
+        MDRout <= 1; IRin <= 1; //mov data from MDR to IR
       end
       T3: begin
         R2out <= 1; Yin <= 1;

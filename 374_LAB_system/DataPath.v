@@ -104,14 +104,18 @@ register RY(clear, clock, RYin, BusMuxOut, RY_to_ALU);
 register RZ_HI(clear, clock, RZin, ALU_HI, RZ_HI_BusMuxIn);
 register RZ_LO(clear, clock, RZin, ALU_LO, RZ_LO_BusMuxIn);
 
+
 //Memory interfacing registers
 register MAR(clear, clock, MARin, BusMuxOut, MAR_to_chip);
-
 MDR #(.DATA_WIDTH(32)) MDR_reg(.clear(clear), .clock(clock), .enable(MDRin), .read(Mem_read), .bus_data_lines(MDR_Bus_lines), .mem_data_lines(MDR_Mem_lines));
+
+
 
 //64 bit holding registers
 register HI(clear, clock, HIin, BusMuxOut, HI_BusMuxIn);
 register LO(clear, clock, LOin, BusMuxOut, LO_BusMuxIn);
+
+
 
 //I/O registers
 register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusIn);
