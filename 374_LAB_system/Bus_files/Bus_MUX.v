@@ -11,14 +11,16 @@ module Bus_MUX (
 	output wire [31:0] BusMuxOut,
 
 	//Encoder
-	input wire [23:0] Encoder_signals, 
-    output wire [4:0] Encoder_select_signals_check
+	input wire HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout, 
+	 			R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out
 );
 
 
 wire [4:0] Encoder_select_signals;
-Bus_Encoder encoder_32_to_5(Encoder_signals, Encoder_select_signals);
-assign Encoder_select_signals_check = Encoder_select_signals;
+Bus_Encoder encoder_32_to_5(HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout, 
+	 			            R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, 
+                
+                            Encoder_select_signals);
 
 
 reg [31:0]q;

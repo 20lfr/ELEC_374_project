@@ -3,20 +3,11 @@
 
 module tb_phase1;
 
-  reg PCout, Zlowout, MDRout, R2out, R3out; // encoder signals
-  reg [23:0] Bus_Encoder_signals;
-  initial begin
-    Bus_Encoder_signals[23:0] = 24'b0;
-  end 
+  reg HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, 
+    Cout, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, 
+    R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out; 
+ 
 
-
-  always @(R3out or R2out or MDRout or PCout or Zlowout)begin
-      Bus_Encoder_signals[3] = R3out;
-      Bus_Encoder_signals[2] = R2out;
-      Bus_Encoder_signals[21] = MDRout;
-      Bus_Encoder_signals[20] = PCout;
-      Bus_Encoder_signals[19] = Zlowout;
-  end 
 
                                       /*Cout, Inport, MDR, PC, Zlo, Zhi, LO, HI*/
   //assign Bus_Encoder_signals[23:16] = {0, 0, MDRout, PCout, Zlowout, 0, 0, 0};
@@ -29,9 +20,7 @@ module tb_phase1;
 
 
   reg [31:0] Mdatain;
-  wire [31:0] Mem_bidirectional_lines;
-  assign Mem_bidirectional_lines = Read ? Mdatain : 32'bz;
-
+  
 
   /*NOTE: we are performing two operations.
     1. load data from memory into general purpose registers: R1, R2, R3
@@ -46,7 +35,7 @@ module tb_phase1;
 
 
 
-  wire [31:0] dummy_outputs; // For capturing any unused output ports if needed
+  wire [31:0] dummy_outputs, Mem_address_lines; // For capturing any unused output ports if needed
   wire unused; // Connect unused inputs to this wire if a default state is needed
 
   wire [31:0] register1, register2, register3, registerMDR, BusMuxOut;
@@ -55,12 +44,22 @@ module tb_phase1;
   DataPath DUT(
       .clock(Clock), .clear(1'b0),
       /*enable signals*/
-      .R0in(1'b0), .R4in(1'b0), .R5in(1'b0), .R6in(1'b0), .R7in(1'b0), .R8in(1'b0), .R9in(1'b0), .R10in(1'b0), .R11in(1'b0), .R12in(1'b0), .R13in(1'b0), .R14in(1'b0), .R15in(1'b0),
+      .R0in(1'b0), .R4in(1'b0), .R5in(1'b0), .R6in(1'b0), 
+      .R7in(1'b0), .R8in(1'b0), .R9in(1'b0), .R10in(1'b0), 
+      .R11in(1'b0), .R12in(1'b0), .R13in(1'b0), .R14in(1'b0), 
+      .R15in(1'b0),
       .R1in(R1in), .R2in(R2in), .R3in(R3in), 
-      .IRin(IRin), .PCin(PCin), .RYin(Yin), .RZin(Zin), .MARin(MARin), .MDRin(MDRin), .HIin(1'b0), .LOin(1'b0), .Outport_in(1'b0), .Inport_in(1'b0),
+      .IRin(IRin), .PCin(PCin), .RYin(Yin), .RZin(Zin), .MARin(MARin), 
+      .MDRin(MDRin), .HIin(1'b0), .LOin(1'b0), .Outport_in(1'b0), .Inport_in(1'b0),
 
-      .Bus_Encoder_signals(Bus_Encoder_signals), 
-      .MAR_to_chip(dummy_outputs), .Mem_read(Read), .MDR_Mem_lines(Mem_bidirectional_lines), 
+      .HIout(HIout), .LOout(LOout), .Zhi_out(Zhi_out), .Zlo_out(Zlo_out), 
+      .PCout(PCout), .MDRout(MDRout), .Inport_out(Inport_out), .Cout(Cout),
+      .R0out(R0out),.R1out(R1out),.R2out(R2out),.R3out(R3out),.R4out(R4out),
+      .R5out(R5out),.R6out(R6out),.R7out(R7out),.R8out(R8out),.R9out(R9out),
+      .R10out(R10out),.R11out(R11out),.R12out(R12out),.R13out(R13out),
+      .R14out(R14out),.R15out(R15out),
+
+      .MAR_to_chip(Mem_address_lines), .Mem_read(Read), .MDR_Mem_lines(Mdatain), 
       .Inport_data_in(32'h00000000), .Outport_data_out(dummy_outputs),
       .opcode(opcode),
 
@@ -100,7 +99,7 @@ module tb_phase1;
   begin
     case (Present_state) // assert the required signals in each clock cycle
       Default: begin
-        PCout <= 0; Zlowout <= 0; MDRout <= 0; // initialize the signals
+        PCout <= 0; Zlo_out <= 0; MDRout <= 0; // initialize the signals
         R2out <= 0; R3out <= 0; MARin <= 0; Zin <= 0;
         PCin <= 0; MDRin <= 0; IRin <= 0; Yin <= 0;
         IncPC <= 0; Read <= 0; opcode <= 0;
@@ -109,38 +108,40 @@ module tb_phase1;
       Reg_load1a: begin
         Mdatain <= 32'h00000012;
         Read = 0; MDRin = 0; // the first zero is there for completeness
-        #10 Read <= 1; MDRin <= 1;
-        #15 Read <= 0; MDRin <= 0;
+        #10 Read <= 1; MDRin <= 1;  
+        #10 Read <= 0; MDRin <= 0;  
       end
       Reg_load1b: begin
-        #10 MDRout <= 1; R2in <= 1;
-        #15 MDRout <= 0; R2in <= 0; // initialize R2 with the value $12
+        Mdatain <= 32'h00000011;
+        #10 MDRout <= 1; R2in <= 1; PCin <= 1;
+        #10 MDRout <= 0; R2in <= 0; PCin <= 0;// initialize R2 with the value $12
       end
       Reg_load2a: begin
         Mdatain <= 32'h00000014;
         #10 Read <= 1; MDRin <= 1;
-        #15 Read <= 0; MDRin <= 0;
+        #10 Read <= 0; MDRin <= 0;
       end
       Reg_load2b: begin
         #10 MDRout <= 1; R3in <= 1;
-        #15 MDRout <= 0; R3in <= 0; // initialize R3 with the value $14
+        #10 MDRout <= 0; R3in <= 0; // initialize R3 with the value $14
       end
       Reg_load3a: begin
         Mdatain <= 32'h00000018;
         #10 Read <= 1; MDRin <= 1;
-        #15 Read <= 0; MDRin <= 0;
+        #10 Read <= 0; MDRin <= 0;
       end
       Reg_load3b: begin
         #10 MDRout <= 1; R1in <= 1;
-        #15 MDRout <= 0; R1in <= 0; // initialize R1 with the value $18
+        #10 MDRout <= 0; R1in <= 0; // initialize R1 with the value $18
       end
 
 
       T0: begin // see if you need to de-assert these signals
-        PCout <= 1; MARin <= 1; IncPC <= 1; Zin <= 1;
+        PCout <= 1; #1 MARin <= 1; IncPC <= 1; Zin <= 1;
+        #10 PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
       end
       T1: begin
-        Zlowout <= 1; PCin <= 1; Read <= 1; MDRin <= 1;
+        Zlo_out <= 1; PCin <= 1; Read <= 1; MDRin <= 1;
         Mdatain <= 32'h28918000; // opcode for “and R1, R2, R3”
       end
       T2: begin
@@ -153,7 +154,7 @@ module tb_phase1;
         R3out <= 1; opcode <= 4'b00001; Zin <= 1;
       end
       T5: begin
-        Zlowout <= 1; R1in <= 1;
+        Zlo_out <= 1; R1in <= 1;
       end
     endcase
   end

@@ -5,6 +5,7 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR2.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Multiply {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_MUX.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_Encoder.v}
@@ -24,7 +25,6 @@ vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-lu
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/ALU.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/register.v}
-vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/DataPath.v}
 
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system {C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/tb_phase1.v}

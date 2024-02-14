@@ -1,5 +1,5 @@
 Flow report for DataPath
-Tue Feb 13 18:08:00 2024
+Wed Feb 14 18:05:44 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Flow Status                 ; Successful - Tue Feb 13 18:08:00 2024           ;
+; Flow Status                 ; Successful - Wed Feb 14 18:05:44 2024           ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name               ; DataPath                                        ;
 ; Top-level Entity Name       ; DataPath                                        ;
@@ -62,7 +62,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/13/2024 18:07:49 ;
+; Start date & time ; 02/14/2024 18:05:37 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DataPath            ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id             ;
 +--------------------------------------+----------------------------------------+---------------+-------------+------------------------+
-; COMPILER_SIGNATURE_ID                ; 26830026795268.170786566807016         ; --            ; --          ; --                     ;
+; COMPILER_SIGNATURE_ID                ; 273270824080205.170795193609708        ; --            ; --          ; --                     ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Bus_Encoder_tb         ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Bus_MUX_and_Encoder_tb ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; tb_phase1              ;
@@ -94,6 +94,7 @@ refer to the applicable agreement for further details.
 ; EDA_TEST_BENCH_NAME                  ; MDR_tb                                 ; --            ; --          ; eda_simulation         ;
 ; EDA_TEST_BENCH_NAME                  ; Bus_MUX_and_Encoder_tb                 ; --            ; --          ; eda_simulation         ;
 ; EDA_TEST_BENCH_NAME                  ; Bus_Encoder_tb                         ; --            ; --          ; eda_simulation         ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; MDR_tb                 ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation         ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                     ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                     ;
@@ -111,8 +112,8 @@ refer to the applicable agreement for further details.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 4794 MB             ; 00:00:11                           ;
-; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:11                           ;
+; Analysis & Elaboration ; 00:00:08     ; 1.0                     ; 4797 MB             ; 00:00:07                           ;
+; Total                  ; 00:00:08     ; --                      ; --                  ; 00:00:07                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -121,7 +122,7 @@ refer to the applicable agreement for further details.
 +------------------------+------------------+------------+------------+----------------+
 ; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +------------------------+------------------+------------+------------+----------------+
-; Analysis & Elaboration ; BMH-214-14       ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Elaboration ; WLH214-01        ; Windows 10 ; 10.0       ; x86_64         ;
 +------------------------+------------------+------------+------------+----------------+
 
 

@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 dC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/simulation/modelsim
 vadd_sub
-Z1 !s110 1707865697
+Z1 !s110 1707953032
 !i10b 1
 !s100 @66TB4@jJJb2?nmb1>S:31
 I<>X@cg=[^a?GfIjS:2??d2
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z3 w1707848208
+Z3 w1707942791
 8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v
 FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v
 L0 1
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1707865697.000000
+Z5 !s108 1707953032.000000
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v|
 !i113 1
@@ -76,13 +76,13 @@ R6
 Z9 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations
 R8
 vbooth_mul_combinational
-Z10 !s110 1707865696
+Z10 !s110 1707953031
 !i10b 1
 !s100 <E=]FaYW>50N8iV9TM2E82
 IfFO0zD^@9=ZYj;ATNaTMP2
 R2
 R0
-R3
+Z11 w1707942792
 8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v
 FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v
 L0 1
@@ -90,7 +90,7 @@ R4
 r1
 !s85 0
 31
-Z11 !s108 1707865696.000000
+Z12 !s108 1707953031.000000
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Multiply|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v|
 !i113 1
@@ -100,11 +100,11 @@ R8
 vBus_Encoder
 R10
 !i10b 1
-!s100 Z<M3I8Dolf7N>Oldo@H;L1
-ISM0`Fa7:TCkHY@Fe`aJ5R1
+!s100 JmPzZ^B78lh4eEV:bLB@e0
+I;3>8FKJCzc@g<F<M9R<M@3
 R2
 R0
-w1707849218
+w1707948776
 8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_Encoder.v
 FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_Encoder.v
 L0 1
@@ -112,22 +112,22 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_Encoder.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_Encoder.v|
 !i113 1
 R6
-Z12 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files
+Z13 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files
 R8
 n@bus_@encoder
 vBus_MUX
 R10
 !i10b 1
-!s100 ;cbANHn>R67mVElRb0YnW3
-ImI3XF:RKLomkJ70lc@jk03
+!s100 jRW=?5TZIBXd8KC;6G^zF0
+IO<Ma<T9J7Uo1?[=GXEXe51
 R2
 R0
-w1707864533
+w1707948850
 8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_MUX.v
 FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_MUX.v
 L0 1
@@ -135,12 +135,12 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_MUX.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/Bus_files/Bus_MUX.v|
 !i113 1
 R6
-R12
+R13
 R8
 n@bus_@m@u@x
 vCLA_16bit_adder
@@ -236,13 +236,13 @@ R7
 R8
 n@c@l@a_b_cell
 vDataPath
-Z13 !s110 1707865698
+R1
 !i10b 1
-!s100 ]Y7EXj34JYNgHYMHI=79_3
-IfUH7:>;R8;5?9IV]n1CTO2
+!s100 NY_PX5jWNA63e^beUD@Lz2
+ImSbEFXZ=`EPiD>hPNo4801
 R2
 R0
-w1707862074
+w1707949169
 8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/DataPath.v
 FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/DataPath.v
 L0 1
@@ -250,12 +250,12 @@ R4
 r1
 !s85 0
 31
-Z14 !s108 1707865698.000000
+R5
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/DataPath.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/DataPath.v|
 !i113 1
 R6
-Z15 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system
+Z14 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system
 R8
 n@data@path
 vdiv_combinational
@@ -280,29 +280,29 @@ R5
 R6
 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Division
 R8
-vMDR
-R13
+vMDR2
+R10
 !i10b 1
-!s100 I<1h@=o4^IW?c6;WQ9@]31
-Ic@6WJe=d>k;P]Do3FiSN`1
+!s100 T67PGGXzB2eK7j=`U<8J81
+I23zBnmF:WXTn;fV7kO_>^1
 R2
 R0
-w1707861293
-8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR.v
-FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR.v
+w1707946481
+8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR2.v
+FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR2.v
 L0 1
 R4
 r1
 !s85 0
 31
-R14
-!s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR.v|
+R12
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/MDR2.v|
 !i113 1
 R6
-R15
+R14
 R8
-n@m@d@r
+n@m@d@r2
 vneg
 R1
 !i10b 1
@@ -310,7 +310,7 @@ R1
 Il^B42mDeNG]lak3V3L6QB3
 R2
 R0
-w1707850976
+R3
 8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/neg.v
 FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/neg.v
 L0 1
@@ -340,7 +340,7 @@ R4
 r1
 !s85 0
 31
-R11
+R5
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/not_module.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/not_module.v|
 !i113 1
@@ -354,7 +354,7 @@ R1
 I@EEOiZoz>P2cZZ626Ya>[2
 R2
 R0
-w1707848207
+R3
 8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/register.v
 FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/register.v
 L0 1
@@ -367,7 +367,7 @@ R5
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/register.v|
 !i113 1
 R6
-R15
+R14
 R8
 vrol
 R10
@@ -384,7 +384,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/rol.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/rol.v|
 !i113 1
@@ -406,7 +406,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/ror.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/ror.v|
 !i113 1
@@ -428,7 +428,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/shl.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/shl.v|
 !i113 1
@@ -450,7 +450,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/shr.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/shr.v|
 !i113 1
@@ -464,7 +464,7 @@ R10
 I2:jHT[gOokW]=M>W9LHn42
 R2
 R0
-R3
+R11
 8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/shra.v
 FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/shra.v
 L0 1
@@ -472,7 +472,7 @@ R4
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/shra.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/ALU_files/Logical_Operations/shra.v|
 !i113 1
@@ -480,13 +480,13 @@ R6
 R9
 R8
 vtb_phase1
-R13
+R1
 !i10b 1
-!s100 oh`Qi:baSX?VBgS;F<=UQ0
-I`mah1`=Og_E1O]M]daQ4@0
+!s100 ROWNmNTP]DbdEXd0cI?YE2
+IeMBN<ZQlG[lB_RIR5RGkL1
 R2
 R0
-w1707862044
+w1707953007
 8C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/tb_phase1.v
 FC:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/tb_phase1.v
 L0 4
@@ -494,10 +494,10 @@ R4
 r1
 !s85 0
 31
-R14
+R5
 !s107 C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/tb_phase1.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system|C:/Users/20lfr/Desktop/ELEC_374_project-luka-changes/374_LAB_system/tb_phase1.v|
 !i113 1
 R6
-R15
+R14
 R8

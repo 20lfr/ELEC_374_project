@@ -14,13 +14,14 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 	/*BUS Signals~~~~~~~~~~~~~~~~~~~~~~~*/
-	input wire [23:0] Bus_Encoder_signals,
 	// The below is the bit layout for each bit in the "Bus_Encoder_signals"
 	/*
 	General Purpose registers: bites 0 -> 15
 	HIout (16), LOout (17), Zhi_out (18), Zlo_out (19), PCout (20), MDRout (21), Inport_out (22), Cout (23)
 	*/
 
+	input wire HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout, 
+	 			R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out,
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
@@ -28,7 +29,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 	/*Memory Signals Signals*/
 	output 	wire [31:0] MAR_to_chip,
 	input 	wire Mem_read,//this is for MDR
-	inout 	wire [31:0] MDR_Mem_lines, /*Mdatain*/
+	input 	wire [31:0] MDR_Mem_lines, /*Mdatain*/
 
 	/*I/O Interfacing*/
 	input wire [31:0] Inport_data_in,
@@ -120,7 +121,8 @@ register RZ_LO(clear, clock, RZin, ALU_LO, RZ_LO_BusMuxIn);
 
 //Memory interfacing registers
 register MAR(clear, clock, MARin, BusMuxOut, MAR_to_chip);
-MDR #(.DATA_WIDTH(32)) MDR_reg(.clear(clear), .clock(clock), .enable(MDRin), .read(Mem_read), .bus_data_lines(MDR_BusMuxIn), .mem_data_lines(MDR_Mem_lines));
+//MDR #(.DATA_WIDTH(32)) MDR_reg(.clear(clear), .clock(clock), .enable(MDRin), .read(Mem_read), .bus_data_lines(MDR_BusMuxIn), .mem_data_lines(MDR_Mem_lines));
+MDR2 #(.DATA_WIDTH(32)) MDR_reg(.clear(clear), .clock(clock), .enable(MDRin), .read(Mem_read), .BusMuxOut(BusMuxOut), .Mdatain(MDR_Mem_lines), .BusMuxIn(MDR_BusMuxIn));
 
 
 
@@ -151,7 +153,8 @@ Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn,
 			
 			BusMuxOut, 
 			
-			Bus_Encoder_signals
+			HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout, 
+	 		R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out
 			);
 
 
