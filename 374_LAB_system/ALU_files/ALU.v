@@ -3,7 +3,8 @@ module ALU #(parameter DATA_WIDTH = 32)(
     input wire [DATA_WIDTH - 1:0] A, B, 
     input wire [4:0] op, // Represented as bits because we have just less than 16 operations (aka 2^4)
 
-    output reg [(DATA_WIDTH*2)-1:0] result 
+    output reg [(DATA_WIDTH*2)-1:0] result,
+    input wire IncPC
 );
 
 // Regular operations: AND, OR, XOR, NOT, Shift left, Shift Right, shra, ror, rol, neg
@@ -12,6 +13,9 @@ module ALU #(parameter DATA_WIDTH = 32)(
     
     wire [(2*DATA_WIDTH)-1:0] and_result, or_result, neg_result, not_result, rol_result, ror_result, shl_result, shr_result, shra_result,
                               add_result, sub_result, unsigned_add_result, mul_result, div_result;
+
+    parameter   AND = 5'b01011, OR = 5'b01010, NEG = 5'b10001, NOT_MOD = 5'b10010, ROL = 5'b01001, ROR = 5'b01000, SHL = 5'b00111, SHRA = 5'b00110, SHR = 5'b00101,
+                ADD = 5'b00011, SUB = 5'b00100, UNS_ADD = 5'b11111, MUL = 5'b01111, DIV = 5'b10000;
     
     // Outputs
     wire C_out;
@@ -20,8 +24,8 @@ module ALU #(parameter DATA_WIDTH = 32)(
     // Logical operations
     and_or and_instance(A, B, 1'b1, and_result);
     and_or or_instance(A, B, 1'b0, or_result);
-    neg neg_instance(A, neg_result);
-    not_module not_instance(A, not_result);
+    neg neg_instance(B, neg_result);
+    not_module not_instance(B, not_result);
     rol rol_instance(A, B[4:0], rol_result);
     ror ror_instance(A, B[4:0], ror_result);
     shl shl_instance(A, B[4:0], shl_result); // Fixed typo here
@@ -39,26 +43,35 @@ module ALU #(parameter DATA_WIDTH = 32)(
     // Division
     div_combinational division_instance(A, B, div_result);
 
-    always @(*) begin
-        case(op)
-            5'd0:    result = or_result;
-            5'd1:    result = and_result;
-            5'd2:    result = neg_result;
-            5'd3:    result = not_result;
-            5'd4:    result = rol_result;
-            5'd5:    result = ror_result;
-            5'd6:    result = shl_result;
-            5'd7:    result = shra_result;
-            5'd8:    result = shr_result;
 
-			
-            5'd9:    result = add_result;
-            5'd10:   result = sub_result;
-            5'd11:   result = unsigned_add_result;
-            5'd12:   result = mul_result;
-            5'd13:   result = div_result;
-            default: result = {(2*DATA_WIDTH){1'b0}}; // Default case to clear result
-        endcase
+    always @(*) begin
+        if(IncPC)begin 
+            result[DATA_WIDTH-1:0] = B + 1;
+            result[(DATA_WIDTH*2)-1:DATA_WIDTH] = 32'd0;
+        end
+        else begin
+            case(op)
+                AND:        result = or_result;
+                OR:         result = and_result;
+                NEG:        result = neg_result;
+                NOT_MOD:    result = not_result;
+                ROL:        result = rol_result;
+                ROR:        result = ror_result;
+                SHL:        result = shl_result;
+                SHRA:       result = shra_result;
+                SHR:        result = shr_result;
+
+                
+                ADD:        result = add_result;
+                SUB:        result = sub_result;
+                UNS_ADD:    result = unsigned_add_result; //MAY NEED TO CHANGE LATER
+                MUL:        result = mul_result;
+                DIV:        result = div_result;
+                default: result = {(2*DATA_WIDTH){1'b0}}; // Default case to clear result
+            endcase
+        end
+
+        
     end
 
 endmodule

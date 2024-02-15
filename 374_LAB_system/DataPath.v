@@ -9,6 +9,8 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 				R12in, R13in, R14in, R15in,
 
 	input wire 	IRin, PCin, RYin, RZin, MARin, MDRin, HIin, LOin, Outport_in, Inport_in, 
+
+	input wire IncPC,
 	/*~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
@@ -39,16 +41,17 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 	/*ALU control*/
 	input wire [4:0] opcode, 
 
+
+	/*TEST OUTPUTS*/
 	output wire [31:0] reg1, reg2, reg3, regMDR,
 
-	output wire [31:0] BusMuxOut_out
+	output wire [31:0] BusMuxOut_out, 
+	output wire [31:0] PC_VALUE, HI_VALUE, LO_VALUE, IR_VALUE
 
 
 
 );
 
-//wire [7:0] BusMuxOut, BusMuxInRZ, BusMuxInRA, BusMuxInRB; 
-//wire [7:0] Zregin;
 
 
 
@@ -58,7 +61,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 /*Internal Connections*/
 wire [31:0] BusMuxOut; /*Why is the a wire you ask and not an "input wire"? Becuase the bus outputs this wire and is an input for registers
 						connected to the bus. BusMuxOut is not an input from any externel source, meaning it cannot be an input for the DataPath*/
-assign BusMuxOut_out = BusMuxOut;
+
 
 wire [31:0] R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
 			R4_BusMuxIn, R5_BusMuxIn, R6_BusMuxIn, R7_BusMuxIn, 
@@ -84,9 +87,12 @@ assign ALU_LO = ALU_result[DATA_WIDTH-1:0];
 
 wire [DATA_WIDTH-1:0] RY_to_ALU;
 
-
-
-
+/*TEST outputs*/
+assign BusMuxOut_out = BusMuxOut;
+assign PC_VALUE = PC_BusMuxIn;
+assign HI_VALUE = HI_BusMuxIn;
+assign LO_VALUE = LO_BusMuxIn;
+assign IR_VALUE = IR_BusMuxIn;
 
 
 //Registers~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,10 +144,6 @@ register Outport(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
-
-
-
 //Bus
 Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
 			R4_BusMuxIn, R5_BusMuxIn, R6_BusMuxIn, R7_BusMuxIn, 
@@ -159,7 +161,7 @@ Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn,
 
 
 // adder
-ALU alu(.A(RY_to_ALU), .B(BusMuxOut), .op(opcode), .result(ALU_result));
+ALU alu(.A(RY_to_ALU), .B(BusMuxOut), .op(opcode), .result(ALU_result), .IncPC(IncPC));
 
 
 endmodule
