@@ -2,6 +2,7 @@
 `timescale 1ns/10ps
 
 module MUL_DIV_TB_phase1;
+  parameter DATA_WIDTH = 32;
 
   reg HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, 
     Cout, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, 
@@ -46,7 +47,8 @@ module MUL_DIV_TB_phase1;
   wire [31:0] dummy_outputs, Mem_address_lines; // For capturing any unused output ports if needed
   wire unused; // Connect unused inputs to this wire if a default state is needed
 
-  wire [31:0] register1, register2, register3, registerMDR, BusMuxOut, resgisterPC, 
+  wire [DATA_WIDTH-1:0] register[7:0];
+  wire [DATA_WIDTH-1:0]registerMDR, BusMuxOut, resgisterPC, 
               resgisterHI, resgisterLO, resgisterIR;
 
 
@@ -76,7 +78,8 @@ module MUL_DIV_TB_phase1;
       .Inport_data_in(32'h00000000), .Outport_data_out(dummy_outputs),
       .opcode(opcode),
       /*TEST OUTPTUS*/
-      .reg1(register1), .reg2(register2), .reg3(register3), .regMDR(registerMDR), .BusMuxOut_out(BusMuxOut), 
+      .reg1(register[1]), .reg2(register[2]), .reg3(register[3]), .reg4(register[4]), .reg5(register[5]), 
+      .reg6(register[6]), .reg7(register[7]), .regMDR(registerMDR), .BusMuxOut_out(BusMuxOut), 
       .PC_VALUE(resgisterPC), .HI_VALUE(resgisterHI), .LO_VALUE(resgisterLO), .IR_VALUE(resgisterIR)
   );
 
@@ -86,6 +89,7 @@ module MUL_DIV_TB_phase1;
 
   // add test logic here
   initial begin
+
     Clock = 0;
     forever #10 Clock = ~Clock;
   end
@@ -147,18 +151,18 @@ module MUL_DIV_TB_phase1;
 
       end
       Reg_load1a: begin
-        Mdatain <= 32'h00000010;
+        Mdatain <= 32'h8fff_ffff; //NEGATIVE VALUE REMEMBER!!!!!!
         Read = 0; MDRin = 0; // the first zero is there for completeness
         #10 Read <= 1; MDRin <= 1;  
         #10 Read <= 0; MDRin <= 0;  
       end
       Reg_load1b: begin
-        Mdatain <= 32'h00000011;
+        Mdatain <= 32'h0000a5a5;
         #10 MDRout <= 1; R4in <= 1; PCin <= 1;
         #10 MDRout <= 0; R4in <= 0; PCin <= 0;// initialize R2 with the value $12
       end
       Reg_load2a: begin
-        Mdatain <= 32'h00000014;
+        Mdatain <= 32'h0000b5b5;
         #10 Read <= 1; MDRin <= 1;
         #10 Read <= 0; MDRin <= 0;
       end
@@ -172,8 +176,8 @@ module MUL_DIV_TB_phase1;
         #10 Read <= 0; MDRin <= 0;
       end
       Reg_load3b: begin
-        #10 MDRout <= 1; R1in <= 1;
-        #10 MDRout <= 0; R1in <= 0; // initialize R1 with the value $18
+        #10 MDRout <= 1; R7in <= 1;
+        #10 MDRout <= 0; R7in <= 0; // initialize R1 with the value $18
       end
 
 
@@ -186,11 +190,11 @@ module MUL_DIV_TB_phase1;
         Zlo_out <= 1; PCin <= 1; Read <= 1; MDRin <= 1;
         Mdatain <= 32'h28918000; 
       end
-      MUL_T2: begin Zlo_out <= 0; PCin <= 0;  MDRin <= 0;     MDRout <= 1; IRin <= 1;                     end
+      MUL_T2: begin Read <= 0; Zlo_out <= 0; PCin <= 0;  MDRin <= 0;     MDRout <= 1; IRin <= 1;                     end
       MUL_T3: begin MDRout <= 0; IRin <= 0;                   R4out <= 1; Yin <= 1;                       end
       MUL_T4: begin R4out <= 0; Yin <= 0;                     R5out <= 1; opcode <= 5'b01111; Zin <= 1;   end
       MUL_T5: begin R5out <= 0; Zin <= 0;                     Zlo_out <= 1; LOin <= 1;                    end
-      MUL_T6: begin R5out <= 0; Zin <= 0;                     Zhi_out <= 1; HIin <= 1;                    end
+      MUL_T6: begin R5out <= 0; LOin <= 0;                     Zhi_out <= 1; HIin <= 1;                    end
 
       /*DIV~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
       DIV_T0: begin Zlo_out <= 0; Zhi_out <= 0; LOin <= 0; HIin <= 0;          PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1; end
@@ -199,12 +203,11 @@ module MUL_DIV_TB_phase1;
         Zlo_out <= 1; PCin <= 1; Read <= 1; MDRin <= 1;
         Mdatain <= 32'h28918000; 
       end
-      DIV_T2: begin Zlo_out <= 0; PCin <= 0;  MDRin <= 0;     MDRout <= 1; IRin <= 1;                     end
+      DIV_T2: begin Read <= 0; Zlo_out <= 0; PCin <= 0;  MDRin <= 0;     MDRout <= 1; IRin <= 1;                     end
       DIV_T3: begin MDRout <= 0; IRin <= 0;                   R4out <= 1; Yin <= 1;                       end
       DIV_T4: begin R4out <= 0; Yin <= 0;                     R5out <= 1; opcode <= 5'b10000; Zin <= 1;   end
-      DIV_T5: begin R5out <= 0; Zin <= 0;                     Zlo_out <= 1; R1in <= 1;                    end
       DIV_T5: begin R5out <= 0; Zin <= 0;                     Zlo_out <= 1; LOin <= 1;                    end
-      DIV_T6: begin R5out <= 0; Zin <= 0;                     Zhi_out <= 1; HIin <= 1;                    end
+      DIV_T6: begin R5out <= 0; LOin <= 0;                     Zhi_out <= 1; HIin <= 1;                    end
 
 
 

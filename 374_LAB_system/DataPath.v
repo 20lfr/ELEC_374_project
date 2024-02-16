@@ -43,7 +43,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 	/*TEST OUTPUTS*/
-	output wire [31:0] reg1, reg2, reg3, regMDR,
+	output wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, regMDR,
 
 	output wire [31:0] BusMuxOut_out, 
 	output wire [31:0] PC_VALUE, HI_VALUE, LO_VALUE, IR_VALUE
@@ -72,9 +72,15 @@ wire [31:0] R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn,
 			PC_BusMuxIn, MDR_BusMuxIn, Inport_BusIn, C_sign_extended;
 
 
+/*Testing Connections*/
 assign reg1 = R1_BusMuxIn;
 assign reg2 = R2_BusMuxIn;
 assign reg3 = R3_BusMuxIn;
+assign reg4 = R4_BusMuxIn;
+assign reg5 = R5_BusMuxIn;
+assign reg6 = R6_BusMuxIn;
+assign reg7 = R7_BusMuxIn;
+
 assign regMDR = MDR_BusMuxIn;
 
 

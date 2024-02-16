@@ -45,8 +45,9 @@ module ADD_SUB_TB_phase1;
   wire [31:0] dummy_outputs, Mem_address_lines; // For capturing any unused output ports if needed
   wire unused; // Connect unused inputs to this wire if a default state is needed
 
-  wire [31:0] register1, register2, register3, registerMDR, BusMuxOut, resgisterPC, 
-              resgisterHI, resgisterLO, resgisterIR;
+  wire [DATA_WIDTH-1:0] register[7:0];
+  wire [DATA_WIDTH-1:0] registerMDR, BusMuxOut, resgisterPC, 
+                        resgisterHI, resgisterLO, resgisterIR;
 
 
   DataPath DUT(
@@ -75,9 +76,11 @@ module ADD_SUB_TB_phase1;
       .Inport_data_in(32'h00000000), .Outport_data_out(dummy_outputs),
       .opcode(opcode),
       /*TEST OUTPTUS*/
-      .reg1(register1), .reg2(register2), .reg3(register3), .regMDR(registerMDR), .BusMuxOut_out(BusMuxOut), 
+      .reg1(register[1]), .reg2(register[2]), .reg3(register[3]), .reg4(register[4]), .reg5(register[5]), 
+      .reg6(register[6]), .reg7(register[7]), .regMDR(registerMDR), .BusMuxOut_out(BusMuxOut), 
       .PC_VALUE(resgisterPC), .HI_VALUE(resgisterHI), .LO_VALUE(resgisterLO), .IR_VALUE(resgisterIR)
   );
+
 
 
 
