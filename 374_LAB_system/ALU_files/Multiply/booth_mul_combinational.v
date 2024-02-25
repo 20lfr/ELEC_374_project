@@ -9,8 +9,8 @@ module booth_mul_combinational #(parameter DATA_WIDTH = 32)(
     reg [2*DATA_WIDTH-1:0] partial_product[DATA_WIDTH:0]; // For partial products
 
     // Loop to initialize each partial product
-    integer i; // Ensure 'i' is declared somewhere appropriate
-    reg bit0, bit1; // Declare as reg if reuse in procedural logic is intended
+    integer i; 
+    reg bit0, bit1; 
 
     always @* begin
         M = {{DATA_WIDTH{multiplicand[DATA_WIDTH-1]}}, multiplicand}; // Sign-extend multiplicand
