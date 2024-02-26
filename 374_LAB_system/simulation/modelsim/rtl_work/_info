@@ -7,183 +7,206 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/20lfr/Desktop/374_LAB_system/simulation/modelsim
+Z0 dC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/simulation/modelsim
 vadd_sub
-Z1 !s110 1708020859
+Z1 !s110 1708966176
 !i10b 1
 !s100 @66TB4@jJJb2?nmb1>S:31
-I^Hn5PkPKgIh=9<LbjDI1I2
+IAmYnYUHRa7EQ?n<bLHzDj3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z3 w1708003235
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v
+Z3 w1708965878
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v
 L0 1
 Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1708020859.000000
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v|
+Z5 !s108 1708966176.000000
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v|
 !i113 1
 Z6 o-vlog01compat -work work
-Z7 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction
+Z7 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction
 Z8 tCvgOpt 0
 vALU
 R1
 !i10b 1
 !s100 8;fX=eaP6JW4BgJ09j0DW2
-IBoS^:zC8ShGzaBRX<H;dD3
+IIHNmVK:Bi8H2@?<[Q7JDI0
 R2
 R0
-w1708017227
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/ALU.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/ALU.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/ALU.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/ALU.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/ALU.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/ALU.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/ALU.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/ALU.v|
 !i113 1
 R6
-!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files
+!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files
 R8
 n@a@l@u
 vand_or
-Z9 !s110 1708020858
+Z9 !s110 1708966175
 !i10b 1
 !s100 5Y5Lb0>EEVRU3iXh@DLkh2
-IWO8Y[8P?heBj<6C26_8<n2
+IOaPPG2Y41_F<nD:Y0GVW>0
 R2
 R0
 R3
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/and_or.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/and_or.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/and_or.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/and_or.v
 L0 1
 R4
 r1
 !s85 0
 31
-Z10 !s108 1708020858.000000
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/and_or.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/and_or.v|
+Z10 !s108 1708966175.000000
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/and_or.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/and_or.v|
 !i113 1
 R6
-Z11 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations
+Z11 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations
 R8
+vAND_OR_TB_phase1
+R1
+!i10b 1
+!s100 mJCDLec[aTSn7^^>O9V>42
+IfF=dZmVKmXmnX]ie0f65A2
+R2
+R0
+w1708966117
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/AND_OR_TB_phase1.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/AND_OR_TB_phase1.v
+L0 4
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/AND_OR_TB_phase1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/AND_OR_TB_phase1.v|
+!i113 1
+R6
+Z12 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system
+R8
+n@a@n@d_@o@r_@t@b_phase1
 vbooth_mul_combinational
-Z12 !s110 1708020857
+Z13 !s110 1708966174
 !i10b 1
 !s100 <E=]FaYW>50N8iV9TM2E82
-IHWRm@FVS>m;R=oak_79jG1
+IAc=c6gXOldf:j2[YChiGo1
 R2
 R0
-Z13 w1708003236
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v
 L0 1
 R4
 r1
 !s85 0
 31
-Z14 !s108 1708020857.000000
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Multiply|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v|
+Z14 !s108 1708966174.000000
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v|
 !i113 1
 R6
-!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Multiply
+!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply
 R8
 vBus_Encoder
-R12
+R13
 !i10b 1
 !s100 JmPzZ^B78lh4eEV:bLB@e0
-IE`FVATEJjjQ6_5281b2l>1
+IPYZK;Q1iXPDl4g`KNY2HR1
 R2
 R0
-R13
-8C:/Users/20lfr/Desktop/374_LAB_system/Bus_files/Bus_Encoder.v
-FC:/Users/20lfr/Desktop/374_LAB_system/Bus_files/Bus_Encoder.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_Encoder.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_Encoder.v
 L0 1
 R4
 r1
 !s85 0
 31
 R14
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/Bus_files/Bus_Encoder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/Bus_files|C:/Users/20lfr/Desktop/374_LAB_system/Bus_files/Bus_Encoder.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_Encoder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_Encoder.v|
 !i113 1
 R6
-Z15 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/374_LAB_system/Bus_files
+Z15 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files
 R8
 n@bus_@encoder
 vBus_MUX
-R12
+R13
 !i10b 1
 !s100 jRW=?5TZIBXd8KC;6G^zF0
-IQAC4S;:PJmNZ;m;P;KiF<2
+IeE;E[c>8=PhQ70XZDXaP;2
 R2
 R0
-R13
-8C:/Users/20lfr/Desktop/374_LAB_system/Bus_files/Bus_MUX.v
-FC:/Users/20lfr/Desktop/374_LAB_system/Bus_files/Bus_MUX.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_MUX.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_MUX.v
 L0 1
 R4
 r1
 !s85 0
 31
 R14
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/Bus_files/Bus_MUX.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/Bus_files|C:/Users/20lfr/Desktop/374_LAB_system/Bus_files/Bus_MUX.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_MUX.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_MUX.v|
 !i113 1
 R6
 R15
 R8
 n@bus_@m@u@x
 vCLA_16bit_adder
-R1
+R9
 !i10b 1
 !s100 5ZSioCNk=NH=O^OHg>l>`1
-I57a^ICT6lA^6NOUU[l3aW0
+IS@bDC?DO?a^@n6>CEPP:A3
 R2
 R0
 R3
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
-L0 1
-R4
-r1
-!s85 0
-31
-R5
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v|
-!i113 1
-R6
-R7
-R8
-n@c@l@a_16bit_adder
-vCLA_32bit_adder
-R1
-!i10b 1
-!s100 ghHAY?RGVa50COE`hD8b^3
-IP8_a4ESS3Lf8WhI09F3e30
-R2
-R0
-R3
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v|
+!i113 1
+R6
+R7
+R8
+n@c@l@a_16bit_adder
+vCLA_32bit_adder
+R9
+!i10b 1
+!s100 ghHAY?RGVa50COE`hD8b^3
+Ii4@<6VQWmD`ibmfc6ke7B3
+R2
+R0
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v|
 !i113 1
 R6
 R7
@@ -193,20 +216,20 @@ vCLA_4bit_adder
 R1
 !i10b 1
 !s100 d6SUCm5NFRZ5OGWJL_kS00
-Il0hAWTYVLHcdF?[YNNOHL0
+I>g7QR]7imi0`aOPgf[iH41
 R2
 R0
 R3
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v|
 !i113 1
 R6
 R7
@@ -216,20 +239,20 @@ vCLA_b_cell
 R9
 !i10b 1
 !s100 M18RO;UhCh>C02QkW=^]V3
-IYl5li[eMo375lY<EDe>jA0
+I1NC^TzQloNARkhM@E4NzZ0
 R2
 R0
 R3
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v|
 !i113 1
 R6
 R7
@@ -238,112 +261,89 @@ n@c@l@a_b_cell
 vDataPath
 R1
 !i10b 1
-!s100 KMIU>;RBm[LRR:@Z[Aaem2
-IVneO;C_9[:iZi6HjgdNOb1
+!s100 1_WfCbnA3gkSV>mO]1Z>C0
+Ihd<cPU9h[Mf=20aI30lcn1
 R2
 R0
-w1708013526
-8C:/Users/20lfr/Desktop/374_LAB_system/DataPath.v
-FC:/Users/20lfr/Desktop/374_LAB_system/DataPath.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/DataPath.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/DataPath.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/DataPath.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system|C:/Users/20lfr/Desktop/374_LAB_system/DataPath.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/DataPath.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/DataPath.v|
 !i113 1
 R6
-Z16 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/374_LAB_system
+R12
 R8
 n@data@path
 vdiv_combinational
 R9
 !i10b 1
 !s100 3iod3G3^V<]J8XgSKdg<13
-IJ[X=fQ6@5EVK`FbQz9OiG3
+Ih4]H9R`iN_?Qj7T5zDln52
 R2
 R0
 R3
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Division/div_combinational.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Division/div_combinational.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division/div_combinational.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division/div_combinational.v
 L0 2
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Division/div_combinational.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Division|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Division/div_combinational.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division/div_combinational.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division/div_combinational.v|
 !i113 1
 R6
-!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Division
+!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division
 R8
 vMDR2
-R12
+R13
 !i10b 1
 !s100 T67PGGXzB2eK7j=`U<8J81
-IeO[OzFK@glk9OzAo:fY3_1
+ILUP]ilPJo9lV;N8[RdMQ61
 R2
 R0
-w1708003227
-8C:/Users/20lfr/Desktop/374_LAB_system/MDR2.v
-FC:/Users/20lfr/Desktop/374_LAB_system/MDR2.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/MDR2.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/MDR2.v
 L0 1
 R4
 r1
 !s85 0
 31
 R14
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/MDR2.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system|C:/Users/20lfr/Desktop/374_LAB_system/MDR2.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/MDR2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/MDR2.v|
 !i113 1
 R6
-R16
+Z16 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers
 R8
 n@m@d@r2
-vMUL_DIV_TB_phase1
-R1
-!i10b 1
-!s100 KaR=RkIE6M6f[W?`LWcl]0
-Ib=oKB7W0_7j9MkQOQcdPQ3
-R2
-R0
-w1708019034
-8C:/Users/20lfr/Desktop/374_LAB_system/MUL_DIV_TB_phase1.v
-FC:/Users/20lfr/Desktop/374_LAB_system/MUL_DIV_TB_phase1.v
-L0 4
-R4
-r1
-!s85 0
-31
-R5
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/MUL_DIV_TB_phase1.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system|C:/Users/20lfr/Desktop/374_LAB_system/MUL_DIV_TB_phase1.v|
-!i113 1
-R6
-R16
-R8
-n@m@u@l_@d@i@v_@t@b_phase1
 vneg
 R9
 !i10b 1
 !s100 iARRiiSUe=S3e=iBd1HgW0
-IFN>L<eE@20RZ3<TBnl3>N2
+IQ7<B_Ubb]5R?XW3R^cPYD3
 R2
 R0
-w1708017234
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/neg.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/neg.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/neg.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/neg.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/neg.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/neg.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/neg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/neg.v|
 !i113 1
 R6
 R11
@@ -352,42 +352,42 @@ vnot_module
 R9
 !i10b 1
 !s100 HIn4HK?KVVc6JW@8P`Gc`2
-IFX560jW7gDRlMWNGB63lh3
+INY^8mGB_KE6=oG[gajzVM2
 R2
 R0
-w1708017240
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/not_module.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/not_module.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/not_module.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/not_module.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/not_module.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/not_module.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/not_module.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/not_module.v|
 !i113 1
 R6
 R11
 R8
 vregister
-R1
+!s110 1708966173
 !i10b 1
 !s100 Dmdb<a[kLzA][[ehOiE=S1
-Il6N;T^oAI;aU?l4h35il`0
+IlImf]l7Q6O8D[WJo85<7N2
 R2
 R0
 R3
-8C:/Users/20lfr/Desktop/374_LAB_system/register.v
-FC:/Users/20lfr/Desktop/374_LAB_system/register.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/register.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/register.v
 L0 1
 R4
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/register.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system|C:/Users/20lfr/Desktop/374_LAB_system/register.v|
+!s108 1708966173.000000
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/register.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/register.v|
 !i113 1
 R6
 R16
@@ -396,20 +396,20 @@ vrol
 R9
 !i10b 1
 !s100 =Af`dl<@Q91FzUA1bPlZ[1
-IC3mNiXZ4BV5Wb037^XW7z3
+I5zkZcP9Mag`:HQLdb`f]:2
 R2
 R0
 R3
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/rol.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/rol.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/rol.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/rol.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/rol.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/rol.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/rol.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/rol.v|
 !i113 1
 R6
 R11
@@ -418,86 +418,86 @@ vror
 R9
 !i10b 1
 !s100 i[2acQ?gL:G`^Baz@Szh53
-ISoU3HQ5A061Kci2e=fLaF1
+IJ>Ei95M`UM7k@gEzUJ@2=1
 R2
 R0
-R13
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/ror.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/ror.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/ror.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/ror.v
 L0 1
 R4
 r1
 !s85 0
 31
-R10
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/ror.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/ror.v|
+R14
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/ror.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/ror.v|
 !i113 1
 R6
 R11
 R8
 vshl
-R12
+R13
 !i10b 1
 !s100 H6O;1k09Qc9T0=e`M7bgb3
-IJeR?:0H2`ZiP9?0]P3^b?1
+I7DY`0B]V@HKY_B3ddN^XT2
 R2
 R0
-R13
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shl.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shl.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shl.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shl.v
 L0 1
 R4
 r1
 !s85 0
 31
 R14
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shl.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shl.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shl.v|
 !i113 1
 R6
 R11
 R8
 vshr
-R12
+R13
 !i10b 1
 !s100 clNda:hK^=LlU^2obSML42
-IbEK2OlF7EiQRPdGh^R`SB1
+IPGUaHz=dFI9KGPbJa;HWg2
 R2
 R0
-R13
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shr.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shr.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shr.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shr.v
 L0 1
 R4
 r1
 !s85 0
 31
 R14
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shr.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shr.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shr.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shr.v|
 !i113 1
 R6
 R11
 R8
 vshra
-R12
+R13
 !i10b 1
 !s100 H>]b?P:`hiFkX52cP4L?P3
-IJIH:5kdILZXFKoQhUWT@U3
+I9nihj`zD:C0OJZTIMlY<@3
 R2
 R0
-R13
-8C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shra.v
-FC:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shra.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shra.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shra.v
 L0 1
 R4
 r1
 !s85 0
 31
 R14
-!s107 C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shra.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/374_LAB_system/ALU_files/Logical_Operations/shra.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shra.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shra.v|
 !i113 1
 R6
 R11

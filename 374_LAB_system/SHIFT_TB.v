@@ -2,6 +2,8 @@
 `timescale 1ns/10ps
 
 module SHIFT_TB;
+  parameter DATA_WIDTH = 32;
+
 
   reg HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, 
     Cout, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, 
