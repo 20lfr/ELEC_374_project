@@ -1,5 +1,5 @@
 Flow report for DataPath
-Thu Feb 29 10:21:03 2024
+Thu Feb 29 11:00:22 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Flow Status                 ; Successful - Thu Feb 29 10:21:03 2024           ;
+; Flow Status                 ; Successful - Thu Feb 29 11:00:22 2024           ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name               ; DataPath                                        ;
 ; Top-level Entity Name       ; DataPath                                        ;
@@ -62,7 +62,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/29/2024 10:20:52 ;
+; Start date & time ; 02/29/2024 11:00:11 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DataPath            ;
 +-------------------+---------------------+
@@ -73,14 +73,14 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+-------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-------------------+
-; COMPILER_SIGNATURE_ID                ; 26830026782460.170922005108788         ; --            ; --          ; --                ;
+; COMPILER_SIGNATURE_ID                ; 26830026782460.170922241014400         ; --            ; --          ; --                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; MUL_DIV_TB_phase1 ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; ADD_SUB_TB_phase1 ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; NEG_NOT_TB        ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; SHIFT_TB          ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; AND_OR_TB_phase1  ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; ROTATE_TB         ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; MUL_DIV_TB_phase1                      ; --            ; --          ; eda_simulation    ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; SHIFT_TB                               ; --            ; --          ; eda_simulation    ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation    ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --                ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation    ;
@@ -125,7 +125,7 @@ refer to the applicable agreement for further details.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:13     ; 1.0                     ; 4799 MB             ; 00:00:10                           ;
+; Analysis & Elaboration ; 00:00:13     ; 1.0                     ; 4797 MB             ; 00:00:10                           ;
 ; Total                  ; 00:00:13     ; --                      ; --                  ; 00:00:10                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 

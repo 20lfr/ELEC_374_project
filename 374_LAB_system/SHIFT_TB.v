@@ -168,7 +168,7 @@ module SHIFT_TB;
         #10 MDRout <= 0; R2in <= 0; PCin <= 0;// initialize R2 with the value $12
       end
       Reg_load2a: begin
-        Mdatain <= 32'h00000014;
+        Mdatain <= 32'h00000004;
         #10 Read <= 1; MDRin <= 1;
         #10 Read <= 0; MDRin <= 0;
       end

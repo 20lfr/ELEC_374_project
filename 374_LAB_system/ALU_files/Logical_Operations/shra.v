@@ -4,6 +4,6 @@ module shra (
     output wire [63:0] result
 );
 
-assign result = A >>> amount;
+assign result[31:0] = A >>> amount;
     
 endmodule
