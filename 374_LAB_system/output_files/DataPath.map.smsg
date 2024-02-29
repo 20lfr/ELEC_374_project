@@ -1,6 +1,0 @@
-Warning (10268): Verilog HDL information at SHIFT_TB.v(131): always construct contains both blocking and non-blocking assignments File: C:/Users/20lfr/Desktop/374_LAB_system/Test_Benches/SHIFT_TB.v Line: 131
-Warning (10268): Verilog HDL information at ROTATE_TB.v(128): always construct contains both blocking and non-blocking assignments File: C:/Users/20lfr/Desktop/374_LAB_system/Test_Benches/ROTATE_TB.v Line: 128
-Warning (10268): Verilog HDL information at NEG_NOT_TB.v(122): always construct contains both blocking and non-blocking assignments File: C:/Users/20lfr/Desktop/374_LAB_system/Test_Benches/NEG_NOT_TB.v Line: 122
-Warning (10268): Verilog HDL information at MUL_DIV_TB_phase1.v(127): always construct contains both blocking and non-blocking assignments File: C:/Users/20lfr/Desktop/374_LAB_system/Test_Benches/MUL_DIV_TB_phase1.v Line: 127
-Warning (10268): Verilog HDL information at AND_OR_TB_phase1.v(124): always construct contains both blocking and non-blocking assignments File: C:/Users/20lfr/Desktop/374_LAB_system/Test_Benches/AND_OR_TB_phase1.v Line: 124
-Warning (10268): Verilog HDL information at ADD_SUB_TB_phase1.v(124): always construct contains both blocking and non-blocking assignments File: C:/Users/20lfr/Desktop/374_LAB_system/Test_Benches/ADD_SUB_TB_phase1.v Line: 124
