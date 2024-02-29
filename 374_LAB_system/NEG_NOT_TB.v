@@ -34,13 +34,13 @@ module NEG_NOT_TB;
     2. do an AND operation: and r1, r2, r3*/
 
 
-  parameter Default = 6'd0, Reg_load1a = 6'd1, Reg_load1b = 6'd2, Reg_load2a = 6'd3,
-            Reg_load2b = 6'd4, Reg_load3a = 6'd5, Reg_load3b = 6'd6, 
+  parameter Default = 7'd0, Reg_load1a = 7'd1, Reg_load1b = 7'd2, Reg_load2a = 7'd3,
+            Reg_load2b = 7'd4, Reg_load3a = 7'd5, Reg_load3b = 7'd6, 
             
         
-            NEG_T0 = 6'd75, NEG_T1 = 6'd76, NEG_T2 = 6'd77, NEG_T3 = 6'd78, NEG_T4 = 6'd79, 
-            NOT_T0 = 6'd81, NOT_T1 = 6'd82, NOT_T2 = 6'd83, NOT_T3 = 6'd84, NOT_T4 = 6'd85;
-  reg [5:0] Present_state = Default;
+            NEG_T0 = 7'd75, NEG_T1 = 7'd76, NEG_T2 = 7'd77, NEG_T3 = 7'd78, NEG_T4 = 7'd79, 
+            NOT_T0 = 7'd81, NOT_T1 = 7'd82, NOT_T2 = 7'd83, NOT_T3 = 7'd84, NOT_T4 = 7'd85;
+  reg [6:0] Present_state = Default;
 
 
 
@@ -154,8 +154,8 @@ module NEG_NOT_TB;
       end
       Reg_load1b: begin
         Mdatain <= 32'h00000011;
-        #10 MDRout <= 1; R2in <= 1; PCin <= 1;
-        #10 MDRout <= 0; R2in <= 0; PCin <= 0;// initialize R2 with the value $12
+        #10 MDRout <= 1; R7in <= 1; PCin <= 1;
+        #10 MDRout <= 0; R7in <= 0; PCin <= 0;// initialize R2 with the value $12
       end
       Reg_load2a: begin
         Mdatain <= 32'h00000014;

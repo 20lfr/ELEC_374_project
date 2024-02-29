@@ -34,14 +34,14 @@ module ROTATE_TB;
     2. do an AND operation: and r1, r2, r3*/
 
 
-  parameter Default = 6'd0, Reg_load1a = 6'd1, Reg_load1b = 6'd2, Reg_load2a = 6'd3,
-            Reg_load2b = 6'd4, Reg_load3a = 6'd5, Reg_load3b = 6'd6, 
+  parameter Default = 7'd0, Reg_load1a = 7'd1, Reg_load1b = 7'd2, Reg_load2a = 7'd3,
+            Reg_load2b = 7'd4, Reg_load3a = 7'd5, Reg_load3b = 7'd6, 
             
            
-            ROR_T0 = 6'd63, ROR_T1 = 6'd64, ROR_T2 = 6'd65, ROR_T3 = 6'd66, ROR_T4 = 6'd67, ROR_T5 = 6'd68,
-            ROL_T0 = 6'd69, ROL_T1 = 6'd70, ROL_T2 = 6'd71, ROL_T3 = 6'd72, ROL_T4 = 6'd73, ROL_T5 = 6'd74;
+            ROR_T0 = 7'd50, ROR_T1 = 7'd51, ROR_T2 = 7'd52, ROR_T3 = 7'd53, ROR_T4 = 7'd54, ROR_T5 = 7'd55,
+            ROL_T0 = 7'd56, ROL_T1 = 7'd70, ROL_T2 = 7'd71, ROL_T3 = 7'd72, ROL_T4 = 7'd73, ROL_T5 = 7'd74;
             
-  reg [5:0] Present_state = Default;
+  reg [6:0] Present_state = Default;
 
 
 
@@ -153,18 +153,18 @@ module ROTATE_TB;
 
       end
       Reg_load1a: begin
-        Mdatain <= 32'h00000010;
+        Mdatain <= 32'h00000007;
         Read = 0; MDRin = 0; // the first zero is there for completeness
         #10 Read <= 1; MDRin <= 1;  
         #10 Read <= 0; MDRin <= 0;  
       end
       Reg_load1b: begin
-        Mdatain <= 32'h00000011;
+        Mdatain <= 32'h00000003;
         #10 MDRout <= 1; R2in <= 1; PCin <= 1;
         #10 MDRout <= 0; R2in <= 0; PCin <= 0;// initialize R2 with the value $12
       end
       Reg_load2a: begin
-        Mdatain <= 32'h00000014;
+        Mdatain <= 32'h00000003;
         #10 Read <= 1; MDRin <= 1;
         #10 Read <= 0; MDRin <= 0;
       end

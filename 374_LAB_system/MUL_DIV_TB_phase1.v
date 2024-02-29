@@ -151,7 +151,7 @@ module MUL_DIV_TB_phase1;
 
       end
       Reg_load1a: begin
-        Mdatain <= 32'h8fff_ffff; //NEGATIVE VALUE REMEMBER!!!!!!
+        Mdatain <= 32'd20; //NEGATIVE VALUE REMEMBER!!!!!!
         Read = 0; MDRin = 0; // the first zero is there for completeness
         #10 Read <= 1; MDRin <= 1;  
         #10 Read <= 0; MDRin <= 0;  
@@ -162,7 +162,7 @@ module MUL_DIV_TB_phase1;
         #10 MDRout <= 0; R4in <= 0; PCin <= 0;// initialize R2 with the value $12
       end
       Reg_load2a: begin
-        Mdatain <= 32'h0000b5b5;
+        Mdatain <= 32'd5;
         #10 Read <= 1; MDRin <= 1;
         #10 Read <= 0; MDRin <= 0;
       end

@@ -4,6 +4,7 @@ module ror #(parameter DATA_WIDTH = 32)(
     output wire[63:0] result
 );
 
-    assign result = (A >> amount) | (A << ((DATA_WIDTH*2) - amount));
-    
+    assign result[DATA_WIDTH-1:0] = (A >> amount) | (A << ((DATA_WIDTH) - amount));
+    assign result[DATA_WIDTH*2 -1: DATA_WIDTH] = 32'd0;
+
 endmodule

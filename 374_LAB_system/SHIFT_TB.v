@@ -157,7 +157,7 @@ module SHIFT_TB;
 
       end
       Reg_load1a: begin
-        Mdatain <= 32'h00000010;
+        Mdatain <= 32'hFFFA_0000;
         Read = 0; MDRin = 0; // the first zero is there for completeness
         #10 Read <= 1; MDRin <= 1;  
         #10 Read <= 0; MDRin <= 0;  
