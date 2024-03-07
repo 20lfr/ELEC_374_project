@@ -5,5 +5,6 @@ module shra (
 );
 
 assign result[31:0] = A >>> amount;
+assign result[63:32] = 32'd0;
     
 endmodule

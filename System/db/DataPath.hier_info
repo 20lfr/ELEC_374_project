@@ -1,4 +1,14 @@
-|DataPath
+|System
+Clock => Clock.IN2
+clear => clear.IN1
+inport_data => inport_data.IN1
+outport_data << DataPath:datapath.Outport_data_out
+
+
+|System|Control:control
+
+
+|System|DataPath:datapath
 clock => clock.IN27
 clear => clear.IN27
 R0in => R0in.IN1
@@ -62,61 +72,71 @@ MAR_to_chip[6] <= register:MAR.port4
 MAR_to_chip[7] <= register:MAR.port4
 MAR_to_chip[8] <= register:MAR.port4
 MAR_to_chip[9] <= register:MAR.port4
-MAR_to_chip[10] <= register:MAR.port4
-MAR_to_chip[11] <= register:MAR.port4
-MAR_to_chip[12] <= register:MAR.port4
-MAR_to_chip[13] <= register:MAR.port4
-MAR_to_chip[14] <= register:MAR.port4
-MAR_to_chip[15] <= register:MAR.port4
-MAR_to_chip[16] <= register:MAR.port4
-MAR_to_chip[17] <= register:MAR.port4
-MAR_to_chip[18] <= register:MAR.port4
-MAR_to_chip[19] <= register:MAR.port4
-MAR_to_chip[20] <= register:MAR.port4
-MAR_to_chip[21] <= register:MAR.port4
-MAR_to_chip[22] <= register:MAR.port4
-MAR_to_chip[23] <= register:MAR.port4
-MAR_to_chip[24] <= register:MAR.port4
-MAR_to_chip[25] <= register:MAR.port4
-MAR_to_chip[26] <= register:MAR.port4
-MAR_to_chip[27] <= register:MAR.port4
-MAR_to_chip[28] <= register:MAR.port4
-MAR_to_chip[29] <= register:MAR.port4
-MAR_to_chip[30] <= register:MAR.port4
-MAR_to_chip[31] <= register:MAR.port4
+Mem_dataout[0] <= MDR_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[1] <= MDR_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[2] <= MDR_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[3] <= MDR_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[4] <= MDR_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[5] <= MDR_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[6] <= MDR_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[7] <= MDR_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[8] <= MDR_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[9] <= MDR_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[10] <= MDR_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[11] <= MDR_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[12] <= MDR_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[13] <= MDR_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[14] <= MDR_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[15] <= MDR_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[16] <= MDR_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[17] <= MDR_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[18] <= MDR_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[19] <= MDR_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[20] <= MDR_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[21] <= MDR_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[22] <= MDR_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[23] <= MDR_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[24] <= MDR_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[25] <= MDR_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[26] <= MDR_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[27] <= MDR_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[28] <= MDR_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[29] <= MDR_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[30] <= MDR_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
+Mem_dataout[31] <= MDR_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
 Mem_read => Mem_read.IN1
-MDR_Mem_lines[0] => MDR_Mem_lines[0].IN1
-MDR_Mem_lines[1] => MDR_Mem_lines[1].IN1
-MDR_Mem_lines[2] => MDR_Mem_lines[2].IN1
-MDR_Mem_lines[3] => MDR_Mem_lines[3].IN1
-MDR_Mem_lines[4] => MDR_Mem_lines[4].IN1
-MDR_Mem_lines[5] => MDR_Mem_lines[5].IN1
-MDR_Mem_lines[6] => MDR_Mem_lines[6].IN1
-MDR_Mem_lines[7] => MDR_Mem_lines[7].IN1
-MDR_Mem_lines[8] => MDR_Mem_lines[8].IN1
-MDR_Mem_lines[9] => MDR_Mem_lines[9].IN1
-MDR_Mem_lines[10] => MDR_Mem_lines[10].IN1
-MDR_Mem_lines[11] => MDR_Mem_lines[11].IN1
-MDR_Mem_lines[12] => MDR_Mem_lines[12].IN1
-MDR_Mem_lines[13] => MDR_Mem_lines[13].IN1
-MDR_Mem_lines[14] => MDR_Mem_lines[14].IN1
-MDR_Mem_lines[15] => MDR_Mem_lines[15].IN1
-MDR_Mem_lines[16] => MDR_Mem_lines[16].IN1
-MDR_Mem_lines[17] => MDR_Mem_lines[17].IN1
-MDR_Mem_lines[18] => MDR_Mem_lines[18].IN1
-MDR_Mem_lines[19] => MDR_Mem_lines[19].IN1
-MDR_Mem_lines[20] => MDR_Mem_lines[20].IN1
-MDR_Mem_lines[21] => MDR_Mem_lines[21].IN1
-MDR_Mem_lines[22] => MDR_Mem_lines[22].IN1
-MDR_Mem_lines[23] => MDR_Mem_lines[23].IN1
-MDR_Mem_lines[24] => MDR_Mem_lines[24].IN1
-MDR_Mem_lines[25] => MDR_Mem_lines[25].IN1
-MDR_Mem_lines[26] => MDR_Mem_lines[26].IN1
-MDR_Mem_lines[27] => MDR_Mem_lines[27].IN1
-MDR_Mem_lines[28] => MDR_Mem_lines[28].IN1
-MDR_Mem_lines[29] => MDR_Mem_lines[29].IN1
-MDR_Mem_lines[30] => MDR_Mem_lines[30].IN1
-MDR_Mem_lines[31] => MDR_Mem_lines[31].IN1
+Mem_datain[0] => Mem_datain[0].IN1
+Mem_datain[1] => Mem_datain[1].IN1
+Mem_datain[2] => Mem_datain[2].IN1
+Mem_datain[3] => Mem_datain[3].IN1
+Mem_datain[4] => Mem_datain[4].IN1
+Mem_datain[5] => Mem_datain[5].IN1
+Mem_datain[6] => Mem_datain[6].IN1
+Mem_datain[7] => Mem_datain[7].IN1
+Mem_datain[8] => Mem_datain[8].IN1
+Mem_datain[9] => Mem_datain[9].IN1
+Mem_datain[10] => Mem_datain[10].IN1
+Mem_datain[11] => Mem_datain[11].IN1
+Mem_datain[12] => Mem_datain[12].IN1
+Mem_datain[13] => Mem_datain[13].IN1
+Mem_datain[14] => Mem_datain[14].IN1
+Mem_datain[15] => Mem_datain[15].IN1
+Mem_datain[16] => Mem_datain[16].IN1
+Mem_datain[17] => Mem_datain[17].IN1
+Mem_datain[18] => Mem_datain[18].IN1
+Mem_datain[19] => Mem_datain[19].IN1
+Mem_datain[20] => Mem_datain[20].IN1
+Mem_datain[21] => Mem_datain[21].IN1
+Mem_datain[22] => Mem_datain[22].IN1
+Mem_datain[23] => Mem_datain[23].IN1
+Mem_datain[24] => Mem_datain[24].IN1
+Mem_datain[25] => Mem_datain[25].IN1
+Mem_datain[26] => Mem_datain[26].IN1
+Mem_datain[27] => Mem_datain[27].IN1
+Mem_datain[28] => Mem_datain[28].IN1
+Mem_datain[29] => Mem_datain[29].IN1
+Mem_datain[30] => Mem_datain[30].IN1
+Mem_datain[31] => Mem_datain[31].IN1
 Inport_data_in[0] => Inport_data_in[0].IN1
 Inport_data_in[1] => Inport_data_in[1].IN1
 Inport_data_in[2] => Inport_data_in[2].IN1
@@ -186,425 +206,10 @@ opcode[1] => opcode[1].IN1
 opcode[2] => opcode[2].IN1
 opcode[3] => opcode[3].IN1
 opcode[4] => opcode[4].IN1
-reg1[0] <= R1_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-reg1[1] <= R1_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-reg1[2] <= R1_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-reg1[3] <= R1_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-reg1[4] <= R1_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-reg1[5] <= R1_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-reg1[6] <= R1_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-reg1[7] <= R1_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-reg1[8] <= R1_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-reg1[9] <= R1_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-reg1[10] <= R1_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-reg1[11] <= R1_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-reg1[12] <= R1_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-reg1[13] <= R1_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-reg1[14] <= R1_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-reg1[15] <= R1_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-reg1[16] <= R1_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-reg1[17] <= R1_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-reg1[18] <= R1_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-reg1[19] <= R1_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-reg1[20] <= R1_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-reg1[21] <= R1_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-reg1[22] <= R1_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-reg1[23] <= R1_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-reg1[24] <= R1_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-reg1[25] <= R1_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-reg1[26] <= R1_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-reg1[27] <= R1_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-reg1[28] <= R1_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-reg1[29] <= R1_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-reg1[30] <= R1_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-reg1[31] <= R1_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-reg2[0] <= R2_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-reg2[1] <= R2_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-reg2[2] <= R2_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-reg2[3] <= R2_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-reg2[4] <= R2_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-reg2[5] <= R2_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-reg2[6] <= R2_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-reg2[7] <= R2_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-reg2[8] <= R2_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-reg2[9] <= R2_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-reg2[10] <= R2_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-reg2[11] <= R2_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-reg2[12] <= R2_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-reg2[13] <= R2_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-reg2[14] <= R2_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-reg2[15] <= R2_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-reg2[16] <= R2_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-reg2[17] <= R2_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-reg2[18] <= R2_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-reg2[19] <= R2_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-reg2[20] <= R2_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-reg2[21] <= R2_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-reg2[22] <= R2_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-reg2[23] <= R2_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-reg2[24] <= R2_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-reg2[25] <= R2_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-reg2[26] <= R2_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-reg2[27] <= R2_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-reg2[28] <= R2_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-reg2[29] <= R2_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-reg2[30] <= R2_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-reg2[31] <= R2_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-reg3[0] <= R3_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-reg3[1] <= R3_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-reg3[2] <= R3_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-reg3[3] <= R3_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-reg3[4] <= R3_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-reg3[5] <= R3_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-reg3[6] <= R3_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-reg3[7] <= R3_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-reg3[8] <= R3_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-reg3[9] <= R3_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-reg3[10] <= R3_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-reg3[11] <= R3_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-reg3[12] <= R3_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-reg3[13] <= R3_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-reg3[14] <= R3_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-reg3[15] <= R3_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-reg3[16] <= R3_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-reg3[17] <= R3_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-reg3[18] <= R3_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-reg3[19] <= R3_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-reg3[20] <= R3_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-reg3[21] <= R3_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-reg3[22] <= R3_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-reg3[23] <= R3_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-reg3[24] <= R3_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-reg3[25] <= R3_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-reg3[26] <= R3_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-reg3[27] <= R3_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-reg3[28] <= R3_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-reg3[29] <= R3_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-reg3[30] <= R3_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-reg3[31] <= R3_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-reg4[0] <= R4_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-reg4[1] <= R4_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-reg4[2] <= R4_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-reg4[3] <= R4_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-reg4[4] <= R4_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-reg4[5] <= R4_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-reg4[6] <= R4_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-reg4[7] <= R4_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-reg4[8] <= R4_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-reg4[9] <= R4_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-reg4[10] <= R4_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-reg4[11] <= R4_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-reg4[12] <= R4_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-reg4[13] <= R4_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-reg4[14] <= R4_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-reg4[15] <= R4_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-reg4[16] <= R4_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-reg4[17] <= R4_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-reg4[18] <= R4_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-reg4[19] <= R4_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-reg4[20] <= R4_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-reg4[21] <= R4_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-reg4[22] <= R4_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-reg4[23] <= R4_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-reg4[24] <= R4_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-reg4[25] <= R4_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-reg4[26] <= R4_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-reg4[27] <= R4_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-reg4[28] <= R4_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-reg4[29] <= R4_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-reg4[30] <= R4_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-reg4[31] <= R4_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-reg5[0] <= R5_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-reg5[1] <= R5_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-reg5[2] <= R5_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-reg5[3] <= R5_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-reg5[4] <= R5_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-reg5[5] <= R5_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-reg5[6] <= R5_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-reg5[7] <= R5_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-reg5[8] <= R5_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-reg5[9] <= R5_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-reg5[10] <= R5_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-reg5[11] <= R5_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-reg5[12] <= R5_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-reg5[13] <= R5_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-reg5[14] <= R5_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-reg5[15] <= R5_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-reg5[16] <= R5_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-reg5[17] <= R5_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-reg5[18] <= R5_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-reg5[19] <= R5_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-reg5[20] <= R5_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-reg5[21] <= R5_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-reg5[22] <= R5_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-reg5[23] <= R5_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-reg5[24] <= R5_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-reg5[25] <= R5_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-reg5[26] <= R5_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-reg5[27] <= R5_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-reg5[28] <= R5_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-reg5[29] <= R5_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-reg5[30] <= R5_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-reg5[31] <= R5_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-reg6[0] <= R6_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-reg6[1] <= R6_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-reg6[2] <= R6_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-reg6[3] <= R6_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-reg6[4] <= R6_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-reg6[5] <= R6_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-reg6[6] <= R6_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-reg6[7] <= R6_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-reg6[8] <= R6_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-reg6[9] <= R6_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-reg6[10] <= R6_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-reg6[11] <= R6_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-reg6[12] <= R6_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-reg6[13] <= R6_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-reg6[14] <= R6_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-reg6[15] <= R6_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-reg6[16] <= R6_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-reg6[17] <= R6_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-reg6[18] <= R6_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-reg6[19] <= R6_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-reg6[20] <= R6_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-reg6[21] <= R6_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-reg6[22] <= R6_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-reg6[23] <= R6_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-reg6[24] <= R6_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-reg6[25] <= R6_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-reg6[26] <= R6_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-reg6[27] <= R6_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-reg6[28] <= R6_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-reg6[29] <= R6_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-reg6[30] <= R6_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-reg6[31] <= R6_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-reg7[0] <= R7_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-reg7[1] <= R7_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-reg7[2] <= R7_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-reg7[3] <= R7_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-reg7[4] <= R7_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-reg7[5] <= R7_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-reg7[6] <= R7_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-reg7[7] <= R7_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-reg7[8] <= R7_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-reg7[9] <= R7_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-reg7[10] <= R7_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-reg7[11] <= R7_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-reg7[12] <= R7_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-reg7[13] <= R7_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-reg7[14] <= R7_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-reg7[15] <= R7_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-reg7[16] <= R7_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-reg7[17] <= R7_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-reg7[18] <= R7_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-reg7[19] <= R7_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-reg7[20] <= R7_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-reg7[21] <= R7_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-reg7[22] <= R7_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-reg7[23] <= R7_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-reg7[24] <= R7_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-reg7[25] <= R7_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-reg7[26] <= R7_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-reg7[27] <= R7_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-reg7[28] <= R7_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-reg7[29] <= R7_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-reg7[30] <= R7_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-reg7[31] <= R7_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[0] <= MDR_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[1] <= MDR_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[2] <= MDR_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[3] <= MDR_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[4] <= MDR_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[5] <= MDR_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[6] <= MDR_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[7] <= MDR_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[8] <= MDR_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[9] <= MDR_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[10] <= MDR_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[11] <= MDR_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[12] <= MDR_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[13] <= MDR_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[14] <= MDR_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[15] <= MDR_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[16] <= MDR_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[17] <= MDR_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[18] <= MDR_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[19] <= MDR_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[20] <= MDR_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[21] <= MDR_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[22] <= MDR_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[23] <= MDR_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[24] <= MDR_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[25] <= MDR_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[26] <= MDR_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[27] <= MDR_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[28] <= MDR_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[29] <= MDR_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[30] <= MDR_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-regMDR[31] <= MDR_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[0] <= BusMuxOut[0].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[1] <= BusMuxOut[1].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[2] <= BusMuxOut[2].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[3] <= BusMuxOut[3].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[4] <= BusMuxOut[4].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[5] <= BusMuxOut[5].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[6] <= BusMuxOut[6].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[7] <= BusMuxOut[7].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[8] <= BusMuxOut[8].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[9] <= BusMuxOut[9].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[10] <= BusMuxOut[10].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[11] <= BusMuxOut[11].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[12] <= BusMuxOut[12].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[13] <= BusMuxOut[13].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[14] <= BusMuxOut[14].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[15] <= BusMuxOut[15].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[16] <= BusMuxOut[16].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[17] <= BusMuxOut[17].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[18] <= BusMuxOut[18].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[19] <= BusMuxOut[19].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[20] <= BusMuxOut[20].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[21] <= BusMuxOut[21].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[22] <= BusMuxOut[22].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[23] <= BusMuxOut[23].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[24] <= BusMuxOut[24].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[25] <= BusMuxOut[25].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[26] <= BusMuxOut[26].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[27] <= BusMuxOut[27].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[28] <= BusMuxOut[28].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[29] <= BusMuxOut[29].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[30] <= BusMuxOut[30].DB_MAX_OUTPUT_PORT_TYPE
-BusMuxOut_out[31] <= BusMuxOut[31].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[0] <= PC_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[1] <= PC_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[2] <= PC_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[3] <= PC_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[4] <= PC_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[5] <= PC_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[6] <= PC_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[7] <= PC_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[8] <= PC_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[9] <= PC_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[10] <= PC_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[11] <= PC_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[12] <= PC_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[13] <= PC_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[14] <= PC_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[15] <= PC_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[16] <= PC_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[17] <= PC_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[18] <= PC_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[19] <= PC_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[20] <= PC_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[21] <= PC_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[22] <= PC_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[23] <= PC_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[24] <= PC_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[25] <= PC_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[26] <= PC_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[27] <= PC_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[28] <= PC_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[29] <= PC_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[30] <= PC_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-PC_VALUE[31] <= PC_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[0] <= HI_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[1] <= HI_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[2] <= HI_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[3] <= HI_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[4] <= HI_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[5] <= HI_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[6] <= HI_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[7] <= HI_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[8] <= HI_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[9] <= HI_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[10] <= HI_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[11] <= HI_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[12] <= HI_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[13] <= HI_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[14] <= HI_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[15] <= HI_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[16] <= HI_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[17] <= HI_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[18] <= HI_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[19] <= HI_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[20] <= HI_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[21] <= HI_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[22] <= HI_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[23] <= HI_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[24] <= HI_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[25] <= HI_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[26] <= HI_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[27] <= HI_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[28] <= HI_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[29] <= HI_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[30] <= HI_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-HI_VALUE[31] <= HI_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[0] <= LO_BusMuxIn[0].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[1] <= LO_BusMuxIn[1].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[2] <= LO_BusMuxIn[2].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[3] <= LO_BusMuxIn[3].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[4] <= LO_BusMuxIn[4].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[5] <= LO_BusMuxIn[5].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[6] <= LO_BusMuxIn[6].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[7] <= LO_BusMuxIn[7].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[8] <= LO_BusMuxIn[8].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[9] <= LO_BusMuxIn[9].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[10] <= LO_BusMuxIn[10].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[11] <= LO_BusMuxIn[11].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[12] <= LO_BusMuxIn[12].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[13] <= LO_BusMuxIn[13].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[14] <= LO_BusMuxIn[14].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[15] <= LO_BusMuxIn[15].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[16] <= LO_BusMuxIn[16].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[17] <= LO_BusMuxIn[17].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[18] <= LO_BusMuxIn[18].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[19] <= LO_BusMuxIn[19].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[20] <= LO_BusMuxIn[20].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[21] <= LO_BusMuxIn[21].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[22] <= LO_BusMuxIn[22].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[23] <= LO_BusMuxIn[23].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[24] <= LO_BusMuxIn[24].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[25] <= LO_BusMuxIn[25].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[26] <= LO_BusMuxIn[26].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[27] <= LO_BusMuxIn[27].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[28] <= LO_BusMuxIn[28].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[29] <= LO_BusMuxIn[29].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[30] <= LO_BusMuxIn[30].DB_MAX_OUTPUT_PORT_TYPE
-LO_VALUE[31] <= LO_BusMuxIn[31].DB_MAX_OUTPUT_PORT_TYPE
-IR_VALUE[0] <= register:IR.port4
-IR_VALUE[1] <= register:IR.port4
-IR_VALUE[2] <= register:IR.port4
-IR_VALUE[3] <= register:IR.port4
-IR_VALUE[4] <= register:IR.port4
-IR_VALUE[5] <= register:IR.port4
-IR_VALUE[6] <= register:IR.port4
-IR_VALUE[7] <= register:IR.port4
-IR_VALUE[8] <= register:IR.port4
-IR_VALUE[9] <= register:IR.port4
-IR_VALUE[10] <= register:IR.port4
-IR_VALUE[11] <= register:IR.port4
-IR_VALUE[12] <= register:IR.port4
-IR_VALUE[13] <= register:IR.port4
-IR_VALUE[14] <= register:IR.port4
-IR_VALUE[15] <= register:IR.port4
-IR_VALUE[16] <= register:IR.port4
-IR_VALUE[17] <= register:IR.port4
-IR_VALUE[18] <= register:IR.port4
-IR_VALUE[19] <= register:IR.port4
-IR_VALUE[20] <= register:IR.port4
-IR_VALUE[21] <= register:IR.port4
-IR_VALUE[22] <= register:IR.port4
-IR_VALUE[23] <= register:IR.port4
-IR_VALUE[24] <= register:IR.port4
-IR_VALUE[25] <= register:IR.port4
-IR_VALUE[26] <= register:IR.port4
-IR_VALUE[27] <= register:IR.port4
-IR_VALUE[28] <= register:IR.port4
-IR_VALUE[29] <= register:IR.port4
-IR_VALUE[30] <= register:IR.port4
-IR_VALUE[31] <= register:IR.port4
+BAout => R0_BusMuxIn.IN1
 
 
-|DataPath|register:R0
+|System|DataPath:datapath|register:R0
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -767,7 +372,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R1
+|System|DataPath:datapath|register:R1
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -930,7 +535,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R2
+|System|DataPath:datapath|register:R2
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1093,7 +698,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R3
+|System|DataPath:datapath|register:R3
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1256,7 +861,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R4
+|System|DataPath:datapath|register:R4
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1419,7 +1024,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R5
+|System|DataPath:datapath|register:R5
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1582,7 +1187,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R6
+|System|DataPath:datapath|register:R6
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1745,7 +1350,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R7
+|System|DataPath:datapath|register:R7
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1908,7 +1513,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R8
+|System|DataPath:datapath|register:R8
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2071,7 +1676,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R9
+|System|DataPath:datapath|register:R9
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2234,7 +1839,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R10
+|System|DataPath:datapath|register:R10
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2397,7 +2002,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R11
+|System|DataPath:datapath|register:R11
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2560,7 +2165,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R12
+|System|DataPath:datapath|register:R12
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2723,7 +2328,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R13
+|System|DataPath:datapath|register:R13
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2886,7 +2491,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R14
+|System|DataPath:datapath|register:R14
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3049,7 +2654,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:R15
+|System|DataPath:datapath|register:R15
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3212,7 +2817,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:IR
+|System|DataPath:datapath|register:IR
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3375,7 +2980,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:PC
+|System|DataPath:datapath|register:PC
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3538,7 +3143,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:RY
+|System|DataPath:datapath|register:RY
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3701,7 +3306,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:RZ_HI
+|System|DataPath:datapath|register:RZ_HI
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3864,7 +3469,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:RZ_LO
+|System|DataPath:datapath|register:RZ_LO
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4027,7 +3632,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:MAR
+|System|DataPath:datapath|register:MAR
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4190,7 +3795,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|MDR2:MDR_reg
+|System|DataPath:datapath|MDR2:MDR_reg
 clear => clear.IN1
 clock => clock.IN1
 enable => enable.IN1
@@ -4324,7 +3929,7 @@ BusMuxIn[30] <= register:mdr_register.BusMuxIn
 BusMuxIn[31] <= register:mdr_register.BusMuxIn
 
 
-|DataPath|MDR2:MDR_reg|register:mdr_register
+|System|DataPath:datapath|MDR2:MDR_reg|register:mdr_register
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4487,7 +4092,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:HI
+|System|DataPath:datapath|register:HI
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4650,7 +4255,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:LO
+|System|DataPath:datapath|register:LO
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4813,7 +4418,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:Inport
+|System|DataPath:datapath|register:Inport
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4976,7 +4581,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|register:Outport
+|System|DataPath:datapath|register:Outport
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -5139,7 +4744,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|Bus_MUX:Bus
+|System|DataPath:datapath|Bus_MUX:Bus
 R0_BusMuxIn[0] => Mux31.IN8
 R0_BusMuxIn[1] => Mux30.IN8
 R0_BusMuxIn[2] => Mux29.IN8
@@ -5966,7 +5571,7 @@ R14out => R14out.IN1
 R15out => R15out.IN1
 
 
-|DataPath|Bus_MUX:Bus|Bus_Encoder:encoder_32_to_5
+|System|DataPath:datapath|Bus_MUX:Bus|Bus_Encoder:encoder_32_to_5
 HIout => always0.IN1
 HIout => always0.IN1
 LOout => always0.IN1
@@ -6021,7 +5626,7 @@ Encoder_signals_out[3] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 Encoder_signals_out[4] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu
+|System|DataPath:datapath|ALU:alu
 A[0] => A[0].IN12
 A[1] => A[1].IN12
 A[2] => A[2].IN12
@@ -6536,7 +6141,7 @@ IncPC => result.OUTPUTSELECT
 IncPC => result.OUTPUTSELECT
 
 
-|DataPath|ALU:alu|and_or:and_instance
+|System|DataPath:datapath|ALU:alu|and_or:and_instance
 A[0] => result.IN0
 A[0] => result.IN0
 A[1] => result.IN0
@@ -6763,7 +6368,7 @@ result[62] <= <GND>
 result[63] <= <GND>
 
 
-|DataPath|ALU:alu|and_or:or_instance
+|System|DataPath:datapath|ALU:alu|and_or:or_instance
 A[0] => result.IN0
 A[0] => result.IN0
 A[1] => result.IN0
@@ -6990,7 +6595,7 @@ result[62] <= <GND>
 result[63] <= <GND>
 
 
-|DataPath|ALU:alu|neg:neg_instance
+|System|DataPath:datapath|ALU:alu|neg:neg_instance
 B[0] => Add0.IN65
 B[1] => Add0.IN64
 B[2] => Add0.IN63
@@ -7089,7 +6694,7 @@ result[62] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 result[63] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|not_module:not_instance
+|System|DataPath:datapath|ALU:alu|not_module:not_instance
 B[0] => result[0].DATAIN
 B[1] => result[1].DATAIN
 B[2] => result[2].DATAIN
@@ -7188,7 +6793,7 @@ result[62] <= <GND>
 result[63] <= <GND>
 
 
-|DataPath|ALU:alu|rol:rol_instance
+|System|DataPath:datapath|ALU:alu|rol:rol_instance
 A[0] => ShiftLeft0.IN32
 A[0] => ShiftRight0.IN38
 A[1] => ShiftLeft0.IN31
@@ -7329,7 +6934,7 @@ result[62] <= <GND>
 result[63] <= <GND>
 
 
-|DataPath|ALU:alu|ror:ror_instance
+|System|DataPath:datapath|ALU:alu|ror:ror_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftLeft0.IN38
 A[1] => ShiftRight0.IN31
@@ -7470,7 +7075,7 @@ result[62] <= <GND>
 result[63] <= <GND>
 
 
-|DataPath|ALU:alu|shl:shl_instance
+|System|DataPath:datapath|ALU:alu|shl:shl_instance
 A[0] => ShiftLeft0.IN64
 A[1] => ShiftLeft0.IN63
 A[2] => ShiftLeft0.IN62
@@ -7574,7 +7179,7 @@ result[62] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
 result[63] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|shra:shra_instance
+|System|DataPath:datapath|ALU:alu|shra:shra_instance
 A[0] => ShiftRight0.IN32
 A[1] => ShiftRight0.IN31
 A[2] => ShiftRight0.IN30
@@ -7679,7 +7284,7 @@ result[62] <= <GND>
 result[63] <= <GND>
 
 
-|DataPath|ALU:alu|shr:shr_instance
+|System|DataPath:datapath|ALU:alu|shr:shr_instance
 A[0] => ShiftRight0.IN64
 A[1] => ShiftRight0.IN63
 A[2] => ShiftRight0.IN62
@@ -7783,7 +7388,7 @@ result[62] <= ShiftRight0.DB_MAX_OUTPUT_PORT_TYPE
 result[63] <= ShiftRight0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -7981,7 +7586,7 @@ S[62] <= S.DB_MAX_OUTPUT_PORT_TYPE
 S[63] <= S.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8082,7 +7687,7 @@ S[30] <= CLA_16bit_adder:bits16_31.port6
 S[31] <= CLA_16bit_adder:bits16_31.port6
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8137,7 +7742,7 @@ S[14] <= CLA_4bit_adder:bits12_15.port6
 S[15] <= CLA_4bit_adder:bits12_15.port6
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8156,7 +7761,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8167,7 +7772,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8178,7 +7783,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8189,7 +7794,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8200,7 +7805,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8219,7 +7824,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8230,7 +7835,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8241,7 +7846,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8252,7 +7857,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8263,7 +7868,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8282,7 +7887,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8293,7 +7898,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8304,7 +7909,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8315,7 +7920,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8326,7 +7931,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8345,7 +7950,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8356,7 +7961,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8367,7 +7972,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8378,7 +7983,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8389,7 +7994,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8444,7 +8049,7 @@ S[14] <= CLA_4bit_adder:bits12_15.port6
 S[15] <= CLA_4bit_adder:bits12_15.port6
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8463,7 +8068,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8474,7 +8079,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8485,7 +8090,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8496,7 +8101,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8507,7 +8112,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8526,7 +8131,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8537,7 +8142,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8548,7 +8153,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8559,7 +8164,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8570,7 +8175,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8589,7 +8194,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8600,7 +8205,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8611,7 +8216,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8622,7 +8227,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8633,7 +8238,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8652,7 +8257,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8663,7 +8268,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8674,7 +8279,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8685,7 +8290,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -8696,7 +8301,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8894,7 +8499,7 @@ S[62] <= S.DB_MAX_OUTPUT_PORT_TYPE
 S[63] <= S.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -8995,7 +8600,7 @@ S[30] <= CLA_16bit_adder:bits16_31.port6
 S[31] <= CLA_16bit_adder:bits16_31.port6
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9050,7 +8655,7 @@ S[14] <= CLA_4bit_adder:bits12_15.port6
 S[15] <= CLA_4bit_adder:bits12_15.port6
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9069,7 +8674,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9080,7 +8685,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9091,7 +8696,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9102,7 +8707,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9113,7 +8718,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9132,7 +8737,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9143,7 +8748,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9154,7 +8759,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9165,7 +8770,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9176,7 +8781,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9195,7 +8800,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9206,7 +8811,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9217,7 +8822,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9228,7 +8833,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9239,7 +8844,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9258,7 +8863,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9269,7 +8874,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9280,7 +8885,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9291,7 +8896,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9302,7 +8907,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9357,7 +8962,7 @@ S[14] <= CLA_4bit_adder:bits12_15.port6
 S[15] <= CLA_4bit_adder:bits12_15.port6
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9376,7 +8981,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9387,7 +8992,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9398,7 +9003,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9409,7 +9014,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9420,7 +9025,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9439,7 +9044,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9450,7 +9055,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9461,7 +9066,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9472,7 +9077,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9483,7 +9088,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9502,7 +9107,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9513,7 +9118,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9524,7 +9129,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9535,7 +9140,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9546,7 +9151,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9565,7 +9170,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9576,7 +9181,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9587,7 +9192,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9598,7 +9203,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:sub_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9609,7 +9214,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9807,7 +9412,7 @@ S[62] <= S.DB_MAX_OUTPUT_PORT_TYPE
 S[63] <= S.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9908,7 +9513,7 @@ S[30] <= CLA_16bit_adder:bits16_31.port6
 S[31] <= CLA_16bit_adder:bits16_31.port6
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9963,7 +9568,7 @@ S[14] <= CLA_4bit_adder:bits12_15.port6
 S[15] <= CLA_4bit_adder:bits12_15.port6
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -9982,7 +9587,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -9993,7 +9598,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10004,7 +9609,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10015,7 +9620,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10026,7 +9631,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -10045,7 +9650,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10056,7 +9661,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10067,7 +9672,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10078,7 +9683,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10089,7 +9694,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -10108,7 +9713,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10119,7 +9724,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10130,7 +9735,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10141,7 +9746,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10152,7 +9757,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -10171,7 +9776,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10182,7 +9787,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10193,7 +9798,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10204,7 +9809,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10215,7 +9820,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -10270,7 +9875,7 @@ S[14] <= CLA_4bit_adder:bits12_15.port6
 S[15] <= CLA_4bit_adder:bits12_15.port6
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -10289,7 +9894,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10300,7 +9905,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10311,7 +9916,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10322,7 +9927,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits0_3|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10333,7 +9938,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -10352,7 +9957,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10363,7 +9968,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10374,7 +9979,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10385,7 +9990,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits4_7|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10396,7 +10001,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -10415,7 +10020,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10426,7 +10031,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10437,7 +10042,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10448,7 +10053,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits8_11|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10459,7 +10064,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -10478,7 +10083,7 @@ S[2] <= CLA_b_cell:bit2.port5
 S[3] <= CLA_b_cell:bit3.port5
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit0
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10489,7 +10094,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit1
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10500,7 +10105,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit2
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10511,7 +10116,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
+|System|DataPath:datapath|ALU:alu|add_sub:add_unsigned_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits16_31|CLA_4bit_adder:bits12_15|CLA_b_cell:bit3
 A => G.IN0
 A => P.IN0
 B => G.IN1
@@ -10522,7 +10127,7 @@ P <= P.DB_MAX_OUTPUT_PORT_TYPE
 sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|booth_mul_combinational:mul_instance
+|System|DataPath:datapath|ALU:alu|booth_mul_combinational:mul_instance
 multiplicand[0] => Selector62.IN4
 multiplicand[0] => Selector124.IN4
 multiplicand[0] => Selector185.IN4
@@ -12329,7 +11934,7 @@ product[62] <= Add31.DB_MAX_OUTPUT_PORT_TYPE
 product[63] <= Add31.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|DataPath|ALU:alu|div_combinational:division_instance
+|System|DataPath:datapath|ALU:alu|div_combinational:division_instance
 dividend[0] => abs_dividend.DATAA
 dividend[0] => Equal1.IN31
 dividend[0] => Add0.IN33
@@ -12650,5 +12255,304 @@ result[60] <= result.DB_MAX_OUTPUT_PORT_TYPE
 result[61] <= result.DB_MAX_OUTPUT_PORT_TYPE
 result[62] <= result.DB_MAX_OUTPUT_PORT_TYPE
 result[63] <= result.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|System|RAM512x32:memory512x32
+clk => FullMemorySpace.we_a.CLK
+clk => FullMemorySpace.waddr_a[8].CLK
+clk => FullMemorySpace.waddr_a[7].CLK
+clk => FullMemorySpace.waddr_a[6].CLK
+clk => FullMemorySpace.waddr_a[5].CLK
+clk => FullMemorySpace.waddr_a[4].CLK
+clk => FullMemorySpace.waddr_a[3].CLK
+clk => FullMemorySpace.waddr_a[2].CLK
+clk => FullMemorySpace.waddr_a[1].CLK
+clk => FullMemorySpace.waddr_a[0].CLK
+clk => FullMemorySpace.data_a[31].CLK
+clk => FullMemorySpace.data_a[30].CLK
+clk => FullMemorySpace.data_a[29].CLK
+clk => FullMemorySpace.data_a[28].CLK
+clk => FullMemorySpace.data_a[27].CLK
+clk => FullMemorySpace.data_a[26].CLK
+clk => FullMemorySpace.data_a[25].CLK
+clk => FullMemorySpace.data_a[24].CLK
+clk => FullMemorySpace.data_a[23].CLK
+clk => FullMemorySpace.data_a[22].CLK
+clk => FullMemorySpace.data_a[21].CLK
+clk => FullMemorySpace.data_a[20].CLK
+clk => FullMemorySpace.data_a[19].CLK
+clk => FullMemorySpace.data_a[18].CLK
+clk => FullMemorySpace.data_a[17].CLK
+clk => FullMemorySpace.data_a[16].CLK
+clk => FullMemorySpace.data_a[15].CLK
+clk => FullMemorySpace.data_a[14].CLK
+clk => FullMemorySpace.data_a[13].CLK
+clk => FullMemorySpace.data_a[12].CLK
+clk => FullMemorySpace.data_a[11].CLK
+clk => FullMemorySpace.data_a[10].CLK
+clk => FullMemorySpace.data_a[9].CLK
+clk => FullMemorySpace.data_a[8].CLK
+clk => FullMemorySpace.data_a[7].CLK
+clk => FullMemorySpace.data_a[6].CLK
+clk => FullMemorySpace.data_a[5].CLK
+clk => FullMemorySpace.data_a[4].CLK
+clk => FullMemorySpace.data_a[3].CLK
+clk => FullMemorySpace.data_a[2].CLK
+clk => FullMemorySpace.data_a[1].CLK
+clk => FullMemorySpace.data_a[0].CLK
+clk => data_out[0]~reg0.CLK
+clk => data_out[1]~reg0.CLK
+clk => data_out[2]~reg0.CLK
+clk => data_out[3]~reg0.CLK
+clk => data_out[4]~reg0.CLK
+clk => data_out[5]~reg0.CLK
+clk => data_out[6]~reg0.CLK
+clk => data_out[7]~reg0.CLK
+clk => data_out[8]~reg0.CLK
+clk => data_out[9]~reg0.CLK
+clk => data_out[10]~reg0.CLK
+clk => data_out[11]~reg0.CLK
+clk => data_out[12]~reg0.CLK
+clk => data_out[13]~reg0.CLK
+clk => data_out[14]~reg0.CLK
+clk => data_out[15]~reg0.CLK
+clk => data_out[16]~reg0.CLK
+clk => data_out[17]~reg0.CLK
+clk => data_out[18]~reg0.CLK
+clk => data_out[19]~reg0.CLK
+clk => data_out[20]~reg0.CLK
+clk => data_out[21]~reg0.CLK
+clk => data_out[22]~reg0.CLK
+clk => data_out[23]~reg0.CLK
+clk => data_out[24]~reg0.CLK
+clk => data_out[25]~reg0.CLK
+clk => data_out[26]~reg0.CLK
+clk => data_out[27]~reg0.CLK
+clk => data_out[28]~reg0.CLK
+clk => data_out[29]~reg0.CLK
+clk => data_out[30]~reg0.CLK
+clk => data_out[31]~reg0.CLK
+clk => FullMemorySpace.CLK0
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+read => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => data_out.OUTPUTSELECT
+write => FullMemorySpace.DATAB
+enable => FullMemorySpace.OUTPUTSELECT
+enable => data_out[0]~reg0.ENA
+enable => data_out[1]~reg0.ENA
+enable => data_out[2]~reg0.ENA
+enable => data_out[3]~reg0.ENA
+enable => data_out[4]~reg0.ENA
+enable => data_out[5]~reg0.ENA
+enable => data_out[6]~reg0.ENA
+enable => data_out[7]~reg0.ENA
+enable => data_out[8]~reg0.ENA
+enable => data_out[9]~reg0.ENA
+enable => data_out[10]~reg0.ENA
+enable => data_out[11]~reg0.ENA
+enable => data_out[12]~reg0.ENA
+enable => data_out[13]~reg0.ENA
+enable => data_out[14]~reg0.ENA
+enable => data_out[15]~reg0.ENA
+enable => data_out[16]~reg0.ENA
+enable => data_out[17]~reg0.ENA
+enable => data_out[18]~reg0.ENA
+enable => data_out[19]~reg0.ENA
+enable => data_out[20]~reg0.ENA
+enable => data_out[21]~reg0.ENA
+enable => data_out[22]~reg0.ENA
+enable => data_out[23]~reg0.ENA
+enable => data_out[24]~reg0.ENA
+enable => data_out[25]~reg0.ENA
+enable => data_out[26]~reg0.ENA
+enable => data_out[27]~reg0.ENA
+enable => data_out[28]~reg0.ENA
+enable => data_out[29]~reg0.ENA
+enable => data_out[30]~reg0.ENA
+enable => data_out[31]~reg0.ENA
+address[0] => FullMemorySpace.waddr_a[0].DATAIN
+address[0] => FullMemorySpace.WADDR
+address[0] => FullMemorySpace.RADDR
+address[1] => FullMemorySpace.waddr_a[1].DATAIN
+address[1] => FullMemorySpace.WADDR1
+address[1] => FullMemorySpace.RADDR1
+address[2] => FullMemorySpace.waddr_a[2].DATAIN
+address[2] => FullMemorySpace.WADDR2
+address[2] => FullMemorySpace.RADDR2
+address[3] => FullMemorySpace.waddr_a[3].DATAIN
+address[3] => FullMemorySpace.WADDR3
+address[3] => FullMemorySpace.RADDR3
+address[4] => FullMemorySpace.waddr_a[4].DATAIN
+address[4] => FullMemorySpace.WADDR4
+address[4] => FullMemorySpace.RADDR4
+address[5] => FullMemorySpace.waddr_a[5].DATAIN
+address[5] => FullMemorySpace.WADDR5
+address[5] => FullMemorySpace.RADDR5
+address[6] => FullMemorySpace.waddr_a[6].DATAIN
+address[6] => FullMemorySpace.WADDR6
+address[6] => FullMemorySpace.RADDR6
+address[7] => FullMemorySpace.waddr_a[7].DATAIN
+address[7] => FullMemorySpace.WADDR7
+address[7] => FullMemorySpace.RADDR7
+address[8] => FullMemorySpace.waddr_a[8].DATAIN
+address[8] => FullMemorySpace.WADDR8
+address[8] => FullMemorySpace.RADDR8
+data_in[0] => FullMemorySpace.data_a[0].DATAIN
+data_in[0] => FullMemorySpace.DATAIN
+data_in[1] => FullMemorySpace.data_a[1].DATAIN
+data_in[1] => FullMemorySpace.DATAIN1
+data_in[2] => FullMemorySpace.data_a[2].DATAIN
+data_in[2] => FullMemorySpace.DATAIN2
+data_in[3] => FullMemorySpace.data_a[3].DATAIN
+data_in[3] => FullMemorySpace.DATAIN3
+data_in[4] => FullMemorySpace.data_a[4].DATAIN
+data_in[4] => FullMemorySpace.DATAIN4
+data_in[5] => FullMemorySpace.data_a[5].DATAIN
+data_in[5] => FullMemorySpace.DATAIN5
+data_in[6] => FullMemorySpace.data_a[6].DATAIN
+data_in[6] => FullMemorySpace.DATAIN6
+data_in[7] => FullMemorySpace.data_a[7].DATAIN
+data_in[7] => FullMemorySpace.DATAIN7
+data_in[8] => FullMemorySpace.data_a[8].DATAIN
+data_in[8] => FullMemorySpace.DATAIN8
+data_in[9] => FullMemorySpace.data_a[9].DATAIN
+data_in[9] => FullMemorySpace.DATAIN9
+data_in[10] => FullMemorySpace.data_a[10].DATAIN
+data_in[10] => FullMemorySpace.DATAIN10
+data_in[11] => FullMemorySpace.data_a[11].DATAIN
+data_in[11] => FullMemorySpace.DATAIN11
+data_in[12] => FullMemorySpace.data_a[12].DATAIN
+data_in[12] => FullMemorySpace.DATAIN12
+data_in[13] => FullMemorySpace.data_a[13].DATAIN
+data_in[13] => FullMemorySpace.DATAIN13
+data_in[14] => FullMemorySpace.data_a[14].DATAIN
+data_in[14] => FullMemorySpace.DATAIN14
+data_in[15] => FullMemorySpace.data_a[15].DATAIN
+data_in[15] => FullMemorySpace.DATAIN15
+data_in[16] => FullMemorySpace.data_a[16].DATAIN
+data_in[16] => FullMemorySpace.DATAIN16
+data_in[17] => FullMemorySpace.data_a[17].DATAIN
+data_in[17] => FullMemorySpace.DATAIN17
+data_in[18] => FullMemorySpace.data_a[18].DATAIN
+data_in[18] => FullMemorySpace.DATAIN18
+data_in[19] => FullMemorySpace.data_a[19].DATAIN
+data_in[19] => FullMemorySpace.DATAIN19
+data_in[20] => FullMemorySpace.data_a[20].DATAIN
+data_in[20] => FullMemorySpace.DATAIN20
+data_in[21] => FullMemorySpace.data_a[21].DATAIN
+data_in[21] => FullMemorySpace.DATAIN21
+data_in[22] => FullMemorySpace.data_a[22].DATAIN
+data_in[22] => FullMemorySpace.DATAIN22
+data_in[23] => FullMemorySpace.data_a[23].DATAIN
+data_in[23] => FullMemorySpace.DATAIN23
+data_in[24] => FullMemorySpace.data_a[24].DATAIN
+data_in[24] => FullMemorySpace.DATAIN24
+data_in[25] => FullMemorySpace.data_a[25].DATAIN
+data_in[25] => FullMemorySpace.DATAIN25
+data_in[26] => FullMemorySpace.data_a[26].DATAIN
+data_in[26] => FullMemorySpace.DATAIN26
+data_in[27] => FullMemorySpace.data_a[27].DATAIN
+data_in[27] => FullMemorySpace.DATAIN27
+data_in[28] => FullMemorySpace.data_a[28].DATAIN
+data_in[28] => FullMemorySpace.DATAIN28
+data_in[29] => FullMemorySpace.data_a[29].DATAIN
+data_in[29] => FullMemorySpace.DATAIN29
+data_in[30] => FullMemorySpace.data_a[30].DATAIN
+data_in[30] => FullMemorySpace.DATAIN30
+data_in[31] => FullMemorySpace.data_a[31].DATAIN
+data_in[31] => FullMemorySpace.DATAIN31
+data_out[0] <= data_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= data_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= data_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= data_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= data_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= data_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= data_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= data_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[8] <= data_out[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[9] <= data_out[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[10] <= data_out[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[11] <= data_out[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[12] <= data_out[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[13] <= data_out[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[14] <= data_out[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[15] <= data_out[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[16] <= data_out[16]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[17] <= data_out[17]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[18] <= data_out[18]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[19] <= data_out[19]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[20] <= data_out[20]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[21] <= data_out[21]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[22] <= data_out[22]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[23] <= data_out[23]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[24] <= data_out[24]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[25] <= data_out[25]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[26] <= data_out[26]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[27] <= data_out[27]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[28] <= data_out[28]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[29] <= data_out[29]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[30] <= data_out[30]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[31] <= data_out[31]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC7C7F23C8
-set_global_assignment -name TOP_LEVEL_ENTITY DataPath
+set_global_assignment -name TOP_LEVEL_ENTITY System
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:47:08  FEBRUARY 29, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Standard Edition"
@@ -46,10 +46,15 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE System.v
+set_global_assignment -name VERILOG_FILE Memory/RAM512x32.v
 set_global_assignment -name VERILOG_FILE Control_unit_partition/Control.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/DataPath.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Multiply/booth_2_pair.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Division/div_combinational.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Logical_Operations/shra.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Logical_Operations/shr.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Logical_Operations/shla.v
@@ -59,19 +64,18 @@ set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Logical_Op
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Logical_Operations/not_module.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Logical_Operations/neg.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Logical_Operations/and_or.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Division/div_combinational.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Multiply/booth_2_pair.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/ALU.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/Bus_files/Bus_MUX.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/Bus_files/Bus_Encoder.v
-set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/ALU.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/Registers/register.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/Registers/MDR2.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/Registers/MDR.v
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE DataPath_partition/Select_and_Encode_IR.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/decoder4to16.v
+set_global_assignment -name VERILOG_FILE DataPath_partition/DataPath.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
