@@ -3,7 +3,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 	/*ENABLE REGISTER signals*/
-	input wire 	IRin, PCin, RYin, RZin, MARin, MDRin, HIin, LOin, Outport_in, Inport_in, 
+	input wire 	IRin, PCin, RYin, RZin, MARin, MDRin, HIin, LOin, Outport_in, strobe, 
 	/*~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
@@ -21,8 +21,8 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 	input 	wire [31:0] Mem_datain, /*Mdatain*/
 
 	/*I/O Interfacing*/
-	input wire [31:0] Inport_data_in,
-	output wire [31:0] Outport_data_out,
+	input wire [31:0] External_In,
+	output wire [31:0] External_Out,
 
 
 	/*Control Unit*/
@@ -113,8 +113,11 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 	//I/O registers
-		register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusMuxIn);
-		register Outport(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
+		//register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusMuxIn);
+		//register Outport(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
+
+		Input_reg Inport(clear, clock, strobe, External_In, BusMuxIn);
+		Output_reg Outport(clear, clock, Outport_in, BusMuxOut, External_Out);
 
 //Bus~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
