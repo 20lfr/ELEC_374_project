@@ -49,7 +49,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 				R12_BusMuxIn, R13_BusMuxIn, R14_BusMuxIn, R15_BusMuxIn,	
 
 				IR_BusMuxIn, HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
-				PC_BusMuxIn, MDR_BusMuxIn, Inport_BusIn, C_sign_extended, R0_out;
+				PC_BusMuxIn, MDR_BusMuxIn, Inport_BusMuxIn, C_sign_extended, R0_out;
 
 /*Control Internal Connections*/
 	/*Bus Encoder Select Signals*/
@@ -113,7 +113,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 	//I/O registers
-		register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusIn);
+		register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusMuxIn);
 		register Outport(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
 
 //Bus~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,7 +123,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 			R12_BusMuxIn, R13_BusMuxIn, R14_BusMuxIn, R15_BusMuxIn,	
 
 			HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
-			PC_BusMuxIn, MDR_BusMuxIn, Inport_BusIn, C_sign_extended,
+			PC_BusMuxIn, MDR_BusMuxIn, Inport_BusMuxIn, C_sign_extended,
 			
 			BusMuxOut, 
 			
