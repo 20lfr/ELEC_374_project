@@ -3,27 +3,13 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 	/*ENABLE REGISTER signals*/
-	input wire 	R0in, R1in, R2in, R3in, 
-				R4in, R5in, R6in, R7in, 
-				R8in, R9in, R10in, R11in, 
-				R12in, R13in, R14in, R15in,
-
 	input wire 	IRin, PCin, RYin, RZin, MARin, MDRin, HIin, LOin, Outport_in, Inport_in, 
-
-	input wire IncPC,
 	/*~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
 
 	/*BUS Signals~~~~~~~~~~~~~~~~~~~~~~~*/
-	// The below is the bit layout for each bit in the "Bus_Encoder_signals"
-	/*
-	General Purpose registers: bites 0 -> 15
-	HIout (16), LOout (17), Zhi_out (18), Zlo_out (19), PCout (20), MDRout (21), Inport_out (22), Cout (23)
-	*/
-
-	input wire HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout, 
-	 			R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out,
+	input wire 	HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout, 
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
@@ -41,7 +27,11 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 	/*Control Unit*/
 	input wire [4:0] opcode,
-	input wire BAout
+	input wire 	IncPC,
+
+	input wire Gra, Grb, Grc, Rin, Rout, BAout,
+
+	output wire con_ff_bit /*Branch boolean for Phase 2.4*/
 );
 
 
@@ -51,28 +41,29 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 /*Internal Connections*/
-wire [31:0] BusMuxOut; /*Why is the a wire you ask and not an "input wire"? Becuase the bus outputs this wire and is an input for registers
-						connected to the bus. BusMuxOut is not an input from any externel source, meaning it cannot be an input for the DataPath*/
+	wire [31:0] BusMuxOut; 
 
+	wire [31:0] R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
+				R4_BusMuxIn, R5_BusMuxIn, R6_BusMuxIn, R7_BusMuxIn, 
+				R8_BusMuxIn, R9_BusMuxIn, R10_BusMuxIn, R11_BusMuxIn, 
+				R12_BusMuxIn, R13_BusMuxIn, R14_BusMuxIn, R15_BusMuxIn,	
 
-wire [31:0] R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
-			R4_BusMuxIn, R5_BusMuxIn, R6_BusMuxIn, R7_BusMuxIn, 
-			R8_BusMuxIn, R9_BusMuxIn, R10_BusMuxIn, R11_BusMuxIn, 
-			R12_BusMuxIn, R13_BusMuxIn, R14_BusMuxIn, R15_BusMuxIn,	
+				IR_BusMuxIn, HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
+				PC_BusMuxIn, MDR_BusMuxIn, Inport_BusIn, C_sign_extended, R0_out;
 
-			IR_BusMuxIn, HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
-			PC_BusMuxIn, MDR_BusMuxIn, Inport_BusIn, C_sign_extended, R0_out;
+/*Control Internal Connections*/
+	/*Bus Encoder Select Signals*/
+	wire 	R0out, R1out, R2out, R3out, 
+			R4out, R5out, R6out, R7out, 
+			R8out, R9out, R10out, R11out, 
+			R12out, R13out, R14out, R15out;
 
+	/*General Purpose Register Enable*/
+	wire 	R0in, R1in, R2in, R3in, 
+			R4in, R5in, R6in, R7in, 
+			R8in, R9in, R10in, R11in, 
+			R12in, R13in, R14in, R15in,
 
-/*SIGN EXTEND constant C from IR*/
-assign C_sign_extended = {{12{IR_BusMuxIn[18]}}, IR_BusMuxIn[18:0]}; //12{IR_BusMuxIn[18]} is notation for "create 12 bits repeating of {a}. Phase 2: 2.2"
-
-/*ALU connections*/
-	wire [(DATA_WIDTH*2)-1:0] ALU_result;
-	wire [31:0] ALU_HI, ALU_LO;
-	assign ALU_HI = ALU_result[(DATA_WIDTH*2)-1:DATA_WIDTH];
-	assign ALU_LO = ALU_result[DATA_WIDTH-1:0];
-	wire [DATA_WIDTH-1:0] RY_to_ALU;
 
 
 
@@ -124,11 +115,9 @@ assign C_sign_extended = {{12{IR_BusMuxIn[18]}}, IR_BusMuxIn[18:0]}; //12{IR_Bus
 	//I/O registers
 		register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusIn);
 		register Outport(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-//Bus
-Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
+//Bus~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
 			R4_BusMuxIn, R5_BusMuxIn, R6_BusMuxIn, R7_BusMuxIn, 
 			R8_BusMuxIn, R9_BusMuxIn, R10_BusMuxIn, R11_BusMuxIn, 
 			R12_BusMuxIn, R13_BusMuxIn, R14_BusMuxIn, R15_BusMuxIn,	
@@ -142,9 +131,34 @@ Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn,
 	 		R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out
 			);
 
+//ALU~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	/*ALU connections~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	wire [(DATA_WIDTH*2)-1:0] ALU_result;
+	wire [31:0] ALU_HI, ALU_LO;
+	assign ALU_HI = ALU_result[(DATA_WIDTH*2)-1:DATA_WIDTH];
+	assign ALU_LO = ALU_result[DATA_WIDTH-1:0];
+	wire [DATA_WIDTH-1:0] RY_to_ALU;
 
-// adder
-ALU alu(.A(RY_to_ALU), .B(BusMuxOut), .op(opcode), .result(ALU_result), .IncPC(IncPC));
+	ALU alu(.A(RY_to_ALU), .B(BusMuxOut), .op(opcode), .result(ALU_result), .IncPC(IncPC));
+
+/*Phase 2 and Control Signal*/
+
+	/*2.2: Sign Extend Constant within IR*/
+		assign C_sign_extended = {{12{IR_BusMuxIn[18]}}, IR_BusMuxIn[18:0]}; //12{IR_BusMuxIn[18]} is notation for "create 12 bits repeating of {a}. Phase 2: 2.2"
+
+	/*2.2: Select_and_Encoder*/
+		Select_and_Decode_IR IR_register_decoder(
+			.IR_data(IR_BusMuxIn), /*may need to be changed*/
+			.Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
+			.R0out(R0out), .R1out(R1out), .R2out(R2out), .R3out(R3out), .R4out(R4out), .R5out(R5out), .R6out(R6out), .R7out(R7out), .R8out(R8out), .R9out(R9out), R10out(R10out), .R11out(R11out), .R12out(R12out), .R13out(R13out), .R14out(R14out), .R15out(R15out),
+			.R0in(R0in), .R1in(R1in),. R2in(R2in), .R3in(R3in), .R4in(R4in), .R5in(R5in), .R6in(R6in), .R7in(R7in), .R8in(R8in), .R9in(R9in), .R10in(R10in), .R11in(R11in), .R12in(R12in), .R13in(R13in), .R14in(R14in), .R15in(R15in)
+		); 
+	/*2.4: CON_FF*/
+		CON_FF con_ff(
+			.IR(IR_BusMuxIn), .BusMuxOut(BusMuxOut), 
+			.toControl(con_ff_bit)
+		);
+
 
 
 endmodule

@@ -11,28 +11,30 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
 
     /*Control unit signals*/
 
-        /*bus encoder signals*/
-        wire    HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, 
-                Cout, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, 
-                R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out; 
+        /*Bus Encoder Signals*/
+        wire    HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout;
         
-        wire    IncPC, Mem_Read, Mem_Write, Mem_enable512x32;
-
-        /*register enable signals*/
-        wire    R0in, R1in, R2in, R3in, 
-                R4in, R5in, R6in, R7in, 
-                R8in, R9in, R10in, R11in, 
-                R12in, R13in, R14in, R15in;
+        /*Register Enable Signals*/
         wire    MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin;
         wire    outport_in, inport_in;
 
         /*ALU control*/
-        wire [4:0] opcode; 
+        wire    [4:0] opcode; 
+        wire    IncPC;
+
+        /*Decoding Control*/
+        wire    Gra, Grb, Grc, Rin, Rout, BAout; /*Datapath Inputs*/
+        wire    con_ff_bit; /*Datapath Outputs*/
+
+        /*Memory Control*/
+        wire    Mem_Read, Mem_Write, Mem_enable512x32;
+
     
 
     /*Memory unit signals*/
-        wire [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
-        wire [ADDR_WIDTH-1:0] MAR_address; 
+        wire    [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
+        wire    [ADDR_WIDTH-1:0] MAR_address; 
+        
 
 
     Control control(
@@ -46,11 +48,6 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         .clock(Clock), .clear(clear),
 
         /*Register enable signals*/
-        .R0in(R0in), .R4in(R4in), .R5in(R5in), .R6in(R6in), 
-        .R7in(R7in), .R8in(R8in), .R9in(R9in), .R10in(R10in), 
-        .R11in(R11in), .R12in(R12in), .R13in(R13in), .R14in(R14in), 
-        .R15in(R15in),
-        .R1in(R1in), .R2in(R2in), .R3in(R3in), 
         .IRin(IRin), .PCin(PCin), .RYin(Yin), .RZin(Zin), .MARin(MARin), 
         .MDRin(MDRin), .HIin(HIin), .LOin(LOin), .Outport_in(outport_in), .Inport_in(inport_in),
 
@@ -58,20 +55,18 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Bus encoder signals*/
         .HIout(HIout), .LOout(LOout), .Zhi_out(Zhi_out), .Zlo_out(Zlo_out), 
         .PCout(PCout), .MDRout(MDRout), .Inport_out(Inport_out), .Cout(Cout),
-        .R0out(R0out),.R1out(R1out),.R2out(R2out),.R3out(R3out),.R4out(R4out),
-        .R5out(R5out),.R6out(R6out),.R7out(R7out),.R8out(R8out),.R9out(R9out),
-        .R10out(R10out),.R11out(R11out),.R12out(R12out),.R13out(R13out),
-        .R14out(R14out),.R15out(R15out),
+        
 
-
-        /*Memory usage*/
+        /*Memory Signals*/
         .MAR_to_chip(MAR_address), .Mem_read(Mem_Read), .Mem_datain(Mem_to_datapath), .Mem_dataout(Mem_data_to_chip),
 
-        /*In and Out porting*/
+        /*I/O Interfacing*/
         .Inport_data_in(inport_data), .Outport_data_out(outport_data),
 
-        /*ALU control signal*/
+        /*Control Signals*/
         .opcode(opcode), .IncPC(IncPC)
+        .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
+        .con_ff_bit(con_ff_bit)
         
     );
 
