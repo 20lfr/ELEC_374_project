@@ -122,8 +122,8 @@ assign C_sign_extended = {{12{IR_BusMuxIn[18]}}, IR_BusMuxIn[18:0]}; //12{IR_Bus
 
 
 	//I/O registers
-		register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusIn);
-		register Outport(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
+		input Inport(clear, clock, strobe, External_In, BusMuxIn);
+		output Outport(clear, clock, Outport_in, BusMuxOut, External_Out);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
