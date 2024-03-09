@@ -29,16 +29,19 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
             output wire   con_ff_bit, /*Datapath Outputs*/
 
             /*Memory Control*/
-            input wire    Mem_Read, Mem_Write, Mem_enable512x32,
+            input wire    Mem_Read, Mem_Write, Mem_enable512x32, 
+
+            input wire      Mem_init_overide, 
+            input wire [DATA_WIDTH-1:0] Mem_overide_data,  
+            input wire [ADDR_WIDTH-1:0] Mem_overide_addr,   
         
         /*Memory Test Signals*/
-            output wire[DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip, MAR_address
+            output wire [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip, 
+            output wire [ADDR_WIDTH-1:0] MAR_address,
 
-
-
-
-
-
+            input wire mem_overide, 
+            input wire [(ADDR_WIDTH-1):0] overide_address,
+            input wire [(DATA_WIDTH-1):0] overide_data_in
 );
 
 
@@ -80,7 +83,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Control Signals*/
         .opcode(opcode), .IncPC(IncPC)
         .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
-        .con_ff_bit(con_ff_bit)
+        .con_ff_bit(con_ff_bit),
 
 
 
@@ -96,7 +99,11 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         .clk(Clock),
         .read(Mem_Read), .write(Mem_Write), .enable(Mem_enable512x32),
         .address(MAR_address),
-        .data_in(Mem_data_to_chip), .data_out(Mem_to_datapath)
+        .data_in(Mem_data_to_chip), .data_out(Mem_to_datapath), 
+
+        .overide(mem_overide), 
+        .overide_address(overide_address), 
+        .overide_data_in(overide_data_in)
     );
 
 

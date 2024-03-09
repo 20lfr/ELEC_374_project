@@ -19,6 +19,8 @@ module SystemTestBench;
     reg Gra, Grb, Grc, Rin, Rout, BAout;
     reg Mem_Read, Mem_Write, Mem_enable512x32;
 
+    reg mem_overide; reg [ADDR_WIDTH-1:0] overide_address; reg [DATA_WIDTH-1:0] overide_data_in;
+
 
     /*Outputs*/
     wire outport_data;
@@ -41,7 +43,9 @@ module SystemTestBench;
         .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
         .con_ff_bit(con_ff_bit),
         .Mem_Read(Mem_Read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
-        .Mem_to_datapath(Mem_to_datapath), .Mem_data_to_chip(Mem_data_to_chip), .MAR_address(MAR_address)
+        .Mem_to_datapath(Mem_to_datapath), .Mem_data_to_chip(Mem_data_to_chip), .MAR_address(MAR_address), 
+
+        .mem_overide(mem_overide), .overide_address(overide_address), .overide_data_in(overide_data_in)
     );
 
 
@@ -51,8 +55,8 @@ module SystemTestBench;
               Mem_load_a = 6'd7, Mem_load_b = 6'd8, 
               
             
-              ADD_T0 = 6'd19, ADD_T1 = 6'd20, ADD_T2 = 6'd21, ADD_T3 = 6'd22, ADD_T4 = 6'd23, ADD_T5 = 6'd24,
-              SUB_T0 = 6'd25, SUB_T1 = 6'd26, SUB_T2 = 6'd27, SUB_T3 = 6'd28, SUB_T4 = 6'd29, SUB_T5 = 6'd30;
+              ADDi_T0 = 6'd19, ADDi_T1 = 6'd20, ADDi_T2 = 6'd21, ADDi_T3 = 6'd22, ADDi_T4 = 6'd23, ADDi_T5 = 6'd24,
+              SUBi_T0 = 6'd25, SUBi_T1 = 6'd26, SUBi_T2 = 6'd27, SUBi_T3 = 6'd28, SUBi_T4 = 6'd29, SUBi_T5 = 6'd30;
     reg [5:0] Present_state = Default;
 
 
@@ -108,97 +112,83 @@ module SystemTestBench;
 
 
         /*INIT inport and outport*/
-        inport_data <=32'd0; outport_in <=0; inport_data_ready <=0; 
+        inport_data <=32'd0; outport_in <=0; inport_data_ready <=0;    
 
-
-
-
-        
-
-        
-        
-        Mdatain <= 32'h00000000; 
-
+        mem_overide <=0; overide_address <= 9'd0; overide_data_in <= 32'd0;
 
 
       end
 
 
       /*INIT STATES: These states are for initializing the desired instruction. #TODO: add states accordingly*/
+      
+
+      Mem_load_instruction1 : begin
+        overide_address <= 9'd0; //Load Desired Memory Address
+        overide_data_in <= 32'h00000010;
+        mem_overide <= 1;
+      end
+      Mem_load_instruction2 : begin
+        overide_address <= 9'd1; //Load Desired Memory Address
+        overide_data_in <= 32'h00000014;
+        mem_overide <= 1; 
+
+        #20 mem_overide <= 0;    
+      end 
+      Mem_load_data1 begin :
+        overide_address <= 9'd500; //Load Desired Memory Address
+        overide_data_in <= 32'h00000014;
+        mem_overide <= 1; 
+      end
+
+      Mem_load_data2 begin :
+        overide_address <= 9'd501; //Load Desired Memory Address
+        overide_data_in <= 32'h00000014;
+        mem_overide <= 1; 
+      end
+
+
+      /*ldi~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
       Reg_load1a: begin
-        Mdatain <= 32'h00000010;
-        Read = 0; MDRin = 0; // the first zero is there for completeness
-        #10 Read <= 1; MDRin <= 1;  
-        #10 Read <= 0; MDRin <= 0;  
+        mem_overide <= 0; 
+
+        PCout <= 1; MARin <= 1;
+        
       end
       Reg_load1b: begin
-        Mdatain <= 32'h00000011;
-        #10 MDRout <= 1; R2in <= 1; PCin <= 1;
-        #10 MDRout <= 0; R2in <= 0; PCin <= 0;// initialize R2 with the value $12
+          PCout <= 0; MARin <= 0;
+
+          Mem_Read <= 1; Read <= 1; MDRin <= 1; Mem_enable512x32 <= 1;//capture in MDR
+        
       end
 
-      Mem_load_a : begin
-        Mdatain <= 32'h00000000; //CHANGE for instriction address
-        MARin = 1;
+      Reg_load1c: begin
 
-      end
+            Mem_Read <= 0; Read <= 0; MDRin <= 0; Mem_enable512x32 <= 0; 
 
-      Mem_load_b : begin
-
-
-
-      end 
-
-
-
-      Reg_load2a: begin
-        Mdatain <= 32'h00000014;
-        #10 Read <= 1; MDRin <= 1;
-        #10 Read <= 0; MDRin <= 0;
-      end
-      Reg_load2b: begin
-        #10 MDRout <= 1; R3in <= 1;
-        #10 MDRout <= 0; R3in <= 0; // initialize R3 with the value $14
-      end
-      Reg_load3a: begin
-        Mdatain <= 32'h00000018;
-        #10 Read <= 1; MDRin <= 1;
-        #10 Read <= 0; MDRin <= 0;
-      end
-      Reg_load3b: begin
-        #10 MDRout <= 1; R1in <= 1;
-        #10 MDRout <= 0; R1in <= 0; // initialize R1 with the value $18
+            MDRout <= 1; Rin <= 1; PCin <= 1;
+            #20 MDRout <= 0; R2in <= 0; PCin <= 0;// initialize R2 with the value $12
       end
 
 
+      
 
 
 
-      /*ADD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-      ADD_T0: begin Zlo_out <= 0; R1in <= 0;                 PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1; end
-      ADD_T1: begin
+      /*ADDi~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+      ADDi_T0: begin Zlo_out <= 0; Rin <= 0;                 PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+      ADDi_T1: begin
                     PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
-                    Zlo_out <= 1; PCin <= 1; Read <= 1; MDRin <= 1;
-                    Mdatain <= 32'h28918000; 
+                    Zlo_out <= 1; PCin <= 1;//Capture incremented PC
+                    
+                    Read <= 1; MDRin <= 1; Mem_read <= 1;//recieving instruction from memory
       end
-      ADD_T2: begin Zlo_out <= 0; PCin <= 0;  MDRin <= 0;     MDRout <= 1; IRin <= 1;                     end
-      ADD_T3: begin MDRout <= 0; IRin <= 0;                   R2out <= 1; Yin <= 1;                       end
-      ADD_T4: begin R2out <= 0; Yin <= 0;                     R3out <= 1; opcode <= 5'b00011; Zin <= 1;   end
-      ADD_T5: begin R3out <= 0; Zin <= 0;                     Zlo_out <= 1; R1in <= 1;                    end
+      ADDi_T2: begin Zlo_out <= 0; PCin <= 0;  MDRin <= 0;     MDRout <= 1; IRin <= 1;                     end
+      ADDi_T3: begin MDRout <= 0; IRin <= 0;                   Rout <= 1; Yin <= 1;                       end
+      ADDi_T4: begin Rout <= 0; Yin <= 0;                       Cout <= 1; opcode <= 5'b00011; Zin <= 1;    end
+      ADDi_T5: begin Cout <= 0; Zin <= 0;                      Zlo_out <= 1; Rin <= 1;                    end
     
-      /*SUB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-      SUB_T0: begin Zlo_out <= 0; R1in <= 0;                 PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1; end
-      SUB_T1: begin
-        PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
-        Zlo_out <= 1; PCin <= 1; Read <= 1; MDRin <= 1;
-        Mdatain <= 32'h28918000; 
-      end
-      SUB_T2: begin Zlo_out <= 0; PCin <= 0;  MDRin <= 0;     MDRout <= 1; IRin <= 1;                     end
-      SUB_T3: begin MDRout <= 0; IRin <= 0;                   R2out <= 1; Yin <= 1;                       end
-      SUB_T4: begin R2out <= 0; Yin <= 0;                     R3out <= 1; opcode <= 5'b00100; Zin <= 1;   end
-      SUB_T5: begin R3out <= 0; Zin <= 0;                     Zlo_out <= 1; R1in <= 1;                    end
-    
-
+      
 
 
 

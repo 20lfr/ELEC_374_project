@@ -119,6 +119,8 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 		register IR(clear, clock, IRin, BusMuxOut, IR_BusMuxIn);
 		register PC(clear, clock, PCin, BusMuxOut, PC_BusMuxIn);
 
+		
+
 	//ALU registers
 		register RY(clear, clock, RYin, BusMuxOut, RY_to_ALU);
 		register RZ_HI(clear, clock, RZin, ALU_HI, RZ_HI_BusMuxIn);
