@@ -32,7 +32,33 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 	input wire Gra, Grb, Grc, Rin, Rout, BAout,
 
 	output wire con_ff_bit /*Branch boolean for Phase 2.4*/
+
+
+
+	/*TEST OUTPUTS*/
+	output wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, regMDR,
+
+	output wire [31:0] BusMuxOut_out, 
+	output wire [31:0] PC_VALUE, HI_VALUE, LO_VALUE, IR_VALUE
 );
+
+/*Testing Connections*/
+	/*General Registers*/
+	assign reg1 = R1_BusMuxIn;
+	assign reg2 = R2_BusMuxIn;
+	assign reg3 = R3_BusMuxIn;
+	assign reg4 = R4_BusMuxIn;
+	assign reg5 = R5_BusMuxIn;
+	assign reg6 = R6_BusMuxIn;
+	assign reg7 = R7_BusMuxIn;
+	assign regMDR = MDR_BusMuxIn;
+
+	/*DataPath Registers*/
+	assign BusMuxOut_out = BusMuxOut;
+	assign PC_VALUE = PC_BusMuxIn;
+	assign HI_VALUE = HI_BusMuxIn;
+	assign LO_VALUE = LO_BusMuxIn;
+	assign IR_VALUE = IR_BusMuxIn;
 
 
 
