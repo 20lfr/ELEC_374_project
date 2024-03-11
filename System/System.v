@@ -78,7 +78,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         .MAR_to_chip(MAR_address), .Mem_read(Mem_Read), .Mem_datain(Mem_to_datapath), .Mem_dataout(Mem_data_to_chip),
 
         /*I/O Interfacing*/
-        .Inport_data_in(inport_data), .Outport_data_out(outport_data),
+        .External_In(inport_data), .External_Out(outport_data),
 
         /*Control Signals*/
         .opcode(opcode), .IncPC(IncPC)

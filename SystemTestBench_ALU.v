@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 
-module SystemTestBench;
+module SystemTestBench_ALU;
 
     // Test bench parameters
     parameter DATA_WIDTH = 32;
@@ -49,8 +49,8 @@ module SystemTestBench;
     );
 
 
-    parameter Default = 6'd0, Mem_load_instruction1 = 6'd1, Mem_load_instruction2 = 6'd2, 
-              Mem_load_data1 = 6'd3, Mem_load_data2 = 6'd4, 
+    parameter Default = 6'd0, Mem_load_instruction1 = 6'd1, Mem_load_instruction2 = 6'd2, Mem_load_instruction3 = 6'd3,
+              Mem_load_data1 = 6'd4, Mem_load_data2 = 6'd5, 
               
             
               ADDi_T0 = 6'd10, ADDi_T1 = 6'd11, ADDi_T2 = 6'd12, ADDi_T3 = 6'd13, ADDi_T4 = 6'd14, ADDi_T5 = 6'd15,
@@ -69,27 +69,35 @@ module SystemTestBench;
       always @(posedge Clock) // finite state machine; if clock rising-edge
         begin
             case (Present_state)
-                Default : Present_state = Reg_load1a;
-                Reg_load1a : Present_state = Reg_load1b;
-                Reg_load1b : Present_state = Reg_load2a;
-                Reg_load2a : Present_state = Reg_load2b;
-                Reg_load2b : Present_state = Reg_load3a;
-                Reg_load3a : Present_state = Reg_load3b;
-                Reg_load3b : Present_state = ADD_T0;
+                Default : Present_state = Mem_load_instruction1;
+                Mem_load_instruction1 : Present_state = Mem_load_instruction2;
+                Mem_load_instruction2 : Present_state = Mem_load_instruction3;
+                Mem_load_instruction3 : Present_state = Mem_load_data1;
+                Mem_load_data1 : Present_state = Mem_load_data2;
+                Mem_load_data2 : Present_state = ADDi_T0;
+                
 
 
-                ADD_T0: Present_state = ADD_T1;
-                ADD_T1: Present_state = ADD_T2;
-                ADD_T2: Present_state = ADD_T3;
-                ADD_T3: Present_state = ADD_T4;
-                ADD_T4: Present_state = ADD_T5;
-                ADD_T5: Present_state = SUB_T0; // Example transition to next operation
+                ADDi_T0: Present_state = ADDi_T1;
+                ADDi_T1: Present_state = ADDi_T2;
+                ADDi_T2: Present_state = ADDi_T3;
+                ADDi_T3: Present_state = ADDi_T4;
+                ADDi_T4: Present_state = ADDi_T5;
+                ADDi_T5: Present_state = SUB_T0; // transition to next operation
 
-                SUB_T0: Present_state = SUB_T1;
-                SUB_T1: Present_state = SUB_T2;
-                SUB_T2: Present_state = SUB_T3;
-                SUB_T3: Present_state = SUB_T4;
-                SUB_T4: Present_state = SUB_T5;
+
+                ANDi_T0: Present_state = ANDi_T1;
+                ANDi_T1: Present_state = ANDi_T2;
+                ANDi_T2: Present_state = ANDi_T3;
+                ANDi_T3: Present_state = ANDi_T4;
+                ANDi_T4: Present_state = ANDi_T5;
+                ANDi_T5: Present_state = ORi_T0;
+
+                ORi_T0: Present_state = ORi_T1;
+                ORi_T1: Present_state = ORi_T2;
+                ORi_T2: Present_state = ORi_T3;
+                ORi_T3: Present_state = ORi_T4;
+                ORi_T4: Present_state = ORi_T5;
 
 
             
@@ -122,12 +130,18 @@ module SystemTestBench;
 
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'h00000010;
+        overide_data_in <= 32'b00011_0001_0010_0000000000000000001;//load addi r1, r2, 1
         mem_overide <= 1;
       end
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'h00000014;
+        overide_data_in <= 32'b01011_0001_0010_0000000000000000011; //load andi r1, r2, 3
+        mem_overide <= 1; 
+
+      end 
+      Mem_load_instruction3 : begin
+        overide_address <= 9'd1; //Load Desired Memory Address
+        overide_data_in <= 32'bb01010_0001_0010_0000000000000001001; //load ori r1, r2, 9
         mem_overide <= 1; 
 
         #20 mem_overide <= 0;    
@@ -198,7 +212,7 @@ module SystemTestBench;
         ANDi_T4: begin 
                       Rout <= 0; Yin <= 0; Grb <= 0;                    
                       
-                      Cout <= 1; Zin <= 1; opcode <= 5'b01011;//ADD
+                      Cout <= 1; Zin <= 1; opcode <= 5'b01011;//AND
         end
         ANDi_T5: begin 
                       Cout <= 0; Zin <= 0;                      
@@ -227,7 +241,7 @@ module SystemTestBench;
         ORi_T4: begin 
                       Rout <= 0; Yin <= 0; Grb <= 0;                    
                       
-                      Cout <= 1; Zin <= 1; opcode <= 5'b01010;//ADD
+                      Cout <= 1; Zin <= 1; opcode <= 5'b01010;//OR
         end
         ORi_T5: begin 
                       Cout <= 0; Zin <= 0;                      
