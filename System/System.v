@@ -8,8 +8,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
 
 
     /*Phase 2 testing signals*/
-        wire [DATA_WIDTH-1:0] register[7:0],
-        wire [DATA_WIDTH-1:0] registerMDR, BusMuxOut, resgisterPC, resgisterHI, resgisterLO, resgisterIR, 
+       
 
         /*Control unit signals*/
 
@@ -36,13 +35,14 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
             input wire [ADDR_WIDTH-1:0] Mem_overide_addr,   
         
         /*Memory Test Signals*/
-            output wire [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip, 
-            output wire [ADDR_WIDTH-1:0] MAR_address,
+            output wire [DATA_WIDTH-1:0] Mem_to_datapath_out, Mem_data_to_chip_out, 
+            output wire [ADDR_WIDTH-1:0] MAR_address_out,
 
             input wire mem_overide, 
             input wire [(ADDR_WIDTH-1):0] overide_address,
             input wire [(DATA_WIDTH-1):0] overide_data_in
 );
+
 
 
     
@@ -51,12 +51,17 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
     /*Memory unit signals*/
         wire    [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
         wire    [ADDR_WIDTH-1:0] MAR_address; 
+
+        assign Mem_to_datapath_out = Mem_to_datapath;
+        assign Mem_data_to_chip_out = Mem_data_to_chip;
+        assign MAR_address_out = MAR_address;
+
         
 
 
-    Control control(
+    // Control control(
 
-    );
+    // );
 
 
 
@@ -81,22 +86,18 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         .External_In(inport_data), .External_Out(outport_data),
 
         /*Control Signals*/
-        .opcode(opcode), .IncPC(IncPC)
+        .opcode(opcode), .IncPC(IncPC),
         .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
-        .con_ff_bit(con_ff_bit),
+        .con_ff_bit(con_ff_bit)
 
 
 
-        /*TEST OUTPTUS*/
-        .reg1(register[1]), .reg2(register[2]), .reg3(register[3]), .reg4(register[4]), .reg5(register[5]), 
-        .reg6(register[6]), .reg7(register[7]), .regMDR(registerMDR), .BusMuxOut_out(BusMuxOut), 
-        .PC_VALUE(resgisterPC), .HI_VALUE(resgisterHI), .LO_VALUE(resgisterLO), .IR_VALUE(resgisterIR)
+       
         
     );
 
 
     RAM512x32 memory512x32(
-        .clk(Clock),
         .read(Mem_Read), .write(Mem_Write), .enable(Mem_enable512x32),
         .address(MAR_address),
         .data_in(Mem_data_to_chip), .data_out(Mem_to_datapath), 

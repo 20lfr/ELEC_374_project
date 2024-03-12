@@ -4,11 +4,13 @@ module Select_and_Decode_IR #(parameter DATA_WIDTH = 32)(
     output wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out,
     output wire R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in
 );  
-    wire [3:0] Ra, Rb, Rc, Ra_and, Rb_and, Rc_and, Selected_register;
+    wire [3:0] Ra_and, Rb_and, Rc_and, Selected_register;
     wire [15:0] register_decoded;
-    assign Ra_and = Ra & Gra; 
-    assign Rb_and = Rb & Grb; 
-    assign Rc_and = Rc & Grc; 
+
+
+    assign Ra_and = IR_data[26:23] & Gra; 
+    assign Rb_and = IR_data[22:19] & Grb; 
+    assign Rc_and = IR_data[18:15] & Grc; 
 
     assign Selected_register = Ra_and | Rb_and | Rc_and;
 

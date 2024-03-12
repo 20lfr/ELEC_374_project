@@ -28,7 +28,7 @@ module ALU #(parameter DATA_WIDTH = 32)(
     not_module not_instance(B, not_result);
     rol rol_instance(A, B[4:0], rol_result);
     ror ror_instance(A, B[4:0], ror_result);
-    shl shl_instance(A, B[4:0], shl_result); // Fixed typo here
+    shl shl_instance(A, B[4:0], shl_result); 
     shra shra_instance(A, B[4:0], shra_result);
     shr shr_instance(A, B[4:0], shr_result);
 
@@ -51,8 +51,8 @@ module ALU #(parameter DATA_WIDTH = 32)(
         end
         else begin
             case(op)
-                AND:        result = or_result;
-                OR:         result = and_result;
+                AND:        result = and_result;
+                OR:         result = or_result;
                 NEG:        result = neg_result;
                 NOT_MOD:    result = not_result;
                 ROL:        result = rol_result;

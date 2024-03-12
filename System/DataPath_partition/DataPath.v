@@ -35,30 +35,9 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 
-	/*TEST OUTPUTS*/
-	output wire [31:0] reg1, reg2, reg3, reg4, reg5, reg6, reg7, regMDR,
-
-	output wire [31:0] BusMuxOut_out, 
-	output wire [31:0] PC_VALUE, HI_VALUE, LO_VALUE, IR_VALUE
+	
 );
 
-/*Testing Connections*/
-	/*General Registers*/
-	assign reg1 = R1_BusMuxIn;
-	assign reg2 = R2_BusMuxIn;
-	assign reg3 = R3_BusMuxIn;
-	assign reg4 = R4_BusMuxIn;
-	assign reg5 = R5_BusMuxIn;
-	assign reg6 = R6_BusMuxIn;
-	assign reg7 = R7_BusMuxIn;
-	assign regMDR = MDR_BusMuxIn;
-
-	/*DataPath Registers*/
-	assign BusMuxOut_out = BusMuxOut;
-	assign PC_VALUE = PC_BusMuxIn;
-	assign HI_VALUE = HI_BusMuxIn;
-	assign LO_VALUE = LO_BusMuxIn;
-	assign IR_VALUE = IR_BusMuxIn;
 
 
 
@@ -88,7 +67,15 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 	wire 	R0in, R1in, R2in, R3in, 
 			R4in, R5in, R6in, R7in, 
 			R8in, R9in, R10in, R11in, 
-			R12in, R13in, R14in, R15in,
+			R12in, R13in, R14in, R15in;
+/*ALU connections~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	wire [(DATA_WIDTH*2)-1:0] ALU_result;
+	wire [31:0] ALU_HI, ALU_LO;
+	assign ALU_HI = ALU_result[(DATA_WIDTH*2)-1:DATA_WIDTH];
+	assign ALU_LO = ALU_result[DATA_WIDTH-1:0];
+	wire [DATA_WIDTH-1:0] RY_to_ALU;
+
+	
 
 
 
@@ -144,8 +131,8 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 		//register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusMuxIn);
 		//register Outport(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
 
-		Input_reg Inport(clear, clock, strobe, External_In, BusMuxIn);
-		Output_reg Outport(clear, clock, Outport_in, BusMuxOut, External_Out);
+		Inport_reg Inport(clear, clock, strobe, External_In, BusMuxIn);
+		Outport_reg Outport(clear, clock, Outport_in, BusMuxOut, External_Out);
 
 //Bus~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
@@ -163,12 +150,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 			);
 
 //ALU~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	/*ALU connections~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-	wire [(DATA_WIDTH*2)-1:0] ALU_result;
-	wire [31:0] ALU_HI, ALU_LO;
-	assign ALU_HI = ALU_result[(DATA_WIDTH*2)-1:DATA_WIDTH];
-	assign ALU_LO = ALU_result[DATA_WIDTH-1:0];
-	wire [DATA_WIDTH-1:0] RY_to_ALU;
+	
 
 	ALU alu(.A(RY_to_ALU), .B(BusMuxOut), .op(opcode), .result(ALU_result), .IncPC(IncPC));
 
@@ -181,8 +163,13 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 		Select_and_Decode_IR IR_register_decoder(
 			.IR_data(IR_BusMuxIn), /*may need to be changed*/
 			.Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
-			.R0out(R0out), .R1out(R1out), .R2out(R2out), .R3out(R3out), .R4out(R4out), .R5out(R5out), .R6out(R6out), .R7out(R7out), .R8out(R8out), .R9out(R9out), R10out(R10out), .R11out(R11out), .R12out(R12out), .R13out(R13out), .R14out(R14out), .R15out(R15out),
-			.R0in(R0in), .R1in(R1in),. R2in(R2in), .R3in(R3in), .R4in(R4in), .R5in(R5in), .R6in(R6in), .R7in(R7in), .R8in(R8in), .R9in(R9in), .R10in(R10in), .R11in(R11in), .R12in(R12in), .R13in(R13in), .R14in(R14in), .R15in(R15in)
+			.R0out(R0out), .R1out(R1out), .R2out(R2out), .R3out(R3out), .R4out(R4out), 
+			.R5out(R5out), .R6out(R6out), .R7out(R7out), .R8out(R8out), .R9out(R9out), 
+			.R10out(R10out), .R11out(R11out), .R12out(R12out), .R13out(R13out), .R14out(R14out), .R15out(R15out),
+			
+			.R0in(R0in), .R1in(R1in),. R2in(R2in), .R3in(R3in), .R4in(R4in), .R5in(R5in), .R6in(R6in), 
+			.R7in(R7in), .R8in(R8in), .R9in(R9in), .R10in(R10in), .R11in(R11in), .R12in(R12in), 
+			.R13in(R13in), .R14in(R14in), .R15in(R15in)
 		); 
 	/*2.4: CON_FF*/
 		CON_FF con_ff(
