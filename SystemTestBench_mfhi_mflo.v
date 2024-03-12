@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 
-module SystemTestBench_ALU;
+module SystemTestBench_mfhi_mflo;
 
     // Test bench parameters
     parameter DATA_WIDTH = 32;
@@ -54,8 +54,7 @@ module SystemTestBench_ALU;
               
             
               ADDi_T0 = 6'd10, ADDi_T1 = 6'd11, ADDi_T2 = 6'd12, ADDi_T3 = 6'd13, ADDi_T4 = 6'd14, ADDi_T5 = 6'd15,
-              ANDi_T0 = 6'd20, ANDi_T1 = 6'd21, ANDi_T2 = 6'd22, ANDi_T3 = 6'd23, ANDi_T4 = 6'd24, ANDi_T5 = 6'd25,
-              ORi_T0 = 6'd30, ORi_T1 = 6'd31, ORi_T2 = 6'd32, ORi_T3 = 6'd33, ORi_T4 = 6'd34, ORi_T5 = 6'd35;
+              ANDi_T0 = 6'd20, ANDi_T1 = 6'd21, ANDi_T2 = 6'd22, ANDi_T3 = 6'd23, ANDi_T4 = 6'd24, ANDi_T5 = 6'd25;
 
     reg [5:0] Present_state = Default;
 
@@ -93,11 +92,7 @@ module SystemTestBench_ALU;
                 ANDi_T4: Present_state = ANDi_T5;
                 ANDi_T5: Present_state = ORi_T0;
 
-                ORi_T0: Present_state = ORi_T1;
-                ORi_T1: Present_state = ORi_T2;
-                ORi_T2: Present_state = ORi_T3;
-                ORi_T3: Present_state = ORi_T4;
-                ORi_T4: Present_state = ORi_T5;
+               
 
 
             
