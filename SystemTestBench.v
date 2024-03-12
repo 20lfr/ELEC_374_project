@@ -35,7 +35,8 @@ module SystemTestBench;
     System #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) UUT (
         .Clock(Clock), .clear(clear),
         .inport_data(inport_data), .outport_data(outport_data),
-        .register(register), .registerMDR(registerMDR), .BusMuxOut(BusMuxOut), .registerPC(registerPC), .registerHI(registerHI), .registerLO(registerLO), .registerIR(registerIR),
+
+
         .HIout(HIout), .LOout(LOout), .Zhi_out(Zhi_out), .Zlo_out(Zlo_out), .PCout(PCout), .MDRout(MDRout), .Inport_out(Inport_out), .Cout(Cout),
         .MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), .HIin(HIin), .LOin(LOin),
         .outport_in(outport_in), .inport_data_ready(inport_data_ready),
@@ -45,6 +46,8 @@ module SystemTestBench;
         .Mem_Read(Mem_Read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
         .Mem_to_datapath(Mem_to_datapath), .Mem_data_to_chip(Mem_data_to_chip), .MAR_address(MAR_address), 
 
+
+        .register(register), .registerMDR(registerMDR), .BusMuxOut(BusMuxOut), .registerPC(registerPC), .registerHI(registerHI), .registerLO(registerLO), .registerIR(registerIR),
         .mem_overide(mem_overide), .overide_address(overide_address), .overide_data_in(overide_data_in)
     );
 

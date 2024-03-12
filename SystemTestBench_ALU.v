@@ -35,7 +35,8 @@ module SystemTestBench_ALU;
     System #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) UUT (
         .Clock(Clock), .clear(clear),
         .inport_data(inport_data), .outport_data(outport_data),
-        .register(register), .registerMDR(registerMDR), .BusMuxOut(BusMuxOut), .registerPC(registerPC), .registerHI(registerHI), .registerLO(registerLO), .registerIR(registerIR),
+
+
         .HIout(HIout), .LOout(LOout), .Zhi_out(Zhi_out), .Zlo_out(Zlo_out), .PCout(PCout), .MDRout(MDRout), .Inport_out(Inport_out), .Cout(Cout),
         .MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), .HIin(HIin), .LOin(LOin),
         .outport_in(outport_in), .inport_data_ready(inport_data_ready),
@@ -45,6 +46,8 @@ module SystemTestBench_ALU;
         .Mem_Read(Mem_Read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
         .Mem_to_datapath(Mem_to_datapath), .Mem_data_to_chip(Mem_data_to_chip), .MAR_address(MAR_address), 
 
+
+        .register(register), .registerMDR(registerMDR), .BusMuxOut(BusMuxOut), .registerPC(registerPC), .registerHI(registerHI), .registerLO(registerLO), .registerIR(registerIR),
         .mem_overide(mem_overide), .overide_address(overide_address), .overide_data_in(overide_data_in)
     );
 
@@ -83,7 +86,7 @@ module SystemTestBench_ALU;
                 ADDi_T2: Present_state = ADDi_T3;
                 ADDi_T3: Present_state = ADDi_T4;
                 ADDi_T4: Present_state = ADDi_T5;
-                ADDi_T5: Present_state = SUB_T0; // transition to next operation
+                ADDi_T5: Present_state = ANDi_T0; // transition to next operation
 
 
                 ANDi_T0: Present_state = ANDi_T1;
@@ -191,7 +194,7 @@ module SystemTestBench_ALU;
                       Zlo_out <= 1; Rin <= 1; Gra <= 1;
         end
 
-      /*ADDi~~~~~~~~~~~~~~~~~~~~~~~~{andi  ra, rb, C}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+      /*ANDi~~~~~~~~~~~~~~~~~~~~~~~~{andi  ra, rb, C}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         ANDi_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
         ANDi_T1: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;

@@ -35,7 +35,8 @@ module SystemTestBench_mfhi_mflo;
     System #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) UUT (
         .Clock(Clock), .clear(clear),
         .inport_data(inport_data), .outport_data(outport_data),
-        .register(register), .registerMDR(registerMDR), .BusMuxOut(BusMuxOut), .registerPC(registerPC), .registerHI(registerHI), .registerLO(registerLO), .registerIR(registerIR),
+
+
         .HIout(HIout), .LOout(LOout), .Zhi_out(Zhi_out), .Zlo_out(Zlo_out), .PCout(PCout), .MDRout(MDRout), .Inport_out(Inport_out), .Cout(Cout),
         .MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), .HIin(HIin), .LOin(LOin),
         .outport_in(outport_in), .inport_data_ready(inport_data_ready),
@@ -45,6 +46,8 @@ module SystemTestBench_mfhi_mflo;
         .Mem_Read(Mem_Read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
         .Mem_to_datapath(Mem_to_datapath), .Mem_data_to_chip(Mem_data_to_chip), .MAR_address(MAR_address), 
 
+
+        .register(register), .registerMDR(registerMDR), .BusMuxOut(BusMuxOut), .registerPC(registerPC), .registerHI(registerHI), .registerLO(registerLO), .registerIR(registerIR),
         .mem_overide(mem_overide), .overide_address(overide_address), .overide_data_in(overide_data_in)
     );
 
@@ -53,8 +56,8 @@ module SystemTestBench_mfhi_mflo;
               Mem_load_data1 = 6'd4, Mem_load_data2 = 6'd5, 
               
             
-              ADDi_T0 = 6'd10, ADDi_T1 = 6'd11, ADDi_T2 = 6'd12, ADDi_T3 = 6'd13, ADDi_T4 = 6'd14, ADDi_T5 = 6'd15,
-              ANDi_T0 = 6'd20, ANDi_T1 = 6'd21, ANDi_T2 = 6'd22, ANDi_T3 = 6'd23, ANDi_T4 = 6'd24, ANDi_T5 = 6'd25;
+              MFHI_T0 = 6'd10, MFHI_T1 = 6'd11, MFHI_T2 = 6'd12, MFHI_T3 = 6'd13,
+              MFLO_T0 = 6'd20, MFLO_T1 = 6'd21, MFLO_T2 = 6'd22, MFLO_T3 = 6'd23;
 
     reg [5:0] Present_state = Default;
 
@@ -73,29 +76,18 @@ module SystemTestBench_mfhi_mflo;
                 Mem_load_instruction2 : Present_state = Mem_load_instruction3;
                 Mem_load_instruction3 : Present_state = Mem_load_data1;
                 Mem_load_data1 : Present_state = Mem_load_data2;
-                Mem_load_data2 : Present_state = ADDi_T0;
+                Mem_load_data2 : Present_state = MFHI_T0;
                 
 
 
-                ADDi_T0: Present_state = ADDi_T1;
-                ADDi_T1: Present_state = ADDi_T2;
-                ADDi_T2: Present_state = ADDi_T3;
-                ADDi_T3: Present_state = ADDi_T4;
-                ADDi_T4: Present_state = ADDi_T5;
-                ADDi_T5: Present_state = SUB_T0; // transition to next operation
+                MFHI_T0: Present_state = MFHI_T1;
+                MFHI_T1: Present_state = MFHI_T2;
+                MFHI_T2: Present_state = MFHI_T3;
+                MFHI_T3: Present_state = MFHI_T4;
 
-
-                ANDi_T0: Present_state = ANDi_T1;
-                ANDi_T1: Present_state = ANDi_T2;
-                ANDi_T2: Present_state = ANDi_T3;
-                ANDi_T3: Present_state = ANDi_T4;
-                ANDi_T4: Present_state = ANDi_T5;
-                ANDi_T5: Present_state = ORi_T0;
-
-               
-
-
-            
+                MFLO_T0: Present_state = MFLO_T1;
+                MFLO_T1: Present_state = MFLO_T2;
+                MFLO_T2: Present_state = MFLO_T3;            
 
           endcase
       end
@@ -157,99 +149,47 @@ module SystemTestBench_mfhi_mflo;
 
 
 
-      /*ADDi~~~~~~~~~~~~~~~~~~~~~~~~{addi  ra, rb, C}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-        ADDi_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
-        ADDi_T1: begin
+      /*MFHI~~~~~~~~~~~~~~~~~~~~~~~~{mfhi r6}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+        MFHI_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        MFHI_T1: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                       Zlo_out <= 1; PCin <= 1;//Capture incremented PC
                       
                       Read <= 1; MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
         end
-        ADDi_T2: begin 
+        MFHI_T2: begin 
                       Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
                       
                       MDRout <= 1; IRin <= 1;                     
         end
-        ADDi_T3: begin 
+        MFHI_T3: begin 
                       MDRout <= 0; IRin <= 0;                   
                       
-                      Grb <= 1; Rout <= 1; Yin <= 1;                       
+                      Gra <= 1;  HIout <= 1; Rin <= 1; 
+                      #20 Gra <= 0; HIout <= 0; Rin <= 0;                      
         end
-        ADDi_T4: begin 
-                      Rout <= 0; Yin <= 0; Grb <= 0;                    
-                      
-                      Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
-        end
-        ADDi_T5: begin 
-                      Cout <= 0; Zin <= 0;                      
         
-                      Zlo_out <= 1; Rin <= 1; Gra <= 1;
-        end
-
-      /*ADDi~~~~~~~~~~~~~~~~~~~~~~~~{andi  ra, rb, C}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-        ANDi_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
-        ANDi_T1: begin
+      /*MFLO~~~~~~~~~~~~~~~~~~~~~~~~{mflo r7}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+        MFLO_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        MFLO_T1: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                       Zlo_out <= 1; PCin <= 1;//Capture incremented PC
                       
                       Read <= 1; MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
         end
-        ANDi_T2: begin 
+        MFLO_T2: begin 
                       Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
                       
                       MDRout <= 1; IRin <= 1;                     
         end
-        ANDi_T3: begin 
+        MFLO_T3: begin 
                       MDRout <= 0; IRin <= 0;                   
                       
-                      Grb <= 1; Rout <= 1; Yin <= 1;                       
-        end
-        ANDi_T4: begin 
-                      Rout <= 0; Yin <= 0; Grb <= 0;                    
-                      
-                      Cout <= 1; Zin <= 1; opcode <= 5'b01011;//AND
-        end
-        ANDi_T5: begin 
-                      Cout <= 0; Zin <= 0;                      
-        
-                      Zlo_out <= 1; Rin <= 1; Gra <= 1;
+                      Gra <= 1; LOout <= 1; Rin <= 1;    
+                      #20  Gra <= 0; LOout <= 0; Rin <= 0;                   
         end
 
-      /*ORi~~~~~~~~~~~~~~~~~~~~~~~~{ori  ra, rb, C}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-        ORi_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
-        ORi_T1: begin
-                      PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
-                      Zlo_out <= 1; PCin <= 1;//Capture incremented PC
-                      
-                      Read <= 1; MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
-        end
-        ORi_T2: begin 
-                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
-                      
-                      MDRout <= 1; IRin <= 1;                     
-        end
-        ORi_T3: begin 
-                      MDRout <= 0; IRin <= 0;                   
-                      
-                      Grb <= 1; Rout <= 1; Yin <= 1;                       
-        end
-        ORi_T4: begin 
-                      Rout <= 0; Yin <= 0; Grb <= 0;                    
-                      
-                      Cout <= 1; Zin <= 1; opcode <= 5'b01010;//OR
-        end
-        ORi_T5: begin 
-                      Cout <= 0; Zin <= 0;                      
-        
-                      Zlo_out <= 1; Rin <= 1; Gra <= 1;
-        end
-    
-      
-
-
-
-
-    
+     
       endcase
     end
 
