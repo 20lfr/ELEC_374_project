@@ -12,7 +12,7 @@ module SystemTestBench_ALU;
     
     
     reg HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout;
-    reg MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin;
+    reg MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin, CONin;
     reg outport_in, inport_data_ready;
     reg [4:0] opcode;
     reg IncPC;
@@ -27,7 +27,7 @@ module SystemTestBench_ALU;
 
     wire [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
     wire [ADDR_WIDTH-1:0] MAR_address;
-    wire con_ff_bit;
+    wire con_ff_bit, memory_done;
     
 
 
@@ -38,13 +38,13 @@ module SystemTestBench_ALU;
 
 
         .HIout(HIout), .LOout(LOout), .Zhi_out(Zhi_out), .Zlo_out(Zlo_out), .PCout(PCout), .MDRout(MDRout), .Inport_out(Inport_out), .Cout(Cout),
-        .MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), .HIin(HIin), .LOin(LOin),
+        .MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), .HIin(HIin), .LOin(LOin), .CONin(CONin),
         .outport_in(outport_in), .inport_data_ready(inport_data_ready),
         .opcode(opcode), .IncPC(IncPC),
         .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
         .con_ff_bit(con_ff_bit),
         .Mem_Read(Mem_read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
-        .Mem_to_datapath_out(Mem_to_datapath), .Mem_data_to_chip_out(Mem_data_to_chip), .MAR_address_out(MAR_address), 
+        .Mem_to_datapath_out(Mem_to_datapath), .Mem_data_to_chip_out(Mem_data_to_chip), .MAR_address_out(MAR_address), .memory_done(memory_done),
 
 
         .mem_overide(mem_overide), .overide_address(overide_address), .overide_data_in(overide_data_in)

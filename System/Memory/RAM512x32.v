@@ -6,6 +6,7 @@ module RAM512x32  #(parameter   DATA_WIDTH = 32,  // # of bits in word
     input wire [(ADDR_WIDTH-1):0] address,
     input wire [(DATA_WIDTH-1):0] data_in,
     output wire [(DATA_WIDTH-1):0] data_out, // Changed to reg since it's driven by always block
+    output reg done,
 
     input wire overide, 
     input wire [(ADDR_WIDTH-1):0] overide_address,
@@ -21,9 +22,11 @@ initial begin
         FullMemorySpace[i] <= 32'd0;
     end
     q = INIT;
+    done = 0;
 end 
 
 always @(posedge enable) begin
+    done = 0;
     if (overide) begin
         FullMemorySpace[overide_address] <= overide_data_in;
     end 
@@ -35,6 +38,7 @@ always @(posedge enable) begin
             FullMemorySpace[address] <= data_in; // This should be data_in, not q
         end
     end
+    done = 1;
 end
 
 assign data_out = q; // Continuously drive data_out with q

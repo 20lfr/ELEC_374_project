@@ -29,7 +29,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 	input wire [4:0] opcode,
 	input wire 	IncPC,
 
-	input wire Gra, Grb, Grc, Rin, Rout, BAout,
+	input wire Gra, Grb, Grc, Rin, Rout, BAout, CONin, 
 
 	output wire con_ff_bit /*Branch boolean for Phase 2.4*/
 
@@ -174,6 +174,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 	/*2.4: CON_FF*/
 		CON_FF con_ff(
 			.IR(IR_BusMuxIn), .BusMuxOut(BusMuxOut), 
+			.enable(CONin),
 			.toControl(con_ff_bit)
 		);
 

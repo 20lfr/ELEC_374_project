@@ -16,7 +16,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
             input wire    HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout,
             
             /*Register Enable Signals*/
-            input wire    MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin,
+            input wire    MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin, CONin, 
             input wire    outport_in, inport_data_ready,
 
             /*ALU control*/
@@ -37,6 +37,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Memory Test Signals*/
             output wire [DATA_WIDTH-1:0] Mem_to_datapath_out, Mem_data_to_chip_out, 
             output wire [ADDR_WIDTH-1:0] MAR_address_out,
+            output wire memory_done, 
 
             input wire mem_overide, 
             input wire [(ADDR_WIDTH-1):0] overide_address,
@@ -88,11 +89,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Control Signals*/
         .opcode(opcode), .IncPC(IncPC),
         .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
-        .con_ff_bit(con_ff_bit)
-
-
-
-       
+        .con_ff_bit(con_ff_bit), .CONin(CONin)
         
     );
 
@@ -100,7 +97,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
     RAM512x32 memory512x32(
         .read(Mem_Read), .write(Mem_Write), .enable(Mem_enable512x32),
         .address(MAR_address),
-        .data_in(Mem_data_to_chip), .data_out(Mem_to_datapath), 
+        .data_in(Mem_data_to_chip), .data_out(Mem_to_datapath), .done(memory_done).
 
         .overide(mem_overide), 
         .overide_address(overide_address), 

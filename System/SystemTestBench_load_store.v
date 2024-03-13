@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 
-module SystemTestBench_mfhi_mflo;
+module SystemTestBench_load_store;
 
     // Test bench parameters
     parameter DATA_WIDTH = 32;
@@ -55,8 +55,13 @@ module SystemTestBench_mfhi_mflo;
               Mem_load_data1 = 6'd4, Mem_load_data2 = 6'd5, 
               
             
-              MFHI_T0 = 6'd10, MFHI_T1 = 6'd11, MFHI_T2 = 6'd12, MFHI_T3 = 6'd13,
-              MFLO_T0 = 6'd20, MFLO_T1 = 6'd21, MFLO_T2 = 6'd22, MFLO_T3 = 6'd23;
+              LD_T0 = 6'd10, LD_T1 = 6'd11, LD_T2 = 6'd12, LD_T3 = 6'd13, LD_T4 = 6'd14, LD_T5 = 6'd15, LD_T6 = 6'd15, LD_T7 = 6'd15,  
+              LD1_T0 = 6'd20, LD1_T1 = 6'd21, LD1_T2 = 6'd22, LD1_T3 = 6'd23, LD1_T4 = 6'd24, LD1_T5 = 6'd25, LD1_T6 = 6'd25, LD1_T7 = 6'd25,
+              LDI_T0 = 6'd30, LDI_T1 = 6'd31, LDI_T2 = 6'd32, LDI_T3 = 6'd33, LDI_T4 = 6'd34, LDI_T5 = 6'd35,
+              LDI1_T0 = 6'd40, LDI1_T1 = 6'd41, LDI1_T2 = 6'd42, LDI1_T3 = 6'd43, LDI1_T4 = 6'd44, LDI1_T5 = 6'd45, 
+
+              ST_T0 = 6'd50, ST_T1 = 6'd51, ST_T2 = 6'd52, ST_T3 = 6'd53, ST_T4 = 6'd54, ST_T5 = 6'd55, ST_T6 = 6'd55, ST_T7 = 6'd55,
+              ST1_T0 = 6'd56, ST1_T1 = 6'd57, ST1_T2 = 6'd58, ST1_T3 = 6'd59, ST1_T4 = 6'd60, ST1_T5 = 6'd61;
 
     reg [5:0] Present_state = Default;
 
@@ -75,18 +80,30 @@ module SystemTestBench_mfhi_mflo;
                 Mem_load_instruction2 : Present_state = Mem_load_instruction3;
                 Mem_load_instruction3 : Present_state = Mem_load_data1;
                 Mem_load_data1 : Present_state = Mem_load_data2;
-                Mem_load_data2 : Present_state = MFHI_T0;
+                Mem_load_data2 : Present_state = LD_T0;
                 
 
 
-                MFHI_T0: Present_state = MFHI_T1;
-                MFHI_T1: Present_state = MFHI_T2;
-                MFHI_T2: Present_state = MFHI_T3;
-                MFHI_T3: Present_state = MFLO_T0;
+                LD_T0: Present_state = LD_T1;
+                LD_T1: Present_state = LD_T2;
+                LD_T2: Present_state = LD_T3;
+                LD_T3: Present_state = LD_T4;
+                LD_T4: Present_state = LD_T5;
+                LD_T5: Present_state = LD1_T0; // transition to next operation
 
-                MFLO_T0: Present_state = MFLO_T1;
-                MFLO_T1: Present_state = MFLO_T2;
-                MFLO_T2: Present_state = MFLO_T3;            
+
+                LD_T0: Present_state = LD_T1;
+                LD_T1: Present_state = LD_T2;
+                LD_T2: Present_state = LD_T3;
+                LD_T3: Present_state = LD_T4;
+                LD_T4: Present_state = LD_T5;
+                LD_T5: Present_state = LD1_T0;
+
+
+                
+
+
+            
 
           endcase
       end
@@ -101,7 +118,7 @@ module SystemTestBench_mfhi_mflo;
         MARin<=0; Zin <=0; PCin <=0; MDRin <=0; IRin <=0; Yin <=0; HIin <=0; LOin <=0; 
         opcode <= 5'd0; IncPC <= 0;
         Gra <=0; Grb <=0; Grc <=0; Rin <=0; Rout <=0; BAout <=0;
-        Mem_Read <=0; Mem_Write <=0;  Mem_enable512x32 <= 0;
+        Mem_read <=0; Mem_Write <=0;  Mem_enable512x32 <= 0;
 
 
         /*INIT inport and outport*/
@@ -116,79 +133,84 @@ module SystemTestBench_mfhi_mflo;
 
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b00011_0001_0010_0000000000000000001;//load addi r1, r2, 1
+        overide_data_in <= 32'b00011_0001_0010_0000000000000000001;//load LD r1, r2, 1
         mem_overide <= 1;
+        
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0;
+
+
       end
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
         overide_data_in <= 32'b01011_0001_0010_0000000000000000011; //load andi r1, r2, 3
-        mem_overide <= 1; 
-
+        
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0;
       end 
       Mem_load_instruction3 : begin
-        overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'b01010_0001_0010_0000000000000001001; //load ori r1, r2, 9
-        mem_overide <= 1; 
+        overide_address <= 9'd2; //Load Desired Memory Address
+        overide_data_in <= 32'b01010_0001_0010_0000000000000001001; //load ori r1, r2, 9    
 
-        #20 mem_overide <= 0;    
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0; 
       end 
-      Mem_load_data1 : begin
+      Mem_load_data1 : begin 
         overide_address <= 9'd500; //Load Desired Memory Address
         overide_data_in <= 32'h00000014;
-        mem_overide <= 1; 
+
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0;
       end
 
       Mem_load_data2 : begin
         overide_address <= 9'd501; //Load Desired Memory Address
         overide_data_in <= 32'h00000014;
-        mem_overide <= 1; 
+
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0; mem_overide <= 0;
       end
 
       
 
 
 
-      /*MFHI~~~~~~~~~~~~~~~~~~~~~~~~{mfhi r6}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-        MFHI_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
-        MFHI_T1: begin
+      /*ld~~~~~~~~~~~~~~~~~~~~~~~~{ld  ra, C(r0)}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+        LD_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        LD_T1: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                       Zlo_out <= 1; PCin <= 1;//Capture incremented PC
                       
-                      MDRin <= 1; Mem_Read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+                      MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
         end
-        MFHI_T2: begin 
-                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_Read <=0;  Mem_enable512x32<=0;          
+        LD_T2: begin 
+                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
                       
                       MDRout <= 1; IRin <= 1;                     
         end
-        MFHI_T3: begin 
+        LD_T3: begin 
                       MDRout <= 0; IRin <= 0;                   
                       
-                      Gra <= 1;  HIout <= 1; Rin <= 1; 
-                      #20 Gra <= 0; HIout <= 0; Rin <= 0;                      
+                      Grb <= 1; Rout <= 1; Yin <= 1;                       
         end
+        LD_T4: begin 
+                      Rout <= 0; Yin <= 0; Grb <= 0;                    
+                      
+                      Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
+        end
+        LD_T5: begin 
+                      Cout <= 0; Zin <= 0;                      
         
-      /*MFLO~~~~~~~~~~~~~~~~~~~~~~~~{mflo r7}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-        MFLO_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
-        MFLO_T1: begin
-                      PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
-                      Zlo_out <= 1; PCin <= 1;//Capture incremented PC
-                      
-                      MDRin <= 1; Mem_Read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
-        end
-        MFLO_T2: begin 
-                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_Read <=0;  Mem_enable512x32<=0;          
-                      
-                      MDRout <= 1; IRin <= 1;                     
-        end
-        MFLO_T3: begin 
-                      MDRout <= 0; IRin <= 0;                   
-                      
-                      Gra <= 1; LOout <= 1; Rin <= 1;    
-                      #20  Gra <= 0; LOout <= 0; Rin <= 0;                   
+                      Zlo_out <= 1; Rin <= 1; Gra <= 1;
         end
 
-     
+    
+      
+
+
+
+
+    
       endcase
     end
 

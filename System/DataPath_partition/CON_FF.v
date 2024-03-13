@@ -1,10 +1,13 @@
 module CON_FF (
     input wire [31:0] IR, // Fixed declaration
     input wire [31:0] BusMuxOut, // Fixed declaration
+    input wire enable,
     output reg toControl // Output to control signals
 );
 
-always @(*) begin
+
+//this always block only triggers when enable changes
+always @(posedge enable) begin
     case(IR[20:19])
         2'b00:
             // Branch if Zero
