@@ -17,7 +17,7 @@ module SystemTestBench_mfhi_mflo;
     reg [4:0] opcode;
     reg IncPC;
     reg Gra, Grb, Grc, Rin, Rout, BAout;
-    reg Mem_read, Mem_Write, Mem_enable512x32;
+    reg Mem_Read, Mem_Write, Mem_enable512x32;
 
     reg mem_overide; reg [ADDR_WIDTH-1:0] overide_address; reg [DATA_WIDTH-1:0] overide_data_in;
 
@@ -43,7 +43,7 @@ module SystemTestBench_mfhi_mflo;
         .opcode(opcode), .IncPC(IncPC),
         .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
         .con_ff_bit(con_ff_bit),
-        .Mem_Read(Mem_read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
+        .Mem_Read(Mem_Read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
         .Mem_to_datapath_out(Mem_to_datapath), .Mem_data_to_chip_out(Mem_data_to_chip), .MAR_address_out(MAR_address), 
 
 
@@ -82,7 +82,7 @@ module SystemTestBench_mfhi_mflo;
                 MFHI_T0: Present_state = MFHI_T1;
                 MFHI_T1: Present_state = MFHI_T2;
                 MFHI_T2: Present_state = MFHI_T3;
-                MFHI_T3: Present_state = MFHI_T4;
+                MFHI_T3: Present_state = MFLO_T0;
 
                 MFLO_T0: Present_state = MFLO_T1;
                 MFLO_T1: Present_state = MFLO_T2;
@@ -97,7 +97,7 @@ module SystemTestBench_mfhi_mflo;
       Default: begin
         
         clear <= 0;
-        HIout <=0;<=0; LOout<=0; Zhi_out<=0; Zlo_out<=0; PCout<=0; MDRout<=0; Inport_out<=0; Cout<=0;
+        HIout <=0; LOout<=0; Zhi_out<=0; Zlo_out<=0; PCout<=0; MDRout<=0; Inport_out<=0; Cout<=0;
         MARin<=0; Zin <=0; PCin <=0; MDRin <=0; IRin <=0; Yin <=0; HIin <=0; LOin <=0; 
         opcode <= 5'd0; IncPC <= 0;
         Gra <=0; Grb <=0; Grc <=0; Rin <=0; Rout <=0; BAout <=0;
@@ -127,18 +127,18 @@ module SystemTestBench_mfhi_mflo;
       end 
       Mem_load_instruction3 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'bb01010_0001_0010_0000000000000001001; //load ori r1, r2, 9
+        overide_data_in <= 32'b01010_0001_0010_0000000000000001001; //load ori r1, r2, 9
         mem_overide <= 1; 
 
         #20 mem_overide <= 0;    
       end 
-      Mem_load_data1 begin :
+      Mem_load_data1 : begin
         overide_address <= 9'd500; //Load Desired Memory Address
         overide_data_in <= 32'h00000014;
         mem_overide <= 1; 
       end
 
-      Mem_load_data2 begin :
+      Mem_load_data2 : begin
         overide_address <= 9'd501; //Load Desired Memory Address
         overide_data_in <= 32'h00000014;
         mem_overide <= 1; 
@@ -154,10 +154,10 @@ module SystemTestBench_mfhi_mflo;
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                       Zlo_out <= 1; PCin <= 1;//Capture incremented PC
                       
-                      Read <= 1; MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+                      MDRin <= 1; Mem_Read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
         end
         MFHI_T2: begin 
-                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_Read <=0;  Mem_enable512x32<=0;          
                       
                       MDRout <= 1; IRin <= 1;                     
         end
@@ -174,10 +174,10 @@ module SystemTestBench_mfhi_mflo;
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                       Zlo_out <= 1; PCin <= 1;//Capture incremented PC
                       
-                      Read <= 1; MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+                      MDRin <= 1; Mem_Read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
         end
         MFLO_T2: begin 
-                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_Read <=0;  Mem_enable512x32<=0;          
                       
                       MDRout <= 1; IRin <= 1;                     
         end
