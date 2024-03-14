@@ -52,39 +52,50 @@ module SystemTestBench_ALU;
 
 
     parameter Default = 6'd0,
-              
-            
-              BRZR_T0 = 6'd10,
-              BRZR_T1 = 6'd11,
-              BRZR_T2 = 6'd12,
-              BRZR_T3 = 6'd13,
-              BRZR_T4 = 6'd14,
-              BRZR_T5 = 6'd15,
-              BRZR_T6 = 6'd16,
+      Mem_load_instruction1 = 6'd1,
+      Mem_load_instruction2 = 6'd2,
+      Mem_load_instruction3 = 6'd3,
+      Mem_load_instruction4 = 6'd4,
+      Mem_load_instruction5 = 6'd5,
+      load_register = 6'd6,
+      load_register1 = 6'd7,
+      load_register2 = 6'd8,
+      load_register3 = 6'd9,
+      load_register4 = 6'd10,
+      load_register5 = 6'd11,
 
-              BRNZ_T0 = 6'd17,
-              BRNZ_T1 = 6'd18,
-              BRNZ_T2 = 6'd19,
-              BRNZ_T3 = 6'd20,
-              BRNZ_T4 = 6'd21,
-              BRNZ_T5 = 6'd22,
-              BRNZ_T6 = 6'd23,
+      BRZR_T0 = 6'd12,
+      BRZR_T1 = 6'd13,
+      BRZR_T2 = 6'd14,
+      BRZR_T3 = 6'd15,
+      BRZR_T4 = 6'd16,
+      BRZR_T5 = 6'd17,
+      BRZR_T6 = 6'd18,
 
-              BRPL_T0 = 6'd24,
-              BRPL_T1 = 6'd25,
-              BRPL_T2 = 6'd26,
-              BRPL_T3 = 6'd27,
-              BRPL_T4 = 6'd28,
-              BRPL_T5 = 6'd29,
-              BRPL_T6 = 6'd30,
+      BRNZ_T0 = 6'd19,
+      BRNZ_T1 = 6'd20,
+      BRNZ_T2 = 6'd21,
+      BRNZ_T3 = 6'd22,
+      BRNZ_T4 = 6'd23,
+      BRNZ_T5 = 6'd24,
+      BRNZ_T6 = 6'd25,
 
-              BRMI_T0 = 6'd31,
-              BRMI_T1 = 6'd32,
-              BRMI_T2 = 6'd33,
-              BRMI_T3 = 6'd34,
-              BRMI_T4 = 6'd35,
-              BRMI_T5 = 6'd36,
-              BRMI_T6 = 6'd37;
+      BRPL_T0 = 6'd26,
+      BRPL_T1 = 6'd27,
+      BRPL_T2 = 6'd28,
+      BRPL_T3 = 6'd29,
+      BRPL_T4 = 6'd30,
+      BRPL_T5 = 6'd31,
+      BRPL_T6 = 6'd32,
+
+      BRMI_T0 = 6'd33,
+      BRMI_T1 = 6'd34,
+      BRMI_T2 = 6'd35,
+      BRMI_T3 = 6'd36,
+      BRMI_T4 = 6'd37,
+      BRMI_T5 = 6'd38,
+      BRMI_T6 = 6'd39;
+
 
     reg [5:0] Present_state = Default;
 
@@ -96,12 +107,12 @@ module SystemTestBench_ALU;
       always @(posedge Clock) // finite state machine; if clock rising-edge
         begin
             case (Present_state)
-                Default : Present_state = Mem_load_data1;
-                Mem_load_data1 : Present_state = Mem_load_data2;
-                Mem_load_data2 : Present_state = Mem_load_data3;
-                Mem_load_data3 : Present_state = Mem_load_data4;
-                Mem_load_data4 : Present_state = Mem_load_data5;
-                Mem_load_data5 : Present_state = load_register;
+                Default : Present_state = Mem_load_instruction1;
+                Mem_load_instruction1 : Present_state = Mem_load_instruction2;
+                Mem_load_instruction2 : Present_state = Mem_load_instruction3;
+                Mem_load_instruction3 : Present_state = Mem_load_instruction4;
+                Mem_load_instruction4 : Present_state = Mem_load_instruction5;
+                Mem_load_instruction5 : Present_state = load_register;
 
                 load_register : Present_state = load_register1;
                 load_register1 : Present_state = load_register2;
@@ -240,40 +251,7 @@ module SystemTestBench_ALU;
                         Zlo_out <= 1; Gra <= 1; Rin <= 1;
       end
 
-      BRPL_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
-        BRPL_T1: begin
-                      PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
-                      Zlo_out <= 1; PCin <= 1;//Capture incremented PC
-                      
-                      MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
-        end
-        BRPL_T2: begin 
-                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
-                      
-                      MDRout <= 1; IRin <= 1;                     
-        end
-        BRPL_T3: begin 
-                      MDRout <= 0; IRin <= 0;                   
-                      
-                      Gra <= 1; Rout <= 1; CONin <= 1;                       
-        end
-        BRPL_T4: begin 
-                      Rout <= 0; CONin <= 0; Gra <= 0;                    
-                      
-                      PCout <= 1; Yin <= 1;
-        end
-        BRPL_T5: begin 
-                      PCout <= 0; Yin <= 0;                      
-        
-                      Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
-        end
-        BRPL_T6: begin 
-                      Cout <= 0; Zin <= 0;                      
-        
-                      Zlo_out <= 1;
-                      if (con_ff_bit) PCin <= 1;
-                      #20 PCin <= 0;
-        end
+    
     /*-------------------------------------{brzr}---------------------------------------------------------------------------------------------}*/
       BRZR_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
         BRZR_T1: begin

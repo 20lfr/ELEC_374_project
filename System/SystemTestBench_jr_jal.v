@@ -73,7 +73,15 @@ module SystemTestBench_ALU;
             case (Present_state)
                 Default : Present_state = Mem_load_instruction1;
                 Mem_load_instruction1 : Present_state = Mem_load_instruction2;
-                Mem_load_instruction2 : Present_state = JR_T0;
+                Mem_load_instruction2 : Present_state = Mem_load_instruction3;
+                Mem_load_instruction3 : Present_state = load_register;
+
+                load_register : Present_state = load_register1;
+                load_register1 : Present_state = load_register2;
+                load_register2 : Present_state = load_register3;
+                load_register3 : Present_state = load_register4;
+                load_register4 : Present_state = load_register5;
+                load_register4 : Present_state = JR_T0;
 
                 JR_T0: Present_state = JR_T1;
                 JR_T1: Present_state = JR_T2;
@@ -84,7 +92,6 @@ module SystemTestBench_ALU;
                 JAL_T1: Present_state = JAL_T2;
                 JAL_T2: Present_state = JAL_T3;
                 JAL_T3: Present_state = JAL_T4
-
 
           endcase
       end
@@ -112,10 +119,9 @@ module SystemTestBench_ALU;
 
       /*INIT STATES: These states are for initializing the desired instruction. #TODO: add states accordingly*/
       
-
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b 10100_0110_0000_0000000000000000000;    //jr r6
+        overide_data_in <= 32'b00001_0110_0000_000_0000_0000_0000_0011; //ldi r6, 3
         mem_overide <= 1;
         
         Mem_enable512x32 <= 1;
@@ -124,14 +130,54 @@ module SystemTestBench_ALU;
 
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
+        overide_data_in <= 32'b 10100_0110_0000_0000000000000000000;    //jr r6 instruction
+        mem_overide <= 1;
+        
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0;
+      end
+
+      Mem_load_instruction3 : begin
+        overide_address <= 9'd5; //Load Desired Memory Address
         overide_data_in <= 32'b10101_0110_1111_0000000000000000000;     //jal r6, need R[15] for linking 
         
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0;
       end      
 
+/*---------------------------------------ldi------------------------------------------------*/
+      load_register: begin
+        Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;
+      end
+      load_register1: begin
+                        PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
+                        Zlo_out <= 1; PCin <= 1;//Capture incremented PC
+                      
+                        MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+      end
+      load_register2: begin
+                        Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+                      
+                        MDRout <= 1; IRin <= 1;
+      end
+      load_register3: begin
+                        MDRout <= 0; IRin <= 0;
 
-      /*------------------------------------------out r3-----------------------------------*/
+                        Grb <= 1; BAout <= 1; Yin <= 1;
+      end
+      load_register4: begin
+                        Grb <= 0; BAout <= 0; Yin <= 0;
+
+                        Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
+      end
+      load_register5: begin
+                        Cout <= 0; Zin <= 0;
+
+                        Zlo_out <= 1; Gra <= 1; Rin <= 1;
+      end
+
+
+      /*------------------------------------------jr-----------------------------------*/
         JR_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
         JR_T1: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
@@ -151,7 +197,7 @@ module SystemTestBench_ALU;
         end
 
 
-      /*------------------------------------------in r4-----------------------------------*/
+      /*------------------------------------------jal-----------------------------------*/
         JAL_T0: begin Gra <= 0;  Rout <= 0;  PCin <= 0;              PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
         JAL_T1: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
