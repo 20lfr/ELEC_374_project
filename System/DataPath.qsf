@@ -65,7 +65,7 @@ set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1000 ns" -section_id Sys
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SystemTestBench_mfhi_mflo -section_id SystemTestBench_mfhi_mflo
 set_global_assignment -name EDA_TEST_BENCH_NAME SystemTestBench_load_store -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SystemTestBench_load_store
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1000 ns" -section_id SystemTestBench_load_store
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1500 ns" -section_id SystemTestBench_load_store
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SystemTestBench_load_store -section_id SystemTestBench_load_store
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v

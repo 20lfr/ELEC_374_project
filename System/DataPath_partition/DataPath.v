@@ -15,7 +15,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 	/*Memory Signals Signals*/
-	output 	wire [9:0] MAR_to_chip,
+	output 	wire [8:0] MAR_to_chip,
 	output 	wire [31:0] Mem_dataout,
 	input 	wire Mem_read,//this is for MDR
 	input 	wire [31:0] Mem_datain, /*Mdatain*/
