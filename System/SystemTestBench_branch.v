@@ -101,8 +101,14 @@ module SystemTestBench_ALU;
                 Mem_load_data2 : Present_state = Mem_load_data3;
                 Mem_load_data3 : Present_state = Mem_load_data4;
                 Mem_load_data4 : Present_state = Mem_load_data5;
-                Mem_load_data5 : Present_state = BRZR_T0;
+                Mem_load_data5 : Present_state = load_register;
 
+                load_register : Present_state = load_register1;
+                load_register1 : Present_state = load_register2;
+                load_register2 : Present_state = load_register3;
+                load_register3 : Present_state = load_register4;
+                load_register4 : Present_state = load_register5;
+                load_register5 : Present_state = BRZR_T0;
 
                 BRZR_T0: Present_state = BRZR_T1;
                 BRZR_T1: Present_state = BRZR_T2;
@@ -161,51 +167,113 @@ module SystemTestBench_ALU;
       /*INIT STATES: These states are for initializing the desired instruction. #TODO: add states accordingly*/
       
 
-      /*Mem_load_instruction1 : begin
+      Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b00011_0001_0010_0000000000000000001;//load addi r1, r2, 1
+        overide_data_in <= 32'b00001_0101_0000_000_0000_0000_0000_0000; //ldi r5, 0
         mem_overide <= 1;
         
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0;
-
-
       end
+
+      
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'b01011_0001_0010_0000000000000000011; //load andi r1, r2, 3
+        overide_data_in <= 32'b10011_0101_0000_000_0000_0000_0000_0001; //brzr r5, 1
         
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0;
-      end 
+      end
+
       Mem_load_instruction3 : begin
-        overide_address <= 9'd2; //Load Desired Memory Address
-        overide_data_in <= 32'b01010_0001_0010_0000000000000001001; //load ori r1, r2, 9    
-
-        Mem_enable512x32 <= 1;
-        #10 Mem_enable512x32 <= 0; 
-      end 
-      Mem_load_data1 : begin 
-        overide_address <= 9'd500; //Load Desired Memory Address
-        overide_data_in <= 32'h00000014;
-
+        overide_address <= 9'd3; //Load Desired Memory Address
+        overide_data_in <= 32'b10011_0101_0001_000_0000_0000_0000_0001;  //brnz r5, 1
+        
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0;
-      end
+      end 
 
-      Mem_load_data2 : begin
-        overide_address <= 9'd501; //Load Desired Memory Address
-        overide_data_in <= 32'h00000014;
-
-        Mem_enable512x32 <= 1;
-        #10 Mem_enable512x32 <= 0; mem_overide <= 0;
-      end
-      */
-
-    Mem_load_data1: begin
+      Mem_load_instruction4 : begin
+        overide_address <= 9'd4; //Load Desired Memory Address
+        overide_data_in <= 32'b10011_0101_0010_000_0000_0000_0000_0001; //brpl r5, 1
         
-    end
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0;
+      end 
 
+      Mem_load_instruction5 : begin
+        overide_address <= 9'd5; //Load Desired Memory Address
+        overide_data_in <= 32'b10011_0101_0011_000_0000_0000_0000_0001; //brmi r5, 1
+        
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0;
+      end 
+
+      /*-------------------------------------ldi r5, C-----------------------------------------------------------------------------------*/
+      load_register: begin
+        Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;
+      end
+      load_register1: begin
+                        PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
+                        Zlo_out <= 1; PCin <= 1;//Capture incremented PC
+                      
+                        MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+      end
+      load_register2: begin
+                        Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+                      
+                        MDRout <= 1; IRin <= 1;
+      end
+      load_register3: begin
+                        MDRout <= 0; IRin <= 0;
+
+                        Grb <= 1; BAout <= 1; Yin <= 1;
+      end
+      load_register4: begin
+                        Grb <= 0; BAout <= 0; Yin <= 0;
+
+                        Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
+      end
+      load_register5: begin
+                        Cout <= 0; Zin <= 0;
+
+                        Zlo_out <= 1; Gra <= 1; Rin <= 1;
+      end
+
+      BRPL_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        BRPL_T1: begin
+                      PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
+                      Zlo_out <= 1; PCin <= 1;//Capture incremented PC
+                      
+                      MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+        end
+        BRPL_T2: begin 
+                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+                      
+                      MDRout <= 1; IRin <= 1;                     
+        end
+        BRPL_T3: begin 
+                      MDRout <= 0; IRin <= 0;                   
+                      
+                      Gra <= 1; Rout <= 1; CONin <= 1;                       
+        end
+        BRPL_T4: begin 
+                      Rout <= 0; CONin <= 0; Gra <= 0;                    
+                      
+                      PCout <= 1; Yin <= 1;
+        end
+        BRPL_T5: begin 
+                      PCout <= 0; Yin <= 0;                      
+        
+                      Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
+        end
+        BRPL_T6: begin 
+                      Cout <= 0; Zin <= 0;                      
+        
+                      Zlo_out <= 1;
+                      if (con_ff_bit) PCin <= 1;
+                      #20 PCin <= 0;
+        end
     /*-------------------------------------{brzr}---------------------------------------------------------------------------------------------}*/
       BRZR_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
         BRZR_T1: begin
