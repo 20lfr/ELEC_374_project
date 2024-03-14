@@ -114,7 +114,7 @@ module SystemTestBench_ALU;
         
         clear <= 0;
         HIout <=0; LOout<=0; Zhi_out<=0; Zlo_out<=0; PCout<=0; MDRout<=0; Inport_out<=0; Cout<=0;
-        MARin<=0; Zin <=0; PCin <=0; MDRin <=0; IRin <=0; Yin <=0; HIin <=0; LOin <=0; 
+        MARin<=0; Zin <=0; PCin <=0; MDRin <=0; IRin <=0; Yin <=0; HIin <=0; LOin <=0; CONin <=0;
         opcode <= 5'd0; IncPC <= 0;
         Gra <=0; Grb <=0; Grc <=0; Rin <=0; Rout <=0; BAout <=0;
         Mem_read <=0; Mem_Write <=0;  Mem_enable512x32 <= 0;
