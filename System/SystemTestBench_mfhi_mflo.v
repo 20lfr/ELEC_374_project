@@ -17,7 +17,7 @@ module SystemTestBench_mfhi_mflo;
     reg [4:0] opcode;
     reg IncPC;
     reg Gra, Grb, Grc, Rin, Rout, BAout;
-    reg Mem_read, Mem_Write, Mem_enable512x32;
+    reg Mem_Read, Mem_Write, Mem_enable512x32;
 
     reg mem_overide; reg [ADDR_WIDTH-1:0] overide_address; reg [DATA_WIDTH-1:0] overide_data_in;
 
@@ -43,7 +43,7 @@ module SystemTestBench_mfhi_mflo;
         .opcode(opcode), .IncPC(IncPC),
         .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
         .con_ff_bit(con_ff_bit),
-        .Mem_Read(Mem_read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
+        .Mem_Read(Mem_Read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
         .Mem_to_datapath_out(Mem_to_datapath), .Mem_data_to_chip_out(Mem_data_to_chip), .MAR_address_out(MAR_address), .memory_done(memory_done),
 
 
@@ -116,18 +116,18 @@ module SystemTestBench_mfhi_mflo;
 
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b00011_0001_0010_0000000000000000001;//load addi r1, r2, 1
+        overide_data_in <= 32'b00011_0110_0000_0000000000000000000;//mv  hi and low all 11111's
         mem_overide <= 1;
       end
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'b01011_0001_0010_0000000000000000011; //load andi r1, r2, 3
-        mem_overide <= 1; 
+        overide_data_in <= 32'b00011_0110_0000_0000000000000000000;//mfhi  r6, hi
+        mem_overide <= 1;
 
       end 
       Mem_load_instruction3 : begin
-        overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'b01010_0001_0010_0000000000000001001; //load ori r1, r2, 9
+        overide_address <= 9'd2; //Load Desired Memory Address
+        overide_data_in <= 32'b01011_0111_0000_0000000000000000000; //mflo r7, lo
         mem_overide <= 1; 
 
         #20 mem_overide <= 0;    
@@ -144,7 +144,34 @@ module SystemTestBench_mfhi_mflo;
         mem_overide <= 1; 
       end
 
-      
+      /*ADDi~~~~~~~~~~~~~~~~~~~~~~~~{addi  ra, rb, C}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+        ADDi_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        ADDi_T1: begin
+                      PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
+                      Zlo_out <= 1; PCin <= 1;//Capture incremented PC
+                      
+                      MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+        end
+        ADDi_T2: begin 
+                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+                      
+                      MDRout <= 1; IRin <= 1;                     
+        end
+        ADDi_T3: begin 
+                      MDRout <= 0; IRin <= 0;                   
+                      
+                      Grb <= 1; Rout <= 1; Yin <= 1;                       
+        end
+        ADDi_T4: begin 
+                      Rout <= 0; Yin <= 0; Grb <= 0;                    
+                      
+                      Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
+        end
+        ADDi_T5: begin 
+                      Cout <= 0; Zin <= 0;                      
+        
+                      Zlo_out <= 1; Rin <= 1; Gra <= 1;
+        end
 
 
 

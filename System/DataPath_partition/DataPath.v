@@ -85,7 +85,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 	/*Layout: Rn(clear, clock, enable, D input, Q output)*/
 		
 		register R0(clear, clock, R0in, BusMuxOut, R0_out);
-		assign R0_BusMuxIn = R0_out & (~BAout); /*this is for isolating R0 for load or store (Phase 2: 2.3)*/
+		assign R0_BusMuxIn = (~BAout) ? R0_out : 32'd0; /*this is for isolating R0 for load or store (Phase 2: 2.3)*/
 		register R1(clear, clock, R1in, BusMuxOut, R1_BusMuxIn);
 		register R2(clear, clock, R2in, BusMuxOut, R2_BusMuxIn);
 		register R3(clear, clock, R3in, BusMuxOut, R3_BusMuxIn);

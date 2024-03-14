@@ -184,7 +184,7 @@ module SystemTestBench_load_store;
           end
           Mem_load_instruction2 : begin
             overide_address <= 9'd1; //Load Desired Memory Address
-            overide_data_in <= 32'b00000_0000_0010_00000000000_00111000; //load   r0, 0x38(r2)
+            overide_data_in <= 32'b00000_0000_0010_00000000000_00111000; //load   r0, 0x38(r2) - 38 + 13 = 4B
             
             Mem_enable512x32 <= 1;
             #10 Mem_enable512x32 <= 0;
@@ -199,7 +199,7 @@ module SystemTestBench_load_store;
 
           Mem_load_instruction4 : begin
             overide_address <= 9'd3; //Load Desired Memory Address
-            overide_data_in <= 32'b00001_0000_0010_00000000000_00111000; //mv  r0, 0x38(r2)
+            overide_data_in <= 32'b00001_0000_0010_00000000000_00111000; //mv  r0, 0x38(r2) ==> 98 + 38 = CD
 
             Mem_enable512x32 <= 1;
             #10 Mem_enable512x32 <= 0; 
@@ -231,7 +231,7 @@ module SystemTestBench_load_store;
           end
 
           Mem_load_data2 : begin
-            overide_address <= 9'd205; //Load Desired Memory Address (0xCD)
+            overide_address <= 9'd75; //Load Desired Memory Address (0x4B)
             overide_data_in <= 32'h00000014;
 
             Mem_enable512x32 <= 1;
