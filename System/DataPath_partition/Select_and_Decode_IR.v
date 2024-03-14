@@ -8,9 +8,10 @@ module Select_and_Decode_IR #(parameter DATA_WIDTH = 32)(
     wire [15:0] register_decoded;
 
 
-    assign Ra_and = IR_data[26:23] & Gra; 
-    assign Rb_and = IR_data[22:19] & Grb; 
-    assign Rc_and = IR_data[18:15] & Grc; 
+    assign Ra_and = Gra ? IR_data[26:23] : 4'b0000; 
+    assign Rb_and = Grb ? IR_data[22:19] : 4'b0000; 
+    assign Rc_and = Grc ? IR_data[18:15] : 4'b0000; 
+
 
     assign Selected_register = Ra_and | Rb_and | Rc_and;
 

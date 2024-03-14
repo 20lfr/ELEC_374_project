@@ -3,8 +3,8 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
 
 
     /*in and outport information*/
-        input wire inport_data,
-        output wire outport_data,
+        input wire[DATA_WIDTH-1:0] inport_data,
+        output wire[DATA_WIDTH-1:0] outport_data,
 
 
     /*Phase 2 testing signals*/
@@ -30,9 +30,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
             /*Memory Control*/
             input wire    Mem_Read, Mem_Write, Mem_enable512x32, 
 
-            input wire      Mem_init_overide, 
-            input wire [DATA_WIDTH-1:0] Mem_overide_data,  
-            input wire [ADDR_WIDTH-1:0] Mem_overide_addr,   
+             
         
         /*Memory Test Signals*/
             output wire [DATA_WIDTH-1:0] Mem_to_datapath_out, Mem_data_to_chip_out, 
