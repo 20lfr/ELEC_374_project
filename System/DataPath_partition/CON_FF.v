@@ -8,6 +8,7 @@ module CON_FF (
 initial begin toControl <= 0; end 
 //this always block only triggers when enable changes
 always @(enable) begin
+    toControl <= 0;
     if(enable) begin
         case(IR[20:19])
             2'b00:

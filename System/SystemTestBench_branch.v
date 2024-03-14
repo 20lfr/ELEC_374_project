@@ -283,7 +283,7 @@ module SystemTestBench_branch;
         BRZR_T6: begin 
                       Cout <= 0; Zin <= 0;                      
         
-                      Zlo_out <= 1;
+                      Zlo_out <= 1; Gra <= 
                       if (con_ff_bit) PCin <= 1;
                       #20 PCin <= 0;
         end
