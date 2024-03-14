@@ -97,7 +97,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
     RAM512x32 memory512x32(
         .read(Mem_Read), .write(Mem_Write), .enable(Mem_enable512x32),
         .address(MAR_address),
-        .data_in(Mem_data_to_chip), .data_out(Mem_to_datapath), .done(memory_done).
+        .data_in(Mem_data_to_chip), .data_out(Mem_to_datapath), .done(memory_done),
 
         .overide(mem_overide), 
         .overide_address(overide_address), 
