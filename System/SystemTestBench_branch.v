@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 
-module SystemTestBench_ALU;
+module SystemTestBench_branch;
 
     // Test bench parameters
     parameter DATA_WIDTH = 32;
@@ -72,29 +72,29 @@ module SystemTestBench_ALU;
       BRZR_T5 = 6'd17,
       BRZR_T6 = 6'd18,
 
-      BRNZ_T0 = 6'd19,
-      BRNZ_T1 = 6'd20,
-      BRNZ_T2 = 6'd21,
-      BRNZ_T3 = 6'd22,
-      BRNZ_T4 = 6'd23,
-      BRNZ_T5 = 6'd24,
-      BRNZ_T6 = 6'd25,
+      BRNZ_T0 = 6'd22,
+      BRNZ_T1 = 6'd23,
+      BRNZ_T2 = 6'd24,
+      BRNZ_T3 = 6'd25,
+      BRNZ_T4 = 6'd26,
+      BRNZ_T5 = 6'd27,
+      BRNZ_T6 = 6'd28,
 
-      BRPL_T0 = 6'd26,
-      BRPL_T1 = 6'd27,
-      BRPL_T2 = 6'd28,
-      BRPL_T3 = 6'd29,
-      BRPL_T4 = 6'd30,
-      BRPL_T5 = 6'd31,
-      BRPL_T6 = 6'd32,
+      BRPL_T0 = 6'd32,
+      BRPL_T1 = 6'd33,
+      BRPL_T2 = 6'd34,
+      BRPL_T3 = 6'd35,
+      BRPL_T4 = 6'd36,
+      BRPL_T5 = 6'd37,
+      BRPL_T6 = 6'd38,
 
-      BRMI_T0 = 6'd33,
-      BRMI_T1 = 6'd34,
-      BRMI_T2 = 6'd35,
-      BRMI_T3 = 6'd36,
-      BRMI_T4 = 6'd37,
-      BRMI_T5 = 6'd38,
-      BRMI_T6 = 6'd39;
+      BRMI_T0 = 6'd42,
+      BRMI_T1 = 6'd43,
+      BRMI_T2 = 6'd44,
+      BRMI_T3 = 6'd45,
+      BRMI_T4 = 6'd46,
+      BRMI_T5 = 6'd47,
+      BRMI_T6 = 6'd48;
 
 
     reg [5:0] Present_state = Default;
@@ -165,7 +165,7 @@ module SystemTestBench_ALU;
         MARin<=0; Zin <=0; PCin <=0; MDRin <=0; IRin <=0; Yin <=0; HIin <=0; LOin <=0; 
         opcode <= 5'd0; IncPC <= 0;
         Gra <=0; Grb <=0; Grc <=0; Rin <=0; Rout <=0; BAout <=0;
-        Mem_read <=0; Mem_Write <=0;  Mem_enable512x32 <= 0; con_ff_bit <= 0;
+        Mem_read <=0; Mem_Write <=0;  Mem_enable512x32 <= 0; CONin <= 0;
 
 
         /*INIT inport and outport*/
@@ -217,7 +217,7 @@ module SystemTestBench_ALU;
         overide_data_in <= 32'b10011_0101_0011_000_0000_0000_0000_0001; //brmi r5, 1
         
         Mem_enable512x32 <= 1;
-        #10 Mem_enable512x32 <= 0;
+        #10 Mem_enable512x32 <= 0; mem_overide <= 0;
       end 
 
       /*-------------------------------------ldi r5, C-----------------------------------------------------------------------------------*/

@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 
-module SystemTestBench_ALU;
+module SystemTestBench_out_in;
 
     // Test bench parameters
     parameter DATA_WIDTH = 32;
