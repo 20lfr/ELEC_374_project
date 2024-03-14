@@ -42,6 +42,31 @@ set_global_assignment -name TOP_LEVEL_ENTITY System
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:11:38  MARCH 12, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Standard Edition"
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH SystemTestBench_load_store -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME SystemTestBench_ALU -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SystemTestBench_ALU
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SystemTestBench_ALU -section_id SystemTestBench_ALU
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1000 ns" -section_id SystemTestBench_ALU
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_NAME SystemTestBench_mfhi_mflo -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SystemTestBench_mfhi_mflo
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1000 ns" -section_id SystemTestBench_mfhi_mflo
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SystemTestBench_mfhi_mflo -section_id SystemTestBench_mfhi_mflo
+set_global_assignment -name EDA_TEST_BENCH_NAME SystemTestBench_load_store -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SystemTestBench_load_store
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1000 ns" -section_id SystemTestBench_load_store
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SystemTestBench_load_store -section_id SystemTestBench_load_store
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
@@ -73,26 +98,6 @@ set_global_assignment -name VERILOG_FILE DataPath_partition/DataPath.v
 set_global_assignment -name VERILOG_FILE DataPath_partition/CON_FF.v
 set_global_assignment -name VERILOG_FILE Memory/RAM512x32.v
 set_global_assignment -name VERILOG_FILE System.v
-set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
-set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH SystemTestBench_mfhi_mflo -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_NAME SystemTestBench_ALU -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SystemTestBench_ALU
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SystemTestBench_ALU -section_id SystemTestBench_ALU
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1000 ns" -section_id SystemTestBench_ALU
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE SystemTestBench_ALU.v -section_id SystemTestBench_ALU
-set_global_assignment -name EDA_TEST_BENCH_NAME SystemTestBench_mfhi_mflo -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SystemTestBench_mfhi_mflo
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1000 ns" -section_id SystemTestBench_mfhi_mflo
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SystemTestBench_mfhi_mflo -section_id SystemTestBench_mfhi_mflo
 set_global_assignment -name EDA_TEST_BENCH_FILE SystemTestBench_mfhi_mflo.v -section_id SystemTestBench_mfhi_mflo
+set_global_assignment -name EDA_TEST_BENCH_FILE SystemTestBench_load_store.v -section_id SystemTestBench_load_store

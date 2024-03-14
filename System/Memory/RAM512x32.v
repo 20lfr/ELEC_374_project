@@ -23,6 +23,7 @@ initial begin
     end
     q = INIT;
     done = 0;
+
 end 
 
 always @(posedge enable) begin
