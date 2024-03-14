@@ -56,7 +56,8 @@ module SystemTestBench_mfhi_mflo;
               
             
               MFHI_T0 = 6'd10, MFHI_T1 = 6'd11, MFHI_T2 = 6'd12, MFHI_T3 = 6'd13,
-              MFLO_T0 = 6'd20, MFLO_T1 = 6'd21, MFLO_T2 = 6'd22, MFLO_T3 = 6'd23;
+              MFLO_T0 = 6'd20, MFLO_T1 = 6'd21, MFLO_T2 = 6'd22, MFLO_T3 = 6'd23, 
+              LDI_T0 = 6'd30, LDI_T1 = 6'd31, LDI_T2 = 6'd32, LDI_T3 = 6'd33, LDI_T4 = 6'd34, LDI_T5 = 6'd35;
 
     reg [5:0] Present_state = Default;
 
@@ -75,9 +76,14 @@ module SystemTestBench_mfhi_mflo;
                 Mem_load_instruction2 : Present_state = Mem_load_instruction3;
                 Mem_load_instruction3 : Present_state = Mem_load_data1;
                 Mem_load_data1 : Present_state = Mem_load_data2;
-                Mem_load_data2 : Present_state = MFHI_T0;
+                Mem_load_data2 : Present_state = LDI_T0;
                 
-
+                LDI_T0: Present_state = LDI_T1;
+                LDI_T1: Present_state = LDI_T2;
+                LDI_T2: Present_state = LDI_T3;
+                LDI_T3: Present_state = LDI_T4;
+                LDI_T4: Present_state = LDI_T5;
+                LDI_T5: Present_state = MFHI_T0;
 
                 MFHI_T0: Present_state = MFHI_T1;
                 MFHI_T1: Present_state = MFHI_T2;
@@ -116,7 +122,7 @@ module SystemTestBench_mfhi_mflo;
 
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b00011_0110_0000_0000000000000000000;//mv  hi and low all 11111's
+        overide_data_in <= 32'b00001_0000_0000_1111111111111111111;//mv  hi, lo, all 1's
         mem_overide <= 1;
       end
       Mem_load_instruction2 : begin
@@ -144,36 +150,35 @@ module SystemTestBench_mfhi_mflo;
         mem_overide <= 1; 
       end
 
-      /*ADDi~~~~~~~~~~~~~~~~~~~~~~~~{addi  ra, rb, C}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-        ADDi_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
-        ADDi_T1: begin
+      /*MOVi~~~~~~~~~~~~~~~~~~~~~~~~{mov  hi, lo, 0xFFFFF}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+        LDI_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        LDI_T1: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                       Zlo_out <= 1; PCin <= 1;//Capture incremented PC
                       
-                      MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+                      MDRin <= 1; Mem_Read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
         end
-        ADDi_T2: begin 
-                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+        LDI_T2: begin 
+                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_Read <=0;  Mem_enable512x32<=0;          
                       
                       MDRout <= 1; IRin <= 1;                     
         end
-        ADDi_T3: begin 
+        LDI_T3: begin 
                       MDRout <= 0; IRin <= 0;                   
                       
-                      Grb <= 1; Rout <= 1; Yin <= 1;                       
+                      Grb <= 1; Rout <= 1; BAout <= 1; Yin <= 1;                       
         end
-        ADDi_T4: begin 
-                      Rout <= 0; Yin <= 0; Grb <= 0;                    
+        LDI_T4: begin 
+                      Rout <= 0; BAout <= 0; Yin <= 0; Grb <= 0;                    
                       
                       Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
         end
-        ADDi_T5: begin 
+        LDI_T5: begin 
                       Cout <= 0; Zin <= 0;                      
         
-                      Zlo_out <= 1; Rin <= 1; Gra <= 1;
+                      Zlo_out <= 1; HIin <= 1; LOin <= 1;
+                      #20 Zlo_out <= 0;  HIin <= 0; LOin <= 0;
         end
-
-
 
       /*MFHI~~~~~~~~~~~~~~~~~~~~~~~~{mfhi r6}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         MFHI_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
