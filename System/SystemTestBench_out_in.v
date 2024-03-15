@@ -8,12 +8,13 @@ module SystemTestBench_out_in;
 
     /*Inputs*/
     reg Clock, clear;
-    reg inport_data;
+    reg [DATA_WIDTH-1 : 0] inport_data;
+    reg outport_in, inport_data_ready;
     
     
     reg HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout;
     reg MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin;
-    reg outport_in, inport_data_ready;
+    
     reg [4:0] opcode;
     reg IncPC;
     reg Gra, Grb, Grc, Rin, Rout, BAout;
@@ -23,7 +24,7 @@ module SystemTestBench_out_in;
 
 
     /*Outputs*/
-    wire outport_data;
+    wire [DATA_WIDTH-1 : 0] outport_data;
 
     wire [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
     wire [ADDR_WIDTH-1:0] MAR_address;
@@ -73,16 +74,17 @@ module SystemTestBench_out_in;
             case (Present_state)
                 Default : Present_state = Mem_load_instruction1;
                 Mem_load_instruction1 : Present_state = Mem_load_instruction2;
-                Mem_load_instruction2 : Present_state = OUT_T0;
-
-                OUT_T0: Present_state = OUT_T1;
-                OUT_T1: Present_state = OUT_T2;
-                OUT_T2: Present_state = OUT_T3;
-                OUT_T3: Present_state = IN_T0;
+                Mem_load_instruction2 : Present_state = IN_T0;
 
                 IN_T0: Present_state = IN_T1;
                 IN_T1: Present_state = IN_T2;
                 IN_T2: Present_state = IN_T3;
+                IN_T3: Present_state = OUT_T0;
+
+                OUT_T0: Present_state = OUT_T1;
+                OUT_T1: Present_state = OUT_T2;
+                OUT_T2: Present_state = OUT_T3;
+
 
 
           endcase
@@ -114,40 +116,23 @@ module SystemTestBench_out_in;
 
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b 10111_0011_0000_0000000000000000000;    //out r3
-        mem_overide <= 1;
+        overide_data_in <= 32'b10110_0011_0000_0000000000000000000;     //in r3
         
         Mem_enable512x32 <= 1;
-        #10 Mem_enable512x32 <= 0;
+        #10 Mem_enable512x32 <= 0;      
       end
 
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'b10110_0100_0000_0000000000000000000;     //in r4
+        overide_data_in <= 32'b 10111_0011_0000_0000000000000000000;    //out r3
+        mem_overide <= 1;
         
         Mem_enable512x32 <= 1;
-        #10 Mem_enable512x32 <= 0;
+        #10 Mem_enable512x32 <= 0; mem_overide <= 0;     
       end      
 
 
-      /*------------------------------------------out r3-----------------------------------*/
-        OUT_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
-        OUT_T1: begin
-                      PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
-                      Zlo_out <= 1; PCin <= 1;//Capture incremented PC
-                      
-                      MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
-        end
-        OUT_T2: begin 
-                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
-                      
-                      MDRout <= 1; IRin <= 1;                     
-        end
-        OUT_T3: begin 
-                      MDRout <= 0; IRin <= 0;                   
-                      
-                      Gra <= 1; Rout <= 1; outport_in <= 1;                       
-        end
+      
 
 
       /*------------------------------------------in r4-----------------------------------*/
@@ -169,6 +154,25 @@ module SystemTestBench_out_in;
                       Gra <= 1; Rin <= 1; inport_data_ready <= 1;
                                              
         end
+
+      /*------------------------------------------out r3-----------------------------------*/
+          OUT_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+          OUT_T1: begin
+                        PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
+                        Zlo_out <= 1; PCin <= 1;//Capture incremented PC
+                        
+                        MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+          end
+          OUT_T2: begin 
+                        Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+                        
+                        MDRout <= 1; IRin <= 1;                     
+          end
+          OUT_T3: begin 
+                        MDRout <= 0; IRin <= 0;                   
+                        
+                        Gra <= 1; Rout <= 1; outport_in <= 1;                       
+          end
 
 
       endcase
