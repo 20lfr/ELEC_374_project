@@ -52,10 +52,12 @@ module SystemTestBench_jr_jal;
 
 
     parameter Default = 6'd0, Mem_load_instruction1 = 6'd1, Mem_load_instruction2 = 6'd2, Mem_load_instruction3 = 6'd3,
-              Mem_load_data1 = 6'd4, Mem_load_data2 = 6'd5, 
+              Mem_load_data1 = 6'd4, Mem_load_data2 = 6'd5,
 
-              JR_T0 = 6'd10, JR_T1 = 6'd11, JR_T2 = 6'd12, JR_T3 = 6'd13,
-              JAL_T0 = 6'd14, JAL_T1 = 6'd15, JAL_T2 = 6'd16, JAL_T3 = 6'd17, JAL_T4 = 6'd18;
+              load_register = 6'd6, load_register1 = 6'd7, load_register2 = 6'd8, load_register3 = 6'd9, load_register4 = 6'd10, load_register5 = 6'd11,
+
+              JR_T0 = 6'd15, JR_T1 = 6'd16, JR_T2 = 6'd17, JR_T3 = 6'd18,
+              JAL_T0 = 6'd19, JAL_T1 = 6'd20, JAL_T2 = 6'd21, JAL_T3 = 6'd22, JAL_T4 = 6'd23;
               
             
 
@@ -81,7 +83,7 @@ module SystemTestBench_jr_jal;
                 load_register2 : Present_state = load_register3;
                 load_register3 : Present_state = load_register4;
                 load_register4 : Present_state = load_register5;
-                load_register4 : Present_state = JR_T0;
+                load_register5 : Present_state = JR_T0;
 
                 JR_T0: Present_state = JR_T1;
                 JR_T1: Present_state = JR_T2;
@@ -91,7 +93,7 @@ module SystemTestBench_jr_jal;
                 JAL_T0: Present_state = JAL_T1;
                 JAL_T1: Present_state = JAL_T2;
                 JAL_T2: Present_state = JAL_T3;
-                JAL_T3: Present_state = JAL_T4
+                JAL_T3: Present_state = JAL_T4;
 
           endcase
       end

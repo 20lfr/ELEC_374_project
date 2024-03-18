@@ -104,7 +104,7 @@ module SystemTestBench_out_in;
 
 
         /*INIT inport and outport*/
-        inport_data <=32'd0; outport_in <=0; inport_data_ready <=0;    
+        inport_data <=32'd5; outport_in <=0; inport_data_ready <=0;    
 
         mem_overide <=0; overide_address <= 9'd0; overide_data_in <= 32'd0;
       end
@@ -136,7 +136,7 @@ module SystemTestBench_out_in;
 
 
       /*------------------------------------------in r4-----------------------------------*/
-        IN_T0: begin Gra <= 0; Rout <= 0; outport_in <= 0;       PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        IN_T0: begin PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
         IN_T1: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                       Zlo_out <= 1; PCin <= 1;//Capture incremented PC
@@ -156,7 +156,7 @@ module SystemTestBench_out_in;
         end
 
       /*------------------------------------------out r3-----------------------------------*/
-          OUT_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+          OUT_T0: begin inport_data_ready <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
           OUT_T1: begin
                         PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                         Zlo_out <= 1; PCin <= 1;//Capture incremented PC
