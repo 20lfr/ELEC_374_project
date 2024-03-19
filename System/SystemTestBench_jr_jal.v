@@ -243,7 +243,7 @@ module SystemTestBench_jr_jal;
         JAL_T3: begin 
                       MDRout <= 0; IRin <= 0;                   
                         
-                      Grb <= 1; Rin <= 1; PCin <= 1;                                     
+                      Grb <= 1; Rin <= 1; PCout <= 1;                                     
         end
         JAL_T4: begin
                       Grb <= 0; Rin <= 0; PCin <= 0; 
