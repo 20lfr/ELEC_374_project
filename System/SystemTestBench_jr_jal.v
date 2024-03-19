@@ -8,12 +8,13 @@ module SystemTestBench_jr_jal;
 
     /*Inputs*/
     reg Clock, clear;
-    reg inport_data;
+    reg [DATA_WIDTH-1:0] inport_data;
+    reg outport_in, inport_data_ready;
     
-    
+
     reg HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout;
     reg MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin;
-    reg outport_in, inport_data_ready;
+    
     reg [4:0] opcode;
     reg IncPC;
     reg Gra, Grb, Grc, Rin, Rout, BAout;
@@ -23,7 +24,7 @@ module SystemTestBench_jr_jal;
 
 
     /*Outputs*/
-    wire outport_data;
+    wire [DATA_WIDTH-1:0] outport_data;
 
     wire [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
     wire [ADDR_WIDTH-1:0] MAR_address;
@@ -52,9 +53,10 @@ module SystemTestBench_jr_jal;
 
 
     parameter Default = 6'd0, Mem_load_instruction1 = 6'd1, Mem_load_instruction2 = 6'd2, Mem_load_instruction3 = 6'd3,
-              Mem_load_data1 = 6'd4, Mem_load_data2 = 6'd5,
+              Mem_load_instruction4 = 6'd4,
 
-              load_register = 6'd6, load_register1 = 6'd7, load_register2 = 6'd8, load_register3 = 6'd9, load_register4 = 6'd10, load_register5 = 6'd11,
+              IN_T0 = 6'd6, IN_T1 = 6'd7, IN_T2 = 6'd8, IN_T3 = 6'd9,
+              IN_T0_2 = 6'd10, IN_T1_2 = 6'd11, IN_T2_2 = 6'd12, IN_T3_2 = 6'd13,
 
               JR_T0 = 6'd15, JR_T1 = 6'd16, JR_T2 = 6'd17, JR_T3 = 6'd18,
               JAL_T0 = 6'd19, JAL_T1 = 6'd20, JAL_T2 = 6'd21, JAL_T3 = 6'd22, JAL_T4 = 6'd23;
@@ -76,14 +78,20 @@ module SystemTestBench_jr_jal;
                 Default : Present_state = Mem_load_instruction1;
                 Mem_load_instruction1 : Present_state = Mem_load_instruction2;
                 Mem_load_instruction2 : Present_state = Mem_load_instruction3;
-                Mem_load_instruction3 : Present_state = load_register;
+                Mem_load_instruction3 : Present_state = Mem_load_instruction4;
+                Mem_load_instruction4 : Present_state = IN_T0;
 
-                load_register : Present_state = load_register1;
-                load_register1 : Present_state = load_register2;
-                load_register2 : Present_state = load_register3;
-                load_register3 : Present_state = load_register4;
-                load_register4 : Present_state = load_register5;
-                load_register5 : Present_state = JR_T0;
+
+
+                IN_T0: Present_state = IN_T1;
+                IN_T1: Present_state = IN_T2;
+                IN_T2: Present_state = IN_T3;
+                IN_T3: Present_state = IN_T0_2;
+
+                IN_T0_2: Present_state = IN_T1_2;
+                IN_T1_2: Present_state = IN_T2_2;
+                IN_T2_2: Present_state = IN_T3_2;
+                IN_T3_2: Present_state = JR_T0;
 
                 JR_T0: Present_state = JR_T1;
                 JR_T1: Present_state = JR_T2;
@@ -112,7 +120,7 @@ module SystemTestBench_jr_jal;
 
 
         /*INIT inport and outport*/
-        inport_data <=32'd0; outport_in <=0; inport_data_ready <=0;    
+        inport_data <=32'd5; outport_in <=0; inport_data_ready <=0;    
 
         mem_overide <=0; overide_address <= 9'd0; overide_data_in <= 32'd0;
       end
@@ -123,64 +131,84 @@ module SystemTestBench_jr_jal;
       
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b00001_0110_0000_000_0000_0000_0000_0011; //ldi r6, 3
+        overide_data_in <= 32'b10110_0110_0000_0000000000000000000;     //in r6
         mem_overide <= 1;
         
         Mem_enable512x32 <= 1;
-        #10 Mem_enable512x32 <= 0;
+        #10 Mem_enable512x32 <= 0;      
       end
 
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'b 10100_0110_0000_0000000000000000000;    //jr r6 instruction
+        overide_data_in <= 32'b10110_0111_0000_0000000000000000000;     //in r7
+        mem_overide <= 1;
+        
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0;      
+      end
+
+      Mem_load_instruction3 : begin
+        overide_address <= 9'd2; //Load Desired Memory Address
+        overide_data_in <= 32'b10100_0110_0000_0000000000000000000;    //jr r6 instruction
         mem_overide <= 1;
         
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0;
       end
 
-      Mem_load_instruction3 : begin
+      Mem_load_instruction4 : begin
         overide_address <= 9'd5; //Load Desired Memory Address
-        overide_data_in <= 32'b10101_0110_1111_0000000000000000000;     //jal r6, need R[15] for linking 
-        
+        overide_data_in <= 32'b10101_0111_1111_0000000000000000000;     //jal r7, need R[15] for linking 
+        mem_overide <= 1;
+
         Mem_enable512x32 <= 1;
-        #10 Mem_enable512x32 <= 0;
+        #10 Mem_enable512x32 <= 0; mem_overide <= 0;
       end      
 
-/*---------------------------------------ldi------------------------------------------------*/
-      load_register: begin
-        Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;
-      end
-      load_register1: begin
-                        PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
-                        Zlo_out <= 1; PCin <= 1;//Capture incremented PC
+/*---------------------------------------in r6------------------------------------------------*/
+        IN_T0: begin inport_data_ready <= 0; Rin <= 0;  Gra <= 0;     PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        IN_T1: begin
+                      PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
+                      Zlo_out <= 1; PCin <= 1;//Capture incremented PC
                       
-                        MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
-      end
-      load_register2: begin
-                        Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+                      MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+        end
+        IN_T2: begin 
+                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
                       
-                        MDRout <= 1; IRin <= 1;
-      end
-      load_register3: begin
-                        MDRout <= 0; IRin <= 0;
+                      MDRout <= 1; IRin <= 1; inport_data_ready <= 1;                    
+        end
+        IN_T3: begin 
+                      MDRout <= 0; IRin <= 0; inport_data_ready <= 0;                   
+                        
+                      Gra <= 1; Rin <= 1; Inport_out <= 1;
+                                             
+        end
 
-                        Grb <= 1; BAout <= 1; Yin <= 1;
-      end
-      load_register4: begin
-                        Grb <= 0; BAout <= 0; Yin <= 0;
 
-                        Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
-      end
-      load_register5: begin
-                        Cout <= 0; Zin <= 0;
+/*---------------------------------------in r7------------------------------------------------*/
 
-                        Zlo_out <= 1; Gra <= 1; Rin <= 1;
-      end
-
+        IN_T0_2: begin Inport_out <= 0; Rin <= 0;  Gra <= 0;     PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        IN_T1_2: begin
+                      PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
+                      Zlo_out <= 1; PCin <= 1;//Capture incremented PC
+                      inport_data <=32'd9;
+                      MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+        end
+        IN_T2_2: begin 
+                      Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_read <=0;  Mem_enable512x32<=0;          
+                      
+                      MDRout <= 1; IRin <= 1; inport_data_ready <= 1;                    
+        end
+        IN_T3_2: begin 
+                      MDRout <= 0; IRin <= 0; inport_data_ready <= 0;                   
+                        
+                      Gra <= 1; Rin <= 1; Inport_out <= 1;
+                                             
+        end
 
       /*------------------------------------------jr-----------------------------------*/
-        JR_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        JR_T0: begin Inport_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
         JR_T1: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                       Zlo_out <= 1; PCin <= 1;//Capture incremented PC
