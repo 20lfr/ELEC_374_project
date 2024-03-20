@@ -132,7 +132,7 @@ module SystemTestBench_ALU;
 
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b00011_0001_0010_0000000000000000001;//load addi r1, r2, 1
+        overide_data_in <= 32'b00011_0011_0100_1111111111111111011;//load addi r1, r2, -5
         mem_overide <= 1;
         
         Mem_enable512x32 <= 1;
@@ -142,14 +142,14 @@ module SystemTestBench_ALU;
       end
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'b01011_0001_0010_0000000000000000011; //load andi r1, r2, 3
+        overide_data_in <= 32'b01011_0011_0100_0000000000001010011; //load andi r1, r2, 0x53
         
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0;
       end 
       Mem_load_instruction3 : begin
         overide_address <= 9'd2; //Load Desired Memory Address
-        overide_data_in <= 32'b01010_0001_0010_0000000000000001001; //load ori r1, r2, 9    
+        overide_data_in <= 32'b01010_0011_0100_0000000000001010011; //load ori r1, r2, 0x53    
 
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0; 

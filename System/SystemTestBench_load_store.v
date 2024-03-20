@@ -51,21 +51,21 @@ module SystemTestBench_load_store;
     );
 
 
-    parameter Default = 6'd0, Mem_load_instruction1 = 6'd1, Mem_load_instruction2 = 6'd2, Mem_load_instruction3 = 6'd3,
-                              Mem_load_instruction4 = 6'd4,Mem_load_instruction5 = 6'd5, Mem_load_instruction6 = 6'd6,
+    parameter Default = 7'd0, Mem_load_instruction1 = 7'd1, Mem_load_instruction2 = 7'd2, Mem_load_instruction3 = 7'd3,
+                              Mem_load_instruction4 = 7'd4,Mem_load_instruction5 = 7'd5, Mem_load_instruction6 = 7'd6, Mem_load_instruction7 = 7'd81,
 
-                              Mem_load_data1 = 6'd7, Mem_load_data2 = 6'd8, Mem_load_data3 = 6'd9,
+                              Mem_load_data1 = 7'd7, Mem_load_data2 = 7'd8, Mem_load_data3 = 7'd9, Mem_load_data4 = 7'd80,
               
             
-              LD_T0 = 6'd10, LD_T1 = 6'd11, LD_T2 = 6'd12, LD_T3 = 6'd13, LD_T4 = 6'd14, LD_T5 = 6'd15, LD_T6 = 6'd16, LD_T7 = 6'd17,  
-              LD1_T0 = 6'd20, LD1_T1 = 6'd21, LD1_T2 = 6'd22, LD1_T3 = 6'd23, LD1_T4 = 6'd24, LD1_T5 = 6'd25, LD1_T6 = 6'd26, LD1_T7 = 6'd27,
-              LDI_T0 = 6'd30, LDI_T1 = 6'd31, LDI_T2 = 6'd32, LDI_T3 = 6'd33, LDI_T4 = 6'd34, LDI_T5 = 6'd35,
-              LDI1_T0 = 6'd40, LDI1_T1 = 6'd41, LDI1_T2 = 6'd42, LDI1_T3 = 6'd43, LDI1_T4 = 6'd44, LDI1_T5 = 6'd45, 
+              LD_T0 = 7'd10, LD_T1 = 7'd11, LD_T2 = 7'd12, LD_T3 = 7'd13, LD_T4 = 7'd14, LD_T5 = 7'd15, LD_T6 = 7'd16, LD_T7 = 7'd17,  
+              LD1_T0 = 7'd20, LD1_T1 = 7'd21, LD1_T2 = 7'd22, LD1_T3 = 7'd23, LD1_T4 = 7'd24, LD1_T5 = 7'd25, LD1_T6 = 7'd26, LD1_T7 = 7'd27,
+              LDI_T0 = 7'd30, LDI_T1 = 7'd31, LDI_T2 = 7'd32, LDI_T3 = 7'd33, LDI_T4 = 7'd34, LDI_T5 = 7'd35,
+              LDI1_T0 = 7'd40, LDI1_T1 = 7'd41, LDI1_T2 = 7'd42, LDI1_T3 = 7'd43, LDI1_T4 = 7'd44, LDI1_T5 = 7'd45, 
+              LDI2_T0 = 7'd50, LDI2_T1 = 7'd51, LDI2_T2 = 7'd52, LDI2_T3 = 7'd53, LDI2_T4 = 7'd54, LDI2_T5 = 7'd55, 
+              ST_T0 = 7'd60, ST_T1 = 7'd61, ST_T2 = 7'd62, ST_T3 = 7'd63, ST_T4 = 7'd64, ST_T5 = 7'd65, ST_T6 = 7'd66, ST_T7 = 7'd67,
+              ST1_T0 = 7'd70, ST1_T1 = 7'd71, ST1_T2 = 7'd72, ST1_T3 = 7'd73, ST1_T4 = 7'd74, ST1_T5 = 7'd75, ST1_T6 = 7'd76, ST1_T7 = 7'd77;
 
-              ST_T0 = 6'd46, ST_T1 = 6'd47, ST_T2 = 6'd48, ST_T3 = 6'd49, ST_T4 = 6'd50, ST_T5 = 6'd51, ST_T6 = 6'd52, ST_T7 = 6'd53,
-              ST1_T0 = 6'd56, ST1_T1 = 6'd57, ST1_T2 = 6'd58, ST1_T3 = 6'd59, ST1_T4 = 6'd60, ST1_T5 = 6'd61, ST1_T6 = 6'd62, ST1_T7 = 6'd63;
-
-    reg [5:0] Present_state = Default;
+    reg [6:0] Present_state = Default;
 
 
 
@@ -83,11 +83,13 @@ module SystemTestBench_load_store;
                 Mem_load_instruction3 : Present_state = Mem_load_instruction4;
                 Mem_load_instruction4 : Present_state = Mem_load_instruction5;
                 Mem_load_instruction5 : Present_state = Mem_load_instruction6;
-                Mem_load_instruction6 : Present_state = Mem_load_data1;
+                Mem_load_instruction6 : Present_state = Mem_load_instruction7;
+                Mem_load_instruction7 : Present_state = Mem_load_data1;
 
                 Mem_load_data1 : Present_state = Mem_load_data2;
                 Mem_load_data2 : Present_state = Mem_load_data3;
-                Mem_load_data3 : Present_state = LD_T0;
+                Mem_load_data3 : Present_state = Mem_load_data4;
+                Mem_load_data4 : Present_state = LD_T0;
                 
 
                 LD_T0: Present_state = LD_T1;
@@ -124,8 +126,14 @@ module SystemTestBench_load_store;
                 LDI1_T2: Present_state = LDI1_T3;
                 LDI1_T3: Present_state = LDI1_T4;
                 LDI1_T4: Present_state = LDI1_T5;
-                LDI1_T5: Present_state = ST_T0;
+                LDI1_T5: Present_state = LDI2_T0;
 
+                LDI2_T0: Present_state = LDI2_T1;
+                LDI2_T1: Present_state = LDI2_T2;
+                LDI2_T2: Present_state = LDI2_T3;
+                LDI2_T3: Present_state = LDI2_T4;
+                LDI2_T4: Present_state = LDI2_T5;
+                LDI2_T5: Present_state = ST_T0;
 
                 
             
@@ -197,6 +205,7 @@ module SystemTestBench_load_store;
             #10 Mem_enable512x32 <= 0; 
           end 
 
+  
           Mem_load_instruction4 : begin
             overide_address <= 9'd3; //Load Desired Memory Address
             overide_data_in <= 32'b00001_0000_0010_00000000000_00111000; //mv  r0, 0x38(r2) ==> 98 + 38 = CD
@@ -207,7 +216,7 @@ module SystemTestBench_load_store;
 
           Mem_load_instruction5 : begin
             overide_address <= 9'd4; //Load Desired Memory Address
-            overide_data_in <= 32'b00010_0010_0000_00000000000_10000111; //store  0x87(r0), r2
+            overide_data_in <= 32'b00001_0001_0000_00000000000_01000011; //mv  r1, 0x43(r0)
 
             Mem_enable512x32 <= 1;
             #10 Mem_enable512x32 <= 0; 
@@ -215,7 +224,15 @@ module SystemTestBench_load_store;
 
           Mem_load_instruction6 : begin
             overide_address <= 9'd5; //Load Desired Memory Address
-            overide_data_in <= 32'b00010_0000_0000_00000000000_10000111; //store  0x87(r0), r0
+            overide_data_in <= 32'b00010_0001_0000_00000000000_10000111; //store  0x87(r0), r1
+
+            Mem_enable512x32 <= 1;
+            #10 Mem_enable512x32 <= 0; 
+          end 
+
+          Mem_load_instruction7 : begin
+            overide_address <= 9'd6; //Load Desired Memory Address
+            overide_data_in <= 32'b00010_0001_0001_00000000000_10000111; //store  0x87(r1), r1
 
             Mem_enable512x32 <= 1;
             #10 Mem_enable512x32 <= 0; 
@@ -241,13 +258,19 @@ module SystemTestBench_load_store;
           end
 
           Mem_load_data3 : begin
-            overide_address <= 9'd135; //Load Desired Memory Address (0x87)
+            overide_address <= 9'd135; //Load Desired Memory Address (0x87 + 0 = 0x87 == 135)
             overide_data_in <= 32'h00000011;
 
             Mem_enable512x32 <= 1;
-            #10 Mem_enable512x32 <= 0; mem_overide <= 0;
+            #10 Mem_enable512x32 <= 0;          
+          end
 
-            
+          Mem_load_data4 : begin
+            overide_address <= 9'd202; //Load Desired Memory Address (0x87 + 0x43 = 0xCA == 202)
+            overide_data_in <= 32'h00000017;
+
+            Mem_enable512x32 <= 1;
+            #10 Mem_enable512x32 <= 0; mem_overide <= 0;           
           end
 
           
@@ -270,7 +293,7 @@ module SystemTestBench_load_store;
           LD_T3: begin 
                         MDRout <= 0; IRin <= 0;                   
                         
-                        Grb <= 1; Rout <= 1; BAout <= 0; Yin <= 1;                       
+                        Grb <= 1; Rout <= 1; BAout <= 1; Yin <= 1;                       
           end
           LD_T4: begin 
                         Rout <= 0; BAout <= 0; Yin <= 0; Grb <= 0;                    
@@ -395,6 +418,37 @@ module SystemTestBench_load_store;
                         Zlo_out <= 1; Gra <= 1; Rin <= 1;
                         #20 Zlo_out <= 0; Gra <= 0; Rin <= 0;
           end
+
+        /*ld2i~~~~~~~~~~~~~~~~~~~~~~~~{ldi  r1, C(rb)}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+          LDI2_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+          LDI2_T1: begin
+                        PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
+                        Zlo_out <= 1; PCin <= 1;//Capture incremented PC
+          
+                        MDRin <= 1; Mem_Read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
+          end
+          LDI2_T2: begin 
+                        Zlo_out <= 0; PCin <= 0;  MDRin <= 0; Mem_Read <=0;  Mem_enable512x32<=0;          
+                        
+                        MDRout <= 1; IRin <= 1;                     
+          end
+          LDI2_T3: begin 
+                        MDRout <= 0; IRin <= 0;                   
+                        
+                        Grb <= 1; Rout <= 1; BAout <= 1; Yin <= 1;                       
+          end
+          LDI2_T4: begin 
+                        Rout <= 0; BAout <= 0; Yin <= 0; Grb <= 0;                    
+                        
+                        Cout <= 1; Zin <= 1; opcode <= 5'b00011;//ADD
+          end
+          LDI2_T5: begin 
+                        Cout <= 0; Zin <= 0;                      
+          
+                        Zlo_out <= 1; Gra <= 1; Rin <= 1;
+                        #20 Zlo_out <= 0; Gra <= 0; Rin <= 0;
+          end
+
 
         /*st~~~~~~~~~~~~~~~~~~~~~~~~{st  C(rb), ra}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
           ST_T0: begin Zlo_out <= 0; Rin <= 0;  Gra <= 0;               PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end

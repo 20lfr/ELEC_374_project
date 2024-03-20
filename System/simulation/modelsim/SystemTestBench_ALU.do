@@ -39,18 +39,14 @@ add wave -noupdate /SystemTestBench_ALU/overide_data_in
 add wave -noupdate /SystemTestBench_ALU/outport_data
 add wave -noupdate /SystemTestBench_ALU/Mem_to_datapath
 add wave -noupdate /SystemTestBench_ALU/Mem_data_to_chip
-add wave -noupdate -radix unsigned /SystemTestBench_ALU/MAR_address
+add wave -noupdate /SystemTestBench_ALU/MAR_address
 add wave -noupdate /SystemTestBench_ALU/con_ff_bit
 add wave -noupdate /SystemTestBench_ALU/memory_done
-add wave -noupdate -radix unsigned /SystemTestBench_ALU/Present_state
-add wave -noupdate -radix unsigned /SystemTestBench_ALU/UUT/datapath/R1/q
-add wave -noupdate -radix unsigned /SystemTestBench_ALU/UUT/datapath/R2/q
-add wave -noupdate /SystemTestBench_ALU/UUT/datapath/IR/q
-add wave -noupdate /SystemTestBench_ALU/UUT/datapath/PC/q
+add wave -noupdate /SystemTestBench_ALU/Present_state
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {130000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {1000014 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 283
+configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -62,6 +58,6 @@ configure wave -gridoffset 0
 configure wave -gridperiod 1
 configure wave -griddelta 40
 configure wave -timeline 0
-configure wave -timelineunits ns
+configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {895006 ps}
+WaveRestoreZoom {999050 ps} {1000050 ps}
