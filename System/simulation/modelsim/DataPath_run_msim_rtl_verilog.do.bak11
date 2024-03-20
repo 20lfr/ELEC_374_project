@@ -34,9 +34,9 @@ vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/Sy
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory {C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System {C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v}
 
-vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System {C:/Users/20lfr/Desktop/ELEC_374_project/System/SystemTestBench_branch.v}
+vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System {C:/Users/20lfr/Desktop/ELEC_374_project/System/SystemTestBench_mfhi_mflo.v}
 
-vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  SystemTestBench_branch
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  SystemTestBench_mfhi_mflo
 
 add wave *
 view structure

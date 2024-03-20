@@ -124,32 +124,36 @@ module SystemTestBench_mfhi_mflo;
         overide_address <= 9'd0; //Load Desired Memory Address
         overide_data_in <= 32'b00001_0000_0000_1111111111111111111;//mv  hi, lo, all 1's
         mem_overide <= 1;
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0;
       end
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
         overide_data_in <= 32'b00011_0110_0000_0000000000000000000;//mfhi  r6, hi
-        mem_overide <= 1;
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0;
 
       end 
       Mem_load_instruction3 : begin
         overide_address <= 9'd2; //Load Desired Memory Address
         overide_data_in <= 32'b01011_0111_0000_0000000000000000000; //mflo r7, lo
-        mem_overide <= 1; 
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0; 
 
           
       end 
       Mem_load_data1 : begin
         overide_address <= 9'd500; //Load Desired Memory Address
         overide_data_in <= 32'h00000014;
-        mem_overide <= 1; 
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0; 
       end
 
       Mem_load_data2 : begin
         overide_address <= 9'd501; //Load Desired Memory Address
         overide_data_in <= 32'h00000014;
-        mem_overide <= 1; 
-
-        #20 mem_overide <= 0;  
+        Mem_enable512x32 <= 1;
+        #10 Mem_enable512x32 <= 0; mem_overide <= 0;  
       end
 
       /*MOVi~~~~~~~~~~~~~~~~~~~~~~~~{mov  hi, lo, 0xFFFFF}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
