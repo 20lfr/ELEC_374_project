@@ -97,7 +97,7 @@ module SystemTestBench_branch;
       BRMI_T6 = 6'd48;
 
 
-    reg [5:0] Present_state = Default;
+    reg [6:0] Present_state = Default;
 
     /*Clock generation*/
       initial begin
@@ -178,15 +178,19 @@ module SystemTestBench_branch;
       /*INIT STATES: These states are for initializing the desired instruction. #TODO: add states accordingly*/
 
       //for each value specified in the ldi r5 instruction below, the CON_FF logic will behave differently.
-      //First Demonstrated case: r5 is loaded with 0, and instructions are located at locations   0, 2, 3, 5, 6
-      //Second Demonstrated case: r5 is loaded with +3, and instructions are located at locations 0, 1, 2, 4, 6
-      //Third Demonstrated case: r5 is loaded with -3, and instructions are located at locations  0, 1, 2, 4, 5
+      //First Demonstrated case: r5 is loaded with 0, and instructions are located at locations   0, 1, 16, 17, 32
+      //Second Demonstrated case: r5 is loaded with +3, and instructions are located at locations 0, 1, 2, 17, 32
+      //Third Demonstrated case: r5 is loaded with -3, and instructions are located at locations  0, 1, 2, 17, 18
       //increments in PC demonstrate the branch being acknowledged and then handled.
+
+      //000_0000_0000_0000_0000  0
+      //000_0000_0000_0000_0011  3
+      //111_1111_1111_1111_1101 -3
       
 
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b00001_0101_0000_111_1111_1111_1111_1101; //ldi r5, -3
+        overide_data_in <= 32'b00001_0101_0000_000_0000_0000_0000_0000; //ldi r5, 0
         mem_overide <= 1;
         
         Mem_enable512x32 <= 1;
@@ -196,31 +200,31 @@ module SystemTestBench_branch;
       
       Mem_load_instruction2 : begin
         overide_address <= 9'd1; //Load Desired Memory Address
-        overide_data_in <= 32'b10011_0101_0000_000_0000_0000_0000_0001; //brzr r5, 1
+        overide_data_in <= 32'b10011_0101_0000_000_0000_0000_0000_1110; //brzr r5, 14
         
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0;
       end
 
       Mem_load_instruction3 : begin
-        overide_address <= 9'd2; //Load Desired Memory Address
-        overide_data_in <= 32'b10011_0101_0001_000_0000_0000_0000_0001;  //brnz r5, 1
+        overide_address <= 9'd16; //Load Desired Memory Address
+        overide_data_in <= 32'b10011_0101_0001_000_0000_0000_0000_1110;  //brnz r5, 14
         
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0;
       end 
 
       Mem_load_instruction4 : begin
-        overide_address <= 9'd4; //Load Desired Memory Address
-        overide_data_in <= 32'b10011_0101_0010_000_0000_0000_0000_0001; //brpl r5, 1
+        overide_address <= 9'd17; //Load Desired Memory Address
+        overide_data_in <= 32'b10011_0101_0010_000_0000_0000_0000_1110; //brpl r5, 14
         
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0;
       end 
 
       Mem_load_instruction5 : begin
-        overide_address <= 9'd5; //Load Desired Memory Address
-        overide_data_in <= 32'b10011_0101_0011_000_0000_0000_0000_0001; //brmi r5, 1
+        overide_address <= 9'd32; //Load Desired Memory Address
+        overide_data_in <= 32'b10011_0101_0011_000_0000_0000_0000_1110; //brmi r5, 14
         
         Mem_enable512x32 <= 1;
         #10 Mem_enable512x32 <= 0; mem_overide <= 0;
