@@ -162,7 +162,8 @@ module SystemTestBench_jr_jal;
         mem_overide <= 1;
 
         Mem_enable512x32 <= 1;
-        #10 Mem_enable512x32 <= 0; mem_overide <= 0;
+        #10 Mem_enable512x32 <= 0; mem_overide <= 0; //changes
+        
       end      
 
 /*---------------------------------------in r6------------------------------------------------*/
