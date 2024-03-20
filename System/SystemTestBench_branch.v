@@ -176,11 +176,17 @@ module SystemTestBench_branch;
 
 
       /*INIT STATES: These states are for initializing the desired instruction. #TODO: add states accordingly*/
+
+      //for each value specified in the ldi r5 instruction below, the CON_FF logic will behave differently.
+      //First Demonstrated case: r5 is loaded with 0, and instructions are located at locations   0, 2, 3, 5, 6
+      //Second Demonstrated case: r5 is loaded with +3, and instructions are located at locations 0, 1, 2, 4, 6
+      //Third Demonstrated case: r5 is loaded with -3, and instructions are located at locations  0, 1, 2, 4, 5
+      //increments in PC demonstrate the branch being acknowledged and then handled.
       
 
       Mem_load_instruction1 : begin
         overide_address <= 9'd0; //Load Desired Memory Address
-        overide_data_in <= 32'b00001_0101_0000_000_0000_0000_0000_0000; //ldi r5, 0
+        overide_data_in <= 32'b00001_0101_0000_111_1111_1111_1111_1101; //ldi r5, -3
         mem_overide <= 1;
         
         Mem_enable512x32 <= 1;
@@ -197,7 +203,7 @@ module SystemTestBench_branch;
       end
 
       Mem_load_instruction3 : begin
-        overide_address <= 9'd3; //Load Desired Memory Address
+        overide_address <= 9'd2; //Load Desired Memory Address
         overide_data_in <= 32'b10011_0101_0001_000_0000_0000_0000_0001;  //brnz r5, 1
         
         Mem_enable512x32 <= 1;
