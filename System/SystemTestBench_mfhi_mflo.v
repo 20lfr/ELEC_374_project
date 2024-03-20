@@ -8,7 +8,7 @@ module SystemTestBench_mfhi_mflo;
 
     /*Inputs*/
     reg Clock, clear;
-    reg inport_data;
+    reg [DATA_WIDTH-1:0] inport_data;
     
     
     reg HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout;
@@ -23,7 +23,7 @@ module SystemTestBench_mfhi_mflo;
 
 
     /*Outputs*/
-    wire outport_data;
+    wire [DATA_WIDTH-1:0] outport_data;
 
     wire [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
     wire [ADDR_WIDTH-1:0] MAR_address;

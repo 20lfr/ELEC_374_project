@@ -1,5 +1,5 @@
 Flow report for DataPath
-Tue Mar 12 17:59:21 2024
+Wed Mar 20 15:43:51 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Flow Status                 ; Successful - Tue Mar 12 17:59:21 2024           ;
+; Flow Status                 ; Successful - Wed Mar 20 15:43:51 2024           ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name               ; DataPath                                        ;
 ; Top-level Entity Name       ; System                                          ;
@@ -62,37 +62,57 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/12/2024 17:59:15 ;
+; Start date & time ; 03/20/2024 15:43:44 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DataPath            ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                  ;
-+--------------------------------------+----------------------------------------+---------------+-------------+---------------------+
-; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id          ;
-+--------------------------------------+----------------------------------------+---------------+-------------+---------------------+
-; COMPILER_SIGNATURE_ID                ; 273270824061377.171028075501936        ; --            ; --          ; --                  ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; SystemTestBench_ALU ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; SystemTestBench_ALU                    ; --            ; --          ; eda_simulation      ;
-; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation      ;
-; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --                  ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation      ;
-; EDA_TEST_BENCH_FILE                  ; SystemTestBench_ALU.v                  ; --            ; --          ; SystemTestBench_ALU ;
-; EDA_TEST_BENCH_MODULE_NAME           ; SystemTestBench_ALU                    ; --            ; --          ; SystemTestBench_ALU ;
-; EDA_TEST_BENCH_NAME                  ; SystemTestBench_ALU                    ; --            ; --          ; eda_simulation      ;
-; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1000 ns                                ; --            ; --          ; SystemTestBench_ALU ;
-; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation      ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                  ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                  ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; System      ; Top                 ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; System      ; Top                 ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; System      ; Top                 ;
-; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --                  ;
-; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                  ;
-; TOP_LEVEL_ENTITY                     ; System                                 ; DataPath      ; --          ; --                  ;
-+--------------------------------------+----------------------------------------+---------------+-------------+---------------------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                         ;
++--------------------------------------+----------------------------------------+---------------+-------------+----------------------------+
+; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                 ;
++--------------------------------------+----------------------------------------+---------------+-------------+----------------------------+
+; COMPILER_SIGNATURE_ID                ; 273270824061377.171096382409404        ; --            ; --          ; --                         ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; SystemTestBench_ALU        ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; SystemTestBench_load_store ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; SystemTestBench_mfhi_mflo  ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; SystemTestBench_jr_jal     ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; SystemTestBench_branch     ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; SystemTestBench_mfhi_mflo              ; --            ; --          ; eda_simulation             ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation             ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --                         ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation             ;
+; EDA_TEST_BENCH_FILE                  ; SystemTestBench_ALU.v                  ; --            ; --          ; SystemTestBench_ALU        ;
+; EDA_TEST_BENCH_FILE                  ; SystemTestBench_load_store.v           ; --            ; --          ; SystemTestBench_load_store ;
+; EDA_TEST_BENCH_FILE                  ; SystemTestBench_mfhi_mflo.v            ; --            ; --          ; SystemTestBench_mfhi_mflo  ;
+; EDA_TEST_BENCH_FILE                  ; SystemTestBench_jr_jal.v               ; --            ; --          ; SystemTestBench_jr_jal     ;
+; EDA_TEST_BENCH_FILE                  ; SystemTestBench_branch.v               ; --            ; --          ; SystemTestBench_branch     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; SystemTestBench_ALU                    ; --            ; --          ; SystemTestBench_ALU        ;
+; EDA_TEST_BENCH_MODULE_NAME           ; SystemTestBench_load_store             ; --            ; --          ; SystemTestBench_load_store ;
+; EDA_TEST_BENCH_MODULE_NAME           ; SystemTestBench_mfhi_mflo              ; --            ; --          ; SystemTestBench_mfhi_mflo  ;
+; EDA_TEST_BENCH_MODULE_NAME           ; SystemTestBench_jr_jal                 ; --            ; --          ; SystemTestBench_jr_jal     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; SystemTestBench_branch                 ; --            ; --          ; SystemTestBench_branch     ;
+; EDA_TEST_BENCH_NAME                  ; SystemTestBench_ALU                    ; --            ; --          ; eda_simulation             ;
+; EDA_TEST_BENCH_NAME                  ; SystemTestBench_mfhi_mflo              ; --            ; --          ; eda_simulation             ;
+; EDA_TEST_BENCH_NAME                  ; SystemTestBench_load_store             ; --            ; --          ; eda_simulation             ;
+; EDA_TEST_BENCH_NAME                  ; SystemTestBench_branch                 ; --            ; --          ; eda_simulation             ;
+; EDA_TEST_BENCH_NAME                  ; SystemTestBench_jr_jal                 ; --            ; --          ; eda_simulation             ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1000 ns                                ; --            ; --          ; SystemTestBench_ALU        ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1500 ns                                ; --            ; --          ; SystemTestBench_load_store ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1000 ns                                ; --            ; --          ; SystemTestBench_mfhi_mflo  ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1000 ns                                ; --            ; --          ; SystemTestBench_jr_jal     ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1000 ns                                ; --            ; --          ; SystemTestBench_branch     ;
+; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation             ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                         ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                         ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; System      ; Top                        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; System      ; Top                        ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; System      ; Top                        ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --                         ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                         ;
+; TOP_LEVEL_ENTITY                     ; System                                 ; DataPath      ; --          ; --                         ;
++--------------------------------------+----------------------------------------+---------------+-------------+----------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------+
@@ -100,8 +120,8 @@ refer to the applicable agreement for further details.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:07     ; 1.0                     ; 4797 MB             ; 00:00:06                           ;
-; Total                  ; 00:00:07     ; --                      ; --                  ; 00:00:06                           ;
+; Analysis & Elaboration ; 00:00:08     ; 1.0                     ; 4801 MB             ; 00:00:07                           ;
+; Total                  ; 00:00:08     ; --                      ; --                  ; 00:00:07                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

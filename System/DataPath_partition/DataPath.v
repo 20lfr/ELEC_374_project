@@ -157,7 +157,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 /*Phase 2 and Control Signal*/
 
 	/*2.2: Sign Extend Constant within IR*/
-		assign C_sign_extended = {{12{IR_BusMuxIn[18]}}, IR_BusMuxIn[18:0]}; //12{IR_BusMuxIn[18]} is notation for "create 12 bits repeating of {a}. Phase 2: 2.2"
+		assign C_sign_extended = {{13{IR_BusMuxIn[18]}}, IR_BusMuxIn[18:0]}; //12{IR_BusMuxIn[18]} is notation for "create 12 bits repeating of {a}. Phase 2: 2.2"
 
 	/*2.2: Select_and_Encoder*/
 		Select_and_Decode_IR IR_register_decoder(
