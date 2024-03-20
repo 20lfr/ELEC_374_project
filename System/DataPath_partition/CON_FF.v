@@ -8,19 +8,18 @@ module CON_FF (
 initial begin toControl <= 0; end 
 //this always block only triggers when enable changes
 always @(enable) begin
-    toControl <= 0;
     if(enable) begin
         case(IR[20:19])
             2'b00:
                 // Branch if Zero
                 begin
-                    if (BusMuxOut == 32'h0000_0000) toControl <= 1'b1;
+                    if (BusMuxOut == 32'd0) toControl <= 1'b1;
                     else toControl <= 1'b0;
                 end
             2'b01:
                 // Branch if Nonzero
                 begin
-                    if (BusMuxOut != 32'h0000_0000) toControl <= 1'b1;
+                    if (BusMuxOut != 32'd0) toControl <= 1'b1;
                     else toControl <= 1'b0;
                 end
             2'b10:
