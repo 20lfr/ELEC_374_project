@@ -136,7 +136,7 @@ module SystemTestBench_mfhi_mflo;
         overide_data_in <= 32'b01011_0111_0000_0000000000000000000; //mflo r7, lo
         mem_overide <= 1; 
 
-        #20 mem_overide <= 0;    
+          
       end 
       Mem_load_data1 : begin
         overide_address <= 9'd500; //Load Desired Memory Address
@@ -148,6 +148,8 @@ module SystemTestBench_mfhi_mflo;
         overide_address <= 9'd501; //Load Desired Memory Address
         overide_data_in <= 32'h00000014;
         mem_overide <= 1; 
+
+        #20 mem_overide <= 0;  
       end
 
       /*MOVi~~~~~~~~~~~~~~~~~~~~~~~~{mov  hi, lo, 0xFFFFF}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
