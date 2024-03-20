@@ -120,7 +120,7 @@ module SystemTestBench_jr_jal;
 
 
         /*INIT inport and outport*/
-        inport_data <=32'd5; outport_in <=0; inport_data_ready <=0;    
+        inport_data <=32'd12; outport_in <=0; inport_data_ready <=0;    
 
         mem_overide <=0; overide_address <= 9'd0; overide_data_in <= 32'd0;
       end
@@ -157,7 +157,7 @@ module SystemTestBench_jr_jal;
       end
 
       Mem_load_instruction4 : begin
-        overide_address <= 9'd5; //Load Desired Memory Address
+        overide_address <= 9'd12; //Load Desired Memory Address
         overide_data_in <= 32'b10101_0111_1111_0000000000000000000;     //jal r7, need R[15] for linking 
         mem_overide <= 1;
 
@@ -189,11 +189,11 @@ module SystemTestBench_jr_jal;
 
 /*---------------------------------------in r7------------------------------------------------*/
 
-        IN_T0_2: begin Inport_out <= 0; Rin <= 0;  Gra <= 0;     PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
+        IN_T0_2: begin Inport_out <= 0; Rin <= 0;  Gra <= 0;  inport_data <=32'd24;   PCout <= 1; IncPC <= 1; MARin <= 1; Zin <= 1;/*Get instruction form mem*/ end
         IN_T1_2: begin
                       PCout <= 0; MARin <= 0; IncPC <= 0; Zin <= 0;
                       Zlo_out <= 1; PCin <= 1;//Capture incremented PC
-                      inport_data <=32'd9;
+              
                       MDRin <= 1; Mem_read <= 1; Mem_enable512x32 <= 1;//recieving instruction from memory
         end
         IN_T2_2: begin 
@@ -247,7 +247,7 @@ module SystemTestBench_jr_jal;
                       Grb <= 1; Rin <= 1; PCout <= 1;                                     
         end
         JAL_T4: begin
-                      Grb <= 0; Rin <= 0; PCin <= 0; 
+                      Grb <= 0; Rin <= 0; PCout <= 0; 
 
                       Gra <= 1; Rout <= 1; PCin <= 1;  
         end
