@@ -213,7 +213,7 @@ module SystemTestBench_branch;
       end 
 
       Mem_load_instruction5 : begin
-        overide_address <= 9'd5; //Load Desired Memory Address
+        overide_address <= 9'd6; //Load Desired Memory Address
         overide_data_in <= 32'b10011_0101_0011_000_0000_0000_0000_0001; //brmi r5, 1
         
         Mem_enable512x32 <= 1;
