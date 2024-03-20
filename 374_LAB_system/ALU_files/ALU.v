@@ -38,7 +38,7 @@ module ALU #(parameter DATA_WIDTH = 32)(
     add_sub add_unsigned_instance(A, B, 1'b0, 1'b0, Cin, C_out, unsigned_add_result);
 
     // Booth multiplier (assuming mul_enable is managed elsewhere or is part of the module's internal logic)
-    booth_mul_combinational mul_instance(A, B, mul_result);
+    booth_two_pair mul_instance(A, B, mul_result);
 
     // Division
     div_combinational division_instance(A, B, div_result);
@@ -51,8 +51,8 @@ module ALU #(parameter DATA_WIDTH = 32)(
         end
         else begin
             case(op)
-                AND:        result = or_result;
-                OR:         result = and_result;
+                AND:        result = and_result;
+                OR:         result = or_result;
                 NEG:        result = neg_result;
                 NOT_MOD:    result = not_result;
                 ROL:        result = rol_result;

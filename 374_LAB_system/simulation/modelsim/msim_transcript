@@ -1,5 +1,4 @@
 # Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
-# ERROR: No extended dataflow license exists
 # do DataPath_run_msim_rtl_verilog.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
@@ -11,232 +10,232 @@
 # Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/Registers {C:/Users/20lfr/ELEC_374_project/374_LAB_system/Registers/register.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply/booth_two_pair.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:31 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/Registers" C:/Users/20lfr/ELEC_374_project/374_LAB_system/Registers/register.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Multiply/booth_two_pair.v 
+# -- Compiling module booth_two_pair
+# 
+# Top level modules:
+# 	booth_two_pair
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/register.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/register.v 
 # -- Compiling module register
 # 
 # Top level modules:
 # 	register
-# End time: 11:16:31 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/Registers {C:/Users/20lfr/ELEC_374_project/374_LAB_system/Registers/MDR2.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/MDR2.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:31 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/Registers" C:/Users/20lfr/ELEC_374_project/374_LAB_system/Registers/MDR2.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Registers/MDR2.v 
 # -- Compiling module MDR2
 # 
 # Top level modules:
 # 	MDR2
-# End time: 11:16:31 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Multiply {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_MUX.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:31 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Multiply" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Multiply/booth_mul_combinational.v 
-# -- Compiling module booth_mul_combinational
-# 
-# Top level modules:
-# 	booth_mul_combinational
-# End time: 11:16:31 on Feb 29,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/Bus_files {C:/Users/20lfr/ELEC_374_project/374_LAB_system/Bus_files/Bus_MUX.v}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:31 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/Bus_files" C:/Users/20lfr/ELEC_374_project/374_LAB_system/Bus_files/Bus_MUX.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_MUX.v 
 # -- Compiling module Bus_MUX
 # 
 # Top level modules:
 # 	Bus_MUX
-# End time: 11:16:31 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/Bus_files {C:/Users/20lfr/ELEC_374_project/374_LAB_system/Bus_files/Bus_Encoder.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_Encoder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:31 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/Bus_files" C:/Users/20lfr/ELEC_374_project/374_LAB_system/Bus_files/Bus_Encoder.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/Bus_files/Bus_Encoder.v 
 # -- Compiling module Bus_Encoder
 # 
 # Top level modules:
 # 	Bus_Encoder
-# End time: 11:16:31 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shra.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shra.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:31 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shra.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shra.v 
 # -- Compiling module shra
 # 
 # Top level modules:
 # 	shra
-# End time: 11:16:31 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shr.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shr.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:31 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shr.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shr.v 
 # -- Compiling module shr
 # 
 # Top level modules:
 # 	shr
-# End time: 11:16:31 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shl.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shl.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:31 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shl.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/shl.v 
 # -- Compiling module shl
 # 
 # Top level modules:
 # 	shl
-# End time: 11:16:31 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/ror.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/ror.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:31 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/ror.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/ror.v 
 # -- Compiling module ror
 # 
 # Top level modules:
 # 	ror
-# End time: 11:16:32 on Feb 29,2024, Elapsed time: 0:00:01
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/rol.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/rol.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:32 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/rol.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/rol.v 
 # -- Compiling module rol
 # 
 # Top level modules:
 # 	rol
-# End time: 11:16:32 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/not_module.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/not_module.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:32 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/not_module.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/not_module.v 
 # -- Compiling module not_module
 # 
 # Top level modules:
 # 	not_module
-# End time: 11:16:32 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/neg.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/neg.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:32 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/neg.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/neg.v 
 # -- Compiling module neg
 # 
 # Top level modules:
 # 	neg
-# End time: 11:16:32 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/and_or.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/and_or.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:32 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/and_or.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Logical_Operations/and_or.v 
 # -- Compiling module and_or
 # 
 # Top level modules:
 # 	and_or
-# End time: 11:16:32 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Division {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Division/div_combinational.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division/div_combinational.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:32 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Division" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Division/div_combinational.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Division/div_combinational.v 
 # -- Compiling module div_combinational
 # 
 # Top level modules:
 # 	div_combinational
-# End time: 11:16:32 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:32 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_b_cell.v 
 # -- Compiling module CLA_b_cell
 # 
 # Top level modules:
 # 	CLA_b_cell
-# End time: 11:16:32 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:32 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v 
 # -- Compiling module CLA_32bit_adder
 # 
 # Top level modules:
 # 	CLA_32bit_adder
-# End time: 11:16:32 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:32 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v 
 # -- Compiling module CLA_16bit_adder
 # 
 # Top level modules:
 # 	CLA_16bit_adder
-# End time: 11:16:32 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:12 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:33 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v 
+# Start time: 16:10:12 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v 
 # -- Compiling module CLA_4bit_adder
 # 
 # Top level modules:
 # 	CLA_4bit_adder
-# End time: 11:16:33 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:13 on Mar 20,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:33 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v 
+# Start time: 16:10:13 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/Addition_and_Subtraction/add_sub.v 
 # -- Compiling module add_sub
 # 
 # Top level modules:
 # 	add_sub
-# End time: 11:16:33 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:13 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files {C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/ALU.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/ALU.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:33 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files" C:/Users/20lfr/ELEC_374_project/374_LAB_system/ALU_files/ALU.v 
+# Start time: 16:10:13 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/ALU_files/ALU.v 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 11:16:33 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:13 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system {C:/Users/20lfr/ELEC_374_project/374_LAB_system/DataPath.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/DataPath.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:33 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system" C:/Users/20lfr/ELEC_374_project/374_LAB_system/DataPath.v 
+# Start time: 16:10:13 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/DataPath.v 
 # -- Compiling module DataPath
 # 
 # Top level modules:
 # 	DataPath
-# End time: 11:16:33 on Feb 29,2024, Elapsed time: 0:00:00
+# End time: 16:10:13 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system {C:/Users/20lfr/ELEC_374_project/374_LAB_system/NEG_NOT_TB.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system {C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/MUL_DIV_TB_phase1.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:16:33 on Feb 29,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/ELEC_374_project/374_LAB_system" C:/Users/20lfr/ELEC_374_project/374_LAB_system/NEG_NOT_TB.v 
-# -- Compiling module NEG_NOT_TB
+# Start time: 16:10:13 on Mar 20,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system" C:/Users/20lfr/Desktop/ELEC_374_project/374_LAB_system/MUL_DIV_TB_phase1.v 
+# -- Compiling module MUL_DIV_TB_phase1
 # 
 # Top level modules:
-# 	NEG_NOT_TB
-# End time: 11:16:33 on Feb 29,2024, Elapsed time: 0:00:00
+# 	MUL_DIV_TB_phase1
+# End time: 16:10:13 on Mar 20,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  NEG_NOT_TB
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" NEG_NOT_TB 
-# Start time: 11:16:33 on Feb 29,2024
-# Loading work.NEG_NOT_TB
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  MUL_DIV_TB_phase1
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" MUL_DIV_TB_phase1 
+# Start time: 16:10:13 on Mar 20,2024
+# Loading work.MUL_DIV_TB_phase1
 # Loading work.DataPath
 # Loading work.register
 # Loading work.MDR2
@@ -256,7 +255,7 @@
 # Loading work.CLA_16bit_adder
 # Loading work.CLA_4bit_adder
 # Loading work.CLA_b_cell
-# Loading work.booth_mul_combinational
+# Loading work.booth_two_pair
 # Loading work.div_combinational
 # 
 # add wave *
@@ -264,6 +263,6 @@
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
-# run 1000 ns
-# End time: 11:19:32 on Feb 29,2024, Elapsed time: 0:02:59
+# run 1500 ns
+# End time: 16:11:22 on Mar 20,2024, Elapsed time: 0:01:09
 # Errors: 0, Warnings: 0
