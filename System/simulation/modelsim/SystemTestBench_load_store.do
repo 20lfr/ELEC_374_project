@@ -27,7 +27,7 @@ add wave -noupdate /SystemTestBench_load_store/IncPC
 add wave -noupdate /SystemTestBench_load_store/Gra
 add wave -noupdate /SystemTestBench_load_store/Grb
 add wave -noupdate /SystemTestBench_load_store/Grc
-add wave -noupdate -radix hexadecimal /SystemTestBench_load_store/Rin
+add wave -noupdate /SystemTestBench_load_store/Rin
 add wave -noupdate /SystemTestBench_load_store/Rout
 add wave -noupdate /SystemTestBench_load_store/BAout
 add wave -noupdate /SystemTestBench_load_store/Mem_Read
@@ -46,14 +46,14 @@ add wave -noupdate -radix unsigned /SystemTestBench_load_store/Present_state
 add wave -noupdate -radix hexadecimal /SystemTestBench_load_store/UUT/datapath/R0/q
 add wave -noupdate -radix hexadecimal /SystemTestBench_load_store/UUT/datapath/R1/q
 add wave -noupdate -radix hexadecimal /SystemTestBench_load_store/UUT/datapath/R2/q
-add wave -noupdate -radix hexadecimal {/SystemTestBench_load_store/UUT/memory512x32/FullMemorySpace[149]}
-add wave -noupdate -radix hexadecimal {/SystemTestBench_load_store/UUT/memory512x32/FullMemorySpace[75]}
-add wave -noupdate -radix hexadecimal {/SystemTestBench_load_store/UUT/memory512x32/FullMemorySpace[135]}
 add wave -noupdate -radix hexadecimal {/SystemTestBench_load_store/UUT/memory512x32/FullMemorySpace[202]}
+add wave -noupdate -radix hexadecimal {/SystemTestBench_load_store/UUT/memory512x32/FullMemorySpace[149]}
+add wave -noupdate -radix hexadecimal {/SystemTestBench_load_store/UUT/memory512x32/FullMemorySpace[135]}
+add wave -noupdate -radix hexadecimal {/SystemTestBench_load_store/UUT/memory512x32/FullMemorySpace[75]}
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1499235 ps} 0}
+WaveRestoreCursors {{Cursor 1} {1499272 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 417
+configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -65,6 +65,6 @@ configure wave -gridoffset 0
 configure wave -gridperiod 1
 configure wave -griddelta 40
 configure wave -timeline 0
-configure wave -timelineunits ps
+configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {1389092 ps}
+WaveRestoreZoom {1499050 ps} {1500050 ps}

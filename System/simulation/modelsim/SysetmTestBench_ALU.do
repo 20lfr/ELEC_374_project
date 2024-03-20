@@ -42,11 +42,14 @@ add wave -noupdate /SystemTestBench_ALU/Mem_data_to_chip
 add wave -noupdate /SystemTestBench_ALU/MAR_address
 add wave -noupdate /SystemTestBench_ALU/con_ff_bit
 add wave -noupdate /SystemTestBench_ALU/memory_done
-add wave -noupdate /SystemTestBench_ALU/Present_state
+add wave -noupdate -radix unsigned /SystemTestBench_ALU/Present_state
+add wave -noupdate -radix hexadecimal /SystemTestBench_ALU/UUT/datapath/R3/q
+add wave -noupdate /SystemTestBench_ALU/UUT/datapath/IR/q
+add wave -noupdate -radix hexadecimal /SystemTestBench_ALU/UUT/datapath/PC/q
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1000014 ps} 0}
+WaveRestoreCursors {{Cursor 1} {999376 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 150
+configure wave -namecolwidth 340
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -60,4 +63,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {999050 ps} {1000050 ps}
+WaveRestoreZoom {999050 ps} {999843 ps}
