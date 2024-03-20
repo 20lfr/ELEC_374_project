@@ -14,6 +14,13 @@ reg [DATA_WIDTH-1:0] abs_divisor;
 
 always @* begin
 
+    // Initialize
+    temp_quotient = 0;
+    temp_remainder = 0;
+    abs_dividend = 0;
+    abs_divisor = 0;
+    i = 0;
+
     if (divisor == 0) begin     // Check if dividing by 0
         result = {2*DATA_WIDTH{1'b1}};
 
@@ -21,10 +28,6 @@ always @* begin
         result = 0;
 
     end else begin
-
-        // Initialize Variables
-        temp_quotient = 0;
-        temp_remainder = 0;
 
         // If signed bit it 1 then get absolute value of dividend and divisor if signed bit is 0 then change nothing
         abs_dividend = dividend[DATA_WIDTH-1] ? -dividend : dividend;
