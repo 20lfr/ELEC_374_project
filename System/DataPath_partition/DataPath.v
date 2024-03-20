@@ -131,8 +131,8 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 		//register Inport(clear, clock, Inport_in, Inport_data_in, Inport_BusMuxIn);
 		//register Outport(clear, clock, Outport_in, BusMuxOut, Outport_data_out);
 
-		register Inport(clear, clock, strobe, External_In, Inport_BusMuxIn);
-		register Outport(clear, clock, Outport_in, BusMuxOut, External_Out);
+		Inport_reg Inport(clear, clock, strobe, External_In, Inport_BusMuxIn);
+		Outport_reg Outport(clear, clock, Outport_in, BusMuxOut, External_Out);
 
 //Bus~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Bus_MUX Bus(R0_BusMuxIn, R1_BusMuxIn, R2_BusMuxIn, R3_BusMuxIn, 
