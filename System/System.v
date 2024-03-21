@@ -9,23 +9,24 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
 
     /*Phase 2 testing signals*/
        
+);
 
-        /*Control unit signals*/
+    /*Control unit signals*/
 
             /*Bus Encoder Signals*/
-            input wire    HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout,
+            wire    HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout,
             
             /*Register Enable Signals*/
-            input wire    MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin, CONin, 
-            input wire    outport_in, inport_data_ready,
+            wire    MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin, CONin, 
+            wire    outport_in, inport_data_ready,
 
             /*ALU control*/
-            input wire    [4:0] opcode,
-            input wire    IncPC,
+            wire    [4:0] opcode,
+            wire    IncPC,
 
             /*Decoding Control*/
-            input wire    Gra, Grb, Grc, Rin, Rout, BAout, /*Datapath Inputs*/
-            output wire   con_ff_bit, /*Datapath Outputs*/
+            wire    Gra, Grb, Grc, Rin, Rout, BAout, /*Datapath Inputs*/
+            wire   con_ff_bit, /*Datapath Outputs*/
 
             /*Memory Control*/
             input wire    Mem_Read, Mem_Write, Mem_enable512x32, 
@@ -33,14 +34,13 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
              
         
         /*Memory Test Signals*/
-            output wire [DATA_WIDTH-1:0] Mem_to_datapath_out, Mem_data_to_chip_out, 
-            output wire [ADDR_WIDTH-1:0] MAR_address_out,
-            output wire memory_done, 
+            wire [DATA_WIDTH-1:0] Mem_to_datapath_out, Mem_data_to_chip_out, 
+            wire [ADDR_WIDTH-1:0] MAR_address_out,
+            wire memory_done, 
 
-            input wire mem_overide, 
-            input wire [(ADDR_WIDTH-1):0] overide_address,
-            input wire [(DATA_WIDTH-1):0] overide_data_in
-);
+            wire mem_overide, 
+            wire [(ADDR_WIDTH-1):0] overide_address,
+            wire [(DATA_WIDTH-1):0] overide_data_in
 
 
 
@@ -51,16 +51,14 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         wire    [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
         wire    [ADDR_WIDTH-1:0] MAR_address; 
 
-        assign Mem_to_datapath_out = Mem_to_datapath;
-        assign Mem_data_to_chip_out = Mem_data_to_chip;
-        assign MAR_address_out = MAR_address;
 
         
 
 
-    // Control control(
+    Control control(
 
-    // );
+
+    );
 
 
 

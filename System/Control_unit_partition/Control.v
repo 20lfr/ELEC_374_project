@@ -1,4 +1,6 @@
-module Control();
+module Control(
+    
+);
 
 
 endmodule
