@@ -91,6 +91,7 @@ module Control #(DATA_WIDTH = 32)(
 
     always @(clk, T0, T1, T2, T3, T4, T5, T6, T7)begin
         opcode <= ADD_s && T4 ? 5'b00011 : 5'b00000; //do this for every single opcode
+        Rout <= T3 | T4(ADD_s | OR_s | SHRA_s ...) | T6(Store_s)
 
 
     end 
