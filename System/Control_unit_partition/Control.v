@@ -1,7 +1,7 @@
 module Control #(DATA_WIDTH = 32)(
 
-    input wire clk, reset, stop, 
-    output wire run, clear, Interupts, /*May not need interupts*/
+    input wire clk, reset, stop, Interupts,
+    output wire run, clear, /*May not need interupts*/
     
     input wire [DATA_WIDTH-1:0] IR,
 
@@ -51,6 +51,7 @@ module Control #(DATA_WIDTH = 32)(
                     T0 <= 0; T1 <= 0; T2 <= 1; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
                 end 
                 S2 : begin 
+                    if(HALT_s) present_state <= S2;
                     present_state <= S3;
                     T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 1; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
                 end 

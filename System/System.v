@@ -1,5 +1,5 @@
 module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
-    input wire Clock, clear,
+    input wire Clock, clear, reset, //RESET IS FOR CONTROL UNIT 
 
 
     /*in and outport information*/
