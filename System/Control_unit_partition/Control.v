@@ -37,7 +37,6 @@ module Control #(DATA_WIDTH = 32)(
                 ADD = 5'b00011, SUB = 5'b00100, UNS_ADD = 5'b11111, MUL = 5'b01111, DIV = 5'b10000;
 
 
-    reg         set_clear;
     reg [3:0]   present_state = reset_state; 
     reg         T0, T1, T2, T3, T4, T5, T6, T7;
     reg         LOAD_s, LOADI_s, STORE_s, 
