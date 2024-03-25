@@ -30,8 +30,6 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
              
         
         /*Memory Test Signals*/
-            wire [DATA_WIDTH-1:0] Mem_to_datapath_out, Mem_data_to_chip_out;
-            wire [ADDR_WIDTH-1:0] MAR_address_out;
             wire memory_done;
 
             wire mem_overide; 
@@ -91,10 +89,18 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         .con_ff_bit(con_ff_bit), .CONin(CONin)   
     );
     RAM512x32 memory512x32(
+        /*Outputs*/
+        .data_out(Mem_to_datapath), 
+        .done(memory_done),
+
+
+        /*Inputs*/
         .read(Mem_Read), .write(Mem_Write), .enable(Mem_enable512x32),
         .address(MAR_address),
-        .data_in(Mem_data_to_chip), .data_out(Mem_to_datapath), .done(memory_done),
+        .data_in(Mem_data_to_chip), 
+        
 
+        /*Override*/
         .overide(mem_overide), 
         .overide_address(overide_address), 
         .overide_data_in(overide_data_in)

@@ -13,37 +13,42 @@ module RAM512x32  #(parameter   DATA_WIDTH = 32,  // # of bits in word
     input wire [(DATA_WIDTH-1):0] overide_data_in
 );
 
-// Memory array
-reg [DATA_WIDTH-1:0] FullMemorySpace [(2**ADDR_WIDTH)-1:0]; 
-reg [DATA_WIDTH-1:0] q;
-integer i;
-initial begin
-    for(i = 0; i < 2**ADDR_WIDTH; i = i + 1) begin
-        FullMemorySpace[i] <= 32'd0;
-    end
-    q = INIT;
-    done = 0;
-
-
-end 
-
-always @(posedge enable) begin
-    done = 0;
-    if (overide) begin
-        FullMemorySpace[overide_address] <= overide_data_in;
-    end 
-    else begin
-        if (read) begin
-            q <= FullMemorySpace[address]; // Correctly assigns the read value from memory to q
+    // Memory array
+    reg [DATA_WIDTH-1:0] FullMemorySpace [(2**ADDR_WIDTH)-1:0]; 
+    reg [DATA_WIDTH-1:0] q;
+    integer i;
+    initial begin
+        // Initialize memory to zero or another default value if desired
+        for(i = 0; i < 2**ADDR_WIDTH; i = i + 1) begin
+            FullMemorySpace[i] <= 32'd0;
         end
-        else if (write) begin
-            FullMemorySpace[address] <= data_in; // This should be data_in, not q
-        end
-    end
-    done = 1;
-end
+        q <= INIT;
+        done <= 0;
 
-assign data_out = q; // Continuously drive data_out with q
+        // Load memory contents from a hex file
+        $readmemh("path/to/your_file.hex", FullMemorySpace);
+    end
+
+
+    always @(posedge enable) begin
+        done <= 0;
+        if(enable) begin
+            if (overide) begin
+            FullMemorySpace[overide_address] <= overide_data_in;
+            end 
+            else begin
+                if (read) begin
+                    q <= FullMemorySpace[address]; // Correctly assigns the read value from memory to q
+                end
+                else if (write) begin
+                    FullMemorySpace[address] <= data_in; // This should be data_in, not q
+                end
+                done <= 1;
+            end
+        end 
+    end
+
+    assign data_out = q; // Continuously drive data_out with q
 
 
 endmodule
