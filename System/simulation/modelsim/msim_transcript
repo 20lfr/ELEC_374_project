@@ -1,0 +1,64 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# ERROR: No extended dataflow license exists
+# do DataPath_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition {C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:33:10 on Mar 25,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition" C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v 
+# -- Compiling module Control
+# 
+# Top level modules:
+# 	Control
+# End time: 20:33:10 on Mar 25,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System {C:/Users/20lfr/Desktop/ELEC_374_project/System/Testbench_CONTROL.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:33:10 on Mar 25,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System" C:/Users/20lfr/Desktop/ELEC_374_project/System/Testbench_CONTROL.v 
+# -- Compiling module Testbench_CONTROL
+# 
+# Top level modules:
+# 	Testbench_CONTROL
+# End time: 20:33:10 on Mar 25,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  Testbench_CONTROL
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" Testbench_CONTROL 
+# Start time: 20:33:10 on Mar 25,2024
+# Loading work.Testbench_CONTROL
+# Loading work.Control
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 2000 ns
+add wave -position insertpoint  \
+sim:/Testbench_CONTROL/Present_state
+add wave -position insertpoint  \
+sim:/Testbench_CONTROL/uut/present_state \
+sim:/Testbench_CONTROL/uut/T0 \
+sim:/Testbench_CONTROL/uut/T1 \
+sim:/Testbench_CONTROL/uut/T2 \
+sim:/Testbench_CONTROL/uut/T3 \
+sim:/Testbench_CONTROL/uut/T4 \
+sim:/Testbench_CONTROL/uut/T5 \
+sim:/Testbench_CONTROL/uut/T6 \
+sim:/Testbench_CONTROL/uut/T7
+restart
+run 1000ns
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/20lfr/Desktop/ELEC_374_project/System/simulation/modelsim/Control_testbench_instructions.do
+# End time: 21:01:24 on Mar 25,2024, Elapsed time: 0:28:14
+# Errors: 0, Warnings: 0

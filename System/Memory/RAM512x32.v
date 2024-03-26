@@ -17,20 +17,15 @@ module RAM512x32  #(parameter   DATA_WIDTH = 32,  // # of bits in word
     reg [DATA_WIDTH-1:0] FullMemorySpace [(2**ADDR_WIDTH)-1:0]; 
     reg [DATA_WIDTH-1:0] q;
     integer i;
-    initial begin
-        // Initialize memory to zero or another default value if desired
-        for(i = 0; i < 2**ADDR_WIDTH; i = i + 1) begin
-            FullMemorySpace[i] <= 32'd0;
-        end
+    initial begin   
         q <= INIT;
         done <= 0;
-
         // Load memory contents from a hex file
-        $readmemh("path/to/your_file.hex", FullMemorySpace);
+        $readmemh("Memory_test_preset.hex", FullMemorySpace, 0, 511);
     end
 
 
-    always @(posedge enable) begin
+    always @(enable) begin
         done <= 0;
         if(enable) begin
             if (overide) begin

@@ -1,4 +1,4 @@
-module Control #(DATA_WIDTH = 32)(
+module Control #(parameter DATA_WIDTH = 32)(
 
 
     /*Trigger reset at start of program (IN TESTBENCH)*/
@@ -27,12 +27,12 @@ module Control #(DATA_WIDTH = 32)(
 );
 
 
-    parameter   reset_state = 4'b0000, S0 = 4'b0001, S1 = 4'b0010, 
+    localparam   reset_state = 4'b0000, S0 = 4'b0001, S1 = 4'b0010, 
                 S2 = 4'b0011, S3 = 4'b0100, S4 = 4'b0101, S5 = 4'b0110, 
                 S6 = 4'b0111, S7 = 4'b1000;
     
     /*ALU opcodes*/
-    parameter   AND = 5'b01011, OR = 5'b01010, NEG = 5'b10001, NOT_MOD = 5'b10010, ROL = 5'b01001, 
+    localparam  AND = 5'b01011, OR = 5'b01010, NEG = 5'b10001, NOT_MOD = 5'b10010, ROL = 5'b01001, 
                 ROR = 5'b01000, SHL = 5'b00111, SHRA = 5'b00110, SHR = 5'b00101,
                 ADD = 5'b00011, SUB = 5'b00100, UNS_ADD = 5'b11111, MUL = 5'b01111, DIV = 5'b10000;
 
@@ -56,14 +56,14 @@ module Control #(DATA_WIDTH = 32)(
         if(reset)   begin 
             present_state <= reset_state; 
             clear <= 1;
+            run <= 1;
         end
         else if(stop) begin
             //present_state <= present_state;
-            clear <= 0;
+            clear <= 0; run <= 0;
         end 
         else begin
             clear <= 0;
-            if(~HALT_s) run <= 1;
             T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
             case(present_state)
                 reset_state : begin
@@ -80,7 +80,7 @@ module Control #(DATA_WIDTH = 32)(
                 end 
                 S2 : begin 
                     if(HALT_s) begin 
-                        present_state <= S2; 
+                        present_state <= S2; run <= 0;
                     end 
                     else if(JUMP_s | MFHI_s | MFLO_s | IN_s | OUT_s | NOP_s) present_state <= reset_state;
                     else present_state <= S3;
@@ -171,10 +171,11 @@ module Control #(DATA_WIDTH = 32)(
             
             5'b11010 : NOP_s <= 1;
             5'b11011 : HALT_s <= 1;
+            default  : NOP_s <= 1;
         endcase 
     end 
 
-    always @(clk, T0, T1, T2, T3, T4, T5, T6, T7)begin
+    always @(*)begin //used to be (clk, T0, T1, T2, T3, T4, T5, T6, T7), changed to * for combinational logic
         ALU_opcode <=   ((T4 & (ADD_s | ADDI_s | LOAD_s | LOADI_s | STORE_s)) | (T5 & BRANCH_s)) ? ADD :
                         ((T4 & (AND_s | ANDI_s)) ? AND :
                         (T4 & (OR_s | ORI_s)) ? OR :
@@ -188,7 +189,7 @@ module Control #(DATA_WIDTH = 32)(
 
 
         IncPC <= (T0);
-        run <=  ~(HALT_s | stop); /*THIS MAY CUASE ISSUES, consider later*/
+        //run <=  ~(HALT_s | stop); /*THIS MAY CUASE ISSUES, consider later*/
         ALU_s <= (ADD_s | SUB_s | SHR_s | SHRA_s | SHL_s | ROR_s | ROL_s | AND_s | OR_s);
 
         
