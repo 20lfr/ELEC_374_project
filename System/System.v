@@ -1,5 +1,5 @@
 module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
-        input wire Clock, clear, reset, stop, 
+        input wire Clock, reset, stop, Interupts, inport_data_ready, 
 
 
     /*in and outport information*/
@@ -9,12 +9,13 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
 );
 
     /*Control unit signals*/
+            wire    clear, run;
         /*Bus Encoder Signals*/
             wire    HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout;
         
         /*Register Enable Signals*/
             wire    MARin, Zin, PCin, MDRin, IRin, Yin, HIin, LOin, CONin;
-            wire    outport_in, inport_data_ready;
+            wire    outport_in;
 
         /*ALU control*/
             wire    [4:0] ALU_opcode;
@@ -23,6 +24,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Decoding Control*/
             wire    Gra, Grb, Grc, Rin, Rout, BAout; /*Datapath Inputs*/
             wire    con_ff_bit; /*Datapath Outputs*/
+            wire    [DATA_WIDTH-1:0] IR;
 
         /*Memory Control*/
             wire    Mem_Read, Mem_Write, Mem_enable512x32;
@@ -48,7 +50,6 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Outputs*/
         .run(run), .clear(clear),
 
-        .IR(IR),
         .HIout(HIout), .LOout(LOout), .Zhi_out(Zhi_out), .Zlo_out(Zlo_out), .PCout(PCout), .MDRout(MDRout), .Inport_out(Inport_out), .Cout(Cout),
         .MARin(MARin), .Zin(Zin), .PCin(PCin), .MDRin(MDRin), .IRin(IRin), .Yin(Yin), .HIin(HIin), .LOin(LOin), .CONin(CONin), 
         .outport_in(outport_in),
@@ -61,7 +62,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Inputs*/
         .IR(IR),
         .con_ff_bit(con_ff_bit), 
-        .clk(Clock), .reset(reset), .stop(stop), .Interupts(Interupts),   
+        .clk(Clock), .reset(reset), .stop(stop), .Interupts(Interupts)   
     );
     DataPath datapath(
         /*Sequence*/
@@ -86,7 +87,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Control Signals*/
         .opcode(ALU_opcode), .IncPC(IncPC),
         .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
-        .con_ff_bit(con_ff_bit), .CONin(CONin)   
+        .con_ff_bit(con_ff_bit), .CONin(CONin), .IR_data(IR)
     );
     RAM512x32 memory512x32(
         /*Outputs*/
@@ -97,13 +98,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Inputs*/
         .read(Mem_Read), .write(Mem_Write), .enable(Mem_enable512x32),
         .address(MAR_address),
-        .data_in(Mem_data_to_chip), 
-        
-
-        /*Override*/
-        .overide(mem_overide), 
-        .overide_address(overide_address), 
-        .overide_data_in(overide_data_in)
+        .data_in(Mem_data_to_chip)
     );
 
 

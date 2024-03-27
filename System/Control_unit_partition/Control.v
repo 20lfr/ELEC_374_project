@@ -57,7 +57,6 @@ module Control #(parameter DATA_WIDTH = 32)(
             present_state <= reset_state; 
             clear <= 1;
             run <= 1;
-            HALT_s <= 0;
         end
         else if(stop) begin
             //present_state <= present_state;
@@ -130,7 +129,7 @@ module Control #(parameter DATA_WIDTH = 32)(
             
             BRANCH_s<=0; JUMP_s<=0; JUMP_LINK_s<=0; 
             IN_s<=0; OUT_s<=0; MFHI_s<=0; MFLO_s<=0; 
-            NOP_s<=0; HALT_s<=0;
+            NOP_s<=0;
             case(IR[DATA_WIDTH-1:27])
 
                 5'b00000 :  begin 

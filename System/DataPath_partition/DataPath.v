@@ -31,7 +31,8 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 	input wire Gra, Grb, Grc, Rin, Rout, BAout, CONin, 
 
-	output wire con_ff_bit /*Branch boolean for Phase 2.4*/
+	output wire con_ff_bit, /*Branch boolean for Phase 2.4*/
+	output wire[DATA_WIDTH-1:0] IR_data
 
 
 
@@ -55,6 +56,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 				IR_BusMuxIn, HI_BusMuxIn, LO_BusMuxIn, RZ_HI_BusMuxIn, RZ_LO_BusMuxIn, 
 				PC_BusMuxIn, MDR_BusMuxIn, Inport_BusMuxIn, C_sign_extended, R0_out;
+	assign IR_data = IR_BusMuxIn;
 
 /*Control Internal Connections*/
 	/*Bus Encoder Select Signals*/
