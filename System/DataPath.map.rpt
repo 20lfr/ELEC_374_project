@@ -1,5 +1,5 @@
 Analysis & Elaboration report for DataPath
-Mon Mar 25 20:17:46 2024
+Tue Mar 26 21:24:19 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -9,7 +9,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   1. Legal Notice
   2. Analysis & Elaboration Summary
   3. Parallel Compilation
-  4. Parameter Settings for User Entity Instance: Top-level Entity: |Control
+  4. Parameter Settings for User Entity Instance: Top-level Entity: |RAM512x32
   5. Analysis & Elaboration Settings
   6. Analysis & Elaboration Messages
 
@@ -37,10 +37,10 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                  ;
 +-------------------------------+-------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Mon Mar 25 20:17:46 2024           ;
+; Analysis & Elaboration Status ; Successful - Tue Mar 26 21:24:19 2024           ;
 ; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                 ; DataPath                                        ;
-; Top-level Entity Name         ; Control                                         ;
+; Top-level Entity Name         ; RAM512x32                                       ;
 ; Family                        ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)   ; N/A until Partition Merge                       ;
 ; Total registers               ; N/A until Partition Merge                       ;
@@ -68,13 +68,15 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |Control ;
-+----------------+-------+------------------------------------------------+
-; Parameter Name ; Value ; Type                                           ;
-+----------------+-------+------------------------------------------------+
-; DATA_WIDTH     ; 32    ; Signed Integer                                 ;
-+----------------+-------+------------------------------------------------+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |RAM512x32 ;
++----------------+----------------------------------+-----------------------+
+; Parameter Name ; Value                            ; Type                  ;
++----------------+----------------------------------+-----------------------+
+; DATA_WIDTH     ; 32                               ; Signed Integer        ;
+; ADDR_WIDTH     ; 9                                ; Signed Integer        ;
+; INIT           ; 00000000000000000000000000000000 ; Unsigned Binary       ;
++----------------+----------------------------------+-----------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -84,7 +86,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; Control            ; DataPath           ;
+; Top-level entity name                                                           ; RAM512x32          ; DataPath           ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -171,22 +173,59 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon Mar 25 20:17:41 2024
+    Info: Processing started: Tue Mar 26 21:24:14 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU_Design -c DataPath --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file control_unit_partition/control.v
-    Info (12023): Found entity 1: Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file testbench_control.v
-    Info (12023): Found entity 1: TestBench_CONTROL File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Testbench_CONTROL.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file testbench_ram.v
     Info (12023): Found entity 1: TESTBENCH_RAM File: C:/Users/20lfr/Desktop/ELEC_374_project/System/TESTBENCH_RAM.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file memory/ram512x32.v
     Info (12023): Found entity 1: RAM512x32 File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 1
-Info (12127): Elaborating entity "Control" for the top level hierarchy
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4777 megabytes
-    Info: Processing ended: Mon Mar 25 20:17:46 2024
+Info (12127): Elaborating entity "RAM512x32" for the top level hierarchy
+Warning (10235): Verilog HDL Always Construct warning at RAM512x32.v(31): variable "overide" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 31
+Warning (10235): Verilog HDL Always Construct warning at RAM512x32.v(32): variable "overide_data_in" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 32
+Warning (10235): Verilog HDL Always Construct warning at RAM512x32.v(32): variable "overide_address" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 32
+Warning (10235): Verilog HDL Always Construct warning at RAM512x32.v(35): variable "read" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 35
+Warning (10235): Verilog HDL Always Construct warning at RAM512x32.v(36): variable "address" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 36
+Warning (10235): Verilog HDL Always Construct warning at RAM512x32.v(38): variable "write" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 38
+Warning (10235): Verilog HDL Always Construct warning at RAM512x32.v(39): variable "data_in" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 39
+Warning (10235): Verilog HDL Always Construct warning at RAM512x32.v(39): variable "address" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 39
+Warning (10240): Verilog HDL Always Construct warning at RAM512x32.v(28): inferring latch(es) for variable "q", which holds its previous value in one or more paths through the always construct File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[0]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[1]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[2]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[3]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[4]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[5]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[6]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[7]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[8]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[9]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[10]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[11]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[12]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[13]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[14]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[15]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[16]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[17]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[18]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[19]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[20]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[21]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[22]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[23]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[24]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[25]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[26]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[27]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[28]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[29]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[30]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info (10041): Inferred latch for "q[31]" at RAM512x32.v(28) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4778 megabytes
+    Info: Processing ended: Tue Mar 26 21:24:19 2024
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:03
 

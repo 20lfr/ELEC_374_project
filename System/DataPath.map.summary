@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Mon Mar 25 20:17:46 2024
+Analysis & Elaboration Status : Successful - Tue Mar 26 21:24:19 2024
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : DataPath
-Top-level Entity Name : Control
+Top-level Entity Name : RAM512x32
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge

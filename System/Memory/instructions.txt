@@ -1,0 +1,109 @@
+//memory base~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+load 
+00000_0101_0000_0000000000000000001 (ld r5, 0x01(r0))
+
+
+loadi 
+00001_0101_0000_0000000000000000001 (ldi r5, 0x01(r0))
+
+
+store
+00010_0101_0000_0000000000000000001 (st r5, 0x01(r0))
+
+
+//ALU base~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+add
+00011_0101_0000_0110_xxxxxxxxxxxxxxx (add r5, r0, r6)
+
+
+sub 
+00100_0101_0000_0110_xxxxxxxxxxxxxxx (sub r5, r0, r6)
+
+
+shr
+00101_0101_0000_0110_xxxxxxxxxxxxxxx (shr r5, r0, r6)
+
+
+shra 
+00110_0101_0000_0110_xxxxxxxxxxxxxxx (shra r5, r0, r6)
+
+
+shl
+00111_0101_0000_0110_xxxxxxxxxxxxxxx (shl r5, r0, r6)
+
+
+ror 
+01000_0101_0000_0110_xxxxxxxxxxxxxxx (ror r5, r0, r6)
+
+
+rol
+01001_0101_0000_0110_xxxxxxxxxxxxxxx (rol r5, r0, r6)
+
+
+and 
+01010_0101_0000_0110_xxxxxxxxxxxxxxx (and r5, r0, r6)
+
+
+or 
+01011_0101_0000_0110_xxxxxxxxxxxxxxx (or r5, r0, r6)
+
+
+addi
+01100_0101_0000_0000000000000000001 (addi r5, r0, 0x01)
+
+andi
+01101_0101_0000_0000000000000000001 (andi r5, r0, 0x01)
+
+ori
+01110_0101_0000_0000000000000000001 (ori r5, r0, 0x01)
+
+mul
+01111_0101_0000_0000000000000000001 (mul r5, r0, 0x01)
+
+div
+10000_0101_0000_0000000000000000001 (div r5, r0, 0x01)
+
+neg
+10001_0101_0001_xxxxxxxxxxxxxxxxxxx (neg r5, r1)
+
+not
+10010_0101_0001_xxxxxxxxxxxxxxxxxxx (not r5, r1)
+
+
+//PC~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+branch 
+10011_0101_0000_0000000000000000001 (brzr r5, 1)
+
+10011_0101_0001_0000000000000000001 (brnz r5, 1)
+
+10011_0101_0010_0000000000000000001 (brpl r5, 1)
+
+10011_0101_0011_0000000000000000001 (brmi r5, 1)
+
+
+jump return 
+10100_0101_xxxx_xxxxxxxxxxxxxxxxxxx (jr r5)
+
+jump and link
+10101_0101_xxxx_xxxxxxxxxxxxxxxxxxx (jal r5)
+
+//register~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+in
+10110_0101_xxxx_xxxxxxxxxxxxxxxxxxx (in r5)
+
+out
+10111_0101_xxxx_xxxxxxxxxxxxxxxxxxx (out r5)
+
+mfhi (move from hi)
+11000_0101_xxxx_xxxxxxxxxxxxxxxxxxx (mfhi r5)
+
+mflo (move from lo)
+11001_0101_xxxx_xxxxxxxxxxxxxxxxxxx (mflo r5)
+
+
+//special~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NOP
+11010_xxxx_xxxx_xxxxxxxxxxxxxxxxxxx (nop)
+
+halt
+11011_xxxx_xxxx_xxxxxxxxxxxxxxxxxxx (halt)

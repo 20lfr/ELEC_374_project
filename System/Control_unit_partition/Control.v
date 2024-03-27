@@ -32,7 +32,7 @@ module Control #(parameter DATA_WIDTH = 32)(
                 S6 = 4'b0111, S7 = 4'b1000;
     
     /*ALU opcodes*/
-    localparam  AND = 5'b01011, OR = 5'b01010, NEG = 5'b10001, NOT_MOD = 5'b10010, ROL = 5'b01001, 
+    localparam  AND = 5'b01010, OR = 5'b01011, NEG = 5'b10001, NOT_MOD = 5'b10010, ROL = 5'b01001, 
                 ROR = 5'b01000, SHL = 5'b00111, SHRA = 5'b00110, SHR = 5'b00101,
                 ADD = 5'b00011, SUB = 5'b00100, UNS_ADD = 5'b11111, MUL = 5'b01111, DIV = 5'b10000;
 
@@ -57,6 +57,7 @@ module Control #(parameter DATA_WIDTH = 32)(
             present_state <= reset_state; 
             clear <= 1;
             run <= 1;
+            HALT_s <= 0;
         end
         else if(stop) begin
             //present_state <= present_state;
@@ -75,31 +76,36 @@ module Control #(parameter DATA_WIDTH = 32)(
                     T0 <= 0; T1 <= 1; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
                 end 
                 S1 : begin 
-                    present_state <= S2;
+                    if(NOP_s) present_state <= reset_state;
+                    else present_state <= S2;
                     T0 <= 0; T1 <= 0; T2 <= 1; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
                 end 
                 S2 : begin 
                     if(HALT_s) begin 
                         present_state <= S2; run <= 0;
                     end 
-                    else if(JUMP_s | MFHI_s | MFLO_s | IN_s | OUT_s | NOP_s) present_state <= reset_state;
+                    else if(JUMP_s | MFHI_s | MFLO_s | IN_s | OUT_s) present_state <= reset_state;
                     else present_state <= S3;
-                    T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 1; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
+                    T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 1; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0; 
+                    
                 end 
                 S3 : begin 
                     if(NEG_s | NOT_s | JUMP_LINK_s) present_state <= reset_state;
                     else present_state <= S4;
-                    T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 1; T5 <= 0; T6 <= 0; T7 <= 0;
+                    T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 1; T5 <= 0; T6 <= 0; T7 <= 0; 
+                    
                 end 
                 S4 : begin 
                     if(LOADI_s | ALU_s | ADDI_s | ANDI_s | ORI_s) present_state <= reset_state;
                     else present_state <= S5;
                     T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 1; T6 <= 0; T7 <= 0;
+                
                 end 
                 S5 : begin 
                     if(MUL_s | DIV_s | BRANCH_s) present_state <= reset_state;
-                    else present_state <= S6;
+                    else  present_state <= S6;
                     T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 1; T7 <= 0;
+                    
                 end
                 S6 : begin 
                     present_state <= reset_state;
@@ -112,78 +118,86 @@ module Control #(parameter DATA_WIDTH = 32)(
     end 
 
     always @(IR)begin
-        LOAD_s <= 0; LOADI_s<=0; STORE_s<=0;
+        if(~HALT_s)begin
+            LOAD_s <= 0; LOADI_s<=0; STORE_s<=0;
 
-        LOAD_DIR_s <= 0; LOADI_DIR_s <= 0; STORE_DIR_s <= 0;
+            LOAD_DIR_s <= 0; LOADI_DIR_s <= 0; STORE_DIR_s <= 0;
 
-        ADD_s<=0; SUB_s<=0; SHR_s<=0; SHRA_s<=0; SHL_s<=0; ROR_s<=0; ROL_s<=0; AND_s<=0; OR_s<=0; 
-        MUL_s<=0; DIV_s<=0; 
-        NEG_s<=0; NOT_s<=0; 
-        ADDI_s<=0; ANDI_s<=0; ORI_s<=0; 
-        
-        BRANCH_s<=0; JUMP_s<=0; JUMP_LINK_s<=0; 
-        IN_s<=0; OUT_s<=0; MFHI_s<=0; MFLO_s<=0; 
-        NOP_s<=0; HALT_s<=0;
-        case(IR[DATA_WIDTH-1:27])
-
-            5'b00000 :  begin 
-                            LOAD_s <= 1; 
-                            if(IR[22:19] == 4'd0) LOAD_DIR_s <= 1;
-                        end 
-            5'b00001 :  begin 
-                            LOADI_s <= 1; 
-                            if(IR[22:19] == 4'd0) LOADI_DIR_s <= 1;
-                        end
-            5'b00010 :  begin 
-                            STORE_s <= 1; 
-                            if(IR[22:19] == 4'd0) STORE_DIR_s <= 1;
-                        end
-
-            5'b00011 : ADD_s <= 1;
-            5'b00100 : SUB_s <= 1;
-            5'b00101 : SHR_s <= 1;
-            5'b00110 : SHRA_s <= 1;
-            5'b00111 : SHL_s <= 1;
-            5'b01000 : ROR_s <= 1;
-            5'b01001 : ROL_s <= 1;
-            5'b01010 : AND_s <= 1;
-            5'b01011 : OR_s <= 1;
-
-            5'b01100 : ADDI_s <= 1;
-            5'b01101 : ANDI_s <= 1;
-            5'b01110 : ORI_s <= 1;
-
-            5'b01111 : MUL_s <= 1;
-            5'b10000 : DIV_s <= 1;
-            5'b10001 : NEG_s <= 1;
-            5'b10010 : NOT_s <= 1;
-
-
-            5'b10011 : BRANCH_s <= 1;
-            5'b10100 : JUMP_s <= 1;
-            5'b10101 : JUMP_LINK_s <= 1;
-
-            5'b10110 : IN_s <= 1;
-            5'b10111 : OUT_s <= 1;
-            5'b11000 : MFHI_s <= 1;
-            5'b11001 : MFLO_s <= 1;
-
+            ADD_s<=0; SUB_s<=0; SHR_s<=0; SHRA_s<=0; SHL_s<=0; ROR_s<=0; ROL_s<=0; AND_s<=0; OR_s<=0; 
+            MUL_s<=0; DIV_s<=0; 
+            NEG_s<=0; NOT_s<=0; 
+            ADDI_s<=0; ANDI_s<=0; ORI_s<=0; 
             
-            5'b11010 : NOP_s <= 1;
-            5'b11011 : HALT_s <= 1;
-            default  : NOP_s <= 1;
-        endcase 
+            BRANCH_s<=0; JUMP_s<=0; JUMP_LINK_s<=0; 
+            IN_s<=0; OUT_s<=0; MFHI_s<=0; MFLO_s<=0; 
+            NOP_s<=0; HALT_s<=0;
+            case(IR[DATA_WIDTH-1:27])
+
+                5'b00000 :  begin 
+                                LOAD_s <= 1; 
+                                if(IR[22:19] == 4'd0) LOAD_DIR_s <= 1;
+                            end 
+                5'b00001 :  begin 
+                                LOADI_s <= 1; 
+                                if(IR[22:19] == 4'd0) LOADI_DIR_s <= 1;
+                            end
+                5'b00010 :  begin 
+                                STORE_s <= 1; 
+                                if(IR[22:19] == 4'd0) STORE_DIR_s <= 1;
+                            end
+
+                5'b00011 : ADD_s <= 1;
+                5'b00100 : SUB_s <= 1;
+                5'b00101 : SHR_s <= 1;
+                5'b00110 : SHRA_s <= 1;
+                5'b00111 : SHL_s <= 1;
+                5'b01000 : ROR_s <= 1;
+                5'b01001 : ROL_s <= 1;
+                5'b01010 : AND_s <= 1;
+                5'b01011 : OR_s <= 1;
+
+                5'b01100 : ADDI_s <= 1;
+                5'b01101 : ANDI_s <= 1;
+                5'b01110 : ORI_s <= 1;
+
+                5'b01111 : MUL_s <= 1;
+                5'b10000 : DIV_s <= 1;
+                5'b10001 : NEG_s <= 1;
+                5'b10010 : NOT_s <= 1;
+
+
+                5'b10011 : BRANCH_s <= 1;
+                5'b10100 : JUMP_s <= 1;
+                5'b10101 : JUMP_LINK_s <= 1;
+
+                5'b10110 : IN_s <= 1;
+                5'b10111 : OUT_s <= 1;
+                5'b11000 : MFHI_s <= 1;
+                5'b11001 : MFLO_s <= 1;
+
+                
+                5'b11010 : NOP_s <= 1;
+                5'b11011 : HALT_s <= 1;
+                default  : NOP_s <= 1;
+            endcase 
+
+        end
     end 
 
     always @(*)begin //used to be (clk, T0, T1, T2, T3, T4, T5, T6, T7), changed to * for combinational logic
         ALU_opcode <=   ((T4 & (ADD_s | ADDI_s | LOAD_s | LOADI_s | STORE_s)) | (T5 & BRANCH_s)) ? ADD :
-                        ((T4 & (AND_s | ANDI_s)) ? AND :
+                        (T4 & SUB_s) ? SUB :
+                        (T4 & (AND_s | ANDI_s)) ? AND :
                         (T4 & (OR_s | ORI_s)) ? OR :
                         (T4 & SHR_s) ? SHR :
                         (T4 & SHRA_s) ? SHRA :
                         (T4 & SHL_s) ? SHL :
                         (T4 & ROR_s) ? ROR :
-                        (T4 & ROL_s) ? ROL : 5'b00000);
+                        (T4 & ROL_s) ? ROL : 
+                        (T4 & MUL_s) ? MUL :
+                        (T4 & DIV_s) ? DIV : 
+                        (T3 & NEG_s) ? NEG :
+                        (T3 & NOT_s) ? NOT_MOD : 5'b00000;
                         
                         
 
@@ -247,8 +261,8 @@ module Control #(parameter DATA_WIDTH = 32)(
 
             outport_in<=(T3 & OUT_s);
         /*IR DECODING SIGNALS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/              
-            Gra <=      (T3 & (BRANCH_s | JUMP_s | MFHI_s | MFLO_s)) | 
-                        (T4 & (MUL_s | DIV_s | JUMP_LINK_s)) |
+            Gra <=      (T3 & (BRANCH_s | JUMP_s | MFHI_s | MFLO_s | OUT_s | IN_s)) | 
+                        (T4 & (MUL_s | DIV_s | JUMP_LINK_s | NEG_s | NOT_s)) |
                         (T5 & (LOADI_s | ALU_s | ADDI_s | ANDI_s | ORI_s)) |
                         (T6 & (STORE_s)) |
                         (T7 & (LOAD_s));
@@ -261,12 +275,11 @@ module Control #(parameter DATA_WIDTH = 32)(
                         (T5 & (LOADI_s | ALU_s | ADDI_s | ANDI_s | ORI_s)) | 
                         (T7 & (LOAD_s));
                         
-            Rout <=     (T3 & (LOAD_s | LOADI_s| STORE_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s | NEG_s | NOT_s | JUMP_s | OUT_s )) |
+            Rout <=     (T3 & (LOAD_s | LOADI_s | STORE_s | BRANCH_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s | NEG_s | NOT_s | JUMP_s | OUT_s )) |
                         (T4 & (ALU_s | JUMP_LINK_s)) |
                         (T6 & (STORE_s));
 
-            BAout <=    (T3 & (LOAD_DIR_s | LOADI_DIR_s | STORE_DIR_s)) | 
-                        (T6 & (STORE_DIR_s));
+            BAout <=    (T3 & (LOAD_DIR_s | LOADI_DIR_s | STORE_DIR_s));
 
         /*MEMORY SIGNALS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/    
             Mem_Read <=         (T1) |
