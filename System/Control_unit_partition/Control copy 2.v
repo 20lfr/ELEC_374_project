@@ -20,7 +20,7 @@ module Control #(parameter DATA_WIDTH = 32)(
         
         
         /*Memory Control*/
-        output reg      Mem_Read, Mem_Write, Mem_enable512x32, 
+        output reg      Mem_Read, Mem_Write, Mem_enable512x32,
 
 
     /*INPUTS*/ 
@@ -49,10 +49,27 @@ module Control #(parameter DATA_WIDTH = 32)(
                 NEG_s, NOT_s, 
                 BRANCH_s, JUMP_s, JUMP_LINK_s, 
                 IN_s, OUT_s, MFHI_s, MFLO_s, 
-                NOP_s, HALT_s;
+                NOP_s, HALT_s, 
+                LOAD_DIR_s, LOADI_DIR_s, STORE_DIR_s, ALU_s;
 
     /*Special Instruction Signals*/
-    reg         LOAD_DIR_s, LOADI_DIR_s, STORE_DIR_s, ALU_s;
+        /*Bus Encoder Signals*/
+            reg      HIout_next, LOout_next, Zhi_out_next, Zlo_out_next, PCout_next, MDRout_next, Inport_out_next, Cout_next;
+            
+        /*Register Enable Signals*/
+            reg      MARin_next, Zin_next, PCin_next, MDRin_next, IRin_next, Yin_next, HIin_next, LOin_next, CONin_next; 
+            reg      outport_in_next;
+
+        /*ALU control*/
+            reg      [4:0] ALU_opcode_next;
+            reg      IncPC_next;
+
+        /*Decoding Control*/
+            reg      Gra_next, Grb_next, Grc_next, Rin_next, Rout_next, BAout_next; /*Datapath Inputs*/
+            
+            
+        /*Memory Control*/
+            reg      Mem_Read_next, Mem_Write_next, Mem_enable512x32_next;       
 
     initial begin
         LOAD_s <= 0; LOADI_s<=0; STORE_s<=0;
@@ -68,15 +85,51 @@ module Control #(parameter DATA_WIDTH = 32)(
         IN_s<=0; OUT_s<=0; MFHI_s<=0; MFLO_s<=0; 
         NOP_s<=0;
 
-        T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
+        T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0; 
 
     end 
+
 
     always @(posedge clk, posedge reset, posedge stop) begin
         if(reset)   begin 
             present_state <= reset_state; 
             clear <= 1;
             run <= 1;
+            /*INIT for completness*/
+                HIout <= 0;
+                LOout <= 0;
+                Zhi_out <= 0;
+                Zlo_out <= 0;
+                PCout <= 0;
+                MDRout <= 0;
+                Inport_out <= 0;
+                Cout <= 0;
+                
+                MARin <= 0;
+                Zin <= 0;
+                PCin <= 0;
+                MDRin <= 0;
+                IRin <= 0;
+                Yin <= 0;
+                HIin <= 0;
+                LOin <= 0;
+                CONin <= 0;
+                
+                outport_in <= 0;
+                
+                ALU_opcode <= 0;
+                IncPC <= 0;
+                
+                Gra <= 0;
+                Grb <= 0;
+                Grc <= 0;
+                Rin <= 0;
+                Rout <= 0;
+                BAout <= 0;
+                
+                Mem_Read <= 0;
+                Mem_Write <= 0;
+                Mem_enable512x32 <= 0;
         end
         else if(stop) begin
             //present_state <= present_state;
@@ -84,6 +137,43 @@ module Control #(parameter DATA_WIDTH = 32)(
         end 
         else begin
             /*INIT*/
+                HIout <= HIout_next;
+                LOout <= LOout_next;
+                Zhi_out <= Zhi_out_next;
+                Zlo_out <= Zlo_out_next;
+                PCout <= PCout_next;
+                MDRout <= MDRout_next;
+                Inport_out <= Inport_out_next;
+                Cout <= Cout_next;
+                
+                MARin <= MARin_next;
+                Zin <= Zin_next;
+                PCin <= PCin_next;
+                MDRin <= MDRin_next;
+                IRin <= IRin_next;
+                Yin <= Yin_next;
+                HIin <= HIin_next;
+                LOin <= LOin_next;
+                CONin <= CONin_next;
+                
+                outport_in <= outport_in_next;
+                
+                ALU_opcode <= ALU_opcode_next;
+                IncPC <= IncPC_next;
+                
+                Gra <= Gra_next;
+                Grb <= Grb_next;
+                Grc <= Grc_next;
+                Rin <= Rin_next;
+                Rout <= Rout_next;
+                BAout <= BAout_next;
+                
+                Mem_Read <= Mem_Read_next;
+                Mem_Write <= Mem_Write_next;
+                Mem_enable512x32 <= Mem_enable512x32_next;
+
+
+
                 clear <= 0;
             case(present_state)
                 reset_state : begin
@@ -96,7 +186,8 @@ module Control #(parameter DATA_WIDTH = 32)(
                 end 
                 S1 : begin 
                     // T2
-                    present_state <= S2;
+                    if(NOP_s) present_state <= S7;
+                    else present_state <= S2;
                 end 
                 S2 : begin  
                     // T3                  
@@ -227,13 +318,11 @@ module Control #(parameter DATA_WIDTH = 32)(
             5'b11010 : NOP_s <= 1;
             5'b11011 : HALT_s <= 1;
             default  : NOP_s <= 1;
-        endcase 
-
-    
+        endcase  
     end 
 
     always @(*)begin //used to be (clk, T0, T1, T2, T3, T4, T5, T6, T7), changed to * for combinational logic
-        ALU_opcode <=   ((T4 & (ADD_s | ADDI_s | LOAD_s | LOADI_s | STORE_s)) | (T5 & BRANCH_s)) ? ADD :
+        ALU_opcode_next <=   ((T4 & (ADD_s | ADDI_s | LOAD_s | LOADI_s | STORE_s)) | (T5 & BRANCH_s)) ? ADD :
                         (T4 & SUB_s) ? SUB :
                         (T4 & (AND_s | ANDI_s)) ? AND :
                         (T4 & (OR_s | ORI_s)) ? OR :
@@ -250,90 +339,90 @@ module Control #(parameter DATA_WIDTH = 32)(
                         
 
 
-        IncPC <= (T0);
+        IncPC_next <= (T0);
         //run <=  ~(HALT_s | stop); /*THIS MAY CUASE ISSUES, consider later*/
         ALU_s <= (ADD_s | SUB_s | SHR_s | SHRA_s | SHL_s | ROR_s | ROL_s | AND_s | OR_s);
 
         
 
         /*BUS MUX SIGNALS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-            HIout <=    (T3 & MFHI_s);
+            HIout_next <=    (T3 & MFHI_s);
 
-            LOout <=    (T3 & MFLO_s);
+            LOout_next <=    (T3 & MFLO_s);
 
-            Zhi_out <= (T5 & (MUL_s | DIV_s));
+            Zhi_out_next <= (T5 & (MUL_s | DIV_s));
 
-            Zlo_out <=  (T1) | 
+            Zlo_out_next <=  (T1) | 
                         (T4 & (NEG_s | NOT_s)) | 
                         (T5 & (LOAD_s | LOADI_s | STORE_s | ALU_s | ADDI_s | ANDI_s | ORI_s)) |
                         (T6 & (MUL_s | DIV_s | BRANCH_s));
 
-            PCout <=    (T0) | 
+            PCout_next <=    (T0) | 
                         (T4 & BRANCH_s) |
                         (T3 & JUMP_LINK_s);
 
-            MDRout <=   (T2) |
+            MDRout_next <=   (T2) |
                         (T7 & (LOAD_s | STORE_s));
 
-            Inport_out<=(T3 & IN_s);
+            Inport_out_next <=(T3 & IN_s);
 
-            Cout <=     (T4 & (LOAD_s | LOADI_s | STORE_s | ADDI_s | ANDI_s | ORI_s)) |
+            Cout_next <=     (T4 & (LOAD_s | LOADI_s | STORE_s | ADDI_s | ANDI_s | ORI_s)) |
                         (T5 & BRANCH_s);
 
         /*ENABLE SIGNALS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/     
-            MARin <=    (T0) |
+            MARin_next <=    (T0) |
                         (T5 & (LOAD_s | STORE_s));
 
-            MDRin <=    (T1) |
+            MDRin_next <=    (T1) |
                         (T6 & (LOAD_s | STORE_s));
 
-            PCin <=     (T1) |
+            PCin_next <=     (T1) |
                         (T3 & JUMP_s) |
                         (T4 & JUMP_LINK_s) | 
                         (T6 & (BRANCH_s & con_ff_bit));
 
-            IRin <=     (T2);
+            IRin_next <=     (T2);
 
-            Zin <=      (T0) |
+            Zin_next <=      (T0) |
                         (T4 & (LOAD_s | LOADI_s | STORE_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s)) |
                         (T3 & (NEG_s | NOT_s)) | 
                         (T5 & BRANCH_s);
 
-            Yin <=      (T3 & (LOAD_s | LOADI_s | STORE_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s)) |
+            Yin_next <=      (T3 & (LOAD_s | LOADI_s | STORE_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s)) |
                         (T4 & BRANCH_s);
 
-            HIin <=     (T5 & (MUL_s | DIV_s));
-            LOin <=     (T6 & (MUL_s | DIV_s));
-            CONin <=    (T3 & BRANCH_s);
+            HIin_next <=     (T5 & (MUL_s | DIV_s));
+            LOin_next <=     (T6 & (MUL_s | DIV_s));
+            CONin_next <=    (T3 & BRANCH_s);
 
 
-            outport_in<=(T3 & OUT_s);
+            outport_in_next <=(T3 & OUT_s);
         /*IR DECODING SIGNALS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/              
-            Gra <=      (T3 & (BRANCH_s | JUMP_s | MFHI_s | MFLO_s | OUT_s | IN_s)) | 
+            Gra_next <=      (T3 & (BRANCH_s | JUMP_s | MFHI_s | MFLO_s | OUT_s | IN_s)) | 
                         (T4 & (MUL_s | DIV_s | JUMP_LINK_s | NEG_s | NOT_s)) |
                         (T5 & (LOADI_s | ALU_s | ADDI_s | ANDI_s | ORI_s)) |
                         (T6 & (STORE_s)) |
                         (T7 & (LOAD_s));
 
-            Grb <=      (T3 & (LOAD_s | LOADI_s | STORE_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s | NEG_s | NOT_s | JUMP_LINK_s));
-            Grc <=      (T4 & (ALU_s));
+            Grb_next <=      (T3 & (LOAD_s | LOADI_s | STORE_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s | NEG_s | NOT_s | JUMP_LINK_s));
+            Grc_next <=      (T4 & (ALU_s));
 
-            Rin <=      (T3 & (JUMP_LINK_s | MFHI_s | MFLO_s | IN_s)) |
+            Rin_next <=      (T3 & (JUMP_LINK_s | MFHI_s | MFLO_s | IN_s)) |
                         (T4 & (NEG_s | NOT_s)) |
                         (T5 & (LOADI_s | ALU_s | ADDI_s | ANDI_s | ORI_s)) | 
                         (T7 & (LOAD_s));
                         
-            Rout <=     (T3 & (LOAD_s | LOADI_s | STORE_s | BRANCH_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s | NEG_s | NOT_s | JUMP_s | OUT_s )) |
+            Rout_next <=     (T3 & (LOAD_s | LOADI_s | STORE_s | BRANCH_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s | NEG_s | NOT_s | JUMP_s | OUT_s )) |
                         (T4 & (ALU_s | JUMP_LINK_s)) |
                         (T6 & (STORE_s));
 
-            BAout <=    (T3 & (LOAD_DIR_s | LOADI_DIR_s | STORE_DIR_s));
+            BAout_next <=    (T3 & (LOAD_DIR_s | LOADI_DIR_s | STORE_DIR_s));
 
         /*MEMORY SIGNALS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/    
-            Mem_Read <=         (T1) |
+            Mem_Read_next <=         (T1) |
                                 (T6 & (LOAD_s));
-            Mem_Write <=        (T7 & STORE_s);
-            Mem_enable512x32 <= (T1) |
+            Mem_Write_next <=        (T7 & STORE_s);
+            Mem_enable512x32_next <= (T1) |
                                 (T6 & (LOAD_s)) |
                                 (T7 & (STORE_s));
         

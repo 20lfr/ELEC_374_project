@@ -20,7 +20,7 @@ module Control #(parameter DATA_WIDTH = 32)(
         
         
         /*Memory Control*/
-        output reg      Mem_Read, Mem_Write, Mem_enable512x32, 
+        output reg      Mem_Read, Mem_Write, Mem_enable512x32 
 
 
     /*INPUTS*/ 
@@ -72,98 +72,75 @@ module Control #(parameter DATA_WIDTH = 32)(
 
     end 
 
+
     always @(posedge clk, posedge reset, posedge stop) begin
         if(reset)   begin 
             present_state <= reset_state; 
             clear <= 1;
             run <= 1;
+            HALT_s <= 0;
         end
         else if(stop) begin
             //present_state <= present_state;
             clear <= 0; run <= 0;
         end 
         else begin
-            /*INIT*/
-                clear <= 0;
+            clear <= 0;
+            T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
             case(present_state)
                 reset_state : begin
-                    // T0
+                    //op: 0
                     present_state <= S0;
+                    T0 <= 1; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
                 end 
                 S0 : begin 
-                    // T1
+                    //op: 1
                     present_state <= S1;
+                    T0 <= 0; T1 <= 1; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
                 end 
                 S1 : begin 
-                    // T2
                     present_state <= S2;
+                    T0 <= 0; T1 <= 0; T2 <= 1; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
                 end 
-                S2 : begin  
-                    // T3                  
-                    if(HALT_s) begin 
-                        present_state <= S2; run <= 0;
+                S2 : begin 
+                    if(~NOP_s) begin
+                        if(HALT_s) begin 
+                            present_state <= S2; run <= 0;
+                        end 
+                        else if(JUMP_s | MFHI_s | MFLO_s | IN_s | OUT_s | NOP_s) present_state <= reset_state;
+                        else present_state <= S3;
+                        T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 1; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0; 
                     end 
-                    else if(JUMP_s | MFHI_s | MFLO_s | IN_s | OUT_s | NOP_s) present_state <= S7;
-                    else present_state <= S3;                    
+                    else present_state <= reset_state;
+                    
+                    
                 end 
                 S3 : begin 
-                    // T4
-                    if(NEG_s | NOT_s | JUMP_LINK_s) present_state <= S7;
+                    if(NEG_s | NOT_s | JUMP_LINK_s) present_state <= reset_state;
                     else present_state <= S4;
+                    T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 1; T5 <= 0; T6 <= 0; T7 <= 0; 
                     
                 end 
                 S4 : begin 
-                    // T5
-                    if(LOADI_s | ALU_s | ADDI_s | ANDI_s | ORI_s) present_state <= S7;
+                    if(LOADI_s | ALU_s | ADDI_s | ANDI_s | ORI_s) present_state <= reset_state;
                     else present_state <= S5;
+                    T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 1; T6 <= 0; T7 <= 0;
                 
                 end 
                 S5 : begin 
-                    // T6
-                    if(MUL_s | DIV_s | BRANCH_s) present_state <= S7;
+                    if(MUL_s | DIV_s | BRANCH_s) present_state <= reset_state;
                     else  present_state <= S6;
+                    T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 1; T7 <= 0;
                     
                 end
                 S6 : begin 
-                    // T7
-                    present_state <= S7;
-                end
-                //NOTE: this is an extra "unstable" state that will redirect to reset_state, allowing for the latches of each output signal to be properly captured 
-                S7 : begin
                     present_state <= reset_state;
-                end     
+                    T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 1;
+                end
             endcase 
 
         end 
-    end 
-    always @(present_state)begin
-        T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
-        case(present_state)
-            reset_state : begin
-                T0 <= 1; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
-            end 
-            S0 : begin
-                T0 <= 0; T1 <= 1; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
-            end 
-            S1 : begin
-                T0 <= 0; T1 <= 0; T2 <= 1; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
-            end 
-            S2 : begin
-                T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 1; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
-            end 
-            S3 : begin
-                T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 1; T5 <= 0; T6 <= 0; T7 <= 0;
-            end 
-            S4 : begin
-                T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 1; T6 <= 0; T7 <= 0;
-            end 
-            S5 : begin
-                T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 1; T7 <= 0;
-            end 
-            S6 : begin
-                T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 1;
-            end         
-        endcase
+
     end 
 
     always @(IR)begin
