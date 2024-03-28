@@ -22,7 +22,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
             wire    IncPC;
 
         /*Decoding Control*/
-            wire    Gra, Grb, Grc, Rin, Rout, BAout; /*Datapath Inputs*/
+            wire    Gra, Grb, Grc, Rin, Rout, BAout, jump_n_link; /*Datapath Inputs*/
             wire    con_ff_bit; /*Datapath Outputs*/
             wire    [DATA_WIDTH-1:0] IR;
 
@@ -56,7 +56,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
 
         .ALU_opcode(ALU_opcode),
         .IncPC(IncPC),
-        .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout), 
+        .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout), .jump_n_link(jump_n_link),
         .Mem_Read(Mem_Read), .Mem_Write(Mem_Write), .Mem_enable512x32(Mem_enable512x32),
 
         /*Inputs*/
@@ -86,7 +86,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
 
         /*Control Signals*/
         .opcode(ALU_opcode), .IncPC(IncPC),
-        .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout),
+        .Gra(Gra), .Grb(Grb), .Grc(Grc), .Rin(Rin), .Rout(Rout), .BAout(BAout), .jump_n_link(jump_n_link),
         .con_ff_bit(con_ff_bit), .CONin(CONin), .IR_data(IR)
     );
     RAM512x32 memory512x32(

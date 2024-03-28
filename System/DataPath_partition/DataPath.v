@@ -29,7 +29,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 	input wire [4:0] opcode,
 	input wire 	IncPC,
 
-	input wire Gra, Grb, Grc, Rin, Rout, BAout, CONin, 
+	input wire Gra, Grb, Grc, Rin, Rout, BAout, CONin, jump_n_link,  
 
 	output wire con_ff_bit, /*Branch boolean for Phase 2.4*/
 	output wire[DATA_WIDTH-1:0] IR_data
@@ -70,6 +70,8 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 			R4in, R5in, R6in, R7in, 
 			R8in, R9in, R10in, R11in, 
 			R12in, R13in, R14in, R15in;
+	wire    R15in_jumper;
+	assign 	R15in_jumper = R15in | jump_n_link; //THIS IS FOR JUMP AND LINKING
 /*ALU connections~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	wire [(DATA_WIDTH*2)-1:0] ALU_result;
 	wire [31:0] ALU_HI, ALU_LO;
@@ -102,7 +104,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 		register R12(clear, clock, R12in, BusMuxOut, R12_BusMuxIn);
 		register R13(clear, clock, R13in, BusMuxOut, R13_BusMuxIn);
 		register R14(clear, clock, R14in, BusMuxOut, R14_BusMuxIn);
-		register R15(clear, clock, R15in, BusMuxOut, R15_BusMuxIn);
+		register R15(clear, clock, R15in_jumper, BusMuxOut, R15_BusMuxIn);
 
 	//control registers
 		register IR(clear, clock, IRin, BusMuxOut, IR_BusMuxIn);

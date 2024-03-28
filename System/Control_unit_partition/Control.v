@@ -16,7 +16,7 @@ module Control #(parameter DATA_WIDTH = 32)(
         output reg      IncPC,
 
         /*Decoding Control*/
-        output reg      Gra, Grb, Grc, Rin, Rout, BAout, /*Datapath Inputs*/
+        output reg      Gra, Grb, Grc, Rin, Rout, BAout, jump_n_link, /*Datapath Inputs*/
         
         
         /*Memory Control*/
@@ -306,25 +306,28 @@ module Control #(parameter DATA_WIDTH = 32)(
 
             outport_in<=(T3 & OUT_s);
         /*IR DECODING SIGNALS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/              
-            Gra <=      (T3 & (BRANCH_s | JUMP_s | MFHI_s | MFLO_s | OUT_s | IN_s)) | 
-                        (T4 & (MUL_s | DIV_s | JUMP_LINK_s | NEG_s | NOT_s)) |
+            Gra <=      (T3 & (BRANCH_s | JUMP_s | MFHI_s | MFLO_s | OUT_s | IN_s | DIV_s | MUL_s)) | 
+                        (T4 & (JUMP_LINK_s | NEG_s | NOT_s)) |
                         (T5 & (LOADI_s | ALU_s | ADDI_s | ANDI_s | ORI_s)) |
                         (T6 & (STORE_s)) |
                         (T7 & (LOAD_s));
 
-            Grb <=      (T3 & (LOAD_s | LOADI_s | STORE_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s | NEG_s | NOT_s | JUMP_LINK_s));
+            Grb <=      (T3 & (LOAD_s | LOADI_s | STORE_s | ALU_s | ADDI_s | ANDI_s | ORI_s | NEG_s | NOT_s)) |
+                        (T4 & (DIV_s | MUL_s));
             Grc <=      (T4 & (ALU_s));
 
-            Rin <=      (T3 & (JUMP_LINK_s | MFHI_s | MFLO_s | IN_s)) |
+            Rin <=      (T3 & (MFHI_s | MFLO_s | IN_s)) |
                         (T4 & (NEG_s | NOT_s)) |
                         (T5 & (LOADI_s | ALU_s | ADDI_s | ANDI_s | ORI_s)) | 
                         (T7 & (LOAD_s));
                         
             Rout <=     (T3 & (LOAD_s | LOADI_s | STORE_s | BRANCH_s | ALU_s | ADDI_s | ANDI_s | ORI_s | MUL_s | DIV_s | NEG_s | NOT_s | JUMP_s | OUT_s )) |
-                        (T4 & (ALU_s | JUMP_LINK_s)) |
+                        (T4 & (ALU_s | MUL_s | DIV_s | JUMP_LINK_s)) |
                         (T6 & (STORE_s));
 
             BAout <=    (T3 & (LOAD_DIR_s | LOADI_DIR_s | STORE_DIR_s));
+            
+            jump_n_link <= (T3 & JUMP_LINK_s);
 
         /*MEMORY SIGNALS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/    
             Mem_Read <=         (T1) |
