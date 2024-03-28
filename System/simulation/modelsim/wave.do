@@ -8,6 +8,14 @@ add wave -noupdate /SystemTestBench/inport_data_ready
 add wave -noupdate /SystemTestBench/inport_data
 add wave -noupdate /SystemTestBench/outport_data
 add wave -noupdate /SystemTestBench/Present_state
+add wave -noupdate /SystemTestBench/Clock
+add wave -noupdate /SystemTestBench/Interupts
+add wave -noupdate /SystemTestBench/reset
+add wave -noupdate /SystemTestBench/stop
+add wave -noupdate /SystemTestBench/inport_data_ready
+add wave -noupdate /SystemTestBench/inport_data
+add wave -noupdate /SystemTestBench/outport_data
+add wave -noupdate /SystemTestBench/Present_state
 add wave -noupdate /SystemTestBench/uut/control/S2
 add wave -noupdate -radix unsigned /SystemTestBench/uut/control/present_state
 add wave -noupdate /SystemTestBench/uut/control/T0
@@ -48,7 +56,7 @@ add wave -noupdate /SystemTestBench/uut/control/BAout
 add wave -noupdate /SystemTestBench/uut/control/Mem_Read
 add wave -noupdate /SystemTestBench/uut/control/Mem_Write
 add wave -noupdate /SystemTestBench/uut/control/Mem_enable512x32
-add wave -noupdate -radix binary /SystemTestBench/uut/control/IR
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/control/IR
 add wave -noupdate /SystemTestBench/uut/control/S6
 add wave -noupdate /SystemTestBench/uut/control/LOAD_s
 add wave -noupdate /SystemTestBench/uut/control/LOADI_s
@@ -57,10 +65,32 @@ add wave -noupdate /SystemTestBench/uut/control/BRANCH_s
 add wave -noupdate /SystemTestBench/uut/control/con_ff_bit
 add wave -noupdate /SystemTestBench/uut/control/NOP_s
 add wave -noupdate /SystemTestBench/uut/control/HALT_s
+add wave -noupdate -radix hexadecimal {/SystemTestBench/uut/memory512x32/FullMemorySpace[71]}
+add wave -noupdate -radix hexadecimal {/SystemTestBench/uut/memory512x32/FullMemorySpace[142]}
+add wave -noupdate /SystemTestBench/uut/control/ADD_s
+add wave -noupdate /SystemTestBench/uut/control/SUB_s
+add wave -noupdate /SystemTestBench/uut/control/JUMP_LINK_s
+add wave -noupdate /SystemTestBench/uut/datapath/RZin
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R0_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R1_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R2_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R3_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R4_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R5_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R6_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R7_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R8_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R9_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R10_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R11_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R12_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R13_BusMuxIn
+add wave -noupdate -radix hexadecimal /SystemTestBench/uut/datapath/R14_BusMuxIn
+add wave -noupdate /SystemTestBench/uut/datapath/R15_BusMuxIn
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1761603 ps} 0}
+WaveRestoreCursors {{Cursor 1} {5379803 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 297
+configure wave -namecolwidth 382
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -74,4 +104,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {879917 ps} {2105635 ps}
+WaveRestoreZoom {5080645 ps} {6235728 ps}

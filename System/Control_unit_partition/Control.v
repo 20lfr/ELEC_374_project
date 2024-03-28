@@ -66,10 +66,9 @@ module Control #(parameter DATA_WIDTH = 32)(
         
         BRANCH_s<=0; JUMP_s <=0; JUMP_LINK_s<=0; 
         IN_s<=0; OUT_s<=0; MFHI_s<=0; MFLO_s<=0; 
-        NOP_s<=0;
+        NOP_s<=0; HALT_s <= 0;
 
         T0 <= 0; T1 <= 0; T2 <= 0; T3 <= 0; T4 <= 0; T5 <= 0; T6 <= 0; T7 <= 0;
-
     end 
 
     always @(posedge clk, posedge reset, posedge stop) begin
@@ -79,7 +78,7 @@ module Control #(parameter DATA_WIDTH = 32)(
             run <= 1;
         end
         else if(stop) begin
-            //present_state <= present_state;
+            present_state <= present_state;
             clear <= 0; run <= 0;
         end 
         else begin
@@ -227,9 +226,7 @@ module Control #(parameter DATA_WIDTH = 32)(
             5'b11010 : NOP_s <= 1;
             5'b11011 : HALT_s <= 1;
             default  : NOP_s <= 1;
-        endcase 
-
-    
+        endcase    
     end 
 
     always @(*)begin //used to be (clk, T0, T1, T2, T3, T4, T5, T6, T7), changed to * for combinational logic
@@ -336,8 +333,6 @@ module Control #(parameter DATA_WIDTH = 32)(
             Mem_enable512x32 <= (T1) |
                                 (T6 & (LOAD_s)) |
                                 (T7 & (STORE_s));
-        
-
     end 
 
 

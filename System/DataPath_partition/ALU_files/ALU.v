@@ -14,7 +14,7 @@ module ALU #(parameter DATA_WIDTH = 32)(
     wire [(2*DATA_WIDTH)-1:0] and_result, or_result, neg_result, not_result, rol_result, ror_result, shl_result, shr_result, shra_result,
                               add_result, sub_result, unsigned_add_result, mul_result, div_result;
 
-    parameter   AND = 5'b01011, OR = 5'b01010, NEG = 5'b10001, NOT_MOD = 5'b10010, ROL = 5'b01001, ROR = 5'b01000, SHL = 5'b00111, SHRA = 5'b00110, SHR = 5'b00101,
+    parameter   AND = 5'b01010, OR = 5'b01011, NEG = 5'b10001, NOT_MOD = 5'b10010, ROL = 5'b01001, ROR = 5'b01000, SHL = 5'b00111, SHRA = 5'b00110, SHR = 5'b00101,
                 ADD = 5'b00011, SUB = 5'b00100, UNS_ADD = 5'b11111, MUL = 5'b01111, DIV = 5'b10000;
     
     // Outputs
