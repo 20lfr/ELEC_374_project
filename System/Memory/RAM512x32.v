@@ -18,7 +18,7 @@ module RAM512x32  #(parameter   DATA_WIDTH = 32,  // # of bits in word
         done <= 0;
         // Load memory contents from a hex file
         //$readmemh("Memory_test_preset.hex", FullMemorySpace, 0, 511);
-        $readmemh("Memory_lab.hex", FullMemorySpace, 0, 511);
+        $readmemh("Memory_lab_phase4.hex", FullMemorySpace, 0, 511);
     end
 
 
