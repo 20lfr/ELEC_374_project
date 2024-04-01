@@ -1,15 +1,18 @@
 module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
-        input wire Clock, reset, stop, Interupts, inport_data_ready, 
+        input wire Clock, reset, stop, 
 
 
     /*in and outport information*/
         input wire [DATA_WIDTH-1:0] inport_data,
-        output wire[DATA_WIDTH-1:0] outport_data
+        //output wire[DATA_WIDTH-1:0] outport_data, 
+
+        output wire [6:0] seg_display_upper, seg_display_lower, 
+        output wire run
        
 );
 
     /*Control unit signals*/
-            wire    clear, run;
+            wire    clear;
         /*Bus Encoder Signals*/
             wire    HIout, LOout, Zhi_out, Zlo_out, PCout, MDRout, Inport_out, Cout;
         
@@ -28,6 +31,8 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
 
         /*Memory Control*/
             wire    Mem_Read, Mem_Write, Mem_enable512x32;
+        /*I/O*/
+            wire [DATA_WIDTH-1:0] outport_data;
 
              
         
@@ -42,6 +47,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         wire    [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
         wire    [ADDR_WIDTH-1:0] MAR_address; 
 
+    
 
         
 
@@ -62,7 +68,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         /*Inputs*/
         .IR(IR),
         .con_ff_bit(con_ff_bit), 
-        .clk(Clock), .reset(reset), .stop(stop), .Interupts(Interupts)   
+        .clk(Clock), .reset(reset), .stop(stop)  
     );
     DataPath datapath(
         /*Sequence*/
@@ -70,7 +76,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
 
         /*Register enable signals*/
         .IRin(IRin), .PCin(PCin), .RYin(Yin), .RZin(Zin), .MARin(MARin), 
-        .MDRin(MDRin), .HIin(HIin), .LOin(LOin), .Outport_in(outport_in), .strobe(inport_data_ready),
+        .MDRin(MDRin), .HIin(HIin), .LOin(LOin), .Outport_in(outport_in), 
 
         
         /*Bus encoder signals*/
@@ -82,7 +88,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         .MAR_to_chip(MAR_address), .Mem_read(Mem_Read), .Mem_datain(Mem_to_datapath), .Mem_dataout(Mem_data_to_chip),
 
         /*I/O Interfacing*/
-        .External_In(inport_data), .External_Out(outport_data),
+        .External_In({{24{1'b0}}, inport_data[7:0]}), .External_Out(outport_data),
 
         /*Control Signals*/
         .opcode(ALU_opcode), .IncPC(IncPC),
@@ -100,6 +106,11 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         .address(MAR_address),
         .data_in(Mem_data_to_chip)
     );
+
+
+    Seven_Seg_Display_Out display_upper(.data(outport_data[7:4]), .clk(Clock), .outport(seg_display_upper));
+    Seven_Seg_Display_Out display_lower(.data(outport_data[3:0]), .clk(Clock), .outport(seg_display_lower));
+
 
 
 

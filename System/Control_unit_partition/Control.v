@@ -25,7 +25,7 @@ module Control #(parameter DATA_WIDTH = 32)(
 
     /*INPUTS*/ 
         input wire      [DATA_WIDTH-1:0] IR,
-        input wire      clk, reset, stop, Interupts,
+        input wire      clk, reset, stop, //Interupts,
         input wire      con_ff_bit /*Datapath Outputs*/
 );
 

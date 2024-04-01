@@ -8,14 +8,15 @@ module SystemTestBench;
 
     // Inputs
     reg Clock;
-    reg Interupts;
     reg reset;
     reg stop;
-    reg inport_data_ready;
     reg [DATA_WIDTH-1:0] inport_data;
 
     // Outputs
-    wire [DATA_WIDTH-1:0] outport_data;
+    //wire [DATA_WIDTH-1:0] outport_data;
+    wire [6:0] seg_display_upper, seg_display_lower;
+    wire run;
+
 
     // Instantiate the Unit Under Test (UUT)
     System #(
@@ -25,13 +26,13 @@ module SystemTestBench;
         .Clock(Clock), 
         .reset(reset), 
         .stop(stop),
-        .inport_data_ready(inport_data_ready),
-        .Interupts(Interupts),
+        .run(run),
         .inport_data(inport_data), 
-        .outport_data(outport_data)
+        .seg_display_upper(seg_display_upper), 
+        .seg_display_lower(seg_display_lower)
     );
     parameter   reset_state = 1'd0, INS1_T0 = 1'd1;
-    reg Present_state = reset_state;
+    reg         Present_state = reset_state;
 
   /*Clock generation*/
     initial begin
@@ -53,12 +54,12 @@ module SystemTestBench;
 
       case(Present_state)
           reset_state : begin
-            Interupts <= 0; stop <= 0; 
-            inport_data <=32'd0; inport_data_ready <=0; 
-
+            stop <= 0; inport_data <=32'd11;
             reset <= 1;
 
             #20 reset <= 0; //now we read from memory starting at PC <= 0;
+
+            #40 inport_data <= 32'h80;
 
           end 
           INS1_T0 : begin end

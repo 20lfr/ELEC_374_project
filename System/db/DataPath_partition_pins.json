@@ -1,0 +1,113 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "seg_display_upper[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_upper[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_upper[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_upper[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_upper[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_upper[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_upper[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_lower[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_lower[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_lower[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_lower[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_lower[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_lower[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_display_lower[6]",
+					"strict" : false
+				},
+				{
+					"name" : "run",
+					"strict" : false
+				},
+				{
+					"name" : "Clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "inport_data[4]",
+					"strict" : false
+				},
+				{
+					"name" : "inport_data[5]",
+					"strict" : false
+				},
+				{
+					"name" : "inport_data[6]",
+					"strict" : false
+				},
+				{
+					"name" : "inport_data[7]",
+					"strict" : false
+				},
+				{
+					"name" : "inport_data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "inport_data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "inport_data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "inport_data[3]",
+					"strict" : false
+				},
+				{
+					"name" : "stop",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

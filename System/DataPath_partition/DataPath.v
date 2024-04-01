@@ -3,7 +3,7 @@ module DataPath #(parameter DATA_WIDTH = 32)(
 
 
 	/*ENABLE REGISTER signals*/
-	input wire 	IRin, PCin, RYin, RZin, MARin, MDRin, HIin, LOin, Outport_in, strobe, 
+	input wire 	IRin, PCin, RYin, RZin, MARin, MDRin, HIin, LOin, Outport_in, //strobe, 
 	/*~~~~~~~~~~~~~~~~~~~~~~~*/
 
 

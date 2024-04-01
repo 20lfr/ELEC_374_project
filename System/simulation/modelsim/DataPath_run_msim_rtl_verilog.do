@@ -5,6 +5,7 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System {C:/Users/20lfr/Desktop/ELEC_374_project/System/Seven_Seg_Display_Out.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition {C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v}
 vlog -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction {C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v}
