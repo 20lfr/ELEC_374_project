@@ -1,5 +1,5 @@
 Flow report for DataPath
-Mon Apr 01 14:35:47 2024
+Wed Apr 03 18:27:29 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -37,29 +37,24 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Flow Summary                                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Mon Apr 01 14:35:47 2024           ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
-; Revision Name                   ; DataPath                                        ;
-; Top-level Entity Name           ; System                                          ;
-; Family                          ; Cyclone V                                       ;
-; Device                          ; 5CEBA4F23C7                                     ;
-; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 2,336 / 18,480 ( 13 % )                         ;
-; Total registers                 ; 732                                             ;
-; Total pins                      ; 50 / 224 ( 22 % )                               ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                           ;
-; Total DSP Blocks                ; 0 / 66 ( 0 % )                                  ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 0 / 4 ( 0 % )                                   ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
-+---------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++-----------------------------+-------------------------------------------------+
+; Flow Status                 ; Successful - Wed Apr 03 18:27:29 2024           ;
+; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name               ; DataPath                                        ;
+; Top-level Entity Name       ; System                                          ;
+; Family                      ; Cyclone V                                       ;
+; Device                      ; 5CEBA4F23C7                                     ;
+; Timing Models               ; Final                                           ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                       ;
+; Total registers             ; N/A until Partition Merge                       ;
+; Total pins                  ; N/A until Partition Merge                       ;
+; Total virtual pins          ; N/A until Partition Merge                       ;
+; Total block memory bits     ; N/A until Partition Merge                       ;
+; Total PLLs                  ; N/A until Partition Merge                       ;
+; Total DLLs                  ; N/A until Partition Merge                       ;
++-----------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -67,7 +62,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/01/2024 14:32:30 ;
+; Start date & time ; 04/03/2024 18:27:22 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DataPath            ;
 +-------------------+---------------------+
@@ -78,9 +73,10 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+-------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-------------------+
-; COMPILER_SIGNATURE_ID                ; 26830026795268.171199634910036         ; --            ; --          ; --                ;
+; COMPILER_SIGNATURE_ID                ; 273270824053499.171218324119172        ; --            ; --          ; --                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; SystemTestBench   ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; TESTBENCH_RAM     ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Clock_div_tb      ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Testbench_CONTROL ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; SystemTestBench                        ; --            ; --          ; eda_simulation    ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation    ;
@@ -88,15 +84,19 @@ refer to the applicable agreement for further details.
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation    ;
 ; EDA_TEST_BENCH_FILE                  ; SystemTestBench.v                      ; --            ; --          ; SystemTestBench   ;
 ; EDA_TEST_BENCH_FILE                  ; TESTBENCH_RAM.v                        ; --            ; --          ; TESTBENCH_RAM     ;
+; EDA_TEST_BENCH_FILE                  ; Clock_div_tb.v                         ; --            ; --          ; Clock_div_tb      ;
 ; EDA_TEST_BENCH_FILE                  ; Testbench_CONTROL.v                    ; --            ; --          ; Testbench_CONTROL ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; SystemTestBench                        ; --            ; --          ; SystemTestBench   ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; TESTBENCH_RAM                          ; --            ; --          ; TESTBENCH_RAM     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Clock_div_tb                           ; --            ; --          ; Clock_div_tb      ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; Testbench_CONTROL                      ; --            ; --          ; Testbench_CONTROL ;
 ; EDA_TEST_BENCH_NAME                  ; TESTBENCH_RAM                          ; --            ; --          ; eda_simulation    ;
 ; EDA_TEST_BENCH_NAME                  ; Testbench_CONTROL                      ; --            ; --          ; eda_simulation    ;
 ; EDA_TEST_BENCH_NAME                  ; SystemTestBench                        ; --            ; --          ; eda_simulation    ;
+; EDA_TEST_BENCH_NAME                  ; Clock_div_tb                           ; --            ; --          ; eda_simulation    ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 5000 ns                                ; --            ; --          ; SystemTestBench   ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1000 ns                                ; --            ; --          ; TESTBENCH_RAM     ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1000 ns                                ; --            ; --          ; Clock_div_tb      ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 2000 ns                                ; --            ; --          ; Testbench_CONTROL ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation    ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                ;
@@ -110,41 +110,29 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+-------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                        ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:31     ; 1.0                     ; 4870 MB             ; 00:00:22                           ;
-; Fitter               ; 00:02:09     ; 1.2                     ; 6418 MB             ; 00:02:43                           ;
-; Assembler            ; 00:00:08     ; 1.0                     ; 4851 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:16     ; 2.7                     ; 5151 MB             ; 00:00:19                           ;
-; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4804 MB             ; 00:00:02                           ;
-; Total                ; 00:03:08     ; --                      ; --                  ; 00:03:30                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                          ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Elaboration ; 00:00:08     ; 1.0                     ; 4803 MB             ; 00:00:07                           ;
+; Total                  ; 00:00:08     ; --                      ; --                  ; 00:00:07                           ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                    ;
-+----------------------+------------------+------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; BMH-214-14       ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; BMH-214-14       ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; BMH-214-14       ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; BMH-214-14       ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; BMH-214-14       ; Windows 10 ; 10.0       ; x86_64         ;
-+----------------------+------------------+------------+------------+----------------+
++--------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                      ;
++------------------------+------------------+------------+------------+----------------+
+; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++------------------------+------------------+------------+------------+----------------+
+; Analysis & Elaboration ; WL214-19         ; Windows 10 ; 10.0       ; x86_64         ;
++------------------------+------------------+------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off CPU_Design -c DataPath
-quartus_fit --read_settings_files=off --write_settings_files=off CPU_Design -c DataPath
-quartus_asm --read_settings_files=off --write_settings_files=off CPU_Design -c DataPath
-quartus_sta CPU_Design -c DataPath
-quartus_eda --read_settings_files=off --write_settings_files=off CPU_Design -c DataPath
+quartus_map --read_settings_files=on --write_settings_files=off CPU_Design -c DataPath --analysis_and_elaboration
 
 
 

@@ -1,4 +1,4 @@
-module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
+module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9, CLOCK_CYCLE_DIVISOR = 5)(
         input wire Clock, reset, stop, 
 
 
@@ -47,7 +47,8 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         wire    [DATA_WIDTH-1:0] Mem_to_datapath, Mem_data_to_chip;
         wire    [ADDR_WIDTH-1:0] MAR_address; 
 
-    
+    /*Clock Divisor*/
+        wire clk_divided;
 
         
 
@@ -107,9 +108,11 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9)(
         .data_in(Mem_data_to_chip)
     );
 
-
-    Seven_Seg_Display_Out display_upper(.data(outport_data[7:4]), .clk(Clock), .outport(seg_display_upper));
-    Seven_Seg_Display_Out display_lower(.data(outport_data[3:0]), .clk(Clock), .outport(seg_display_lower));
+    /*Seven Segement Display Decoders*/
+        Seven_Seg_Display_Out display_upper(.data(outport_data[7:4]), .clk(Clock), .outport(seg_display_upper));
+        Seven_Seg_Display_Out display_lower(.data(outport_data[3:0]), .clk(Clock), .outport(seg_display_lower));
+    /*Clock Divider*/
+        Clock_div #(.DIVISOR(CLOCK_CYCLE_DIVISOR)) clock_divider_instance(.clk(Clock), .clock(clk_divided), .reset(reset));
 
 
 

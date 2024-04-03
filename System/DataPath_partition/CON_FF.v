@@ -2,7 +2,7 @@ module CON_FF (
     input wire [31:0] IR, // Fixed declaration
     input wire [31:0] BusMuxOut, // Fixed declaration
     input wire enable,
-    output reg toControl // Output to control signals
+    output reg toControl // Output to control signals (the con_ff bit)
 );
 
 initial begin toControl <= 0; end 
@@ -35,8 +35,6 @@ always @(*) begin
                     else toControl <= 1'b0;
                 end
         endcase
-
-
     end 
 end
     
