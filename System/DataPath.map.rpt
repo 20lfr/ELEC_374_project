@@ -1,5 +1,5 @@
 Analysis & Elaboration report for DataPath
-Wed Apr 03 18:27:29 2024
+Thu Apr 04 11:05:57 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -91,7 +91,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                  ;
 +-------------------------------+-------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Wed Apr 03 18:27:29 2024           ;
+; Analysis & Elaboration Status ; Successful - Thu Apr 04 11:05:57 2024           ;
 ; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                 ; DataPath                                        ;
 ; Top-level Entity Name         ; System                                          ;
@@ -111,8 +111,8 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -814,155 +814,120 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed Apr 03 18:27:21 2024
+    Info: Processing started: Thu Apr 04 11:05:44 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU_Design -c DataPath --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file clock_div.v
-    Info (12023): Found entity 1: Clock_div File: C:/Users/20lfr/ELEC_374_project/System/Clock_div.v Line: 1
+    Info (12023): Found entity 1: Clock_div File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Clock_div.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file seven_seg_display_out.v
-    Info (12023): Found entity 1: Seven_Seg_Display_Out File: C:/Users/20lfr/ELEC_374_project/System/Seven_Seg_Display_Out.v Line: 1
+    Info (12023): Found entity 1: Seven_Seg_Display_Out File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Seven_Seg_Display_Out.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file control_unit_partition/control.v
-    Info (12023): Found entity 1: Control File: C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition/Control.v Line: 1
+    Info (12023): Found entity 1: Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/addition_and_subtraction/cla_b_cell.v
-    Info (12023): Found entity 1: CLA_b_cell File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v Line: 1
+    Info (12023): Found entity 1: CLA_b_cell File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/addition_and_subtraction/cla_32bit_adder.v
-    Info (12023): Found entity 1: CLA_32bit_adder File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v Line: 1
+    Info (12023): Found entity 1: CLA_32bit_adder File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/addition_and_subtraction/cla_16bit_adder.v
-    Info (12023): Found entity 1: CLA_16bit_adder File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v Line: 1
+    Info (12023): Found entity 1: CLA_16bit_adder File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/addition_and_subtraction/cla_4bit_adder.v
-    Info (12023): Found entity 1: CLA_4bit_adder File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v Line: 1
+    Info (12023): Found entity 1: CLA_4bit_adder File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/addition_and_subtraction/add_sub.v
-    Info (12023): Found entity 1: add_sub File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v Line: 1
+    Info (12023): Found entity 1: add_sub File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/logical_operations/shra.v
-    Info (12023): Found entity 1: shra File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v Line: 1
+    Info (12023): Found entity 1: shra File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/logical_operations/shr.v
-    Info (12023): Found entity 1: shr File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v Line: 1
+    Info (12023): Found entity 1: shr File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/logical_operations/shla.v
-    Info (12023): Found entity 1: shla File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shla.v Line: 1
+    Info (12023): Found entity 1: shla File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shla.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/logical_operations/shl.v
-    Info (12023): Found entity 1: shl File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v Line: 1
+    Info (12023): Found entity 1: shl File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/logical_operations/ror.v
-    Info (12023): Found entity 1: ror File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v Line: 1
+    Info (12023): Found entity 1: ror File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/logical_operations/rol.v
-    Info (12023): Found entity 1: rol File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v Line: 1
+    Info (12023): Found entity 1: rol File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/logical_operations/not_module.v
-    Info (12023): Found entity 1: not_module File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v Line: 1
+    Info (12023): Found entity 1: not_module File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/logical_operations/neg.v
-    Info (12023): Found entity 1: neg File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v Line: 1
+    Info (12023): Found entity 1: neg File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/logical_operations/and_or.v
-    Info (12023): Found entity 1: and_or File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v Line: 1
+    Info (12023): Found entity 1: and_or File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/division/div_combinational.v
-    Info (12023): Found entity 1: div_combinational File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v Line: 2
+    Info (12023): Found entity 1: div_combinational File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/multiply/booth_mul_combinational.v
-    Info (12023): Found entity 1: booth_mul_combinational File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v Line: 1
+    Info (12023): Found entity 1: booth_mul_combinational File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/multiply/booth_2_pair.v
-    Info (12023): Found entity 1: booth_two_pair File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_2_pair.v Line: 1
+    Info (12023): Found entity 1: booth_two_pair File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_2_pair.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/alu_files/alu.v
-    Info (12023): Found entity 1: ALU File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 1
+    Info (12023): Found entity 1: ALU File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/bus_files/bus_mux.v
-    Info (12023): Found entity 1: Bus_MUX File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v Line: 1
+    Info (12023): Found entity 1: Bus_MUX File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/bus_files/bus_encoder.v
-    Info (12023): Found entity 1: Bus_Encoder File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v Line: 1
+    Info (12023): Found entity 1: Bus_Encoder File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/registers/register.v
-    Info (12023): Found entity 1: register File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/register.v Line: 1
+    Info (12023): Found entity 1: register File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/register.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/registers/outport_reg.v
-    Info (12023): Found entity 1: Outport_reg File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v Line: 1
+    Info (12023): Found entity 1: Outport_reg File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/registers/mdr2.v
-    Info (12023): Found entity 1: MDR2 File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v Line: 1
+    Info (12023): Found entity 1: MDR2 File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/registers/inport_reg.v
-    Info (12023): Found entity 1: Inport_reg File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v Line: 1
+    Info (12023): Found entity 1: Inport_reg File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/select_and_decode_ir.v
-    Info (12023): Found entity 1: Select_and_Decode_IR File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v Line: 1
+    Info (12023): Found entity 1: Select_and_Decode_IR File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/decoder4to16.v
-    Info (12023): Found entity 1: decoder4to16 File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/decoder4to16.v Line: 1
+    Info (12023): Found entity 1: decoder4to16 File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/decoder4to16.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/datapath.v
-    Info (12023): Found entity 1: DataPath File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 1
+    Info (12023): Found entity 1: DataPath File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_partition/con_ff.v
-    Info (12023): Found entity 1: CON_FF File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/CON_FF.v Line: 1
+    Info (12023): Found entity 1: CON_FF File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/CON_FF.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file system.v
-    Info (12023): Found entity 1: System File: C:/Users/20lfr/ELEC_374_project/System/System.v Line: 1
+    Info (12023): Found entity 1: System File: C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file memory/ram512x32.v
-    Info (12023): Found entity 1: RAM512x32 File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 1
-Warning (10222): Verilog HDL Parameter Declaration warning at ALU.v(18): Parameter Declaration in module "ALU" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 18
+    Info (12023): Found entity 1: RAM512x32 File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v Line: 1
+Warning (10222): Verilog HDL Parameter Declaration warning at ALU.v(18): Parameter Declaration in module "ALU" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 18
 Info (12127): Elaborating entity "System" for the top level hierarchy
-Info (12128): Elaborating entity "Control" for hierarchy "Control:control" File: C:/Users/20lfr/ELEC_374_project/System/System.v Line: 73
-Warning (10270): Verilog HDL Case Statement warning at Control.v(140): incomplete case statement has no default case item File: C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition/Control.v Line: 140
-Info (10264): Verilog HDL Case Statement information at Control.v(140): all case item expressions in this case statement are onehot File: C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition/Control.v Line: 140
-Warning (10240): Verilog HDL Always Construct warning at Control.v(168): inferring latch(es) for variable "HALT_s", which holds its previous value in one or more paths through the always construct File: C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition/Control.v Line: 168
-Info (10041): Inferred latch for "HALT_s" at Control.v(168) File: C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition/Control.v Line: 168
-Info (12128): Elaborating entity "DataPath" for hierarchy "DataPath:datapath" File: C:/Users/20lfr/ELEC_374_project/System/System.v Line: 98
-Info (12128): Elaborating entity "register" for hierarchy "DataPath:datapath|register:R0" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 91
-Info (12128): Elaborating entity "MDR2" for hierarchy "DataPath:datapath|MDR2:MDR_reg" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 124
-Info (12128): Elaborating entity "Inport_reg" for hierarchy "DataPath:datapath|Inport_reg:Inport" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 138
-Warning (10235): Verilog HDL Always Construct warning at Inport_reg.v(10): variable "clear" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v Line: 10
-Info (12128): Elaborating entity "Outport_reg" for hierarchy "DataPath:datapath|Outport_reg:Outport" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 139
-Info (12128): Elaborating entity "Bus_MUX" for hierarchy "DataPath:datapath|Bus_MUX:Bus" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 154
-Info (12128): Elaborating entity "Bus_Encoder" for hierarchy "DataPath:datapath|Bus_MUX:Bus|Bus_Encoder:encoder_32_to_5" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v Line: 23
-Info (12128): Elaborating entity "ALU" for hierarchy "DataPath:datapath|ALU:alu" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 159
-Info (12128): Elaborating entity "and_or" for hierarchy "DataPath:datapath|ALU:alu|and_or:and_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 25
-Info (12128): Elaborating entity "neg" for hierarchy "DataPath:datapath|ALU:alu|neg:neg_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 27
-Info (12128): Elaborating entity "not_module" for hierarchy "DataPath:datapath|ALU:alu|not_module:not_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 28
-Info (12128): Elaborating entity "rol" for hierarchy "DataPath:datapath|ALU:alu|rol:rol_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 29
-Info (12128): Elaborating entity "ror" for hierarchy "DataPath:datapath|ALU:alu|ror:ror_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 30
-Info (12128): Elaborating entity "shl" for hierarchy "DataPath:datapath|ALU:alu|shl:shl_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 31
-Info (12128): Elaborating entity "shra" for hierarchy "DataPath:datapath|ALU:alu|shra:shra_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 32
-Info (12128): Elaborating entity "shr" for hierarchy "DataPath:datapath|ALU:alu|shr:shr_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 33
-Info (12128): Elaborating entity "add_sub" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 36
-Info (12128): Elaborating entity "CLA_32bit_adder" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v Line: 17
-Info (12128): Elaborating entity "CLA_16bit_adder" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v Line: 11
-Info (12128): Elaborating entity "CLA_4bit_adder" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v Line: 12
-Info (12128): Elaborating entity "CLA_b_cell" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v Line: 12
-Info (12128): Elaborating entity "booth_mul_combinational" for hierarchy "DataPath:datapath|ALU:alu|booth_mul_combinational:mul_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 41
-Warning (10199): Verilog HDL Case Statement warning at booth_mul_combinational.v(28): case item expression never matches the case expression File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v Line: 28
-Info (10264): Verilog HDL Case Statement information at booth_mul_combinational.v(27): all case item expressions in this case statement are onehot File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v Line: 27
-Info (12128): Elaborating entity "div_combinational" for hierarchy "DataPath:datapath|ALU:alu|div_combinational:division_instance" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 44
-Info (12128): Elaborating entity "Select_and_Decode_IR" for hierarchy "DataPath:datapath|Select_and_Decode_IR:IR_register_decoder" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 177
-Info (12128): Elaborating entity "decoder4to16" for hierarchy "DataPath:datapath|Select_and_Decode_IR:IR_register_decoder|decoder4to16:decoder" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v Line: 19
-Info (12128): Elaborating entity "CON_FF" for hierarchy "DataPath:datapath|CON_FF:con_ff" File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 183
-Warning (10240): Verilog HDL Always Construct warning at CON_FF.v(11): inferring latch(es) for variable "toControl", which holds its previous value in one or more paths through the always construct File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/CON_FF.v Line: 11
-Info (10041): Inferred latch for "toControl" at CON_FF.v(11) File: C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/CON_FF.v Line: 11
-Info (12128): Elaborating entity "RAM512x32" for hierarchy "RAM512x32:memory512x32" File: C:/Users/20lfr/ELEC_374_project/System/System.v Line: 109
-Warning (10240): Verilog HDL Always Construct warning at RAM512x32.v(28): inferring latch(es) for variable "q", which holds its previous value in one or more paths through the always construct File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 28
-Info (10041): Inferred latch for "q[0]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[1]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[2]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[3]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[4]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[5]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[6]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[7]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[8]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[9]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[10]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[11]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[12]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[13]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[14]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[15]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[16]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[17]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[18]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[19]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[20]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[21]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[22]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[23]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[24]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[25]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[26]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[27]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[28]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[29]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[30]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (10041): Inferred latch for "q[31]" at RAM512x32.v(29) File: C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v Line: 29
-Info (12128): Elaborating entity "Seven_Seg_Display_Out" for hierarchy "Seven_Seg_Display_Out:display_upper" File: C:/Users/20lfr/ELEC_374_project/System/System.v Line: 112
-Info (12128): Elaborating entity "Clock_div" for hierarchy "Clock_div:clock_divider_instance" File: C:/Users/20lfr/ELEC_374_project/System/System.v Line: 115
+Info (12128): Elaborating entity "Control" for hierarchy "Control:control" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v Line: 73
+Warning (10270): Verilog HDL Case Statement warning at Control.v(140): incomplete case statement has no default case item File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v Line: 140
+Info (10264): Verilog HDL Case Statement information at Control.v(140): all case item expressions in this case statement are onehot File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v Line: 140
+Warning (10240): Verilog HDL Always Construct warning at Control.v(168): inferring latch(es) for variable "HALT_s", which holds its previous value in one or more paths through the always construct File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v Line: 168
+Info (10041): Inferred latch for "HALT_s" at Control.v(168) File: C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v Line: 168
+Info (12128): Elaborating entity "DataPath" for hierarchy "DataPath:datapath" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v Line: 98
+Info (12128): Elaborating entity "register" for hierarchy "DataPath:datapath|register:R0" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 91
+Info (12128): Elaborating entity "MDR2" for hierarchy "DataPath:datapath|MDR2:MDR_reg" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 124
+Info (12128): Elaborating entity "Inport_reg" for hierarchy "DataPath:datapath|Inport_reg:Inport" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 138
+Warning (10235): Verilog HDL Always Construct warning at Inport_reg.v(10): variable "clear" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v Line: 10
+Info (12128): Elaborating entity "Outport_reg" for hierarchy "DataPath:datapath|Outport_reg:Outport" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 139
+Info (12128): Elaborating entity "Bus_MUX" for hierarchy "DataPath:datapath|Bus_MUX:Bus" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 154
+Info (12128): Elaborating entity "Bus_Encoder" for hierarchy "DataPath:datapath|Bus_MUX:Bus|Bus_Encoder:encoder_32_to_5" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v Line: 23
+Info (12128): Elaborating entity "ALU" for hierarchy "DataPath:datapath|ALU:alu" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 159
+Info (12128): Elaborating entity "and_or" for hierarchy "DataPath:datapath|ALU:alu|and_or:and_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 25
+Info (12128): Elaborating entity "neg" for hierarchy "DataPath:datapath|ALU:alu|neg:neg_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 27
+Info (12128): Elaborating entity "not_module" for hierarchy "DataPath:datapath|ALU:alu|not_module:not_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 28
+Info (12128): Elaborating entity "rol" for hierarchy "DataPath:datapath|ALU:alu|rol:rol_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 29
+Info (12128): Elaborating entity "ror" for hierarchy "DataPath:datapath|ALU:alu|ror:ror_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 30
+Info (12128): Elaborating entity "shl" for hierarchy "DataPath:datapath|ALU:alu|shl:shl_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 31
+Info (12128): Elaborating entity "shra" for hierarchy "DataPath:datapath|ALU:alu|shra:shra_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 32
+Info (12128): Elaborating entity "shr" for hierarchy "DataPath:datapath|ALU:alu|shr:shr_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 33
+Info (12128): Elaborating entity "add_sub" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 36
+Info (12128): Elaborating entity "CLA_32bit_adder" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v Line: 17
+Info (12128): Elaborating entity "CLA_16bit_adder" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v Line: 11
+Info (12128): Elaborating entity "CLA_4bit_adder" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v Line: 12
+Info (12128): Elaborating entity "CLA_b_cell" for hierarchy "DataPath:datapath|ALU:alu|add_sub:add_instance|CLA_32bit_adder:adder|CLA_16bit_adder:bits0_15|CLA_4bit_adder:bits0_3|CLA_b_cell:bit0" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v Line: 12
+Info (12128): Elaborating entity "booth_mul_combinational" for hierarchy "DataPath:datapath|ALU:alu|booth_mul_combinational:mul_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 41
+Warning (10199): Verilog HDL Case Statement warning at booth_mul_combinational.v(28): case item expression never matches the case expression File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v Line: 28
+Info (10264): Verilog HDL Case Statement information at booth_mul_combinational.v(27): all case item expressions in this case statement are onehot File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v Line: 27
+Info (12128): Elaborating entity "div_combinational" for hierarchy "DataPath:datapath|ALU:alu|div_combinational:division_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v Line: 44
+Info (12128): Elaborating entity "Select_and_Decode_IR" for hierarchy "DataPath:datapath|Select_and_Decode_IR:IR_register_decoder" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 177
+Info (12128): Elaborating entity "decoder4to16" for hierarchy "DataPath:datapath|Select_and_Decode_IR:IR_register_decoder|decoder4to16:decoder" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v Line: 19
+Info (12128): Elaborating entity "CON_FF" for hierarchy "DataPath:datapath|CON_FF:con_ff" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v Line: 183
+Info (12128): Elaborating entity "RAM512x32" for hierarchy "RAM512x32:memory512x32" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v Line: 109
+Info (12128): Elaborating entity "Seven_Seg_Display_Out" for hierarchy "Seven_Seg_Display_Out:display_upper" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v Line: 112
+Info (12128): Elaborating entity "Clock_div" for hierarchy "Clock_div:clock_divider_instance" File: C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v Line: 115
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4803 megabytes
-    Info: Processing ended: Wed Apr 03 18:27:29 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:07
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4809 megabytes
+    Info: Processing ended: Thu Apr 04 11:05:57 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:10
 
 

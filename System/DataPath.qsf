@@ -89,6 +89,17 @@ set_location_assignment PIN_AA18 -to seg_display_upper[3]
 set_location_assignment PIN_AB18 -to seg_display_upper[4]
 set_location_assignment PIN_AA17 -to seg_display_upper[5]
 set_location_assignment PIN_U22 -to seg_display_upper[6]
+set_global_assignment -name EDA_TEST_BENCH_NAME Clock_div_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Clock_div_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1000 ns" -section_id Clock_div_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Clock_div_tb -section_id Clock_div_tb
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE TESTBENCH_RAM.v -section_id TESTBENCH_RAM
+set_global_assignment -name EDA_TEST_BENCH_FILE Testbench_CONTROL.v -section_id Testbench_CONTROL
+set_global_assignment -name EDA_TEST_BENCH_FILE SystemTestBench.v -section_id SystemTestBench
+set_global_assignment -name EDA_TEST_BENCH_FILE Clock_div_tb.v -section_id Clock_div_tb
 set_global_assignment -name VERILOG_FILE Clock_div.v
 set_global_assignment -name VERILOG_FILE Seven_Seg_Display_Out.v
 set_global_assignment -name HEX_FILE Memory/Memory_lab.hex
@@ -124,15 +135,5 @@ set_global_assignment -name VERILOG_FILE DataPath_partition/CON_FF.v
 set_global_assignment -name VERILOG_FILE System.v
 set_global_assignment -name VERILOG_FILE Memory/RAM512x32.v
 set_global_assignment -name MIF_FILE Memory/phase_4.mif
-set_global_assignment -name EDA_TEST_BENCH_NAME Clock_div_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Clock_div_tb
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1000 ns" -section_id Clock_div_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Clock_div_tb -section_id Clock_div_tb
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_FILE TESTBENCH_RAM.v -section_id TESTBENCH_RAM
-set_global_assignment -name EDA_TEST_BENCH_FILE Testbench_CONTROL.v -section_id Testbench_CONTROL
-set_global_assignment -name EDA_TEST_BENCH_FILE SystemTestBench.v -section_id SystemTestBench
-set_global_assignment -name EDA_TEST_BENCH_FILE Clock_div_tb.v -section_id Clock_div_tb
+set_global_assignment -name MIF_FILE Memory/DataPath.mif
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -7,137 +7,137 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/20lfr/ELEC_374_project/System/simulation/modelsim
+Z0 dC:/Users/20lfr/Desktop/ELEC_374_project/System/simulation/modelsim
 vadd_sub
-Z1 !s110 1712184332
+Z1 !s110 1712244412
 !i10b 1
 !s100 @66TB4@jJJb2?nmb1>S:31
-IfR=hQWM1ZjE7?@YBF=BXW3
+IgzDJ421ki@?;7LYOK5i790
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z3 w1712175866
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v
+Z3 w1712233108
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v
 L0 1
 Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1712184332.000000
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v|
+Z5 !s108 1712244412.000000
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/add_sub.v|
 !i113 1
 Z6 o-vlog01compat -work work
-Z7 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction
+Z7 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction
 Z8 tCvgOpt 0
 vALU
-Z9 !s110 1712184333
+Z9 !s110 1712244413
 !i10b 1
 !s100 g3^XT[6och9>NMATBl=SI3
-ITDF_U8Vnh2CiN7Xoi?1F]1
+I98fEXl:L[oWV9ij]_cYkh2
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v
 L0 1
 R4
 r1
 !s85 0
 31
-Z10 !s108 1712184333.000000
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v|
+Z10 !s108 1712244413.000000
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/ALU.v|
 !i113 1
 R6
-!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files
+!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files
 R8
 n@a@l@u
 vand_or
-R1
+R9
 !i10b 1
 !s100 5Y5Lb0>EEVRU3iXh@DLkh2
-I8QJ^l=YCF[ljWQCmR:aHE2
+I8PU=>OXff1aYnW0]>FK>93
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v
 L0 1
 R4
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v|
+R10
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/and_or.v|
 !i113 1
 R6
-Z11 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations
+Z11 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations
 R8
 vbooth_mul_combinational
 R9
 !i10b 1
 !s100 <E=]FaYW>50N8iV9TM2E82
-ING?W3dfHIN>94XHTmS_OR2
+I6Taoa1SRJZfz`c25^anUi2
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply/booth_mul_combinational.v|
 !i113 1
 R6
-!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply
+!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Multiply
 R8
 vBus_Encoder
 R9
 !i10b 1
 !s100 JmPzZ^B78lh4eEV:bLB@e0
-I@ISTWOW<afR8IlHiI];MR3
+I9LG2z=?I<n=@80lV:Ae:>3
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_Encoder.v|
 !i113 1
 R6
-Z12 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files
+Z12 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files
 R8
 n@bus_@encoder
 vBus_MUX
 R9
 !i10b 1
 !s100 jRW=?5TZIBXd8KC;6G^zF0
-I@h8]Vz5@o^U<7P:o6z>^o2
+IAK`hja]O43_T?Wg<VBPZK0
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Bus_files/Bus_MUX.v|
 !i113 1
 R6
 R12
@@ -147,20 +147,20 @@ vCLA_16bit_adder
 R1
 !i10b 1
 !s100 5ZSioCNk=NH=O^OHg>l>`1
-Ia_[b63LZBbfBSOaW<?E?J0
+I9c=66hV0nBLWZ;LkTXge?2
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_16bit_adder.v|
 !i113 1
 R6
 R7
@@ -170,20 +170,20 @@ vCLA_32bit_adder
 R1
 !i10b 1
 !s100 ghHAY?RGVa50COE`hD8b^3
-I^nnaUmmWbLgD@`hOfe`aX2
+IGPdlod:0^0;Hc^mFQm4M=2
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v
 L0 1
 R4
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v|
+Z13 !s108 1712244411.000000
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_32bit_adder.v|
 !i113 1
 R6
 R7
@@ -193,248 +193,248 @@ vCLA_4bit_adder
 R1
 !i10b 1
 !s100 d6SUCm5NFRZ5OGWJL_kS00
-IW];>C<Hbn2@OC@hW@AdmV2
+Ig_>gIaVM[A_o;0a`hLT3G1
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_4bit_adder.v|
 !i113 1
 R6
 R7
 R8
 n@c@l@a_4bit_adder
 vCLA_b_cell
-R1
+Z14 !s110 1712244411
 !i10b 1
 !s100 M18RO;UhCh>C02QkW=^]V3
-I9F8Gc?=gE1Z<Iil>GJGF=1
+IRHC>h5=4555GlgaN?8fH<2
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v
 L0 1
 R4
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v|
+R13
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Addition_and_Subtraction/CLA_b_cell.v|
 !i113 1
 R6
 R7
 R8
 n@c@l@a_b_cell
 vClock_div
-R1
+R14
 !i10b 1
-!s100 mM7EIUF6m[F?aKDmYKMhJ3
-IJejEASD788T`QFRIY1;Ie2
+!s100 f=IP[ek2nEh3kEDfgGmKn1
+IQ:VJE0<za`VoB=kJLVi:g3
 R2
 R0
-w1712182500
-8C:/Users/20lfr/ELEC_374_project/System/Clock_div.v
-FC:/Users/20lfr/ELEC_374_project/System/Clock_div.v
+w1712244370
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/Clock_div.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/Clock_div.v
 L0 1
 R4
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/Clock_div.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System|C:/Users/20lfr/ELEC_374_project/System/Clock_div.v|
+R13
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/Clock_div.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System|C:/Users/20lfr/Desktop/ELEC_374_project/System/Clock_div.v|
 !i113 1
 R6
-Z13 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System
+Z15 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System
 R8
 n@clock_div
 vCON_FF
-R9
+Z16 !s110 1712244414
 !i10b 1
-!s100 DLGM;I5l;_QCTmVke<^1H3
-IbYDLEd58CYNj>_k:YmI;`3
+!s100 6VhN^Ogb0N4MmEme3LIoM0
+IBdEIRBN]:65aS:4FX_EKR0
 R2
 R0
-w1712183260
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/CON_FF.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/CON_FF.v
+w1712242555
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/CON_FF.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/CON_FF.v
 L0 1
 R4
 r1
 !s85 0
 31
-R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/CON_FF.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/CON_FF.v|
+Z17 !s108 1712244414.000000
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/CON_FF.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/CON_FF.v|
 !i113 1
 R6
-Z14 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition
+Z18 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition
 R8
 n@c@o@n_@f@f
 vControl
-R1
+R14
 !i10b 1
 !s100 h9J94e<7EdJI1NaXi6fRm1
-IQ?7MSE6<J4W;VgdnZiTDW0
+IMR0;3hn^93^eHJcn=2>G;3
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition/Control.v
-FC:/Users/20lfr/ELEC_374_project/System/Control_unit_partition/Control.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v
 L0 1
 R4
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition/Control.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition|C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition/Control.v|
+R13
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition|C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition/Control.v|
 !i113 1
 R6
-!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/Control_unit_partition
+!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/Control_unit_partition
 R8
 n@control
 vDataPath
-R9
+R16
 !i10b 1
 !s100 ?h6UVR7g]jF=F@NF>:RcQ3
-IU_LdKjCHkFKWlcA;54PGX2
-R2
-R0
-w1712183025
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v
-L0 1
-R4
-r1
-!s85 0
-31
-R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/DataPath.v|
-!i113 1
-R6
-R14
-R8
-n@data@path
-vdecoder4to16
-R9
-!i10b 1
-!s100 7EU7?B4l9[mR::d4WElz02
-I7QPQ6Z>S_i<j67z>9<oRG3
+I9fKj`Wg@^SCA;X3_mGM?<1
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/decoder4to16.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/decoder4to16.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v
 L0 1
 R4
 r1
 !s85 0
 31
-R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/decoder4to16.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/decoder4to16.v|
+R17
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/DataPath.v|
 !i113 1
 R6
-R14
+R18
+R8
+n@data@path
+vdecoder4to16
+R16
+!i10b 1
+!s100 7EU7?B4l9[mR::d4WElz02
+IT3HSDbk9GmUg>fHX^^;6m2
+R2
+R0
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/decoder4to16.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/decoder4to16.v
+L0 1
+R4
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/decoder4to16.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/decoder4to16.v|
+!i113 1
+R6
+R18
 R8
 vdiv_combinational
 R9
 !i10b 1
 !s100 IDCi^6SN1`gXd]faNSaG91
-IgIH]ICRC`4Ib`<Lm84NI[2
+I6YXnEQRN[VG`380Z1TVl@0
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v
 L0 2
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Division|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Division|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Division/div_combinational.v|
 !i113 1
 R6
-!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Division
+!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Division
 R8
 vInport_reg
-R9
+R16
 !i10b 1
 !s100 Q]5U427?9mFheCGS1V;3h0
-Ig9MLWXaH5cTk1l:Y3d_da3
+In5ngU0Jk:ZV=6;a3fAAl_3
 R2
 R0
-w1712183015
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v
 L0 1
 R4
 r1
 !s85 0
 31
-R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v|
+R17
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Inport_reg.v|
 !i113 1
 R6
-Z15 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers
+Z19 !s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers
 R8
 n@inport_reg
 vMDR2
-R9
+R16
 !i10b 1
 !s100 T67PGGXzB2eK7j=`U<8J81
-IH3]l`6<;3YNJ=?l@9X43H1
+IN0iUgYh]76m;mMPiB]Maf2
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v
+L0 1
+R4
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v|
+!i113 1
+R6
+R19
+R8
+n@m@d@r2
+vneg
+R9
+!i10b 1
+!s100 iARRiiSUe=S3e=iBd1HgW0
+IiS;4]ShA0[L=zX@[8K[_;3
+R2
+R0
+R3
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/MDR2.v|
-!i113 1
-R6
-R15
-R8
-n@m@d@r2
-vneg
-R1
-!i10b 1
-!s100 iARRiiSUe=S3e=iBd1HgW0
-Ig?n3hUel>?T[9iXbC3^@k2
-R2
-R0
-R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v
-L0 1
-R4
-r1
-!s85 0
-31
-R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/neg.v|
 !i113 1
 R6
 R11
@@ -443,20 +443,20 @@ vnot_module
 R1
 !i10b 1
 !s100 HIn4HK?KVVc6JW@8P`Gc`2
-Ifgz2M?<^d3fj6[h;zk_aF2
+IhWMlh__2<Jn1[8I1>kAV;3
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/not_module.v|
 !i113 1
 R6
 R11
@@ -465,88 +465,88 @@ vOutport_reg
 R9
 !i10b 1
 !s100 7R@?I@3BAmZ5J7`jcXHJN3
-Izm]7JPPW3[EzY_]nohz8C2
+Ihl[1aEMT]3c`Rz7nB]KFH3
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/Outport_reg.v|
 !i113 1
 R6
-R15
+R19
 R8
 n@outport_reg
 vRAM512x32
-R9
+R16
 !i10b 1
-!s100 o8c8[l9QgReIzo;Nj7L9H3
-I5f[?E471:;NC^6OO8:_Kl3
+!s100 f:DH_<QKK>Dlg3SL<0c8b3
+ISYzRchd@4ckKHVIFEFUeJ3
 R2
 R0
-w1712183462
-8C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v
-FC:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v
+w1712243412
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v
 L0 1
 R4
 r1
 !s85 0
 31
-R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/Memory|C:/Users/20lfr/ELEC_374_project/System/Memory/RAM512x32.v|
+R17
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory|C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory/RAM512x32.v|
 !i113 1
 R6
-!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/ELEC_374_project/System/Memory
+!s92 -vlog01compat -work work +incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/Memory
 R8
 n@r@a@m512x32
 vregister
 R9
 !i10b 1
 !s100 Dmdb<a[kLzA][[ehOiE=S1
-I]Q@bhazKkG[M8oJ4E0b:o0
+I@=OI5OO^0H;FZl]o1WNA52
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/register.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/register.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/register.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/register.v
 L0 1
 R4
 r1
 !s85 0
 31
 R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/register.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Registers/register.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/register.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Registers/register.v|
 !i113 1
 R6
-R15
+R19
 R8
 vrol
 R1
 !i10b 1
 !s100 1f<UQ5Gbf]1Jf[R5]@FNl0
-IKmWj7PD^I=^7IT4JGKF?d0
+IaHZgB>9P35i4M9^<6EWJI0
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/rol.v|
 !i113 1
 R6
 R11
@@ -555,88 +555,88 @@ vror
 R1
 !i10b 1
 !s100 X^;`4^JT_553]H`aZJSn00
-IJoYLInCf]h^^[Qc7YTHne0
+If_WndR:NI?Z0?@l5m>kF50
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/ror.v|
 !i113 1
 R6
 R11
 R8
 vSelect_and_Decode_IR
-R9
+R16
 !i10b 1
 !s100 _cjl@de1c7J<PVzO^lYfH0
-I^Nf3PRW13?W`N^WYm;QJ13
+IZGM_T^LCF8hEz9`I7YS_R0
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v
 L0 1
 R4
 r1
 !s85 0
 31
-R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v|
+R17
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/Select_and_Decode_IR.v|
 !i113 1
 R6
-R14
+R18
 R8
 n@select_and_@decode_@i@r
 vSeven_Seg_Display_Out
-R1
+R14
 !i10b 1
 !s100 zkdl9eCQ3T]bYZ8ckkOFC2
-IQ8Z6I7:_W[jKSSllga^R;0
+IR;mk5GZET;n1b5OXzLf`d2
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/Seven_Seg_Display_Out.v
-FC:/Users/20lfr/ELEC_374_project/System/Seven_Seg_Display_Out.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/Seven_Seg_Display_Out.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/Seven_Seg_Display_Out.v
 L0 1
 R4
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/Seven_Seg_Display_Out.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System|C:/Users/20lfr/ELEC_374_project/System/Seven_Seg_Display_Out.v|
+R13
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/Seven_Seg_Display_Out.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System|C:/Users/20lfr/Desktop/ELEC_374_project/System/Seven_Seg_Display_Out.v|
 !i113 1
 R6
-R13
+R15
 R8
 n@seven_@seg_@display_@out
 vshl
 R1
 !i10b 1
 !s100 H6O;1k09Qc9T0=e`M7bgb3
-ITfIFDH9DKDamJT^@9`PF?3
+IC9A;nQmVSCQ=MEMd8mSEB0
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shl.v|
 !i113 1
 R6
 R11
@@ -645,20 +645,20 @@ vshr
 R1
 !i10b 1
 !s100 clNda:hK^=LlU^2obSML42
-Ikz4TYhj:36Ra4H@>effH20
+I[le3D?a;P`mWX@fm6[3zE2
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shr.v|
 !i113 1
 R6
 R11
@@ -667,67 +667,67 @@ vshra
 R1
 !i10b 1
 !s100 i2AHHPZEJC@;g]R;YTWcB0
-I8Q6WOY4;l=d@13ajHWXnL0
+IF[548FeR>hG33C7a`S:[F1
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v
-FC:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v
 L0 1
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v|
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations|C:/Users/20lfr/Desktop/ELEC_374_project/System/DataPath_partition/ALU_files/Logical_Operations/shra.v|
 !i113 1
 R6
 R11
 R8
 vSystem
-R9
+R16
 !i10b 1
-!s100 YM69iigJi>WWOPDHcG^IC1
-I18M:YjM[[_0m]QE@Z1>772
+!s100 Lb3C?gHlKP9_>RYlUBJWI1
+IRUmf]ODLV[YWPW4LQ@z^@0
 R2
 R0
-w1712184324
-8C:/Users/20lfr/ELEC_374_project/System/System.v
-FC:/Users/20lfr/ELEC_374_project/System/System.v
+w1712244198
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/System.v
 L0 1
 R4
 r1
 !s85 0
 31
-R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/System.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System|C:/Users/20lfr/ELEC_374_project/System/System.v|
+R17
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System|C:/Users/20lfr/Desktop/ELEC_374_project/System/System.v|
 !i113 1
 R6
-R13
+R15
 R8
 n@system
 vSystemTestBench
-R9
+!s110 1712244415
 !i10b 1
 !s100 ]nLR`IDS7PDb<Y3`985c90
-IDU[<VZYMedac?gVikcDeD1
+Ik1_7EBi]Xm=U<4:o4PHeg3
 R2
 R0
 R3
-8C:/Users/20lfr/ELEC_374_project/System/SystemTestBench.v
-FC:/Users/20lfr/ELEC_374_project/System/SystemTestBench.v
+8C:/Users/20lfr/Desktop/ELEC_374_project/System/SystemTestBench.v
+FC:/Users/20lfr/Desktop/ELEC_374_project/System/SystemTestBench.v
 L0 3
 R4
 r1
 !s85 0
 31
-R10
-!s107 C:/Users/20lfr/ELEC_374_project/System/SystemTestBench.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/ELEC_374_project/System|C:/Users/20lfr/ELEC_374_project/System/SystemTestBench.v|
+R17
+!s107 C:/Users/20lfr/Desktop/ELEC_374_project/System/SystemTestBench.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/20lfr/Desktop/ELEC_374_project/System|C:/Users/20lfr/Desktop/ELEC_374_project/System/SystemTestBench.v|
 !i113 1
 R6
-R13
+R15
 R8
 n@system@test@bench

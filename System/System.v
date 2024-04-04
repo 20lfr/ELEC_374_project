@@ -1,4 +1,4 @@
-module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9, CLOCK_CYCLE_DIVISOR = 5)(
+module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9, CLOCK_CYCLE_DIVISOR = 2)(
         input wire Clock, reset, stop, 
 
 
@@ -69,11 +69,11 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9, CLOCK_CYCLE_DIVISOR =
         /*Inputs*/
         .IR(IR),
         .con_ff_bit(con_ff_bit), 
-        .clk(Clock), .reset(reset), .stop(stop)  
+        .clk(clk_divided), .reset(reset), .stop(stop)  
     );
     DataPath datapath(
         /*Sequence*/
-        .clock(Clock), .clear(clear),
+        .clock(clk_divided), .clear(clear),
 
         /*Register enable signals*/
         .IRin(IRin), .PCin(PCin), .RYin(Yin), .RZin(Zin), .MARin(MARin), 
@@ -109,8 +109,8 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9, CLOCK_CYCLE_DIVISOR =
     );
 
     /*Seven Segement Display Decoders*/
-        Seven_Seg_Display_Out display_upper(.data(outport_data[7:4]), .clk(Clock), .outport(seg_display_upper));
-        Seven_Seg_Display_Out display_lower(.data(outport_data[3:0]), .clk(Clock), .outport(seg_display_lower));
+        Seven_Seg_Display_Out display_upper(.data(outport_data[7:4]), .clk(clk_divided), .outport(seg_display_upper));
+        Seven_Seg_Display_Out display_lower(.data(outport_data[3:0]), .clk(clk_divided), .outport(seg_display_lower));
     /*Clock Divider*/
         Clock_div #(.DIVISOR(CLOCK_CYCLE_DIVISOR)) clock_divider_instance(.clk(Clock), .clock(clk_divided), .reset(reset));
 
