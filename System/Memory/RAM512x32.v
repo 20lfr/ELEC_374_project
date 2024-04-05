@@ -20,7 +20,7 @@ module RAM512x32  #(parameter DATA_WIDTH = 32,
 
     end
 
-    always @(posedge enable) begin
+    always @(*) begin
         if(enable) begin
             if(read) begin
                 data_out <= FullMemorySpace[address];

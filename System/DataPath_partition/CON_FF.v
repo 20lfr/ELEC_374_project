@@ -7,7 +7,7 @@ module CON_FF (
 
 initial begin toControl <= 0; end 
 //this always block only triggers when enable changes
-always @(posedge enable) begin
+always @(*) begin
     if(enable) begin
         case(IR[20:19])
             2'b00:

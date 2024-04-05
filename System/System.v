@@ -112,7 +112,7 @@ module System #(parameter DATA_WIDTH = 32, ADDR_WIDTH = 9, CLOCK_CYCLE_DIVISOR =
         Seven_Seg_Display_Out display_upper(.data(outport_data[7:4]), .clk(Clock), .outport(seg_display_upper));
         Seven_Seg_Display_Out display_lower(.data(outport_data[3:0]), .clk(Clock), .outport(seg_display_lower));
     /*Clock Divider*/
-        Clock_div #(.DIVISOR(CLOCK_CYCLE_DIVISOR)) clock_divider_instance(.clk(Clock), .clock(clk_divided), .reset(reset));
+        //Clock_div #(.DIVISOR(CLOCK_CYCLE_DIVISOR)) clock_divider_instance(.clk(Clock), .clock(clk_divided), .reset(reset));
 
 
 

@@ -61,6 +61,8 @@ module SystemTestBench;
 
             #40 inport_data <= 32'h80;
 
+            
+
           end 
           INS1_T0 : begin end
       endcase 
